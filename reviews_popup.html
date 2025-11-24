@@ -6,6 +6,7 @@
     <title>review pop up</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
       :root {
         --main-color: #8d330c;
         --main-color-hover: #7c2e0c;
@@ -13,7 +14,7 @@
         --dark-text-color: #000000;
         --light-text-color: #ffffff;
         --rating-color: #ffcd29;
-        --font: "inter", sans-serif;
+        --font: "Inter", sans-serif;
 
         --main-bg-color: #ffffff;
         --second-bg-color: #f6f6f6;
@@ -47,7 +48,7 @@
         height: 100%;
         justify-content: center;
         align-items: center;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.6);
         z-index: 9999;
       }
 
@@ -57,108 +58,112 @@
 
       .ratings-reviews-layout {
         display: flex;
-        height: 533px;
+        height: auto;
+        max-height: 700px;
         max-width: 1200px;
-        margin: 100px auto;
-      }
-
-      .ratings-reviews-section {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        border: var(--border);
-        background: var(--main-bg-color);
-        border-radius: 12px;
-        padding: 40px;
-        width: 100%;
-        overflow-y: auto;
+        width: 90%;
+        margin: 0;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        overflow: hidden;
+        background: #ffffff;
       }
 
       .rating-wrapper {
-        flex: 0 0 35%;
+        width: 380px;
         display: flex;
         flex-direction: column;
-        gap: 40px;
-        padding: 40px;
-        background: var(--main-bg-color);
-        border: var(--border);
-        border-radius: 12px 0 0 12px;
+        gap: 32px;
+        padding: 48px 36px;
+        background: #fafafa;
+        border-right: 2px solid #e8e8e8;
         overflow-y: auto;
-        max-height: 533px;
+        max-height: 700px;
       }
 
       .reviews-wrapper {
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 40px;
-        padding: 40px;
+        gap: 28px;
+        padding: 48px 40px;
         background: var(--main-bg-color);
-        border: var(--border);
-        border-radius: 0 12px 12px 0;
         overflow-y: auto;
-        max-height: 100vh;
+        max-height: 700px;
       }
 
       .section-header {
         display: flex;
         justify-content: space-between;
-        margin-bottom: -12px;
+        align-items: center;
+        margin-bottom: 8px;
       }
 
       .section-title {
         font-weight: 700;
+        font-size: 24px;
         color: var(--dark-text-color);
       }
 
       .section-header img {
-        width: 18px;
-        height: 18px;
+        width: 24px;
+        height: 24px;
         cursor: pointer;
+        padding: 4px;
+        border-radius: 6px;
+      }
+
+      .section-header img:hover {
+        background-color: #f0f0f0;
       }
 
       .rating-section {
         display: flex;
         flex-direction: column;
-        gap: 36px;
+        gap: 40px;
         align-items: center;
       }
 
       .overall-rating {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 16px;
         align-items: center;
+        padding: 24px;
+        border-radius: 16px;
+        width: 100%;
       }
 
       .overall-rating .rating-value {
-        font-size: 50px;
+        font-size: 64px;
         color: var(--rating-color);
-        font-weight: 700;
+        font-weight: 800;
+        line-height: 1;
       }
 
       .star-row {
         display: flex;
-        gap: 6px;
+        gap: 8px;
       }
 
       .star-row img {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
       }
 
       .rating-count {
-        font-size: 13px;
+        font-size: 14px;
         color: var(--dark-text-color);
-        opacity: 0.5;
+        font-weight: 600;
+        opacity: 0.7;
+        margin-top: 4px;
       }
 
       .rating-bars {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 16px;
         width: 100%;
-        margin-left: 40px;
       }
 
       .rating-bar-item {
@@ -170,7 +175,7 @@
 
       .bar-track {
         flex: 1;
-        height: 8px;
+        height: 10px;
         background: var(--bar-color);
         border-radius: 999px;
         overflow: hidden;
@@ -178,32 +183,28 @@
 
       .bar-fill {
         height: 100%;
-        background: #8d330c;
+        background: var(--main-color);
         border-radius: 999px;
       }
 
       .rating-bar-text {
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        gap: 4px;
         min-width: 90px;
       }
 
       .rating-label {
         font-weight: 700;
         color: var(--dark-text-color);
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .review-total {
         color: var(--dark-text-color);
         opacity: 0.6;
-        font-size: 12px;
-      }
-
-      .reviews-ratings-section-divider {
-        border: none;
-        border-top: var(--border);
+        font-size: 13px;
+        font-weight: 500;
       }
 
       .reviews-section {
@@ -211,43 +212,56 @@
       }
 
       .reviews-section .reviews-title {
-        font-weight: 600;
+        font-weight: 700;
+        font-size: 22px;
         display: flex;
         color: var(--dark-text-color);
       }
 
       .rating-options {
         display: flex;
-        gap: 30px;
+        gap: 12px;
+        margin-bottom: 8px;
       }
 
       .rating-option {
-        padding: 8px 15px;
-        border: 1px solid;
+        padding: 10px 18px;
+        border: 2px solid #e0e0e0;
         align-items: center;
         justify-content: center;
-        border-radius: 30px;
+        border-radius: 50px;
         display: flex;
-        gap: 5px;
+        gap: 6px;
         cursor: pointer;
+        background: #ffffff;
+      }
+
+      .rating-option:hover {
+        border-color: var(--border);
+        background: #fff9f5;
+      }
+
+      .rating-icon {
+        width: 16px;
+        height: 16px;
       }
 
       .reviews-cards {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 18px 28px;
-        margin-top: -15px;
+        gap: 0;
+        margin-top: 8px;
       }
 
       .review-card {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        padding: 14px 0;
+        gap: 12px;
+        padding: 24px 0;
         border-radius: 0;
         background: transparent;
         border: none;
-        border-bottom: var(--border);
+        border-bottom: 1px solid #ececec;
       }
 
       .review-card:last-child {
@@ -256,32 +270,32 @@
 
       .card-header {
         display: flex;
-        gap: 12px;
+        gap: 14px;
         align-items: center;
       }
 
       .reviewer-avatar {
-        width: 36px;
-        height: 36px;
+        width: 44px;
+        height: 44px;
         background: var(--main-color);
         color: var(--light-text-color);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: 600;
-        font-size: 18px;
-        flex-shrink: 0;
+        font-weight: 700;
+        font-size: 20px;
       }
 
       .reviewer-info {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 6px;
       }
 
       .reviewer-name {
-        font-weight: 600;
+        font-weight: 700;
+        font-size: 16px;
         color: var(--dark-text-color);
       }
 
@@ -297,17 +311,18 @@
 
       .review-text {
         font-size: 15px;
-        line-height: 1.5;
-        color: var(--dark-text-color);
-        opacity: 0.9;
+        line-height: 1.6;
+        color: #222;
         margin-top: 4px;
         font-weight: 500;
       }
 
-      .reviews-actions {
+      .ratings-reviews-layout .reviews-actions {
         display: flex;
-        justify-content: space-between;
-        margin-top: 32px;
+        justify-content: flex-end;
+        margin-top: 20px;
+        padding-top: 24px;
+        border-top: 2px solid #f0f0f0;
         align-items: center;
       }
 
@@ -315,19 +330,30 @@
         display: flex;
         align-items: center;
         background-color: var(--second-bg-color);
-        border-radius: 24px;
-        padding: 8px 16px;
-        gap: 8px;
+        border-radius: 50px;
+        padding: 4px 8px 4px 20px;
+        gap: 12px;
+        border: 2px solid transparent;
+        min-width: 350px;
+      }
+
+      .review-comment:focus-within {
+        background-color: #ffffff;
+        border-color: var(--border);
       }
 
       .review-input {
-        padding: 8px 0;
-        font-family: "inter", sans-serif;
-        transition: all 0.2s;
+        padding: 12px 0;
+        font-family: "Inter", sans-serif;
         border: none;
         background: transparent;
-        font-size: 14px;
+        font-size: 15px;
         color: var(--dark-text-color);
+        flex: 1;
+      }
+
+      .review-input::placeholder {
+        color: #999999;
       }
 
       .review-input:focus {
@@ -336,14 +362,18 @@
 
       .comment-actions {
         display: flex;
-        gap: 8px;
+        gap: 4px;
         align-items: center;
+        background: #ffffff;
+        padding: 8px 12px;
+        border-radius: 50px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
       }
 
       .action-divider {
-        border-left: 2px solid rgb(0 0 0);
-        opacity: 0.7;
-        height: 18px;
+        border-left: 2px solid #e0e0e0;
+        height: 20px;
+        margin: 0 4px;
       }
 
       .like-button,
@@ -351,25 +381,22 @@
         background: none;
         border: none;
         cursor: pointer;
-        padding: 2px;
+        padding: 6px;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: opacity 0.2s ease;
+        border-radius: 50%;
       }
 
-      .like-button:hover {
-        opacity: 0.7;
-      }
-
+      .like-button:hover,
       .dislike-button:hover {
-        opacity: 0.7;
+        background-color: #f5f5f5;
       }
 
       .like-icon,
       .dislike-icon {
-        width: 19px;
-        height: 19px;
+        width: 20px;
+        height: 20px;
       }
     </style>
   </head>

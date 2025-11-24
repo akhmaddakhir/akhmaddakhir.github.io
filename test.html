@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Panel with Guest Popup</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+    
+    :root {
+      --main-bg-color: #ffffff;
+      --second-bg-color: #f7f7f7;
+      --dark-text-color: #222222;
+      --main-color: #FF385C;
+      --main-color-hover: #E31C5F;
+      --border: 1px solid #dddddd;
+      --border-hover: #222222;
+      --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      --font: 'Inter', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: #f5f5f5;
+      padding: 100px 20px 20px;
+    }
+
+    .right-content {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .booking-panel {
+      display: inline-block;
+      width: 100%;
+      background-color: var(--main-bg-color);
+      border-radius: 12px;
+      padding: 0;
+      position: relative;
+      box-shadow: var(--box-shadow);
+      border: var(--border);
+      overflow: visible;
+      margin-bottom: 20px;
+      position: sticky;
+      z-index: 10;
+      top: 80px;
+    }
+
+    .panel-header {
+      padding: 25px 30px;
+      border-bottom: var(--border);
+      font-weight: 700;
+      color: var(--dark-text-color);
+    }
+
+    .panel-contents {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 25px 30px;
+      position: relative;
+    }
+
+    .date-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .booking-input {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 14px;
+      border: var(--border);
+      border-radius: 10px;
+      background-color: var(--main-bg-color);
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .booking-input:hover {
+      background-color: var(--second-bg-color);
+      border-color: var(--border-hover);
+    }
+
+    .booking-input.active {
+      border-color: var(--dark-text-color);
+      border-width: 2px;
+      background-color: var(--main-bg-color);
+    }
+
+    .input-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark-text-color);
+    }
+
+    .input-value {
+      font-size: 14px;
+      color: var(--dark-text-color);
+      opacity: 0.5;
+    }
+
+    .input-value.filled {
+      opacity: 1;
+    }
+
+    .promo-input {
+      border: none;
+      font-size: 14px;
+      font-family: var(--font);
+      color: var(--dark-text-color);
+      background-color: transparent;
+      transition: all 0.2s;
+    }
+
+    .promo-input::placeholder {
+      font-size: 14px;
+      font-family: var(--font);
+    }
+
+    .promo-input:focus {
+      outline: none;
+    }
+
+    .panel-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px 25px;
+      border-top: var(--border);
+    }
+
+    .price-section {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .price-label {
+      font-size: 15px;
+      font-weight: 600;
+      opacity: 0.4;
+      color: var(--dark-text-color);
+    }
+
+    .price-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark-text-color);
+    }
+
+    .confirm-button {
+      background-color: var(--main-color);
+      border: none;
+      padding: 12px 20px;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.2s;
+    }
+
+    .confirm-button:hover {
+      background-color: var(--main-color-hover);
+    }
+
+    /* Guest Popup Styles */
+    #guestPopup {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin-top: 8px;
+      z-index: 100;
+    }
+
+    #guestPopup.active {
+      display: block;
+    }
+
+    .guest-section {
+      width: 100%;
+      padding: 30px;
+      border-radius: 16px;
+      background-color: #fff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      border: var(--border);
+    }
+
+    .guest-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .guest-divider {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 0;
+    }
+
+    .guest-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .guest-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .guest-label {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--dark-text-color);
+    }
+
+    .guest-note {
+      font-size: 13px;
+      color: #717171;
+    }
+
+    .guest-button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .min-button,
+    .plus-button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid #b0b0b0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      font-size: 18px;
+      font-weight: 400;
+      cursor: pointer;
+      color: #717171;
+      transition: 0.15s ease-in-out;
+      user-select: none;
+    }
+
+    .min-button:hover:not(:disabled),
+    .plus-button:hover:not(:disabled) {
+      border-color: #222222;
+      color: #222222;
+    }
+
+    .min-button:disabled,
+    .plus-button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      border-color: #e0e0e0;
+    }
+
+    .guest-total {
+      min-width: 26px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--dark-text-color);
+    }
+
+    /* Overlay untuk menutup popup */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: transparent;
+      z-index: 5;
+    }
+
+    .popup-overlay.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup-overlay" id="popupOverlay"></div>
+  
+  <section class="right-content">
+    <section class="booking-panel">
+      <h3 class="panel-header">Detail Pemesanan</h3>
+      <div class="panel-contents">
+        <div class="date-section">
+          <div id="checkin-input" class="booking-input">
+            <span class="input-label">Check-in</span>
+            <span class="input-value">Tambahkan Tanggal</span>
+          </div>
+
+          <div id="checkout-input" class="booking-input">
+            <span class="input-label">Check-out</span>
+            <span class="input-value">Tambahkan Tanggal</span>
+          </div>
+        </div>
+
+        <div style="position: relative;">
+          <div id="guest-input" class="booking-input">
+            <span class="input-label">Pengunjung</span>
+            <span class="input-value" id="guestDisplay">Tambahkan Pengunjung</span>
+          </div>
+
+          <!-- Guest Popup -->
+          <div id="guestPopup">
+            <section class="guest-section">
+              <div class="guest-list">
+                <div class="guest-content">
+                  <div class="guest-text">
+                    <span class="guest-label">Dewasa</span>
+                    <span class="guest-note">17 Tahun ke atas</span>
+                  </div>
+                  <div class="guest-button">
+                    <button class="min-button" data-type="adult">−</button>
+                    <span class="guest-total" id="adultCount">1</span>
+                    <button class="plus-button" data-type="adult">+</button>
+                  </div>
+                </div>
+
+                <hr class="guest-divider" />
+
+                <div class="guest-content">
+                  <div class="guest-text">
+                    <span class="guest-label">Anak-Anak</span>
+                    <span class="guest-note">2-17 Tahun</span>
+                  </div>
+                  <div class="guest-button">
+                    <button class="min-button" data-type="child">−</button>
+                    <span class="guest-total" id="childCount">0</span>
+                    <button class="plus-button" data-type="child">+</button>
+                  </div>
+                </div>
+
+                <hr class="guest-divider" />
+
+                <div class="guest-content">
+                  <div class="guest-text">
+                    <span class="guest-label">Hewan Peliharaan</span>
+                  </div>
+                  <div class="guest-button">
+                    <button class="min-button" data-type="pet">−</button>
+                    <span class="guest-total" id="petCount">0</span>
+                    <button class="plus-button" data-type="pet">+</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="booking-input">
+          <span class="input-label">Kode Promo</span>
+          <input
+            type="text"
+            class="promo-input"
+            placeholder="Masukkan Kode Promo"
+          />
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <div class="price-section">
+          <span class="price-label">Harga</span>
+          <span class="price-value">Rp 3.999.999 / Malam</span>
+        </div>
+        <button class="confirm-button">Pesan Sekarang</button>
+      </div>
+    </section>
+  </section>
+
+ <script>
+    var totalAdult = 1;
+    var totalChild = 0;
+    var totalPet = 0;
+    
+    var guestInput = document.getElementById("guest-input");
+    var guestPopup = document.getElementById("guestPopup");
+    var showGuest = document.getElementById("guestDisplay");
+    var guestOverlay = document.getElementById("popupOverlay");
+    var adultCount = document.getElementById("adultCount");
+    var childCount = document.getElementById("childCount");
+    var petCount = document.getElementById("petCount");
+
+    function openGuestPopup() {
+      guestPopup.classList.add("active");
+      guestInput.classList.add("active");
+      guestOverlay.classList.add("active");
+    }
+    
+    function closeGuestPopup() {
+      guestPopup.classList.remove("active");
+      guestInput.classList.remove("active");
+      guestOverlay.classList.remove("active");
+    }
+    
+    function updateShowGuest() {
+      var totalGuest = totalAdult + totalChild;
+
+      var text = "";
+
+      if (totalGuest === 0) {
+        text = "Tambahkan Pengunjung";
+        showGuest.classList.remove("filled");
+      } else {
+        text = totalGuest + " Tamu";
+
+        if (totalPet > 0) {
+          text = text + ", " + totalPet + " Hewan Peliharaan";
+        }
+
+        showGuest.classList.add("filled");
+      }
+
+      showGuest.textContent = text;
+    }
+    
+    function updatePopupNumber() {
+      adultCount.textContent = totalAdult;
+      childCount.textContent = totalChild;
+      petCount.textContent = totalPet;
+    }
+
+    /* ================================
+         UPDATE MINUS + PLUS BUTTON
+       ================================ */
+    function updateMinusButton() {
+      var minusButton = document.querySelectorAll(".min-button");
+      var plusButton = document.querySelectorAll(".plus-button");
+
+      var totalGuest = totalAdult + totalChild; // MAX 10 TAMU
+
+      // Update Minus Buttons
+      for (var i = 0; i < minusButton.length; i++) {
+        var button = minusButton[i];
+        var type = button.getAttribute("data-type");
+
+        if (type === "adult") {
+          button.disabled = totalAdult <= 1;
+        } else if (type === "child") {
+          button.disabled = totalChild <= 0;
+        } else if (type === "pet") {
+          button.disabled = totalPet <= 0;
+        }
+      }
+
+      // Update Plus Buttons
+      for (var i = 0; i < plusButton.length; i++) {
+        var button = plusButton[i];
+        var type = button.getAttribute("data-type");
+
+        // 🔥 NEW RULE: total tamu tidak boleh melebihi 10
+        if (type === "adult" || type === "child") {
+          if (totalGuest >= 10) {
+            button.disabled = true;
+            continue;
+          }
+        }
+
+        if (type === "adult") {
+          button.disabled = totalAdult >= 16;
+        } else if (type === "child") {
+          button.disabled = totalChild >= 16;
+        } else if (type === "pet") {
+          button.disabled = totalPet >= 4;
+        }
+      }
+    }
+
+    function plusAdult() {
+      if (totalAdult < 16 && totalAdult + totalChild < 10) {
+        totalAdult = totalAdult + 1;
+        updatePopupNumber();
+        updateShowGuest();
+        updateMinusButton();
+      }
+    }
+
+    function minusAdult() {
+      if (totalAdult > 1) {
+        totalAdult = totalAdult - 1;
+        updatePopupNumber();
+        updateShowGuest();
+        updateMinusButton();
+      }
+    }
+
+    function plusChild() {
+      if (totalChild < 16 && totalAdult + totalChild < 10) {
+        totalChild = totalChild + 1;
+        updatePopupNumber();
+        updateShowGuest();
+        updateMinusButton();
+      }
+    }
+
+    function minusChild() {
+      if (totalChild > 0) {
+        totalChild = totalChild - 1;
+        updatePopupNumber();
+        updateShowGuest();
+        updateMinusButton();
+      }
+    }
+
+    function plusPet() {
+      if (totalPet < 4) {
+        totalPet = totalPet + 1;
+        updatePopupNumber();
+        updateShowGuest();
+        updateMinusButton();
+      }
+    }
+
+    function minusPet() {
+      if (totalPet > 0) {
+        totalPet = totalPet - 1;
+        updatePopupNumber();
+        updateShowGuest();
+        updateMinusButton();
+      }
+    }
+    
+    guestInput.addEventListener("click", function () {
+      openGuestPopup();
+    });
+
+    guestOverlay.addEventListener("click", function () {
+      closeGuestPopup();
+    });
+
+    guestPopup.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+
+    var guestButton = document.querySelectorAll(".min-button, .plus-button");
+
+    for (var i = 0; i < guestButton.length; i++) {
+      var button = guestButton[i];
+
+      button.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        var type = this.getAttribute("data-type");
+        var plusButton = this.classList.contains("plus-button");
+
+        if (type === "adult") {
+          if (plusButton) {
+            plusAdult();
+          } else {
+            minusAdult();
+          }
+        } else if (type === "child") {
+          if (plusButton) {
+            plusChild();
+          } else {
+            minusChild();
+          }
+        } else if (type === "pet") {
+          if (plusButton) {
+            plusPet();
+          } else {
+            minusPet();
+          }
+        }
+      });
+    }
+
+    updateMinusButton();
+</script>
+
+</body>
+</html>

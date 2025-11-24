@@ -557,34 +557,7 @@
           });
         });
 
-      /*Guest Popup*/
-      fetch("guest_popup.html")
-        .then((res) => res.text())
-        .then((html) => {
-          document.getElementById("guest-popup").innerHTML = html;
-
-          const guestPopup = document.getElementById("guestPopup");
-
-          const guestInput = document.getElementById("guest-input");
-
-          function openPopup() {
-            guestPopup.classList.add("active");
-          }
-
-          function closePopup() {
-            guestPopup.classList.remove("active");
-          }
-
-          guestInput.addEventListener("click", openPopup);
-
-          guestPopup.addEventListener("click", (event) => {
-            if (event.target === guestPopup) {
-              closePopup();
-            }
-          });
-        });
-
-        /*Reviews Popup*/
+      /*Reviews Popup*/
       fetch("reviews_popup.html")
         .then((res) => res.text())
         .then((html) => {
@@ -595,7 +568,7 @@
           const reviewsPopup = document.getElementById("reviewsPopup");
 
           function openPopup() {
-           reviewsPopup.classList.add("active");
+            reviewsPopup.classList.add("active");
           }
 
           function closePopup() {
