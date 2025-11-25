@@ -162,22 +162,22 @@ nav ul li a img {
   width: 15px;
 }
 
-.recomendation-section {
+.recommendation-section {
   max-width: 1300px;
   margin: 0 auto;
 }
 
-.popular-destination {
+.recommendation-header {
   display: flex;
   justify-content: space-between;
   margin: 20px 0 30px 0;
 }
 
-.popular-destination h2 {
+.recommendation-header h2 {
   color: #000;
 }
 
- .filter-button {
+.filter-button {
   display: flex;
   color: #000;
   font-size: 13px;
@@ -194,7 +194,7 @@ nav ul li a img {
   margin-right: 5px;
 }
 
-.gambar-rekomendasi {
+.recommendation-pict {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   column-gap: 20px;
@@ -202,7 +202,7 @@ nav ul li a img {
   color: white;
 }
 
-.gambar-rekomendasi .gambar-1 {
+.recommendation-pict .card-pict-big {
   grid-row: span 2;
   border-radius: 10px;
   background: url("https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-bagus4.jpg")
@@ -212,7 +212,7 @@ nav ul li a img {
   overflow: hidden;
 }
 
-.gambar-rekomendasi .gambar-2 {
+.recommendation-pict .card-pict {
   height: 200px;
   border-radius: 10px;
   background: url("https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-bagus4.jpg")
@@ -222,56 +222,21 @@ nav ul li a img {
   position: relative;
 }
 
-.gambar-rekomendasi .gambar-3 {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  position: relative;
-  background: url("https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-bagus4.jpg")
-    left / cover no-repeat;
-  border-radius: 10px;
-}
-
-.gambar-rekomendasi .gambar-4 {
-  background: url("https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-bagus4.jpg")
-    left / cover no-repeat;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  height: 200px;
-  grid-column: 2;
-  border-radius: 10px;
-  position: relative;
-}
-
-.gambar-rekomendasi .gambar-5 {
-  background: url("https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-bagus4.jpg")
-    left / cover no-repeat;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  position: relative;
-  grid-column: 3;
-}
-
-.gambar-rekomendasi h3 {
+.recommendation-pict h3 {
   font-weight: 600;
 }
 
-.gambar-rekomendasi p {
+.recommendation-pict p {
   font-weight: 300;
   font-size: 14px;
 }
 
-.daftar-penginapan {
+.card-section {
   max-width: 1300px;
   margin: 0 auto;
 }
 
-.daftar-penginapan .cards {
-  display: flex;
-  justify-content: space-between;
-}
-
-.daftar-penginapan .rekomendasi-penginapan {
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -279,19 +244,30 @@ nav ul li a img {
   margin-top: 90px;
 }
 
-.daftar-penginapan .rekomendasi-penginapan h2 {
+.card-header h2 {
   color: #000;
 }
 
-.daftar-penginapan .rekomendasi-penginapan .lihat-semua {
+.card-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.see-more-button {
+  background: none;
+  border: none;
+}
+
+.see-more-button a {
   display: inline-flex;
   color: #000;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+  font-size: 16px;
 }
 
-.daftar-penginapan .card {
+.card-section .card {
   display: inline-block;
   background: url("https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-bagus4.jpg")
     left / cover no-repeat;
@@ -312,7 +288,7 @@ nav ul li a img {
   padding: 10px;
 }
 
-.tag-favorit {
+.favorite-tag {
   background: rgb(247, 242, 242, 0.8);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   color: #000;
@@ -324,13 +300,13 @@ nav ul li a img {
   font-weight: 500;
 }
 
-.card-button .tombol-simpan {
+.save-button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.tombol-simpan-sendiri {
+.save-button-notag {
   background: none;
   border: none;
   cursor: pointer;
@@ -348,17 +324,17 @@ nav ul li a img {
   background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
-.daftar-penginapan .card .card-text h3 {
+.card .card-text h3 {
   font-weight: 600;
   padding-bottom: 3px;
 }
 
-.daftar-penginapan .card .card-text p {
+.card .card-text p {
   font-size: 14px;
   font-weight: 300;
 }
 
-.daftar-penginapan .card .rating {
+.card .card-rating {
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
@@ -368,11 +344,11 @@ nav ul li a img {
   position: relative;
 }
 
-.daftar-penginapan .card .rating img {
+.card .card-rating img {
   width: 14px;
 }
 
-.daftar-penginapan .card .rating .total-rating {
+.card .card-rating .total-rating {
   font-weight: 600;
   color: #ffcd29;
   display: inline-flex;
@@ -381,7 +357,7 @@ nav ul li a img {
   gap: 2px;
 }
 
-.daftar-penginapan .card .rating .total-review {
+.card .card-rating .total-review {
   font-weight: 300;
 }
 
