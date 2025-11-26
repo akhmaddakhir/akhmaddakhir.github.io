@@ -3,421 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>calendar pop up</title>
+    <title>Calendar Popup</title>
+    <link rel="stylesheet" url="calendar_popup.css">
+
     <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-body {
-  color: #000000;
-}
+      body {
+        color: #000000;
+        font-family: "Inter", sans-serif;
+      }
 
-#calendarPopup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+      /* POPUP */
+      #calendarPopup {
+        position: absolute;
+        z-index: 9999;
+      }
 
-#calendarPopup.active {
-  display: flex;
-  opacity: 1;
-}
+      /* PANEL */
+      .calendar-section {
+        width: 900px;
+        padding: 35px 60px;
+        border-radius: 16px;
+        background-color: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
 
-.calendar-section {
-  max-width: 920px;
-  width: 90%;
-  margin: 0;
-  padding: 40px 50px;
-  border-radius: 24px;
-  background-color: #fff;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.12);
-  font-family: "Inter", sans-serif;
-  transform: scale(0.9);
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+      /* HEADER KHUSUS 2 BULAN */
+      .calendar-header-global {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        position: relative;
+      }
 
-#calendarPopup.active .calendar-section {
-  transform: scale(1);
-  opacity: 1;
-}
+      .month-arrow-global {
+        border: none;
+        background: none;
+        font-size: 22px;
+        cursor: pointer;
+        padding: 6px 14px;
+        border-radius: 8px;
+        transition: 0.2s;
+        font-weight: 600;
+      }
 
-.calendar-section .calendar-list {
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
-}
+      .month-arrow-global:hover {
+        background-color: #f5f5f5;
+      }
 
-.calendar-section .calendar-header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 24px;
-}
+      .month-arrow-disabled {
+        opacity: 0.3;
+        cursor: not-allowed !important;
+      }
 
-.calendar-section .calendar-header h2 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #1a1a1a;
-  letter-spacing: -0.02em;
-}
+      .calendar-header-center {
+        display: flex;
+        gap: 40px;
+        flex: 1;
+        justify-content: center;
+      }
 
-.calendar-section .calendar-header p {
-  font-size: 14px;
-  color: #6b6b6b;
-  font-weight: 400;
-}
+      .header-month-title {
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        flex: 1;
+      }
 
-.calendar-section .booking-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  max-width: 380px;
-  margin-bottom: 24px;
-}
+      .calendar-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+      }
 
-.calendar-section .booking-input {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 16px 18px;
-  border: 2px solid #e5e5e5;
-  border-radius: 12px;
-  background-color: #fff;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+      .calendar-content {
+        width: 100%;
+      }
 
-.calendar-section .booking-input:hover {
-  background-color: #fafafa;
-  border-color: #b8b8b8;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
+      .calendar-month {
+        flex: 1;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
 
-.calendar-section .booking-input:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
+      /* GRID */
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        row-gap: 14px;
+        text-align: center;
+      }
 
-.calendar-section .input-label {
-  font-size: 13px;
-  font-weight: 700;
-  color: #1a1a1a;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
+      .calendar-day {
+        font-weight: 600;
+      }
 
-.calendar-section .input-value {
-  font-size: 15px;
-  color: #8a8a8a;
-  font-weight: 500;
-}
+      .calendar-date {
+        cursor: pointer;
+        padding: 8px 0;
+        border-radius: 6px;
+        transition: 0.2s;
+      }
 
-.calendar-section .calendar-content {
-  flex: 1;
-  min-width: 360px;
-}
+      .calendar-date:hover {
+        background-color: #f5f5f5;
+      }
 
-.calendar-section .month-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 28px;
-  justify-content: center;
-}
+      .empty {
+        visibility: hidden;
+      }
 
-.calendar-section .calendar-month {
-  font-size: 19px;
-  font-weight: 700;
-  flex: 1;
-  text-align: center;
-  color: #1a1a1a;
-  letter-spacing: -0.01em;
-}
+      /* TANGGAL NON-AKTIF */
+      .date-disabled {
+        opacity: 0.25;
+        cursor: not-allowed !important;
+      }
 
-.calendar-section .month-arrow {
-  border: none;
-  background: #f5f5f5;
-  font-size: 18px;
-  cursor: pointer;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 10px;
-  transition: all 0.2s ease;
-  color: #333;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      /* FOOTER */
+      .calendar-button {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+      }
 
-.calendar-section .month-arrow:hover {
-  background-color: #e8e8e8;
-  transform: scale(1.05);
-}
+      .reset-button {
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
 
-.calendar-section .month-arrow:active {
-  transform: scale(0.95);
-}
+      .reset-button:hover {
+        text-decoration: underline;
+      }
 
-.calendar-section .date-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-  text-align: center;
-}
+      .confirm-button {
+        background-color: #8d330c;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 24px;
+        font-size: 15px;
+        cursor: pointer;
+      }
 
-.calendar-section .empty-date {
-  padding: 12px 0;
-}
-
-.calendar-section .calendar-day {
-  color: #6b6b6b;
-  font-weight: 700;
-  font-size: 13px;
-  padding: 12px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.calendar-section .calendar-date {
-  cursor: pointer;
-  color: #1a1a1a;
-  text-align: center;
-  padding: 12px 0;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-  font-weight: 500;
-  font-size: 15px;
-  position: relative;
-}
-
-.calendar-section .calendar-date:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.1);
-  font-weight: 600;
-}
-
-.calendar-section .calendar-date:active {
-  transform: scale(1.05);
-  background-color: #e5e5e5;
-}
-
-.calendar-section .calendar-date.selected {
-  background-color: #8d330c;
-  color: #fff;
-  font-weight: 700;
-}
-
-.calendar-section .calendar-date.selected:hover {
-  background-color: #7c2e0c;
-}
-
-.calendar-section .calendar-date.in-range {
-  background-color: #f5e8e1;
-  color: #8d330c;
-}
-
-.calendar-section .calendar-button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
-  padding-top: 30px;
-  border-top: 2px solid #f0f0f0;
-}
-
-.calendar-section .reset-button {
-  color: #1a1a1a;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  text-underline-offset: 4px;
-}
-
-.calendar-section .reset-button:hover {
-  text-decoration-color: #1a1a1a;
-  color: #8d330c;
-}
-
-.calendar-section .confirm-button {
-  background: linear-gradient(135deg, #8d330c 0%, #a13d0e 100%);
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 40px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  width: fit-content;
-  box-shadow: 0 4px 12px rgba(141, 51, 12, 0.3);
-  letter-spacing: 0.01em;
-}
-
-.calendar-section .confirm-button:hover {
-  background: linear-gradient(135deg, #7c2e0c 0%, #8d330c 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(141, 51, 12, 0.4);
-}
-
-.calendar-section .confirm-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(141, 51, 12, 0.3);
-}
+      .confirm-button:hover {
+        background-color: #7c2e0c;
+      }
     </style>
   </head>
+
   <body>
     <div id="calendarPopup">
       <section class="calendar-section">
-        <div class="calendar-list">
-          <div class="calendar-content">
-            <div class="calendar-header">
-              <h2>Pilih Tanggal</h2>
-              <p>Tambahkann tanggal untuk perjalanan anda</p>
-            </div>
-            <div class="month-header">
-              <button class="month-arrow">&lt;</button>
-              <h3 class="calendar-month">November 2025</h3>
-            </div>
-            <div class="date-grid">
-              <span class="calendar-day">Sen</span>
-              <span class="calendar-day">Sel</span>
-              <span class="calendar-day">Rab</span>
-              <span class="calendar-day">Kam</span>
-              <span class="calendar-day">Jum</span>
-              <span class="calendar-day">Sab</span>
-              <span class="calendar-day">Min</span>
-
-              <span class="empty-date"></span>
-              <span class="empty-date"></span>
-              <span class="empty-date"></span>
-              <span class="empty-date"></span>
-              <span class="empty-date"></span>
-              <span class="calendar-date">1</span>
-              <span class="calendar-date">2</span>
-
-              <span class="calendar-date">3</span>
-              <span class="calendar-date">4</span>
-              <span class="calendar-date">5</span>
-              <span class="calendar-date">6</span>
-              <span class="calendar-date">7</span>
-              <span class="calendar-date">8</span>
-              <span class="calendar-date">9</span>
-
-              <span class="calendar-date">10</span>
-              <span class="calendar-date">11</span>
-              <span class="calendar-date">12</span>
-              <span class="calendar-date">13</span>
-              <span class="calendar-date">14</span>
-              <span class="calendar-date">15</span>
-              <span class="calendar-date">16</span>
-
-              <span class="calendar-date">17</span>
-              <span class="calendar-date">18</span>
-              <span class="calendar-date">19</span>
-              <span class="calendar-date">20</span>
-              <span class="calendar-date">21</span>
-              <span class="calendar-date">22</span>
-              <span class="calendar-date">23</span>
-
-              <span class="calendar-date">24</span>
-              <span class="calendar-date">25</span>
-              <span class="calendar-date">26</span>
-              <span class="calendar-date">27</span>
-              <span class="calendar-date">28</span>
-              <span class="calendar-date">29</span>
-              <span class="calendar-date">30</span>
-            </div>
+        <!-- HEADER GLOBAL -->
+        <div class="calendar-header-global">
+          <button id="prevGlobal" class="month-arrow-global">&lt;</button>
+          <div class="calendar-header-center">
+            <h3 id="m1Label" class="header-month-title"></h3>
+            <h3 id="m2Label" class="header-month-title"></h3>
           </div>
-
-          <div class="calendar-content">
-            <div class="booking-header">
-              <div class="booking-input">
-                <span class="input-label">Check-in</span>
-                <span class="input-value">Tambahkan Tanggal</span>
-              </div>
-              <div class="booking-input">
-                <span class="input-label">Check-out</span>
-                <span class="input-value">Tambahkan Tanggal</span>
-              </div>
-            </div>
-            <div class="month-header">
-              <h3 class="calendar-month">Desember 2025</h3>
-              <button class="month-arrow">&gt;</button>
-            </div>
-
-            <div class="date-grid">
-              <span class="calendar-day">Sen</span>
-              <span class="calendar-day">Sel</span>
-              <span class="calendar-day">Rab</span>
-              <span class="calendar-day">Kam</span>
-              <span class="calendar-day">Jum</span>
-              <span class="calendar-day">Sab</span>
-              <span class="calendar-day">Min</span>
-
-              <span class="calendar-date">1</span>
-              <span class="calendar-date">2</span>
-              <span class="calendar-date">3</span>
-              <span class="calendar-date">4</span>
-              <span class="calendar-date">5</span>
-              <span class="calendar-date">6</span>
-              <span class="calendar-date">7</span>
-
-              <span class="calendar-date">8</span>
-              <span class="calendar-date">9</span>
-              <span class="calendar-date">10</span>
-              <span class="calendar-date">11</span>
-              <span class="calendar-date">12</span>
-              <span class="calendar-date">13</span>
-              <span class="calendar-date">14</span>
-
-              <span class="calendar-date">15</span>
-              <span class="calendar-date">16</span>
-              <span class="calendar-date">17</span>
-              <span class="calendar-date">18</span>
-              <span class="calendar-date">19</span>
-              <span class="calendar-date">20</span>
-              <span class="calendar-date">21</span>
-
-              <span class="calendar-date">22</span>
-              <span class="calendar-date">23</span>
-              <span class="calendar-date">24</span>
-              <span class="calendar-date">25</span>
-              <span class="calendar-date">26</span>
-              <span class="calendar-date">27</span>
-              <span class="calendar-date">28</span>
-
-              <span class="calendar-date">29</span>
-              <span class="calendar-date">30</span>
-              <span class="calendar-date">31</span>
-              <span class="empty-date"></span>
-              <span class="empty-date"></span>
-              <span class="empty-date"></span>
-              <span class="empty-date"></span>
-            </div>
-          </div>
+          <button id="nextGlobal" class="month-arrow-global">&gt;</button>
         </div>
+
+        <div id="calendar-container" class="calendar-list"></div>
 
         <div class="calendar-button">
           <div class="reset-button">Reset Semua Pilihan</div>
@@ -425,5 +183,152 @@ body {
         </div>
       </section>
     </div>
+
+    <script>
+      const monthNames = [
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+      ];
+
+      // batas 12 bulan dari sekarang
+      const start = new Date();
+      const end = new Date(start.getFullYear(), start.getMonth() + 11, 1);
+
+      let currentYear = start.getFullYear();
+      let currentMonth = start.getMonth(); // bulan awal
+
+      const container = document.getElementById("calendar-container");
+      const m1Label = document.getElementById("m1Label");
+      const m2Label = document.getElementById("m2Label");
+      const btnPrev = document.getElementById("prevGlobal");
+      const btnNext = document.getElementById("nextGlobal");
+
+      renderCalendars();
+      updateHeader();
+
+      /* =====================================================
+           RENDER 2 BULAN
+      =====================================================*/
+      function renderCalendars() {
+        container.innerHTML = "";
+
+        const cal1 = createCalendar(currentYear, currentMonth);
+
+        const nextMonth = (currentMonth + 1) % 12;
+        const nextYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+
+        const cal2 = createCalendar(nextYear, nextMonth);
+
+        container.appendChild(cal1);
+        container.appendChild(cal2);
+
+        updateHeader();
+      }
+
+      /* =====================================================
+           HEADER GLOBAL (2 BULAN)
+      =====================================================*/
+      function updateHeader() {
+        const m1 = `${monthNames[currentMonth]} ${currentYear}`;
+
+        let nm = (currentMonth + 1) % 12;
+        let ny = currentMonth === 11 ? currentYear + 1 : currentYear;
+
+        const m2 = `${monthNames[nm]} ${ny}`;
+
+        m1Label.textContent = m1;
+        m2Label.textContent = m2;
+
+        // disable prev jika sudah mentok bulan awal
+        if (currentYear === start.getFullYear() && currentMonth === start.getMonth()) {
+          btnPrev.classList.add("month-arrow-disabled");
+        } else {
+          btnPrev.classList.remove("month-arrow-disabled");
+        }
+
+        // disable next jika sudah 12 bulan ke depan
+        if (currentYear === end.getFullYear() && currentMonth === end.getMonth()) {
+          btnNext.classList.add("month-arrow-disabled");
+        } else {
+          btnNext.classList.remove("month-arrow-disabled");
+        }
+      }
+
+      /* =====================================================
+           BUAT 1 KALENDER
+      =====================================================*/
+      function createCalendar(year, month) {
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const today = new Date();
+
+        const offset = (firstDay + 6) % 7;
+
+        const div = document.createElement("div");
+        div.classList.add("calendar-content");
+
+        div.innerHTML = `
+          <div class="calendar-grid"></div>
+        `;
+
+        const grid = div.querySelector(".calendar-grid");
+
+        const days = ["Sen", "Sel", "Rab", "Kam", "Jum", "Sab", "Min"];
+        days.forEach((d) => {
+          const el = document.createElement("div");
+          el.classList.add("calendar-day");
+          el.textContent = d;
+          grid.appendChild(el);
+        });
+
+        for (let i = 0; i < offset; i++) {
+          const empty = document.createElement("div");
+          empty.classList.add("empty");
+          grid.appendChild(empty);
+        }
+
+        for (let d = 1; d <= daysInMonth; d++) {
+          const date = document.createElement("div");
+          date.classList.add("calendar-date");
+          date.textContent = d;
+
+          const thisDate = new Date(year, month, d);
+
+          // disable tanggal lewat
+          if (thisDate < new Date(today.getFullYear(), today.getMonth(), today.getDate())) {
+            date.classList.add("date-disabled");
+          }
+
+          grid.appendChild(date);
+        }
+
+        return div;
+      }
+
+      /* =====================================================
+           NAVIGASI GLOBAL
+      =====================================================*/
+      btnPrev.addEventListener("click", () => {
+        if (btnPrev.classList.contains("month-arrow-disabled")) return;
+
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        renderCalendars();
+      });
+
+      btnNext.addEventListener("click", () => {
+        if (btnNext.classList.contains("month-arrow-disabled")) return;
+
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        renderCalendars();
+      });
+    </script>
   </body>
 </html>
