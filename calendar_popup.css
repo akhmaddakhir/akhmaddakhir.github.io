@@ -1,0 +1,150 @@
+  * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        color: #000000;
+        font-family: "Inter", sans-serif;
+      }
+
+      /* POPUP */
+      #calendarPopup {
+        position: absolute;
+        z-index: 9999;
+      }
+
+      /* PANEL */
+      .calendar-section {
+        width: 900px;
+        padding: 35px 60px;
+        border-radius: 16px;
+        background-color: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* HEADER KHUSUS 2 BULAN */
+      .calendar-header-global {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .month-arrow-global {
+        border: none;
+        background: none;
+        font-size: 22px;
+        cursor: pointer;
+        padding: 6px 14px;
+        border-radius: 8px;
+        transition: 0.2s;
+        font-weight: 600;
+      }
+
+      .month-arrow-global:hover {
+        background-color: #f5f5f5;
+      }
+
+      .month-arrow-disabled {
+        opacity: 0.3;
+        cursor: not-allowed !important;
+      }
+
+      .calendar-header-center {
+        display: flex;
+        gap: 40px;
+        flex: 1;
+        justify-content: center;
+      }
+
+      .header-month-title {
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        flex: 1;
+      }
+
+      .calendar-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+      }
+
+      .calendar-content {
+        width: 100%;
+      }
+
+      .calendar-month {
+        flex: 1;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      /* GRID */
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        row-gap: 14px;
+        text-align: center;
+      }
+
+      .calendar-day {
+        font-weight: 600;
+      }
+
+      .calendar-date {
+        cursor: pointer;
+        padding: 8px 0;
+        border-radius: 6px;
+        transition: 0.2s;
+      }
+
+      .calendar-date:hover {
+        background-color: #f5f5f5;
+      }
+
+      .empty {
+        visibility: hidden;
+      }
+
+      /* TANGGAL NON-AKTIF */
+      .date-disabled {
+        opacity: 0.25;
+        cursor: not-allowed !important;
+      }
+
+      /* FOOTER */
+      .calendar-button {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+      }
+
+      .reset-button {
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .reset-button:hover {
+        text-decoration: underline;
+      }
+
+      .confirm-button {
+        background-color: #8d330c;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 24px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      .confirm-button:hover {
+        background-color: #7c2e0c;
+      }
