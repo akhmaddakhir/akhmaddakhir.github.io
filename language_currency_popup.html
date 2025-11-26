@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language & Currency Popup</title>
+    <link rel="stylesheet" href="language_currency_popup.css">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    </style>
+  </head>
+  <body>
+    <section class="section">
+      <button class="close-button">
+        <img src="/website_materials/icon_back-x.svg" />
+      </button>
+
+      <div class="header" id="mainHeader">
+        <div class="header-selected" id="langTab">
+          <p>Bahasa dan Wilayah</p>
+          <hr class="header-underline" />
+        </div>
+        <a class="header-item" id="currencyTab" style="cursor: pointer"
+          >Mata Uang</a
+        >
+      </div>
+
+      <!-- LANGUAGE CONTENT -->
+      <section class="contents" id="languageContent">
+        <section class="content" id="langRecommendedSection">
+          <span class="content-title">Bahasa dan Wilayah yang Disarankan</span>
+          <div class="list" id="langRecommendedList">
+            <div
+              class="item"
+              data-language="English"
+              data-country="United States"
+            >
+              <p class="name">English</p>
+              <p class="code">United States</p>
+            </div>
+            <div
+              class="item"
+              data-language="English"
+              data-country="United Kingdom"
+            >
+              <p class="name">English</p>
+              <p class="code">United Kingdom</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content">
+          <span class="content-title">Pilih Bahasa dan Wilayah Anda</span>
+          <div class="list" id="languageList">
+            <div
+              class="item-selected"
+              data-language="Bahasa Indonesia"
+              data-country="Indonesia"
+            >
+              <p class="name">Bahasa Indonesia</p>
+              <p class="code">Indonesia</p>
+            </div>
+            <div
+              class="item"
+              data-language="English"
+              data-country="United States"
+            >
+              <p class="name">English</p>
+              <p class="code">United States</p>
+            </div>
+            <div
+              class="item"
+              data-language="English"
+              data-country="United Kingdom"
+            >
+              <p class="name">English</p>
+              <p class="code">United Kingdom</p>
+            </div>
+            <div class="item" data-language="English" data-country="Australia">
+              <p class="name">English</p>
+              <p class="code">Australia</p>
+            </div>
+            <div class="item" data-language="中文 (简体)" data-country="China">
+              <p class="name">中文 (简体)</p>
+              <p class="code">China</p>
+            </div>
+            <div class="item" data-language="中文 (繁體)" data-country="Taiwan">
+              <p class="name">中文 (繁體)</p>
+              <p class="code">Taiwan</p>
+            </div>
+            <div class="item" data-language="日本語" data-country="Japan">
+              <p class="name">日本語</p>
+              <p class="code">Japan</p>
+            </div>
+            <div class="item" data-language="한국어" data-country="South Korea">
+              <p class="name">한국어</p>
+              <p class="code">South Korea</p>
+            </div>
+            <div class="item" data-language="ไทย" data-country="Thailand">
+              <p class="name">ไทย</p>
+              <p class="code">Thailand</p>
+            </div>
+            <div
+              class="item"
+              data-language="Deutsch"
+              data-country="Deutschland"
+            >
+              <p class="name">Deutsch</p>
+              <p class="code">Deutschland</p>
+            </div>
+            <div class="item" data-language="Español" data-country="España">
+              <p class="name">Español</p>
+              <p class="code">España</p>
+            </div>
+            <div class="item" data-language="Français" data-country="France">
+              <p class="name">Français</p>
+              <p class="code">France</p>
+            </div>
+            <div class="item" data-language="Italiano" data-country="Italia">
+              <p class="name">Italiano</p>
+              <p class="code">Italia</p>
+            </div>
+            <div class="item" data-language="Português" data-country="Brasil">
+              <p class="name">Português</p>
+              <p class="code">Brasil</p>
+            </div>
+            <div class="item" data-language="Русский" data-country="Russia">
+              <p class="name">Русский</p>
+              <p class="code">Russia</p>
+            </div>
+            <div
+              class="item"
+              data-language="العربية"
+              data-country="Saudi Arabia"
+            >
+              <p class="name">العربية</p>
+              <p class="code">Saudi Arabia</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- CURRENCY CONTENT -->
+      <section class="contents hidden" id="currencyContent">
+        <section class="content" id="currRecommendedSection">
+          <span class="content-title">Mata Uang yang Disarankan</span>
+          <div class="list" id="currRecommendedList">
+            <div class="item" data-currency="USD" data-symbol="$">
+              <p class="name">USD</p>
+              <p class="code">$ - US Dollar</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content">
+          <span class="content-title">Pilih Mata Uang Anda</span>
+          <div class="list" id="currencyList">
+            <div class="item-selected" data-currency="IDR" data-symbol="Rp">
+              <p class="name">IDR</p>
+              <p class="code">Rp - Indonesian Rupiah</p>
+            </div>
+            <div class="item" data-currency="USD" data-symbol="$">
+              <p class="name">USD</p>
+              <p class="code">$ - US Dollar</p>
+            </div>
+            <div class="item" data-currency="GBP" data-symbol="£">
+              <p class="name">GBP</p>
+              <p class="code">£ - British Pound</p>
+            </div>
+            <div class="item" data-currency="AUD" data-symbol="A$">
+              <p class="name">AUD</p>
+              <p class="code">A$ - Australian Dollar</p>
+            </div>
+            <div class="item" data-currency="CNY" data-symbol="¥">
+              <p class="name">CNY</p>
+              <p class="code">¥ - Chinese Yuan</p>
+            </div>
+            <div class="item" data-currency="TWD" data-symbol="NT$">
+              <p class="name">TWD</p>
+              <p class="code">NT$ - Taiwan Dollar</p>
+            </div>
+            <div class="item" data-currency="JPY" data-symbol="¥">
+              <p class="name">JPY</p>
+              <p class="code">¥ - Japanese Yen</p>
+            </div>
+            <div class="item" data-currency="KRW" data-symbol="₩">
+              <p class="name">KRW</p>
+              <p class="code">₩ - South Korean Won</p>
+            </div>
+            <div class="item" data-currency="THB" data-symbol="฿">
+              <p class="name">THB</p>
+              <p class="code">฿ - Thai Baht</p>
+            </div>
+            <div class="item" data-currency="EUR" data-symbol="€">
+              <p class="name">EUR</p>
+              <p class="code">€ - Euro</p>
+            </div>
+            <div class="item" data-currency="CHF" data-symbol="CHF">
+              <p class="name">CHF</p>
+              <p class="code">CHF - Swiss Franc</p>
+            </div>
+            <div class="item" data-currency="CAD" data-symbol="C$">
+              <p class="name">CAD</p>
+              <p class="code">C$ - Canadian Dollar</p>
+            </div>
+            <div class="item" data-currency="MXN" data-symbol="$">
+              <p class="name">MXN</p>
+              <p class="code">$ - Mexican Peso</p>
+            </div>
+            <div class="item" data-currency="BRL" data-symbol="R$">
+              <p class="name">BRL</p>
+              <p class="code">R$ - Brazilian Real</p>
+            </div>
+            <div class="item" data-currency="RUB" data-symbol="₽">
+              <p class="name">RUB</p>
+              <p class="code">₽ - Russian Ruble</p>
+            </div>
+            <div class="item" data-currency="SAR" data-symbol="﷼">
+              <p class="name">SAR</p>
+              <p class="code">﷼ - Saudi Riyal</p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+
+    <script src="language_currency_popup.js"></script>
+  </body>
+</html>
