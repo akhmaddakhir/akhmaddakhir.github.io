@@ -4,137 +4,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filter Pop Up</title>
-    <link rel="stylesheet" href="filter.css" />
+    <link rel="stylesheet" href="filter_popup.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
     </style>
   </head>
   <body>
-    <section class="filter-section">
-      <div class="filter-header">Filter</div>
+    <div id="filterPopup">
+      <section class="filter-section">
+        <div class="filter-header">Filter</div>
 
-      <div class="filter-content">
-        <div class="filter-list">
-          <!-- Price Range -->
-          <div class="filter-group">
-            <div class="filter-label">Harga</div>
-            <div class="price-range-container">
-              <div class="price-display">
-                <span id="priceMin">$0</span> - <span id="priceMax">$95+</span>
-              </div>
-              <div class="price-slider-wrapper" id="sliderWrapper">
-                <div class="price-slider-track" id="sliderTrack"></div>
-                <div
-                  class="price-slider-handle"
-                  id="handleMin"
-                  data-handle="min"
-                ></div>
-                <div
-                  class="price-slider-handle"
-                  id="handleMax"
-                  data-handle="max"
-                ></div>
-              </div>
-            </div>
-          </div>
-
-          <hr class="filter-divider" />
-
-          <!-- Budaya -->
-          <div class="filter-group">
-            <div class="filter-label">Budaya</div>
-            <div class="filter-options" id="budayaOptions">
-              <span class="filter-option">Jawa</span>
-              <span class="filter-option">Bali</span>
-              <span class="filter-option">Sunda</span>
-              <span class="filter-option">Betawi</span>
-              <span class="filter-option">Minangkabau</span>
-              <span class="filter-option">Toraja</span>
-              <span class="filter-option">Papua</span>
-              <span class="filter-option">Bugis</span>
-            </div>
-          </div>
-
-          <hr class="filter-divider" />
-
-          <!-- Jenis -->
-          <div class="filter-group">
-            <div class="filter-label">Jenis</div>
-            <div class="filter-options" id="jenisOptions">
-              <span class="filter-option">Hotel</span>
-              <span class="filter-option">Villa</span>
-              <span class="filter-option">Resort</span>
-              <span class="filter-option">Homestay</span>
-              <span class="filter-option">Guest House</span>
-            </div>
-          </div>
-
-          <hr class="filter-divider" />
-
-          <!-- Facilities -->
-          <div class="filter-group">
-            <div class="filter-label">Fasilitas</div>
-            <div class="facilities-list">
-              <div class="facility-item">
-                <input type="checkbox" id="wifi" />
-                <label for="wifi">Free Wifi</label>
-              </div>
-              <div class="facility-item">
-                <input type="checkbox" id="breakfast" />
-                <label for="breakfast">Breakfast included</label>
-              </div>
-              <div class="facility-item">
-                <input type="checkbox" id="pets" />
-                <label for="pets">Pets Allowed</label>
-              </div>
-              <div class="facility-item">
-                <input type="checkbox" id="parking" />
-                <label for="parking">Free parking</label>
-              </div>
-              <div class="facility-item">
-                <input type="checkbox" id="pool" />
-                <label for="pool">Swimming Pool</label>
+        <div class="filter-content">
+          <div class="filter-list">
+            <!-- Price Range -->
+            <div class="filter-group">
+              <div class="filter-label">Harga</div>
+              <div class="price-range-container">
+                <div class="price-display">
+                  <span id="priceMin">$0</span> -
+                  <span id="priceMax">$95+</span>
+                </div>
+                <div class="price-slider-wrapper" id="sliderWrapper">
+                  <div class="price-slider-track" id="sliderTrack"></div>
+                  <div
+                    class="price-slider-handle"
+                    id="handleMin"
+                    data-handle="min"
+                  ></div>
+                  <div
+                    class="price-slider-handle"
+                    id="handleMax"
+                    data-handle="max"
+                  ></div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <hr class="filter-divider" />
+            <hr class="filter-divider" />
 
-          <!-- Rating -->
-          <div class="filter-group">
-            <div class="filter-label">Ulasan</div>
-            <div class="rating-options">
-              <div class="rating-option">
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
+            <!-- Budaya -->
+            <div class="filter-group">
+              <div class="filter-label">Budaya</div>
+              <div class="filter-options" id="budayaOptions">
+                <span class="filter-option">Jawa</span>
+                <span class="filter-option">Bali</span>
+                <span class="filter-option">Sunda</span>
+                <span class="filter-option">Betawi</span>
+                <span class="filter-option">Minangkabau</span>
+                <span class="filter-option">Toraja</span>
+                <span class="filter-option">Papua</span>
+                <span class="filter-option">Bugis</span>
               </div>
-              <div class="rating-option">
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
+            </div>
+
+            <hr class="filter-divider" />
+
+            <!-- Jenis -->
+            <div class="filter-group">
+              <div class="filter-label">Jenis</div>
+              <div class="filter-options" id="jenisOptions">
+                <span class="filter-option">Hotel</span>
+                <span class="filter-option">Villa</span>
+                <span class="filter-option">Resort</span>
+                <span class="filter-option">Homestay</span>
+                <span class="filter-option">Guest House</span>
               </div>
-              <div class="rating-option">
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
+            </div>
+
+            <hr class="filter-divider" />
+
+            <!-- Facilities -->
+            <div class="filter-group">
+              <div class="filter-label">Fasilitas</div>
+              <div class="facilities-list">
+                <div class="facility-item">
+                  <input type="checkbox" id="wifi" />
+                  <label for="wifi">Free Wifi</label>
+                </div>
+                <div class="facility-item">
+                  <input type="checkbox" id="breakfast" />
+                  <label for="breakfast">Breakfast included</label>
+                </div>
+                <div class="facility-item">
+                  <input type="checkbox" id="pets" />
+                  <label for="pets">Pets Allowed</label>
+                </div>
+                <div class="facility-item">
+                  <input type="checkbox" id="parking" />
+                  <label for="parking">Free parking</label>
+                </div>
+                <div class="facility-item">
+                  <input type="checkbox" id="pool" />
+                  <label for="pool">Swimming Pool</label>
+                </div>
+              </div>
+            </div>
+
+            <hr class="filter-divider" />
+
+            <!-- Rating -->
+            <div class="filter-group">
+              <div class="filter-label">Ulasan</div>
+              <div class="rating-options">
+                <div class="rating-option">
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                </div>
+                <div class="rating-option">
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                </div>
+                <div class="rating-option">
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                  <img src="/website_materials/icon_rating-fill.svg" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-            <hr class="filter-divider" />
+        <hr class="filter-divider" />
 
-      <div class="filter-footer">
-        <button class="reset-button" id="resetBtn">Reset Semua Pilihan</button>
-        <button class="confirm-button" id="confirmBtn">Konfirmasi</button>
-      </div>
-    </section>
+        <div class="filter-footer">
+          <button class="reset-button" id="resetBtn">
+            Reset Semua Pilihan
+          </button>
+          <button class="confirm-button" id="confirmBtn">Konfirmasi</button>
+        </div>
+      </section>
+    </div>
 
-    <script src="filter.js"></script>
+    <script src="filter_popup.js"></script>
   </body>
 </html>

@@ -2646,14 +2646,12 @@
           handleGuestButtonClick(type, action);
         });
       });
-
-      // ==================== OVERLAY CLICK - CLOSE ALL POPUPS ====================
+      
       popupOverlay.addEventListener("click", function () {
         closeCalendarPopup();
         closeGuestPopup();
       });
 
-      // ==================== INITIALIZE ====================
       updateGuestButtons();
       updatePanelDisplays();
       updateGuestDisplay();
