@@ -4,124 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>filter pop up</title>
+    <link rel="stylesheet" href="filter.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        color: #000000;
-      }
-
-      .filter-section {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 35px 60px;
-        border-radius: 16px;
-        background-color: #fff;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        font-family: "inter", sans-serif;
-      }
-
-      .filter-header {
-        font-weight: 600;
-        font-size: 16px;
-        margin-bottom: 20px;
-      }
-
-      .filter-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .filter-group {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .filter-label {
-        font-weight: 600;
-        font-size: 16px;
-      }
-
-      .filter-options {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        column-gap: 40px;
-        row-gap: 20px;
-      }
-
-      .filter-option {
-        padding: 8px;
-        border: 1px solid;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        border-radius: 30px;
-        cursor: pointer;
-      }
-
-      .rating-options {
-        display: flex;
-        gap: 50px;
-      }
-
-      .rating-option {
-        padding: 8px 15px;
-        border: 1px solid;
-        align-items: center;
-        justify-content: center;
-        border-radius: 30px;
-        display: flex;
-        gap: 5px;
-        cursor: pointer;
-      }
-
-      .share-divider {
-        margin: 0 20px;
-        border: none;
-        border-top: 1px solid #e0e0e0;
-      }
-
-      .filter-button {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 30px;
-      }
-
-      .reset-button {
-        color: #000000;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.2s;
-      }
-
-      .reset-button:hover {
-        text-decoration: underline;
-      }
-
-      .confirm-button {
-        background-color: #8d330c;
-        color: #fff;
-        border: none;
-        border-radius: 20px;
-        padding: 10px 24px;
-        font-size: 15px;
-        cursor: pointer;
-        transition: 0.2s;
-      }
-
-      .confirm-button:hover {
-        background-color: #7c2e0c;
-      }
     </style>
   </head>
   <body>
@@ -223,5 +108,6 @@
         <button class="confirm-button">Konfirmasi</button>
       </div>
     </section>
+    <script src="filter.js"></script>
   </body>
 </html>
