@@ -232,7 +232,8 @@ nav ul li a img {
   background-color: #f6f6f6;
   border-radius: 24px;
   padding: 8px 16px;
-  gap: 8px;width:fit-content;
+  gap: 8px;
+  width: fit-content;
 }
 
 .comment-input {
@@ -385,7 +386,7 @@ nav ul li a img {
 }
 
 #sharePopup.active {
-    display: flex;
+  display: flex;
 }
 
 .share-modal {
@@ -402,13 +403,14 @@ nav ul li a img {
 .share-modal .share-header {
   display: flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
   padding: 28px 28px 0 28px;
 }
 
 .share-modal .share-title {
   font-size: 24px;
-  font-weight: 700;padding-left:90px;
+  font-weight: 700;
+  padding-left: 90px;
 }
 
 .share-modal .close-button {
