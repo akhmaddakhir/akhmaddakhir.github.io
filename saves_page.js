@@ -1,37 +1,37 @@
- const openSharePopup = document.getElementById("share-button");
-      const closeSharePopup = document.querySelector(".close-button");
-      const sharePopup = document.getElementById("sharePopup");
+const openSharePopup = document.getElementById("share-button");
+const closeSharePopup = document.querySelector(".close-button");
+const sharePopup = document.getElementById("sharePopup");
 
-      function openPopup() {
-        sharePopup.classList.add("active");
-      }
+function openPopup() {
+  sharePopup.classList.add("active");
+}
 
-      function closePopup() {
-        sharePopup.classList.remove("active");
-      }
+function closePopup() {
+  sharePopup.classList.remove("active");
+}
 
-      openSharePopup.addEventListener("click", openPopup);
+openSharePopup.addEventListener("click", openPopup);
 
-      closeSharePopup.addEventListener("click", closePopup);
+closeSharePopup.addEventListener("click", closePopup);
 
-      window.addEventListener("click", (event) => {
-        if (event.target === sharePopup) {
-          closePopup();
-        }
-      });
+window.addEventListener("click", (event) => {
+  if (event.target === sharePopup) {
+    closePopup();
+  }
+});
 
-      const saveButton = document.querySelectorAll(".save-on-button");
+const saveButton = document.querySelectorAll(".save-on-button");
 
-      saveButton.forEach((button) => {
-        button.addEventListener("click", () => {
-          const img = button.querySelector("img");
+saveButton.forEach((button) => {
+  button.addEventListener("click", () => {
+    const img = button.querySelector("img");
 
-          const currentSrc = img.getAttribute("src");
+    const currentSrc = img.getAttribute("src");
 
-          if (currentSrc.includes("icon_save_fill.svg")) {
-            img.setAttribute("src", "/website_materials/icon_save.svg");
-          } else {
-            img.setAttribute("src", "/website_materials/icon_save_fill.svg");
-          }
-        });
-      });
+    if (currentSrc.includes("icon_save_fill.svg")) {
+      img.setAttribute("src", "/website_materials/icon_save.svg");
+    } else {
+      img.setAttribute("src", "/website_materials/icon_save_fill.svg");
+    }
+  });
+});

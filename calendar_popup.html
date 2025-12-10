@@ -1,70 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendar Popup</title>
-    <link rel="stylesheet" href="calendar_popup.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-    </style>
-  </head>
 
-  <body>
-    <div id="calendarPopup">
-      <section class="calendar-section">
-        <div class="booking-info-header">
-          <div class="nights-info">
-            <div class="nights-count" id="nightsCount">0 nights</div>
-            <div class="nights-date-range" id="dateRange">Pilih tanggal</div>
-          </div>
-          <div class="date-inputs">
-            <div class="date-input-box">
-              <div class="date-input-label">CHECK-IN</div>
-              <div class="date-input-value" id="checkInDisplay">--/--/----</div>
-              <button
-                class="clear-date-btn"
-                id="clearCheckIn"
-                style="display: none"
-              >
-                <img src="/website_materials/icon_back-x.svg">
-              </button>
-            </div>
-            <div class="date-input-box">
-              <div class="date-input-label">CHECKOUT</div>
-              <div class="date-input-value" id="checkOutDisplay">
-                --/--/----
-              </div>
-              <button
-                class="clear-date-btn"
-                id="clearCheckOut"
-                style="display: none"
-              >
-                <img src="/website_materials/icon_back-x.svg">
-              </button>
-            </div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar Popup</title>
+  <link rel="stylesheet" href="calendar_popup.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+  </style>
+</head>
+<body>
+  <div id="calendarPopup" class="calendar-popup">
+    <section class="calendar-section">
+      <div class="calendar-header-global">
+        <button id="prevGlobal" class="month-arrow-global">&lt;</button>
+        <div class="calendar-header-center">
+          <h3 id="m1Label" class="header-month-title"></h3>
+          <h3 id="m2Label" class="header-month-title"></h3>
         </div>
+        <button id="nextGlobal" class="month-arrow-global">&gt;</button>
+      </div>
 
-        <!-- CALENDAR HEADER -->
-        <div class="calendar-header-global">
-          <button id="prevGlobal" class="month-arrow-global">&lt;</button>
-          <div class="calendar-header-center">
-            <h3 id="m1Label" class="header-month-title"></h3>
-            <h3 id="m2Label" class="header-month-title"></h3>
-          </div>
-          <button id="nextGlobal" class="month-arrow-global">&gt;</button>
-        </div>
+      <div id="calendar-container" class="calendar-list"></div>
+    </section>
+  </div>
+  <script src="calendar_popup.js"></script>
+</body>
 
-        <div id="calendar-container" class="calendar-list"></div>
-
-        <div class="calendar-button">
-          <div class="reset-button" id="resetButton">Reset Semua Pilihan</div>
-          <button class="confirm-button">Konfirmasi</button>
-        </div>
-      </section>
-    </div>
-
-    <script src="calendar_popup.js"></script>
-  </body>
 </html>

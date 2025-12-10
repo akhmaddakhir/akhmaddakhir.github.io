@@ -1,285 +1,110 @@
-    
-    :root {
-      --main-bg-color: #ffffff;
-      --second-bg-color: #f7f7f7;
-      --dark-text-color: #222222;
-      --main-color: #8d330c;
-      --main-color-hover: #7c2e0c;
-      --border: 1px solid #dddddd;
-      --border-hover: #222222;
-      --box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-      --font: 'Inter', sans-serif;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+body {
+  font-family: "Inter", sans-serif;
+}
 
-    body {
-      font-family: var(--font);
-      background-color: #f5f5f5;
-      padding: 100px 20px 20px;
-    }
+#guestPopup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 8px;
+  z-index: 100;
+  display: none;
+}
 
-    .right-content {
-      max-width: 400px;
-      margin: 0 auto;
-    }
+#guestPopup.active {
+  display: block;
+}
 
-    .booking-panel {
-      display: inline-block;
-      width: 100%;
-      background-color: var(--main-bg-color);
-      border-radius: 12px;
-      padding: 0;
-      position: relative;
-      box-shadow: var(--box-shadow);
-      border: var(--border);
-      overflow: visible;
-      margin-bottom: 20px;
-      position: sticky;
-      z-index: 10;
-      top: 80px;
-    }
+.guest-popup-section {
+  width: 100%;
+  padding: 30px;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  min-width: 370px;
+  transform: translate(-100%, 13.1%);
+}
 
-    .panel-header {
-      padding: 25px 30px;
-      border-bottom: var(--border);
-      font-weight: 700;
-      color: var(--dark-text-color);
-    }
+.guest-popup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-    .panel-contents {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      padding: 25px 30px;
-      position: relative;
-    }
+.guest-popup-divider {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 0;
+}
 
-    .date-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
+.guest-popup-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .booking-input {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding: 14px;
-      border: var(--border);
-      border-radius: 10px;
-      background-color: var(--main-bg-color);
-      cursor: pointer;
-      transition: all 0.2s;
-      position: relative;
-    }
+.guest-popup-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-    .booking-input:hover {
-      background-color: var(--second-bg-color);
-      border-color: var(--border-hover);
-    }
+.guest-popup-label {
+  font-weight: 600;
+  font-size: 15px;
+  color: #222222;
+}
 
-    .booking-input.active {
-      border-color: var(--dark-text-color);
-      border-width: 2px;
-      background-color: var(--main-bg-color);
-    }
+.guest-popup-note {
+  font-size: 14px;
+  color: #717171;
+}
 
-    .input-label {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--dark-text-color);
-    }
+.guest-popup-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    .input-value {
-      font-size: 14px;
-      color: var(--dark-text-color);
-      opacity: 0.5;
-    }
+.guest-popup-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #b0b0b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #717171;
+  transition: 0.15s ease-in-out;
+  user-select: none;
+}
 
-    .input-value.filled {
-      opacity: 1;
-    }
+.guest-popup-btn:hover:not(:disabled) {
+  border-color: #222222;
+  color: #222222;
+}
 
-    .promo-input {
-      border: none;
-      font-size: 14px;
-      font-family: var(--font);
-      color: var(--dark-text-color);
-      background-color: transparent;
-      transition: all 0.2s;
-    }
+.guest-popup-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #e0e0e0;
+}
 
-    .promo-input::placeholder {
-      font-size: 14px;
-      font-family: var(--font);
-    }
-
-    .promo-input:focus {
-      outline: none;
-    }
-
-    .panel-footer {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      padding: 20px 25px;
-      border-top: var(--border);
-    }
-
-    .price-section {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .price-label {
-      font-size: 15px;
-      font-weight: 600;
-      opacity: 0.4;
-      color: var(--dark-text-color);
-    }
-
-    .price-value {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--dark-text-color);
-    }
-
-    .confirm-button {
-      background-color: var(--main-color);
-      border: none;
-      padding: 12px 20px;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      width: 100%;
-      transition: all 0.2s;
-    }
-
-    .confirm-button:hover {
-      background-color: var(--main-color-hover);
-    }
-
-    #guestPopup {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      margin-top: 8px;
-      z-index: 100;
-    }
-
-    #guestPopup.active {
-      display: block;
-    }
-
-    .guest-section {
-      width: 100%;
-      padding: 30px;
-      border-radius: 16px;
-      background-color: #fff;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      border: var(--border);
-    }
-
-    .guest-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .guest-divider {
-      border: none;
-      border-top: 1px solid #e0e0e0;
-      margin: 0;
-    }
-
-    .guest-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .guest-text {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .guest-label {
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--dark-text-color);
-    }
-
-    .guest-note {
-      font-size: 13px;
-      color: #717171;
-    }
-
-    .guest-button {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .min-button,
-    .plus-button {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid #b0b0b0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #fff;
-      font-size: 18px;
-      font-weight: 400;
-      cursor: pointer;
-      color: #717171;
-      transition: 0.15s ease-in-out;
-      user-select: none;
-    }
-
-    .min-button:hover:not(:disabled),
-    .plus-button:hover:not(:disabled) {
-      border-color: #222222;
-      color: #222222;
-    }
-
-    .min-button:disabled,
-    .plus-button:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-      border-color: #e0e0e0;
-    }
-
-    .guest-total {
-      min-width: 26px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--dark-text-color);
-    }
-
-    .popup-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: transparent;
-      z-index: 5;
-    }
-
-    .popup-overlay.active {
-      display: block;
-    }
+.guest-popup-count {
+  min-width: 26px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: #222222;
+}

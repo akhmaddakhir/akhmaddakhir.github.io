@@ -1,169 +1,75 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>who pop up</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      body {
-        color: #000000;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guest Popup</title>
+  <link rel="stylesheet" href="guest_popup.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+  </style>
+</head>
 
-      #guestPopup {
-        position: fixed;
-        top: 95px;
-        left: 450px;
-        width: 100%;
-        height: 100%;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-      }
-
-      #guestPopup.active {
-        display: flex;
-      }
-
-      .guest-section {
-        min-width: 343px;
-        margin: 40px auto;
-        padding: 30px 40px;
-        border-radius: 16px;
-        background-color: #fff;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        font-family: "inter", sans-serif;
-      }
-
-      .guest-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .guest-divider {
-        border: none;
-        border-top: 1px solid #e0e0e0;
-      }
-
-      .guest-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .guest-text {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .guest-label {
-        font-weight: 600;
-        font-size: 15px;
-      }
-
-      .guest-note {
-        font-size: 13px;
-        color: #000000;
-        opacity: 0.6;
-      }
-
-      .guest-button {
-        display: flex;
-        align-items: center;
-        gap:5px;
-      }
-
-      .min-button,
-      .plus-button {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 1px solid rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-        font-size: 20px;
-        font-weight: 500;
-        cursor: pointer;
-        color: rgba(0, 0, 0, 0.75);
-        transition: 0.15s ease-in-out;
-      }
-
-      .min-button {
-        padding-bottom: 1px;
-      }
-
-      .plus-button {
-        padding-top: 1px;
-      }
-
-      .min-button:hover,
-      .plus-button:hover {
-        background-color: #f3f3f3;
-      }
-
-      .guest-total {
-        width: 26px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: 600;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="guestPopup">
-      <section class="guest-section">
-        <div class="guest-list">
-          <div class="guest-content">
-            <div class="guest-text">
-              <span class="guest-label">Dewasa</span>
-              <span class="guest-note">17 Tahun ke atas</span>
-            </div>
-            <div class="guest-button">
-              <button class="min-button">-</button>
-              <span class="guest-total">1</span>
-              <button class="plus-button">+</button>
-            </div>
+<body>
+  <div id="guestPopup">
+    <section class="guest-popup-section">
+      <div class="guest-popup-list">
+        <div class="guest-popup-row">
+          <div class="guest-popup-text">
+            <span class="guest-popup-label">Dewasa</span>
+            <span class="guest-popup-note">17 Tahun ke atas</span>
           </div>
-
-          <hr class="guest-divider" />
-
-          <div class="guest-content">
-            <div class="guest-text">
-              <span class="guest-label">Anak-Anak</span>
-              <span class="guest-note">2 Tahun ke atas</span>
-            </div>
-            <div class="guest-button">
-              <button class="min-button">-</button>
-              <span class="guest-total">0</span>
-              <button class="plus-button">+</button>
-            </div>
-          </div>
-
-          <hr class="guest-divider" />
-
-          <div class="guest-content">
-            <div class="guest-text">
-              <span class="guest-label">Hewan Peliharaan</span>
-            </div>
-            <div class="guest-button">
-              <button class="min-button">-</button>
-              <span class="guest-total">0</span>
-              <button class="plus-button">+</button>
-            </div>
+          <div class="guest-popup-controls">
+            <button class="guest-popup-btn" data-type="adult" data-action="minus">
+              −
+            </button>
+            <span class="guest-popup-count" id="adultCount">1</span>
+            <button class="guest-popup-btn" data-type="adult" data-action="plus">
+              +
+            </button>
           </div>
         </div>
-      </section>
-    </div>
-  </body>
+
+        <hr class="guest-popup-divider" />
+
+        <div class="guest-popup-row">
+          <div class="guest-popup-text">
+            <span class="guest-popup-label">Anak-Anak</span>
+            <span class="guest-popup-note">2-17 Tahun</span>
+          </div>
+          <div class="guest-popup-controls">
+            <button class="guest-popup-btn" data-type="child" data-action="minus">
+              −
+            </button>
+            <span class="guest-popup-count" id="childCount">0</span>
+            <button class="guest-popup-btn" data-type="child" data-action="plus">
+              +
+            </button>
+          </div>
+        </div>
+
+        <hr class="guest-popup-divider" />
+
+        <div class="guest-popup-row">
+          <div class="guest-popup-text">
+            <span class="guest-popup-label">Hewan Peliharaan</span>
+          </div>
+          <div class="guest-popup-controls">
+            <button class="guest-popup-btn" data-type="pet" data-action="minus">
+              −
+            </button>
+            <span class="guest-popup-count" id="petCount">0</span>
+            <button class="guest-popup-btn" data-type="pet" data-action="plus">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="guest_popup.js"></script>
+</body>
+
 </html>

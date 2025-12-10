@@ -7,16 +7,14 @@
 body {
   color: #2d2d2d;
   background-color: #f7f7f7;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", sans-serif;
 }
-
-#filter
 
 .filter-section {
   max-width: 900px;
   margin: 40px auto;
   padding: 0;
-  border-radius: 12px;
+  border-radius: 30px;
   background-color: #fff;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
 }
@@ -49,7 +47,6 @@ body {
   color: #1a1a1a;
 }
 
-/* Price Range Styles - Custom Slider */
 .price-range-container {
   display: flex;
   flex-direction: column;
@@ -102,7 +99,6 @@ body {
   cursor: grabbing;
 }
 
-/* Filter Options Grid */
 .filter-options {
   display: flex;
   flex-wrap: wrap;
@@ -111,7 +107,7 @@ body {
 
 .filter-option {
   padding: 10px 20px;
-  border: 1px solid #d4d4d4;
+  border: 2px solid #d4d4d4;
   background: #fff;
   align-items: center;
   justify-content: center;
@@ -125,17 +121,16 @@ body {
 }
 
 .filter-option:hover {
-  border-color: #666;
-  background: #fff;
+  border: 2px solid #888;
+  background-color: #f5f5f5;
 }
 
 .filter-option.active {
-  background: #8d330c;
-  border-color: #8d330c;
-  color: #fff;
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
 }
 
-/* Facilities Checkboxes */
 .facilities-list {
   display: flex;
   flex-direction: column;
@@ -156,7 +151,7 @@ body {
   cursor: pointer;
   border: 2px solid #d4d4d4;
   border-radius: 4px;
-  accent-color: #8d330c;
+  accent-color: #222;
   transform: scale(0.9);
 }
 
@@ -167,7 +162,6 @@ body {
   user-select: none;
 }
 
-/* Rating Options */
 .rating-options {
   display: flex;
   gap: 12px;
@@ -176,7 +170,7 @@ body {
 
 .rating-option {
   padding: 10px 18px;
-  border: 1px solid #d4d4d4;
+  border: 2px solid #d4d4d4;
   background: #fff;
   align-items: center;
   justify-content: center;
@@ -188,13 +182,13 @@ body {
 }
 
 .rating-option:hover {
-  border-color: #666;
-  background: #fff;
+  border: 2px solid #888;
+  background-color: #f5f5f5;
 }
 
 .rating-option.active {
-  background: #8d330c;
-  border-color: #8d330c;
+  background: #fff;
+  border: 2px solid #000;
 }
 
 .filter-divider {
@@ -203,18 +197,17 @@ body {
   border-top: 1px solid #e8e8e8;
 }
 
-/* Footer Buttons */
 .filter-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 32px;
-  background: #fafafa;
-  border-radius: 0 0 12px 12px;
+  background: #fff;
+  border-radius: 0 0 30px 30px;
 }
 
 .reset-button {
-   color: #000;
+  color: #000;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;

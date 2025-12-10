@@ -13,23 +13,13 @@ const monthNames = [
   "Desember",
 ];
 
-const monthNamesID = [
-  "Januari",
-  "Februari",
-  "Maret",
-  "April",
-  "Mei",
-  "Juni",
-  "Juli",
-  "Agustus",
-  "September",
-  "Oktober",
-  "November",
-  "Desember",
-];
-
+// Start dari hari ini
 const start = new Date();
-const end = new Date(start.getFullYear(), start.getMonth() + 11, 1);
+start.setHours(0, 0, 0, 0);
+
+// End adalah tepat 1 tahun dari hari ini (365 hari)
+const end = new Date(start);
+end.setDate(end.getDate() + 365);
 
 let currentYear = start.getFullYear();
 let currentMonth = start.getMonth();
@@ -42,14 +32,6 @@ const m1Label = document.getElementById("m1Label");
 const m2Label = document.getElementById("m2Label");
 const btnPrev = document.getElementById("prevGlobal");
 const btnNext = document.getElementById("nextGlobal");
-const resetBtn = document.getElementById("resetButton");
-
-const nightsCount = document.getElementById("nightsCount");
-const dateRange = document.getElementById("dateRange");
-const checkInDisplay = document.getElementById("checkInDisplay");
-const checkOutDisplay = document.getElementById("checkOutDisplay");
-const clearCheckInBtn = document.getElementById("clearCheckIn");
-const clearCheckOutBtn = document.getElementById("clearCheckOut");
 
 renderCalendars();
 updateHeader();
@@ -68,7 +50,6 @@ function renderCalendars() {
   container.appendChild(cal2);
 
   updateHeader();
-  updateDateDisplays();
 }
 
 function updateHeader() {
@@ -102,6 +83,7 @@ function createCalendar(year, month) {
   const firstDay = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
   const offset = (firstDay + 6) % 7;
 
@@ -132,13 +114,10 @@ function createCalendar(year, month) {
     date.textContent = d;
 
     const thisDate = new Date(year, month, d);
-    const todayStart = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      today.getDate()
-    );
+    thisDate.setHours(0, 0, 0, 0);
 
-    if (thisDate < todayStart) {
+    // Disable jika sebelum hari ini atau lebih dari 1 tahun
+    if (thisDate < start || thisDate > end) {
       date.classList.add("date-disabled");
     } else {
       date.addEventListener("click", () => handleDateClick(thisDate, date));
@@ -159,6 +138,33 @@ function createCalendar(year, month) {
         thisDate < checkOutDate
       ) {
         date.classList.add("in-range");
+
+        // Cek posisi di grid (hari dalam seminggu)
+        const dayOfWeek = thisDate.getDay();
+        const adjustedDay = dayOfWeek === 0 ? 6 : dayOfWeek - 1; // Senin = 0, Minggu = 6
+
+        // Tambah class untuk corner radius
+        if (adjustedDay === 0) {
+          // Senin (awal baris)
+          date.classList.add("start-of-week");
+        }
+        if (adjustedDay === 6) {
+          // Minggu (akhir baris)
+          date.classList.add("end-of-week");
+        }
+
+        // Check jika ini tanggal pertama atau terakhir dalam range
+        const nextDay = new Date(thisDate);
+        nextDay.setDate(nextDay.getDate() + 1);
+        const prevDay = new Date(thisDate);
+        prevDay.setDate(prevDay.getDate() - 1);
+
+        if (prevDay.getTime() === checkInDate.getTime()) {
+          date.classList.add("range-start");
+        }
+        if (nextDay.getTime() === checkOutDate.getTime()) {
+          date.classList.add("range-end");
+        }
       }
     }
 
@@ -193,60 +199,6 @@ function isSameDate(date1, date2) {
   );
 }
 
-function formatDate(date) {
-  const m = date.getMonth() + 1;
-  const d = date.getDate();
-  const y = date.getFullYear();
-  return `${m}/${d}/${y}`;
-}
-
-function formatDateLong(date) {
-  const monthName = monthNames[date.getMonth()].substring(0, 3);
-  const day = date.getDate();
-  const year = date.getFullYear();
-  return `${monthName} ${day}, ${year}`;
-}
-
-function updateDateDisplays() {
-  if (checkInDate) {
-    checkInDisplay.textContent = formatDate(checkInDate);
-    clearCheckInBtn.style.display = "block";
-  } else {
-    checkInDisplay.textContent = "--/--/----";
-    clearCheckInBtn.style.display = "none";
-  }
-
-  if (checkOutDate) {
-    checkOutDisplay.textContent = formatDate(checkOutDate);
-    clearCheckOutBtn.style.display = "block";
-  } else {
-    checkOutDisplay.textContent = "--/--/----";
-    clearCheckOutBtn.style.display = "none";
-  }
-
-  if (checkInDate && checkOutDate) {
-    const nights = Math.ceil(
-      (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24)
-    );
-    nightsCount.textContent = `${nights} night${nights > 1 ? "s" : ""}`;
-    dateRange.textContent = `${formatDateLong(checkInDate)} - ${formatDateLong(
-      checkOutDate
-    )}`;
-  } else if (checkInDate) {
-    nightsCount.textContent = "0 nights";
-    dateRange.textContent = `${formatDateLong(checkInDate)} - Pilih checkout`;
-  } else {
-    nightsCount.textContent = "0 nights";
-    dateRange.textContent = "Pilih tanggal";
-  }
-}
-
-function resetDates() {
-  checkInDate = null;
-  checkOutDate = null;
-  renderCalendars();
-}
-
 btnPrev.addEventListener("click", () => {
   if (btnPrev.classList.contains("month-arrow-disabled")) return;
 
@@ -266,20 +218,5 @@ btnNext.addEventListener("click", () => {
     currentMonth = 0;
     currentYear++;
   }
-  renderCalendars();
-});
-
-resetBtn.addEventListener("click", resetDates);
-
-clearCheckInBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  checkInDate = null;
-  checkOutDate = null;
-  renderCalendars();
-});
-
-clearCheckOutBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  checkOutDate = null;
   renderCalendars();
 });

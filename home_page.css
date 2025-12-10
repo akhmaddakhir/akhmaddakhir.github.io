@@ -90,7 +90,7 @@ nav ul li a img {
   justify-content: center;
   align-items: start;
   color: #fff;
-  border-radius: 0 0px 15px 15px;
+  border-radius: 0 0px 25px 25px;
   overflow: hidden;
   margin-top: 60px;
 }
@@ -148,102 +148,204 @@ nav ul li a img {
 .search-bar {
   display: flex;
   justify-content: center;
+  font-family: inherit;
+  position: relative;
 }
 
 .search-bar-content {
   display: inline-flex;
-  transform: translateY(-35px);
+  transform: translateY(-33px);
+  position: relative;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #fff;
   color: black;
   border-radius: 40px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   margin: 0;
   z-index: 3;
+  transition: background-color 0.3s ease;
 }
 
 .search-bar-loc {
-  cursor: pointer;
-  padding: 13px 0 13px 25px;
+  display: flex;
+  flex-direction: column;
+  padding: 13px 67.32px 13px 25px;
   border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.search-bar-date,
-.search-bar-guest {
-  display: flex;
-  gap: 9px;
-  cursor: pointer;
+.search-bar-loc:hover {
+  background-color: #ddd;
+}
+
+.search-bar-loc.active {
+  background: #fff;
+}
+
+.search-bar-content.has-active {
+  background: #ccc;
+}
+
+.search-bar-content.has-active .search-bar-loc.active ~ .search-bar-date {
+  background: #ccc;
+  border-radius: 40px 0 0 40px;
+}
+
+.search-bar-content.has-active .search-bar-loc.active ~ .guest-container {
+  background: #ccc;
+  border-radius: 0px 40px 40px 0;
+}
+
+#search-popup-wrapper {
+  position: relative;
+  width: 0;
+  height: 0;
 }
 
 .search-bar-date {
-  padding: 13px 55px 13px 25px;
+  display: flex;
+  padding: 14px 100px 13px 20px;
+  gap: 9px;
   border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.search-bar-date:hover {
+  background-color: #ddd;
+}
+
+.search-bar-date.active {
+  background: #fff;
+}
+
+.search-bar-content.has-active .search-bar-date.active ~ .guest-container {
+  background: #ccc;
+  border-radius: 0px 40px 40px 0;
+}
+
+.search-bar-content.has-active.date-active .search-bar-loc {
+  background: #ccc;
+  border-radius: 40px 0 0 40px;
+}
+
+#calendar-popup {
+  position: relative;
+  width: 0;
+  height: 0;
 }
 
 .guest-container {
   display: flex;
-  gap: 35px;
-  padding: 13px 10px 13px 25px;
+  align-items: center;
+  padding: 13px 10px 13px 17px;
+  gap: 87px;
   border-radius: 40px;
-}
-
-.search-bar-loc:hover {
-  background: #dddddd;
-}
-
-.search-bar-loc:active{
-  background:#ffffff;
-}
-
-.search-bar-date:hover {
-  background: #dddddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .guest-container:hover {
-  background: #dddddd;
+  background-color: #ddd;
 }
 
-.search-bar-loc p input {
-  border: none;
+.guest-container.active {
+  background: #fff;
 }
 
-.search-bar-loc p input:focus {
-  outline: none;
+.search-bar-content.has-active.guest-active .search-bar-loc {
+  background: #ccc;
+  border-radius: 40px 0 0 40px;
 }
 
-.search-bar-date p,
-.search-bar-guest p {
-  font-size: 13px;
-  color: #a0a0a0;gap:5px;
+.search-bar-content.has-active.guest-active .search-bar-date {
+  background: #ccc;
+  border-radius: 0 40px 40px 0;
 }
 
-.search-bar-loc p input {
-  color: #222222;
-  font-size: 13px;
+.search-bar-guest {
+  display: flex;
+  gap: 9px;
 }
 
-.search-bar-loc b,
-.search-bar-date b,
-.search-bar-guest b {
-  color: #000;
+.item-label {
+  font-weight: 600;
   font-size: 14px;
 }
 
-.search-bar-loc p input {
-  padding-right: -50px;
+.search-bar-item .item-input {
+  color: #000;
+  font-size: 13px;
+  border: none;
   background: transparent;
 }
 
-.search-bar-loc p input::placeholder {
-  color: #a0a0a0;
+.search-bar-item .item-input::placeholder {
+  color: #6a6a6a;
   font-size: 13px;
 }
 
+.search-bar-item .item-input:focus {
+  outline: none;
+}
+
+.item-content {
+  color: #6a6a6a;
+  font-size: 13px;
+  padding-top: 2.7px;
+}
+
 .search-bar-divider {
-  border-left: 2px solid #dddddd;
-  height: 27px;
+  border-left: 2px solid #ddd;
+  height: 32px;
   border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+/* Divider jadi #bbb ketika ada yang active */
+.search-bar-content.has-active .search-bar-divider {
+  border-color: #bbb;
+}
+
+/* Divider hilang saat hover location */
+.search-bar-loc:hover + .search-bar-divider {
+  opacity: 0;
+}
+
+/* Divider hilang saat hover date (kedua divider) */
+.search-bar-divider:has(+ .search-bar-date:hover) {
+  opacity: 0;
+}
+
+.search-bar-date:hover + .search-bar-divider {
+  opacity: 0;
+}
+
+/* Divider hilang saat hover guest */
+.search-bar-divider:has(+ .guest-container:hover) {
+  opacity: 0;
+}
+
+/* Divider hilang saat ada yang active */
+.search-bar-content.has-active .search-bar-loc.active + .search-bar-divider {
+  opacity: 0;
+}
+
+.search-bar-content.has-active
+  .search-bar-divider:has(+ .search-bar-date.active) {
+  opacity: 0;
+}
+
+.search-bar-content.has-active .search-bar-date.active + .search-bar-divider {
+  opacity: 0;
+}
+
+.search-bar-content.has-active
+  .search-bar-divider:has(+ .guest-container.active) {
+  opacity: 0;
 }
 
 .search-bar a {
@@ -262,11 +364,11 @@ nav ul li a img {
   border-radius: 50%;
   border-style: none;
   margin-left: -25px;
+  transition: background-color 0.3s ease;
 }
 
 .search-bar .search-button:hover {
   background-color: #6b2609;
-  transition: background-color 0.3s ease;
 }
 
 .calendar-icon {
