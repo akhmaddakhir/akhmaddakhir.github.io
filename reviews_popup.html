@@ -1,641 +1,591 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>review pop up</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-      :root {
-        --main-color: #8d330c;
-        --main-color-hover: #7c2e0c;
-        --nav-color: #806b4d;
-        --dark-text-color: #000000;
-        --light-text-color: #ffffff;
-        --rating-color: #ffcd29;
-        --font: "Inter", sans-serif;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>review pop up</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-        --main-bg-color: #ffffff;
-        --second-bg-color: #f6f6f6;
-        --bg-color-hover: #e9e9e9;
-        --bar-color: #f2f2f2;
-        --dark-bg-color: #000000;
+    :root {
+      --main-color: #8d330c;
+      --main-color-hover: #7c2e0c;
+      --nav-color: #806b4d;
+      --dark-text-color: #000000;
+      --light-text-color: #ffffff;
+      --rating-color: #ffcd29;
+      --font: "Inter", sans-serif;
 
-        --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        --nav-box-shadow: 0 2px 10px #8d8a8a;
-        --border: 1px solid #e0e0e0;
-        --border-hover: 1px solid #999;
-      }
+      --main-bg-color: #ffffff;
+      --second-bg-color: #f6f6f6;
+      --bg-color-hover: #e9e9e9;
+      --bar-color: #f2f2f2;
+      --dark-bg-color: #000000;
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      --nav-box-shadow: 0 2px 10px #8d8a8a;
+      --border: 1px solid #e0e0e0;
+      --border-hover: 1px solid #999;
+    }
 
-      body {
-        color: #000000;
-        font-family: var(--font);
-      }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      #reviewsPopup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: none;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 9999;
-      }
+    body {
+      color: #000000;
+      font-family: var(--font);
+    }
 
-      #reviewsPopup.active {
-        display: flex;
-      }
+    #reviewsPopup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+    }
 
-      .ratings-reviews-layout {
-        display: flex;
-        height: auto;
-        max-height: 700px;
-        max-width: 1200px;
-        width: 90%;
-        margin: 0;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        border-radius: 20px;
-        overflow: hidden;
-        background: #ffffff;
-      }
+    #reviewsPopup.active {
+      display: flex;
+    }
 
-      .rating-wrapper {
-        width: 380px;
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        padding: 48px 36px;
-        background: #fafafa;
-        border-right: 2px solid #e8e8e8;
-        overflow-y: auto;
-        max-height: 700px;
-      }
+    .ratings-reviews-layout {
+      display: flex;
+      height: auto;
+      max-height: 700px;
+      max-width: 1200px;
+      width: 90%;
+      margin: 0;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #ffffff;
+    }
 
-      .reviews-wrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-        padding: 48px 40px;
-        background: var(--main-bg-color);
-        overflow-y: auto;
-        max-height: 700px;
-      }
+    .rating-wrapper {
+      width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 48px 36px;
+      background: #fafafa;
+      border-right: 2px solid #e8e8e8;
+      overflow-y: auto;
+      max-height: 700px;
+    }
 
-      .section-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 8px;
-      }
+    .reviews-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding: 48px 40px;
+      background: var(--main-bg-color);
+      overflow-y: auto;
+      max-height: 700px;
+    }
 
-      .section-title {
-        font-weight: 700;
-        font-size: 24px;
-        color: var(--dark-text-color);
-      }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
 
-      .section-header img {
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        padding: 4px;
-        border-radius: 6px;
-      }
+    .section-title {
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--dark-text-color);
+    }
 
-      .section-header img:hover {
-        background-color: #f0f0f0;
-      }
+    .section-header img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+    }
 
-      .rating-section {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        align-items: center;
-      }
+    .section-header img:hover {
+      background-color: #f0f0f0;
+    }
 
-      .overall-rating {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        align-items: center;
-        padding: 24px;
-        border-radius: 16px;
-        width: 100%;
-      }
+    .rating-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
 
-      .overall-rating .rating-value {
-        font-size: 64px;
-        color: var(--rating-color);
-        font-weight: 800;
-        line-height: 1;
-      }
+    .overall-rating {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      padding: 24px;
+      border-radius: 16px;
+      width: 100%;
+    }
 
-      .star-row {
-        display: flex;
-        gap: 8px;
-      }
+    .overall-rating .rating-value {
+      font-size: 64px;
+      color: var(--rating-color);
+      font-weight: 800;
+      line-height: 1;
+    }
 
-      .star-row img {
-        width: 24px;
-        height: 24px;
-      }
+    .star-row {
+      display: flex;
+      gap: 8px;
+    }
 
-      .rating-count {
-        font-size: 14px;
-        color: var(--dark-text-color);
-        font-weight: 600;
-        opacity: 0.7;
-        margin-top: 4px;
-      }
+    .star-row img {
+      width: 24px;
+      height: 24px;
+    }
 
-      .rating-bars {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        width: 100%;
-      }
+    .rating-count {
+      font-size: 14px;
+      color: var(--dark-text-color);
+      font-weight: 600;
+      opacity: 0.7;
+      margin-top: 4px;
+    }
 
-      .rating-bar-item {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        width: 100%;
-      }
+    .rating-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
 
-      .bar-track {
-        flex: 1;
-        height: 10px;
-        background: var(--bar-color);
-        border-radius: 999px;
-        overflow: hidden;
-      }
+    .rating-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+    }
 
-      .bar-fill {
-        height: 100%;
-        background: var(--main-color);
-        border-radius: 999px;
-      }
+    .bar-track {
+      flex: 1;
+      height: 10px;
+      background: var(--bar-color);
+      border-radius: 999px;
+      overflow: hidden;
+    }
 
-      .rating-bar-text {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        min-width: 90px;
-      }
+    .bar-fill {
+      height: 100%;
+      background: var(--main-color);
+      border-radius: 999px;
+    }
 
-      .rating-label {
-        font-weight: 700;
-        color: var(--dark-text-color);
-        font-size: 15px;
-      }
+    .rating-bar-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 90px;
+    }
 
-      .review-total {
-        color: var(--dark-text-color);
-        opacity: 0.6;
-        font-size: 13px;
-        font-weight: 500;
-      }
+    .rating-label {
+      font-weight: 700;
+      color: var(--dark-text-color);
+      font-size: 15px;
+    }
 
-      .reviews-section {
-        width: 100%;
-      }
+    .review-total {
+      color: var(--dark-text-color);
+      opacity: 0.6;
+      font-size: 13px;
+      font-weight: 500;
+    }
 
-      .reviews-section .reviews-title {
-        font-weight: 700;
-        font-size: 22px;
-        display: flex;
-        color: var(--dark-text-color);
-      }
+    .reviews-section {
+      width: 100%;
+    }
 
-      .rating-options {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 8px;
-      }
+    .reviews-section .reviews-title {
+      font-weight: 700;
+      font-size: 22px;
+      display: flex;
+      color: var(--dark-text-color);
+    }
 
-      .rating-option {
-        padding: 10px 18px;
-        border: var(--border);
-        align-items: center;
-        justify-content: center;
-        border-radius: 50px;
-        display: flex;
-        gap: 6px;
-        cursor: pointer;
-        background: #ffffff;
-      }
+    .rating-options {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
 
-      .rating-option:hover {
-        border: var(--border-hover);
-        background: #fff9f5;
-      }
+    .rating-option {
+      padding: 10px 18px;
+      border: var(--border);
+      align-items: center;
+      justify-content: center;
+      border-radius: 50px;
+      display: flex;
+      gap: 6px;
+      cursor: pointer;
+      background: #ffffff;
+    }
 
-      .rating-icon {
-        width: 16px;
-        height: 16px;
-      }
+    .rating-option:hover {
+      border: 2px solid #888;
+      background-color: #f5f5f5;
+    }
 
-      .reviews-cards {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0;
-        margin-top: 8px;
-      }
+    .rating-option.active {
+      background: #fff;
+      border: 2px solid #000;
+    }
 
-      .review-card {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        padding: 24px 0;
-        border-radius: 0;
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid #ececec;
-      }
+    .rating-icon {
+      width: 16px;
+      height: 16px;
+    }
 
-      .review-card:last-child {
-        border-bottom: none;
-      }
+    .reviews-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 8px;
+    }
 
-      .card-header {
-        display: flex;
-        gap: 14px;
-        align-items: center;
-      }
+    .review-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 24px 0;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #ececec;
+    }
 
-      .reviewer-avatar {
-        width: 44px;
-        height: 44px;
-        background: var(--main-color);
-        color: var(--light-text-color);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 20px;
-      }
+    .review-card:last-child {
+      border-bottom: none;
+    }
 
-      .reviewer-info {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
+    .card-header {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
 
-      .reviewer-name {
-        font-weight: 700;
-        font-size: 16px;
-        color: var(--dark-text-color);
-      }
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      background: var(--main-color);
+      color: var(--light-text-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+    }
 
-      .reviewer-stars {
-        display: flex;
-        gap: 4px;
-      }
+    .reviewer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-      .reviewer-stars img {
-        width: 16px;
-        height: 16px;
-      }
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--dark-text-color);
+    }
 
-      .review-text {
-        font-size: 15px;
-        line-height: 1.6;
-        color: #222;
-        margin-top: 4px;
-        font-weight: 500;
-      }
+    .reviewer-stars {
+      display: flex;
+      gap: 4px;
+    }
 
-      .ratings-reviews-layout .reviews-actions {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 20px;
-        padding-top: 24px;
-        border-top: 2px solid #f0f0f0;
-        align-items: center;
-      }
+    .reviewer-stars img {
+      width: 16px;
+      height: 16px;
+    }
 
-     .review-comment {
-  display: flex;
-  align-items: center;
-  background-color: var(--second-bg-color);
-  border-radius: 24px;
-  padding: 8px 16px;
-  gap: 8px;
-}
+    .review-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #222;
+      margin-top: 4px;
+      font-weight: 500;
+    }
 
-.review-input {
-  padding: 8px 0;
-  font-family: "inter", sans-serif;
-  transition: all 0.2s;
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  color: var(--dark-text-color);
-}
+    .ratings-reviews-layout .reviews-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      padding-top: 24px;
+      border-top: 2px solid #f0f0f0;
+      align-items: center;
+    }
 
-.review-input:focus {
-  outline: none;
-}
+    .review-comment {
+      display: flex;
+      align-items: center;
+      background-color: var(--second-bg-color);
+      border-radius: 24px;
+      padding: 8px 16px;
+      gap: 8px;
+    }
 
-.comment-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
+    .review-input {
+      padding: 8px 0;
+      font-family: "inter", sans-serif;
+      transition: all 0.2s;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      color: var(--dark-text-color);
+    }
 
-.action-divider {
-  border-left: 2px solid rgb(0 0 0);
-  opacity: 0.7;
-  height: 18px;
-}
+    .review-input:focus {
+      outline: none;
+    }
 
-.like-button,
-.dislike-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s ease;
-}
+    .comment-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
 
-.like-button:hover {
-  opacity: 0.7;
-}
+    .action-divider {
+      border-left: 2px solid rgb(0 0 0);
+      opacity: 0.7;
+      height: 18px;
+    }
 
-.dislike-button:hover {
-  opacity: 0.7;
-}
+    .like-button,
+    .dislike-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s ease;
+    }
 
-.like-icon,
-.dislike-icon {
-  width: 19px;
-  height: 19px;
-}
+    .like-button:hover {
+      opacity: 0.7;
+    }
 
-    </style>
-  </head>
-  <body>
-    <div id="reviewsPopup">
-      <div class="ratings-reviews-layout">
-        <div class="rating-wrapper">
-          <h3 class="section-title">Rating</h3>
-          <div class="rating-section">
-            <div class="overall-rating">
-              <span class="rating-value">5.0</span>
-              <div class="star-row">
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating-fill.svg" />
-                <img src="/website_materials/icon_rating.svg" />
-              </div>
-              <p class="rating-count">67 Ulasan</p>
+    .dislike-button:hover {
+      opacity: 0.7;
+    }
+
+    .like-icon,
+    .dislike-icon {
+      width: 19px;
+      height: 19px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="reviewsPopup">
+    <div class="ratings-reviews-layout">
+      <div class="rating-wrapper">
+        <h3 class="section-title">Rating</h3>
+        <div class="rating-section">
+          <div class="overall-rating">
+            <span class="rating-value">5.0</span>
+            <div class="star-row">
+              <img src="/website_materials/icon_rating-fill.svg" />
+              <img src="/website_materials/icon_rating-fill.svg" />
+              <img src="/website_materials/icon_rating-fill.svg" />
+              <img src="/website_materials/icon_rating-fill.svg" />
+              <img src="/website_materials/icon_rating.svg" />
             </div>
-
-            <div class="rating-bars">
-              <div class="rating-bar-item">
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 100%"></div>
-                </div>
-                <div class="rating-bar-text">
-                  <span class="rating-label">5.0</span>
-                  <span class="review-total">10 Ulasan</span>
-                </div>
-              </div>
-              <div class="rating-bar-item">
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 78%"></div>
-                </div>
-                <div class="rating-bar-text">
-                  <span class="rating-label">4.0</span>
-                  <span class="review-total">8 reviews</span>
-                </div>
-              </div>
-              <div class="rating-bar-item">
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 62%"></div>
-                </div>
-                <div class="rating-bar-text">
-                  <span class="rating-label">3.0</span>
-                  <span class="review-total">6 reviews</span>
-                </div>
-              </div>
-              <div class="rating-bar-item">
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 48%"></div>
-                </div>
-                <div class="rating-bar-text">
-                  <span class="rating-label">2.0</span>
-                  <span class="review-total">4 reviews</span>
-                </div>
-              </div>
-              <div class="rating-bar-item">
-                <div class="bar-track">
-                  <div class="bar-fill" style="width: 32%"></div>
-                </div>
-                <div class="rating-bar-text">
-                  <span class="rating-label">1.0</span>
-                  <span class="review-total">2 reviews</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="reviews-wrapper">
-          <div class="section-header">
-            <h3 class="reviews-title">Ulasan Terbaru</h3>
-            <img id="close-button" src="/website_materials/icon_back-x.svg" />
-          </div>
-          <div class="rating-options">
-            <div class="rating-option">
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-            </div>
-
-            <div class="rating-option">
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-            </div>
-
-            <div class="rating-option">
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-            </div>
-            <div class="rating-option">
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-            </div>
-            <div class="rating-option">
-              <img
-                src="/website_materials/icon_rating-fill.svg"
-                class="rating-icon"
-              />
-            </div>
+            <p class="rating-count">67 Ulasan</p>
           </div>
 
-          <section class="reviews-section">
-            <div class="reviews-cards">
-              <div class="review-card">
-                <div class="card-header">
-                  <div class="reviewer-avatar">O</div>
-                  <div class="reviewer-info">
-                    <div class="reviewer-name">Om Gatot</div>
-                    <div class="reviewer-stars">
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                    </div>
-                  </div>
-                </div>
-                <p class="review-text">
-                  for my business. She provided with Fola was a game-changer
-                  invaluable insights on securing Connecting corporate
-                  decision-makers in the industry. Highly even introduced me to
-                  key recommend her for anyone contracts and supply to navigate
-                  the FMCG procurement space! looking
-                </p>
+          <div class="rating-bars">
+            <div class="rating-bar-item">
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 100%"></div>
               </div>
-
-              <div class="review-card">
-                <div class="card-header">
-                  <div class="reviewer-avatar">O</div>
-                  <div class="reviewer-info">
-                    <div class="reviewer-name">Om Gatot</div>
-                    <div class="reviewer-stars">
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                    </div>
-                  </div>
-                </div>
-                <p class="review-text">
-                  for my business. She provided with Fola was a game-changer
-                  invaluable insights on securing Connecting corporate
-                  decision-makers in the industry. Highly even introduced me to
-                  key recommend her for anyone contracts and supply to navigate
-                  the FMCG procurement space! looking
-                </p>
-              </div>
-
-              <div class="review-card">
-                <div class="card-header">
-                  <div class="reviewer-avatar">O</div>
-                  <div class="reviewer-info">
-                    <div class="reviewer-name">Om Gatot</div>
-                    <div class="reviewer-stars">
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                      <img src="/website_materials/icon_rating-fill.svg" />
-                    </div>
-                  </div>
-                </div>
-                <p class="review-text">
-                  for my business. She provided with Fola was a game-changer
-                  invaluable insights on securing Connecting corporate
-                  decision-makers in the industry. Highly even introduced me to
-                  key recommend her for anyone contracts and supply to navigate
-                  the FMCG procurement space! looking
-                </p>
+              <div class="rating-bar-text">
+                <span class="rating-label">5.0</span>
+                <span class="review-total">10 Ulasan</span>
               </div>
             </div>
-          </section>
-
-          <div class="reviews-actions">
-            <div class="button-empty"></div>
-            <div class="review-comment">
-              <input
-                type="text"
-                class="review-input"
-                placeholder="Tambahkan Ulasan"
-              />
-              <div class="comment-actions">
-                <button id="likeButton" class="like-button">
-                  <img
-                    src="/website_materials/icon_like.svg"
-                    class="like-icon"
-                    id="likeImage"
-                  />
-                </button>
-                <div class="action-divider"></div>
-                <button id="dislikeButton" class="dislike-button">
-                  <img
-                    src="/website_materials/icon_dislike.svg"
-                    class="dislike-icon"
-                    id="dislikeImage"
-                  />
-                </button>
+            <div class="rating-bar-item">
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 78%"></div>
+              </div>
+              <div class="rating-bar-text">
+                <span class="rating-label">4.0</span>
+                <span class="review-total">8 reviews</span>
+              </div>
+            </div>
+            <div class="rating-bar-item">
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 62%"></div>
+              </div>
+              <div class="rating-bar-text">
+                <span class="rating-label">3.0</span>
+                <span class="review-total">6 reviews</span>
+              </div>
+            </div>
+            <div class="rating-bar-item">
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 48%"></div>
+              </div>
+              <div class="rating-bar-text">
+                <span class="rating-label">2.0</span>
+                <span class="review-total">4 reviews</span>
+              </div>
+            </div>
+            <div class="rating-bar-item">
+              <div class="bar-track">
+                <div class="bar-fill" style="width: 32%"></div>
+              </div>
+              <div class="rating-bar-text">
+                <span class="rating-label">1.0</span>
+                <span class="review-total">2 reviews</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="reviews-wrapper">
+        <div class="section-header">
+          <h3 class="reviews-title">Ulasan Terbaru</h3>
+          <img id="close-button" src="/website_materials/icon_back-x.svg" />
+        </div>
+        <div class="rating-options">
+          <div class="rating-option">
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+          </div>
+
+          <div class="rating-option">
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+          </div>
+
+          <div class="rating-option">
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+          </div>
+          <div class="rating-option">
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+          </div>
+          <div class="rating-option">
+            <img src="/website_materials/icon_rating-fill.svg" class="rating-icon" />
+          </div>
+        </div>
+
+        <section class="reviews-section">
+          <div class="reviews-cards">
+            <div class="review-card">
+              <div class="card-header">
+                <div class="reviewer-avatar">O</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Om Gatot</div>
+                  <div class="reviewer-stars">
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                for my business. She provided with Fola was a game-changer
+                invaluable insights on securing Connecting corporate
+                decision-makers in the industry. Highly even introduced me to
+                key recommend her for anyone contracts and supply to navigate
+                the FMCG procurement space! looking
+              </p>
+            </div>
+
+            <div class="review-card">
+              <div class="card-header">
+                <div class="reviewer-avatar">O</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Om Gatot</div>
+                  <div class="reviewer-stars">
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                for my business. She provided with Fola was a game-changer
+                invaluable insights on securing Connecting corporate
+                decision-makers in the industry. Highly even introduced me to
+                key recommend her for anyone contracts and supply to navigate
+                the FMCG procurement space! looking
+              </p>
+            </div>
+
+            <div class="review-card">
+              <div class="card-header">
+                <div class="reviewer-avatar">O</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Om Gatot</div>
+                  <div class="reviewer-stars">
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                    <img src="/website_materials/icon_rating-fill.svg" />
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                for my business. She provided with Fola was a game-changer
+                invaluable insights on securing Connecting corporate
+                decision-makers in the industry. Highly even introduced me to
+                key recommend her for anyone contracts and supply to navigate
+                the FMCG procurement space! looking
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="reviews-actions">
+          <div class="button-empty"></div>
+          <div class="review-comment">
+            <input type="text" class="review-input" placeholder="Tambahkan Ulasan" />
+            <div class="comment-actions">
+              <button id="likeButton" class="like-button">
+                <img src="/website_materials/icon_like.svg" class="like-icon" id="likeImage" />
+              </button>
+              <div class="action-divider"></div>
+              <button id="dislikeButton" class="dislike-button">
+                <img src="/website_materials/icon_dislike.svg" class="dislike-icon" id="dislikeImage" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

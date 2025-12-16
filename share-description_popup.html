@@ -1,220 +1,375 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pop up test</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pop up test</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-      body {
-        font-family: "inter", sans-serif;
-        color: #000000;
-      }
+    /* ==================== SHARE POPUP STYLES ==================== */
+    #sharePopup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
 
-      #sharePopup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: none;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 9999;
-      }
+    #sharePopup.active {
+      display: flex;
+    }
 
-      #sharePopup.active {
-        display: flex;
-      }
+    .share-modal {
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+      width: 500px;
+      padding: 0;
+      position: relative;
+      z-index: 9999;
+    }
 
-      .share-modal {
-        background-color: #ffffff;
-        border-radius: 20px;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
-        width: 500px;
-        padding: 0;
-        position: relative;
-        z-index: 9999;
-      }
+    .share-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 28px 0 28px;
+    }
 
-      .share-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 28px 28px 0 28px;
-      }
+    .share-title {
+      font-size: 24px;
+      font-weight: 700;
+      padding-left: 90px;
+    }
 
-      .share-title {
-        font-size: 24px;
-        font-weight: 700;
-        padding-left: 90px;
-      }
+    .close-button {
+      cursor: pointer;
+      padding: 0;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+    }
 
-      .close-button {
-        cursor: pointer;
-        padding: 0;
-        background: none;
-        border: none;
-        display: flex;
-        align-items: center;
-      }
+    .close-button img {
+      width: 24px;
+      height: 24px;
+    }
 
-      .close-button img {
-        width: 24px;
-        height: 24px;
-      }
+    .share-resort {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0 24px 28px;
+    }
 
-      .share-resort {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin: 28px 0 24px 28px;
-      }
+    .resort-pict {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .resort-pict {
-        width: 56px;
-        height: 56px;
-        border-radius: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    .resort-pict img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
 
-      .resort-pict img {
-        width: 56px;
-        height: 56px;
-        object-fit: cover;
-        border-radius: 12px;
-      }
+    .resort-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-      .resort-text {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
+    .resort-name {
+      font-weight: 600;
+      color: #000;
+      font-size: 16px;
+    }
 
-      .resort-name {
-        font-weight: 600;
-        color: #000;
-        font-size: 16px;
-      }
+    .resort-detail {
+      color: #000;
+      font-size: 14px;
+      display: flex;
+      gap: 6px;
+    }
 
-      .resort-detail {
-        color: #000;
-        font-size: 14px;
-        display: flex;
-        gap: 6px;
-      }
+    .resort-rating {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      gap: 4px;
+    }
 
-      .resort-rating {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        gap: 4px;
-      }
+    .resort-rating img {
+      width: 14px;
+    }
 
-      .resort-rating img {
-        width: 14px;
-      }
+    .share-divider {
+      margin: 0 28px;
+      border: none;
+      border-top: 1px solid #e0e0e0;
+    }
 
-      .share-divider {
-        margin: 0 28px;
-        border: none;
-        border-top: 1px solid #e0e0e0;
-      }
+    .share-features {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 28px;
+    }
 
-      .share-features {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        padding: 28px;
-      }
+    .share-friend-button {
+      background-color: #8d330c;
+      border: none;
+      padding: 12px;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      width: 100%;
+      font-family: "inter", sans-serif;
+      transition: background-color 0.2s;
+    }
 
-      .share-friend-button {
-        background-color: #8d330c;
-        border: none;
-        padding: 12px;
-        color: #fff;
-        cursor: pointer;
-        border-radius: 10px;
-        font-size: 16px;
-        font-weight: 500;
-        width: 100%;
-        font-family: "inter", sans-serif;
-      }
+    .share-friend-button:hover {
+      background-color: #7c2e0c;
+    }
 
-      .share-friend-button:hover {
-        background-color: #7c2e0c;
-      }
+    .copy-link-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      font-weight: 500;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      width: 100%;
+      font-family: "inter", sans-serif;
+      background-color: #ffffff;
+      transition: all 0.2s;
+    }
 
-      .copy-link-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 12px;
-        font-weight: 500;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 10px;
-        border: 1px solid #e0e0e0;
-        width: 100%;
-        font-family: "inter", sans-serif;
-      }
+    .copy-link-button img {
+      width: 14px;
+      height: 14px;
+    }
 
-      .copy-link-button img {
-        width: 14px;
-        height: 14px;
-      }
+    .copy-link-button:hover {
+      background-color: #f6f6f6;
+    }
 
-      .copy-link-button:hover {
-        background-color: #f6f6f6;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="sharePopup">
-      <div class="share-modal">
-        <div class="share-header">
-          <div class="share-title"><h3>Sekar Jogja Heritage</h3></div>
-          <button class="close-button">
-            <img src="/website_materials/icon_back-x.svg" />
-          </button>
+    /* Style ketika link sudah tersalin */
+    .copy-link-button.copied {
+      background-color: #e8f5e9;
+      border-color: #e8f5e9;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Share Popup Component -->
+  <div id="sharePopup">
+    <div class="share-modal">
+      <div class="share-header">
+        <div class="share-title">
+          <h3>Sekar Jogja Heritage</h3>
         </div>
-        <div class="share-resort">
-          <div class="resort-pict">
-            <img src="/website_materials/resort-pict/gambar_hero.svg" />
-          </div>
-          <div class="resort-text">
-            <div class="resort-name">Hotel di Nusa Penida</div>
-            <div class="resort-detail">
-              <div class="resort-rating">
-                <img src="/website_materials/icon_rating-fill.svg" />4.81
-              </div>
-              · 1 bedroom · 1 private bath
+        <button class="close-button" id="closeSharePopup">
+          <img src="/website_materials/icon_back-x.svg" />
+        </button>
+      </div>
+      <div class="share-resort">
+        <div class="resort-pict">
+          <img src="/website_materials/resort-pict/gambar_hero.svg" />
+        </div>
+        <div class="resort-text">
+          <div class="resort-name">Hotel di Nusa Penida</div>
+          <div class="resort-detail">
+            <div class="resort-rating">
+              <img src="/website_materials/icon_rating-fill.svg" />4.81
             </div>
-          </div>
-        </div>
-        <hr class="share-divider" />
-        <div class="share-actions">
-          <div class="share-features">
-            <button class="share-friend-button">Bagikan ke Temanmu!</button>
-            <button class="copy-link-button">
-              <img src="/website_materials/icon_copy-link.svg" />Salin Link
-            </button>
+            · 1 bedroom · 1 private bath
           </div>
         </div>
       </div>
+      <hr class="share-divider" />
+      <div class="share-actions">
+        <div class="share-features">
+          <button class="share-friend-button" id="shareFriendBtn">Bagikan ke Temanmu!</button>
+          <button class="copy-link-button" id="copyLinkBtn">
+            <img src="/website_materials/icon_copy-link.svg" /><span id="copyLinkText">Salin Link</span>
+          </button>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+  <script>// ==================== SHARE POPUP FUNCTIONALITY ====================
+
+    // Function to load share popup HTML
+    function loadSharePopup() {
+      return fetch('share_popup.html')
+        .then(response => response.text())
+        .then(html => {
+          // Create container for popup
+          const popupContainer = document.createElement('div');
+          popupContainer.id = 'sharePopupContainer';
+          popupContainer.innerHTML = html;
+          document.body.appendChild(popupContainer);
+
+          // Initialize popup after loading
+          initSharePopup();
+        })
+        .catch(error => {
+          console.error('Error loading share popup:', error);
+        });
+    }
+
+    // Initialize share popup functionality
+    function initSharePopup() {
+      const sharePopup = document.getElementById("sharePopup");
+      const closeSharePopup = document.getElementById("closeSharePopup");
+      const shareFriendBtn = document.getElementById("shareFriendBtn");
+      const copyLinkBtn = document.getElementById("copyLinkBtn");
+      const copyLinkText = document.getElementById("copyLinkText");
+
+      // Close popup with X button
+      if (closeSharePopup) {
+        closeSharePopup.addEventListener("click", function () {
+          closeSharePopupModal();
+        });
+      }
+
+      // Close popup when clicking outside modal
+      if (sharePopup) {
+        sharePopup.addEventListener("click", function (e) {
+          if (e.target === sharePopup) {
+            closeSharePopupModal();
+          }
+        });
+      }
+
+      // Share to friend button - close popup immediately
+      if (shareFriendBtn) {
+        shareFriendBtn.addEventListener("click", function () {
+          closeSharePopupModal();
+        });
+      }
+
+      // Copy link button - change text to "Link tersalin!"
+      if (copyLinkBtn) {
+        copyLinkBtn.addEventListener("click", function () {
+          navigator.clipboard.writeText(window.location.href).then(function () {
+            // Change text to "Link tersalin!"
+            copyLinkText.textContent = "Link tersalin!";
+            copyLinkBtn.classList.add("copied");
+
+            // Reset after 2 seconds
+            setTimeout(function () {
+              copyLinkText.textContent = "Salin Link";
+              copyLinkBtn.classList.remove("copied");
+            }, 2000);
+          }).catch(function (err) {
+            console.error('Failed to copy: ', err);
+            // Fallback for older browsers
+            fallbackCopyTextToClipboard(window.location.href);
+          });
+        });
+      }
+
+      // Close popup with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && sharePopup && sharePopup.classList.contains("active")) {
+          closeSharePopupModal();
+        }
+      });
+    }
+
+    // Function to open share popup
+    function openSharePopup() {
+      const sharePopup = document.getElementById("sharePopup");
+      const copyLinkText = document.getElementById("copyLinkText");
+      const copyLinkBtn = document.getElementById("copyLinkBtn");
+
+      if (sharePopup) {
+        sharePopup.classList.add("active");
+        // Prevent background page from scrolling while popup is open
+        document.body.style.overflow = "hidden";
+        // Reset copy button text when opening
+        if (copyLinkText) {
+          copyLinkText.textContent = "Salin Link";
+        }
+        if (copyLinkBtn) {
+          copyLinkBtn.classList.remove("copied");
+        }
+      }
+    }
+
+    // Function to close share popup
+    function closeSharePopupModal() {
+      const sharePopup = document.getElementById("sharePopup");
+      if (sharePopup) {
+        sharePopup.classList.remove("active");
+        // Restore page scroll
+        document.body.style.overflow = "";
+      }
+    }
+
+    // Fallback function for clipboard copy (older browsers)
+    function fallbackCopyTextToClipboard(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          const copyLinkText = document.getElementById("copyLinkText");
+          const copyLinkBtn = document.getElementById("copyLinkBtn");
+          if (copyLinkText) {
+            copyLinkText.textContent = "Link tersalin!";
+          }
+          if (copyLinkBtn) {
+            copyLinkBtn.classList.add("copied");
+            setTimeout(function () {
+              copyLinkText.textContent = "Salin Link";
+              copyLinkBtn.classList.remove("copied");
+            }, 2000);
+          }
+        }
+      } catch (err) {
+        console.error('Fallback: Could not copy text: ', err);
+      }
+
+      document.body.removeChild(textArea);
+    }
+
+    // Auto-load popup when DOM is ready (optional - can be called manually)
+    document.addEventListener("DOMContentLoaded", function () {
+      loadSharePopup();
+    });</script>
+</body>
+
 </html>

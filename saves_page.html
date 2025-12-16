@@ -1,301 +1,265 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saves Page</title>
-    <link rel="stylesheet" href="saves_page.css" />
-    <link rel="icon" href="website_materials/logo_temansinggah.svg" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-    </style>
-  </head>
-  <body>
-    <nav>
-      <div class="logo">
-        <img class="logo-icon" src="/website_materials/logo_temansinggah.svg" />
-        <img class="logo-name" src="website_materials/label_temansinggah.svg" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saves Page</title>
+  <link rel="stylesheet" href="saves_page.css" />
+  <link rel="icon" href="website_materials/logo_temansinggah.svg" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <img class="logo-icon" src="/website_materials/logo_temansinggah.svg" />
+      <img class="logo-name" src="website_materials/label_temansinggah.svg" />
+    </div>
+
+    <ul>
+      <li><a href="home_page.html">Beranda</a></li>
+      <li><a href="about_page.html">Tentang Kami</a></li>
+      <li><a href="favorite_page.html">Favorit</a></li>
+      <li>
+        <span>
+          <img src="website_materials/icon_globe.svg" />
+          | IDR
+        </span>
+      </li>
+      <li>
+        <a href="profile_page.html"><img src="website_materials/icon_user.svg" alt="Logo Akun" /></a>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="saves-page">
+    <div class="saves-header">
+      <div class="back-button">
+        <h2>&lt;</h2>
       </div>
-
-      <ul>
-        <li><a href="home_page.html">Beranda</a></li>
-        <li><a href="about_page.html">Tentang Kami</a></li>
-        <li><a href="favorite_page.html">Favorit</a></li>
-        <li>
-          <span>
-            <img src="website_materials/icon_globe.svg" />
-            | IDR
-          </span>
-        </li>
-        <li>
-          <a href="profile_page.html"
-            ><img src="website_materials/icon_user.svg" alt="Logo Akun"
-          /></a>
-        </li>
-      </ul>
-    </nav>
-
-    <section class="saves-page">
-      <div class="saves-header">
-        <div class="back-button"><h2>&lt;</h2></div>
-        <div class="header-section">
-          <div class="header-title"><h2>Villa di Bali</h2></div>
-          <button class="edit-button">
-            <img src="/website_materials/icon_edit.svg" class="edit-icon" />Edit
-          </button>
-        </div>
-        <button id="share-button" class="share-button">
-          <div class="account-icon">O</div>
-          <h1>+</h1>
-        </button>
-      </div>
-
-      <section class="saves-list">
-        <div class="card-list">
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/sekar_jogja_heritage-1.svg">
-              <button class="save-on-button">
-                <img src="/website_materials/icon_save-on.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <div class="card-title">
-                <h3>Hotel Sanjaya</h3>
-              </div>
-              <div class="card-address">Jl. Sumatra, Jakarta</div>
-              <div class="card-info">
-                <p>1 Kamar</p>
-                <h3>&#xB7;</h3>
-                <div class="card-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </div>
-              </div>
-            </div>
-
-            <div class="card-comment">
-              <input
-                type="text"
-                class="comment-input"
-                placeholder="Tambahkan Pesan"
-              />
-              <div class="comment-actions">
-                <button class="like-button">
-                  <img
-                    src="/website_materials/icon_like.svg"
-                    class="like-icon"
-                  />
-                </button>
-                <div class="action-divider"></div>
-                <button class="dislike-button">
-                  <img
-                    src="/website_materials/icon_dislike.svg"
-                    class="dislike-icon"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/sekar_jogja_heritage-1.svg" />
-              <button class="save-on-button">
-                <img src="/website_materials/icon_save-on.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <div class="card-title">
-                <h3>Hotel Sanjaya</h3>
-              </div>
-              <div class="card-address">Jl. Sumatra, Jakarta</div>
-              <div class="card-info">
-                <p>1 Kamar</p>
-                <h3>&#xB7;</h3>
-                <div class="card-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </div>
-              </div>
-            </div>
-
-            <div class="card-comment">
-              <input
-                type="text"
-                class="comment-input"
-                placeholder="Tambahkan Pesan"
-              />
-              <div class="comment-actions">
-                <button class="like-button">
-                  <img
-                    src="/website_materials/icon_like.svg"
-                    class="like-icon"
-                  />
-                </button>
-                <div class="action-divider"></div>
-                <button class="dislike-button">
-                  <img
-                    src="/website_materials/icon_dislike.svg"
-                    class="dislike-icon"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/bungalow_room.avif" />
-              <button class="save-on-button">
-                <img src="/website_materials/icon_save-on.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <div class="card-title">
-                <h3>Hotel Sanjaya</h3>
-              </div>
-              <div class="card-address">Jl. Sumatra, Jakarta</div>
-              <div class="card-info">
-                <p>1 Kamar</p>
-                <h3>&#xB7;</h3>
-                <div class="card-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </div>
-              </div>
-            </div>
-
-            <div class="card-comment">
-              <input
-                type="text"
-                class="comment-input"
-                placeholder="Tambahkan Pesan"
-              />
-              <div class="comment-actions">
-                <button class="like-button">
-                  <img
-                    src="/website_materials/icon_like.svg"
-                    class="like-icon"
-                  />
-                </button>
-                <div class="action-divider"></div>
-                <button class="dislike-button">
-                  <img
-                    src="/website_materials/icon_dislike.svg"
-                    class="dislike-icon"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-list">
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/rice_field_view_room.avif" />
-              <button class="save-on-button">
-                <img src="/website_materials/icon_save-on.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <div class="card-title">
-                <h3>Hotel Sanjaya</h3>
-              </div>
-              <div class="card-address">Jl. Sumatra, Jakarta</div>
-              <div class="card-info">
-                <p>1 Kamar</p>
-                <h3>&#xB7;</h3>
-                <div class="card-rating">
-                  <img src="/website_materials/icon_rating.svg" />4.9
-                </div>
-              </div>
-            </div>
-
-            <div class="card-comment">
-              <input
-                type="text"
-                class="comment-input"
-                placeholder="Tambahkan Pesan"
-              />
-              <div class="comment-actions">
-                <button class="like-button">
-                  <img
-                    src="/website_materials/icon_like.svg"
-                    class="like-icon"
-                  />
-                </button>
-                <div class="action-divider"></div>
-                <button class="dislike-button">
-                  <img
-                    src="/website_materials/icon_dislike.svg"
-                    class="dislike-icon"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Navigasi</h3>
-          <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Pencarian</a></li>
-            <li><a href="#">Favorit</a></li>
-            <li><a href="#">Daftar Booking</a></li>
-            <li><a href="#">Akun</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Dukungan</h3>
-          <ul>
-            <li><a href="#">Pusat Bantuan</a></li>
-            <li><a href="#">Kontak</a></li>
-            <li><a href="#">Media Sosial</a></li>
-          </ul>
+      <div class="header-section">
+        <div class="header-title">
+          <h2>Villa di Bali</h2>
         </div>
       </div>
+      <button id="share-button" class="share-button">
+        <div class="account-icon">O</div>
+        <h1>+</h1>
+      </button>
+    </div>
 
-      <hr />
-
-      <div class="footer-bawah">
-        <p>© 2025 Teman Singgah — All rights reserved.</p>
-        <p><a href="#">Kebijakan Privasi</a> • <a href="#">S&K</a></p>
-      </div>
-    </footer>
-
-    <div id="sharePopup">
-      <div class="share-modal">
-        <div class="share-header">
-          <div class="share-title"><h3>Sekar Jogja Heritage</h3></div>
-          <button class="close-button">
-            <img src="/website_materials/icon_back.svg" />
-          </button>
-        </div>
-        <div class="share-profile">
-          <div class="profile-avatar">O</div>
-          <div class="profile-text">
-            <div class="profile-name">Om Gatot</div>
-            <div class="profile-role">Pemilik</div>
-          </div>
-        </div>
-        <hr class="share-divider" />
-        <div class="share-actions">
-          <div class="share-features">
-            <button class="share-friend-button">Bagikan ke Temanmu!</button>
-            <button class="copy-link-button">
-              <img src="/website_materials/icon_copy-link.svg" />Salin Link
+    <section class="saves-list">
+      <div class="card-list">
+        <div class="card">
+          <div class="card-pict">
+            <img src="/website_materials/resort-pict/sekar_jogja_heritage-1.svg">
+            <button class="save-on-button">
+              <img src="/website_materials/icon_save-on.svg" />
             </button>
           </div>
+          <div class="card-text">
+            <div class="card-title">
+              <h3>Hotel Sanjaya</h3>
+            </div>
+            <div class="card-address">Jl. Sumatra, Jakarta</div>
+            <div class="card-info">
+              <p>1 Kamar</p>
+              <h3>&#xB7;</h3>
+              <div class="card-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.9
+              </div>
+            </div>
+          </div>
+
+          <div class="card-comment">
+            <input type="text" class="comment-input" placeholder="Tambahkan Pesan" />
+            <div class="comment-actions">
+              <button class="like-button">
+                <img src="/website_materials/icon_like.svg" class="like-icon" />
+              </button>
+              <div class="action-divider"></div>
+              <button class="dislike-button">
+                <img src="/website_materials/icon_dislike.svg" class="dislike-icon" />
+              </button>
+            </div>
+          </div>
         </div>
+
+        <div class="card">
+          <div class="card-pict">
+            <img src="/website_materials/resort-pict/sekar_jogja_heritage-1.svg" />
+            <button class="save-on-button">
+              <img src="/website_materials/icon_save-on.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <div class="card-title">
+              <h3>Hotel Sanjaya</h3>
+            </div>
+            <div class="card-address">Jl. Sumatra, Jakarta</div>
+            <div class="card-info">
+              <p>1 Kamar</p>
+              <h3>&#xB7;</h3>
+              <div class="card-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.9
+              </div>
+            </div>
+          </div>
+
+          <div class="card-comment">
+            <input type="text" class="comment-input" placeholder="Tambahkan Pesan" />
+            <div class="comment-actions">
+              <button class="like-button">
+                <img src="/website_materials/icon_like.svg" class="like-icon" />
+              </button>
+              <div class="action-divider"></div>
+              <button class="dislike-button">
+                <img src="/website_materials/icon_dislike.svg" class="dislike-icon" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-pict">
+            <img src="/website_materials/resort-pict/bungalow_room.avif" />
+            <button class="save-on-button">
+              <img src="/website_materials/icon_save-on.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <div class="card-title">
+              <h3>Hotel Sanjaya</h3>
+            </div>
+            <div class="card-address">Jl. Sumatra, Jakarta</div>
+            <div class="card-info">
+              <p>1 Kamar</p>
+              <h3>&#xB7;</h3>
+              <div class="card-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.9
+              </div>
+            </div>
+          </div>
+
+          <div class="card-comment">
+            <input type="text" class="comment-input" placeholder="Tambahkan Pesan" />
+            <div class="comment-actions">
+              <button class="like-button">
+                <img src="/website_materials/icon_like.svg" class="like-icon" />
+              </button>
+              <div class="action-divider"></div>
+              <button class="dislike-button">
+                <img src="/website_materials/icon_dislike.svg" class="dislike-icon" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-list">
+        <div class="card">
+          <div class="card-pict">
+            <img src="/website_materials/resort-pict/rice_field_view_room.avif" />
+            <button class="save-on-button">
+              <img src="/website_materials/icon_save-on.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <div class="card-title">
+              <h3>Hotel Sanjaya</h3>
+            </div>
+            <div class="card-address">Jl. Sumatra, Jakarta</div>
+            <div class="card-info">
+              <p>1 Kamar</p>
+              <h3>&#xB7;</h3>
+              <div class="card-rating">
+                <img src="/website_materials/icon_rating.svg" />4.9
+              </div>
+            </div>
+          </div>
+
+          <div class="card-comment">
+            <input type="text" class="comment-input" placeholder="Tambahkan Pesan" />
+            <div class="comment-actions">
+              <button class="like-button">
+                <img src="/website_materials/icon_like.svg" class="like-icon" />
+              </button>
+              <div class="action-divider"></div>
+              <button class="dislike-button">
+                <img src="/website_materials/icon_dislike.svg" class="dislike-icon" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Navigasi</h3>
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#">Pencarian</a></li>
+          <li><a href="#">Favorit</a></li>
+          <li><a href="#">Daftar Booking</a></li>
+          <li><a href="#">Akun</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Dukungan</h3>
+        <ul>
+          <li><a href="#">Pusat Bantuan</a></li>
+          <li><a href="#">Kontak</a></li>
+          <li><a href="#">Media Sosial</a></li>
+        </ul>
       </div>
     </div>
 
-    <script src="saves_page.js"></script>
-  </body>
+    <hr />
+
+    <div class="footer-bawah">
+      <p>© 2025 Teman Singgah — All rights reserved.</p>
+      <p><a href="#">Kebijakan Privasi</a> • <a href="#">S&K</a></p>
+    </div>
+  </footer>
+
+  <div id="sharePopup">
+    <div class="share-modal">
+      <div class="share-header">
+        <div class="share-title">
+          <h3>Sekar Jogja Heritage</h3>
+        </div>
+        <button class="close-button">
+          <img src="/website_materials/icon_back-x.svg" />
+        </button>
+      </div>
+      <div class="share-profile">
+        <div class="profile-avatar">O</div>
+        <div class="profile-text">
+          <div class="profile-name">Om Gatot</div>
+          <div class="profile-role">Pemilik</div>
+        </div>
+      </div>
+      <hr class="share-divider" />
+      <div class="share-actions">
+        <div class="share-features">
+          <button class="share-friend-button">Bagikan ke Temanmu!</button>
+          <button class="copy-link-button">
+            <img src="/website_materials/icon_copy-link.svg" />Salin Link
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="saves_page.js"></script>
+</body>
+
 </html>

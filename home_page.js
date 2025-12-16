@@ -1,13 +1,20 @@
+function scrollToSearch() {
+  const searchBar = document.querySelector(".search-bar");
+  searchBar.scrollIntoView({ behavior: "smooth" });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const searchBarContent = document.querySelector(".search-bar-content");
   const location = document.querySelector(".search-bar-loc");
   const dateBtn = document.querySelector(".search-bar-date");
   const guest = document.querySelector(".guest-container");
   const searchBarSection = document.querySelector(".search-bar");
+  const filterButton = document.getElementById("filter-button");
 
   let calendarPopup = null;
   let guestPopup = null;
   let searchPopup = null;
+  let filterPopup = null;
 
   // Function untuk set active
   function setActive(element, type) {
@@ -17,7 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     guest.classList.remove("active");
 
     // Remove semua type class
-    searchBarContent.classList.remove("date-active", "guest-active", "location-active");
+    searchBarContent.classList.remove(
+      "date-active",
+      "guest-active",
+      "location-active"
+    );
 
     // Add active ke element yang diklik
     element.classList.add("active");
@@ -49,6 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function closeSearchPopup() {
     if (searchPopup) {
       searchPopup.classList.remove("active");
+    }
+  }
+
+  function closeFilterPopup() {
+    if (filterPopup) {
+      filterPopup.classList.remove("active");
+      document.body.style.overflow = ""; // Enable scroll
     }
   }
 
@@ -109,6 +127,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Event listener untuk filter button
+  if (filterButton) {
+    filterButton.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (filterPopup) {
+        const isActive = filterPopup.classList.contains("active");
+        if (isActive) {
+          closeFilterPopup();
+        } else {
+          filterPopup.classList.add("active");
+          document.body.style.overflow = "hidden"; // Disable scroll when popup open
+        }
+      }
+    });
+  }
+
   // Close active state dan popup ketika klik di luar
   document.addEventListener("click", function (e) {
     if (!searchBarContent.contains(e.target)) {
@@ -124,6 +158,11 @@ document.addEventListener("DOMContentLoaded", function () {
       closeCalendarPopup();
       closeGuestPopup();
       closeSearchPopup();
+    }
+
+    // Close filter popup jika klik di luar filter section
+    if (filterPopup && e.target === filterPopup) {
+      closeFilterPopup();
     }
   });
 
@@ -237,6 +276,44 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => {
       console.error("Error loading search popup:", error);
+    });
+
+  // Load filter popup
+  fetch("filter_popup.html")
+    .then((res) => res.text())
+    .then((html) => {
+      // Buat container untuk filter popup di body
+      const filterPopupContainer = document.createElement("div");
+      filterPopupContainer.innerHTML = html;
+      document.body.appendChild(filterPopupContainer);
+
+      // Set reference ke popup element
+      filterPopup = document.getElementById("filterPopup");
+
+      // Load filter script setelah HTML dimuat
+      const script = document.createElement("script");
+      script.src = "filter_popup.js";
+      document.body.appendChild(script);
+
+      if (filterPopup) {
+        filterPopup.addEventListener("click", function (e) {
+          // Close popup jika klik pada overlay (background)
+          if (e.target === filterPopup) {
+            closeFilterPopup();
+          }
+        });
+
+        // Prevent close saat klik di dalam filter section
+        const filterSection = filterPopup.querySelector(".filter-section");
+        if (filterSection) {
+          filterSection.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Error loading filter popup:", error);
     });
 
   // Save buttons

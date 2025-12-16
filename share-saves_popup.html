@@ -18,150 +18,181 @@
         color: #000000;
       }
 
-      .share-modal {
-        display: inline-block;
-        background-color: #ffffff;
-        border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        min-width: 350px;
-        padding: 0;
-        z-index: 9999;
-        position: relative;
-        margin: 40px auto;
-      }
+      
+#sharePopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
 
-      .share-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 10px 0 20px;
-      }
+#sharePopup.active {
+  display: flex;
+}
 
-      .share-title {
-        margin-left: 58px;
-        font-size: 16px;
-        font-weight: 600;
-      }
+.share-modal {
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  width: 500px;
+  padding: 0;
+  z-index: 9999;
+  position: relative;
+}
 
-      .close-button {
-        cursor: pointer;
-        padding: 0;
-        width: 23px;
-        height: 23px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        background-color: transparent;
-      }
+.share-modal .share-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 28px 0 28px;
+}
 
-      .share-profile {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin: 20px 0 15px 20px;
-      }
+.share-modal .share-title {
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 90px;
+}
 
-      .profile-avatar {
-        color: #fff;
-        background-color: #8d330c;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        font-weight: 600;
-        font-size: 20px;
-      }
+.share-modal .close-button {
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+}
 
-      .profile-text {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-        font-size: 13px;
-      }
+.share-modal .close-button img {
+  width: 24px;
+  height: 24px;
+}
 
-      .profile-name {
-        font-weight: 600;
-        color: #000;
-      }
+.share-modal .share-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0 24px 28px;
+}
 
-      .profile-role {
-        color: #000;
-        opacity: 0.6;
-        font-size: 12px;
-      }
+.share-modal .profile-avatar {
+  color: #fff;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-weight: 600;
+  font-size: 32px;
+}
 
-      .share-divider {
-        margin: 0 20px;
-        border: none;
-        border-top: 1px solid #e0e0e0;
-      }
+.share-modal .profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-      .share-features {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        padding: 20px;
-      }
+.share-modal .profile-name {
+  font-weight: 600;
+  color: #000;
+  font-size: 16px;
+}
 
-      .share-button {
-        background-color: #8d330c;
-        border: none;
-        padding: 10px 40px;
-        color: #fff;
-        cursor: pointer;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 500;
-        width: 100%;
-      }
+.share-modal .profile-role {
+  color: #666;
+  font-size: 14px;
+}
 
-      .copy-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 10px 20px;
-        font-weight: 500;
-        font-size: 13px;
-        cursor: pointer;
-        border-radius: 8px;
-        border: 1px solid #e0e0e0;
-        width: 100%;
-      }
+.share-modal .share-divider {
+  margin: 0 28px;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+}
 
-      .copy-link img {
-        width: 14px;
-        height: 14px;
-      }
+.share-modal .share-features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 28px;
+}
+
+.share-modal .share-friend-button {
+  background-color: #8d330c;
+  border: none;
+  padding: 12px;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  font-family: "inter", sans-serif;
+}
+
+.share-modal .share-friend-button:hover {
+  background-color: #7c2e0c;
+}
+
+.share-modal .copy-link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  font-family: "inter", sans-serif;
+}
+
+.share-modal .copy-link-button img {
+  width: 14px;
+  height: 14px;
+}
+
+.share-modal .copy-link-button:hover {
+  background-color: #f6f6f6;
+}
     </style>
   </head>
   <body>
-    <div class="share-modal">
-      <div class="share-header">
-        <div class="share-title"><h3>Sekar Jogja Heritage</h3></div>
-        <button class="close-button">
-          <img src="/website_materials/icon_back.svg" />
-        </button>
-      </div>
-      <div class="share-profile">
-        <div class="profile-avatar">O</div>
-        <div class="profile-text">
-          <div class="profile-name">Om Gatot</div>
-          <div class="profile-role">Pemilik</div>
-        </div>
-      </div>
-      <hr class="share-divider" />
-      <div class="share-actions">
-        <div class="share-features">
-          <button class="share-button">Bagikan ke Temanmu!</button>
-          <button class="copy-link">
-            <img src="/website_materials/icon_copy_link.svg" />Salin Link
+   <div id="sharePopup">
+      <div class="share-modal">
+        <div class="share-header">
+          <div class="share-title"><h3>Sekar Jogja Heritage</h3></div>
+          <button class="close-button">
+            <img src="/website_materials/icon_back.svg" />
           </button>
+        </div>
+        <div class="share-profile">
+          <div class="profile-avatar">O</div>
+          <div class="profile-text">
+            <div class="profile-name">Om Gatot</div>
+            <div class="profile-role">Pemilik</div>
+          </div>
+        </div>
+        <hr class="share-divider" />
+        <div class="share-actions">
+          <div class="share-features">
+            <button class="share-friend-button">Bagikan ke Temanmu!</button>
+            <button class="copy-link-button">
+              <img src="/website_materials/icon_copy-link.svg" />Salin Link
+            </button>
+          </div>
         </div>
       </div>
     </div>

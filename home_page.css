@@ -22,6 +22,7 @@ nav {
   width: 100%;
   left: 0;
 }
+
 .logo {
   display: flex;
   margin-left: 40px;
@@ -29,13 +30,13 @@ nav {
   position: relative;
 }
 
-.logo .logo-icon {
+.logo a .logo-icon {
   width: 35px;
   z-index: 2;
   cursor: pointer;
 }
 
-.logo .logo-name {
+.logo a .logo-name {
   width: 178px;
   z-index: 1;
   margin-left: -23px;
@@ -82,6 +83,8 @@ nav ul li a img {
   margin-right: 30px;
 }
 
+/* Tambahkan ini ke CSS hero section Anda yang sudah ada */
+
 .hero-section {
   position: relative;
   height: 630px;
@@ -104,8 +107,8 @@ nav ul li a img {
   height: 100%;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.58),
-    rgba(0, 0, 0, 0.4)
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.3)
   );
   z-index: 1;
 }
@@ -127,22 +130,72 @@ nav ul li a img {
   z-index: 2;
   margin-left: 130px;
   margin-bottom: 22px;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .hero-text p {
   margin: 0;
-  line-height: 1.2;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  line-height: 1.15;
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.9);
 }
 
-.hero-text p b {
-  font-size: 72px;
+/* Styling untuk judul utama */
+.hero-text .hero-title {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: -1px;
+}
+
+/* Styling untuk subtitle */
+.hero-text .hero-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  opacity: 0.95;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Tombol CTA */
+.hero-cta-btn {
+  background-color: #8d330c;
+  color: white;
+  padding: 14px 32px;
+  font-size: 16px;
   font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.hero-text p:last-child {
-  font-size: 27px;
-  margin-top: 10px;
+.hero-cta-btn:hover {
+  background-color: #7c2e0c;
+}
+
+/* Animasi fade in up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasi bounce untuk tombol */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
 }
 
 .search-bar {
@@ -212,6 +265,7 @@ nav ul li a img {
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
+  width: 275px;
 }
 
 .search-bar-date:hover {
@@ -242,7 +296,6 @@ nav ul li a img {
   display: flex;
   align-items: center;
   padding: 13px 10px 13px 17px;
-  gap: 87px;
   border-radius: 40px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -269,6 +322,7 @@ nav ul li a img {
 .search-bar-guest {
   display: flex;
   gap: 9px;
+  width: 196px;
 }
 
 .item-label {
@@ -296,6 +350,20 @@ nav ul li a img {
   color: #6a6a6a;
   font-size: 13px;
   padding-top: 2.7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-content {
+  color: #6a6a6a;
+  font-size: 13px;
+  padding-top: 2.7px;
+}
+
+.item-content.filled {
+  color: #000;
+  font-weight: 600;
 }
 
 .search-bar-divider {
@@ -350,6 +418,7 @@ nav ul li a img {
 
 .search-bar a {
   text-decoration: none;
+  margin-left: 87px;
 }
 
 .search-bar .search-button {

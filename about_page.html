@@ -1,364 +1,363 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About | Teman Singgah</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Teman Singgah</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "inter";
+    }
+
+    nav {
+      display: flex;
+      background-color: #fff;
+      top: 0;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      height: 60px;
+      box-shadow: 0 2px 10px #8d8a8a;
+      font-family: "inter", sans-serif;
+      z-index: 99;
+      width: 100%;
+      left: 0;
+    }
+
+    .logo {
+      display: flex;
+      margin-left: 40px;
+      margin-top: -3px;
+      position: relative;
+    }
+
+    .logo .logo-icon {
+      width: 35px;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .logo .logo-name {
+      width: 178px;
+      z-index: 1;
+      margin-left: -23px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    nav ul li {
+      list-style: none;
+      display: inline-block;
+    }
+
+    nav ul li a {
+      color: #806b4d;
+      margin-left: 60px;
+      font-size: 14px;
+      align-items: center;
+      display: inline-flex;
+      vertical-align: middle;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    nav ul li span {
+      color: #806b4d;
+      margin-left: 60px;
+      font-size: 14px;
+      align-items: center;
+      display: inline-flex;
+      vertical-align: middle;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    nav ul li span img {
+      width: 24px;
+      height: 24px;
+      margin-right: 3px;
+    }
+
+    nav ul li a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 30px;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+
+    .hero {
+      margin: 90px auto 5px auto;
+      width: 92%;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.55),
+          rgba(0, 0, 0, 0.65)),
+        url(/website_materials/resort-pict/amanjiwo_dalem_jiwo.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 170px 110px;
+      color: #fff;
+      border-radius: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      margin-top: 18px;
+      font-size: 22px;
+      max-width: 650px;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .section {
+      padding: 50px 100px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-grid img {
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .about-title {
+      font-size: 54px;
+      font-weight: 700;
+      color: #8d330c;
+      margin-bottom: 20px;
+    }
+
+    .about-desc {
+      text-align: justify;
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .team-section h2 {
+      font-size: 36px;
+      color: #8d330c;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 60px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .team-card {
+      text-align: center;
+    }
+
+    .team-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .team-card h4 {
+      margin-top: 12px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .team-card p {
+      margin-top: 4px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .cta {
+      background: #8d330c;
+      color: #fff;
+      padding: 80px 120px;
+      margin-top: 60px;
+      text-align: center;
+      border-radius: 32px 32px 0 0;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+
+    .cta button {
+      padding: 16px 32px;
+      border-radius: 30px;
+      border: none;
+      background: #fff;
+      color: #8d330c;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .cta a {
+      color: #8d330c;
+      text-decoration: none;
+    }
+
+    .cta button:hover {
+      transform: translateY(-4px);
+    }
+
+    @media (max-width: 920px) {
+      .hamburger {
+        display: block;
       }
 
-      body {
-        font-family: "inter";
-      }
-
-      nav {
-        display: flex;
-        background-color: #fff;
-        top: 0;
-        align-items: center;
-        justify-content: space-between;
-        position: fixed;
-        height: 60px;
-        box-shadow: 0 2px 10px #8d8a8a;
-        font-family: "inter", sans-serif;
-        z-index: 99;
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #fff;
         width: 100%;
-        left: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 5;
       }
-      .logo {
+
+      nav ul.show {
         display: flex;
-        margin-left: 40px;
-        margin-top: -3px;
-        position: relative;
-      }
-
-      .logo .logo-icon {
-        width: 35px;
-        z-index: 2;
-        cursor: pointer;
-      }
-
-      .logo .logo-name {
-        width: 178px;
-        z-index: 1;
-        margin-left: -23px;
-        margin-top: 10px;
-        cursor: pointer;
       }
 
       nav ul li {
-        list-style: none;
-        display: inline-block;
+        display: block;
+        margin: 15px 0;
+        text-align: center;
       }
 
       nav ul li a {
-        color: #806b4d;
-        margin-left: 60px;
-        font-size: 14px;
-        align-items: center;
-        display: inline-flex;
-        vertical-align: middle;
-        text-decoration: none;
-        cursor: pointer;
+        margin: 0;
+        font-size: 16px;
       }
+    }
 
-      nav ul li span {
-        color: #806b4d;
-        margin-left: 60px;
-        font-size: 14px;
-        align-items: center;
-        display: inline-flex;
-        vertical-align: middle;
-        text-decoration: none;
-        cursor: pointer;
+    @media (max-width: 920px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
+    }
 
-      nav ul li span img {
-        width: 24px;
-        height: 24px;
-        margin-right: 3px;
+    @media (max-width: 920px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
+    }
 
-      nav ul li a img {
-        width: 24px;
-        height: 24px;
-        margin-right: 30px;
+    @media (max-width: 600px) {
+      .team-grid {
+        grid-template-columns: 1fr;
       }
+    }
 
-      .hamburger {
-        display: none;
-        font-size: 28px;
-        cursor: pointer;
-        margin-right: 20px;
-      }
-
+    @media (max-width: 920px) {
       .hero {
-        margin: 90px auto 5px auto;
-        width: 92%;
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.55),
-            rgba(0, 0, 0, 0.65)
-          ),
-          url("https://i.pinimg.com/1200x/81/77/93/81779307afc9275e1abd2c5e2123db11.jpg")
-            no-repeat;
-        background-size: cover;
-        background-position: center;
-        padding: 170px 110px;
-        color: #fff;
-        border-radius: 34px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        padding: 120px 40px;
       }
 
       .hero h1 {
-        font-size: 56px;
-        font-weight: 700;
+        font-size: 40px;
       }
 
       .hero p {
-        margin-top: 18px;
-        font-size: 22px;
-        max-width: 650px;
-        line-height: 1.6;
-        opacity: 0.95;
-      }
-
-      .section {
-        padding: 50px 100px;
-      }
-
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
-        gap: 50px;
-        align-items: center;
-      }
-
-      .about-grid img {
-        width: 100%;
-        border-radius: 16px;
-      }
-
-      .about-title {
-        font-size: 54px;
-        font-weight: 700;
-        color: #8d330c;
-        margin-bottom: 20px;
-      }
-
-      .about-desc {
-        text-align: justify;
         font-size: 18px;
-        color: #333;
-        line-height: 1.6;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 100px 20px;
       }
 
-      .team-section h2 {
-        font-size: 36px;
-        color: #8d330c;
-        text-align: center;
-        font-weight: 700;
-        margin-bottom: 60px;
+      .hero h1 {
+        font-size: 32px;
       }
 
-      .team-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+      .hero p {
+        font-size: 16px;
       }
+    }
 
-      .team-card {
-        text-align: center;
+    @media (max-width: 600px) {
+      .section {
+        padding: 30px 20px;
       }
+    }
 
-      .team-card img {
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 50%;
-      }
-
-      .team-card h4 {
-        margin-top: 12px;
-        font-size: 17px;
-        font-weight: 600;
-      }
-
-      .team-card p {
-        margin-top: 4px;
-        font-size: 14px;
-        color: #555;
-      }
-
+    @media (max-width: 920px) {
       .cta {
-        background: #8d330c;
-        color: #fff;
-        padding: 80px 120px;
-        margin-top: 60px;
-        text-align: center;
-        border-radius: 32px 32px 0 0;
+        padding: 60px 40px;
       }
 
       .cta h2 {
-        font-size: 42px;
-        font-weight: 700;
-        margin-bottom: 12px;
+        font-size: 32px;
       }
 
       .cta p {
-        font-size: 18px;
-        margin-bottom: 32px;
-        opacity: 0.9;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cta {
+        padding: 50px 20px;
       }
 
-      .cta button {
-        padding: 16px 32px;
-        border-radius: 30px;
-        border: none;
-        background: #fff;
-        color: #8d330c;
-        font-size: 17px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.25s;
+      .cta h2 {
+        font-size: 28px;
       }
 
-      .cta a {
-        color: #8d330c;
-        text-decoration: none;
+      .cta p {
+        font-size: 14px;
       }
+    }
+  </style>
+</head>
 
-      .cta button:hover {
-        transform: translateY(-4px);
-      }
-
-      @media (max-width: 920px) {
-        .hamburger {
-          display: block;
-        }
-
-        nav ul {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 60px;
-          right: 0;
-          background: #fff;
-          width: 100%;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-          z-index: 5;
-        }
-
-        nav ul.show {
-          display: flex;
-        }
-
-        nav ul li {
-          display: block;
-          margin: 15px 0;
-          text-align: center;
-        }
-
-        nav ul li a {
-          margin: 0;
-          font-size: 16px;
-        }
-      }
-
-      @media (max-width: 920px) {
-        .about-grid {
-          grid-template-columns: 1fr;
-          gap: 30px;
-        }
-      }
-
-      @media (max-width: 920px) {
-        .team-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 600px) {
-        .team-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 920px) {
-        .hero {
-          padding: 120px 40px;
-        }
-
-        .hero h1 {
-          font-size: 40px;
-        }
-
-        .hero p {
-          font-size: 18px;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .hero {
-          padding: 100px 20px;
-        }
-
-        .hero h1 {
-          font-size: 32px;
-        }
-
-        .hero p {
-          font-size: 16px;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .section {
-          padding: 30px 20px;
-        }
-      }
-
-      @media (max-width: 920px) {
-        .cta {
-          padding: 60px 40px;
-        }
-
-        .cta h2 {
-          font-size: 32px;
-        }
-
-        .cta p {
-          font-size: 16px;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .cta {
-          padding: 50px 20px;
-        }
-
-        .cta h2 {
-          font-size: 28px;
-        }
-
-        .cta p {
-          font-size: 14px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-       <nav>
+<body>
+  <header>
+    <nav>
       <div class="logo">
         <img class="logo-icon" src="/website_materials/logo_temansinggah.svg" />
         <img class="logo-name" src="website_materials/label_temansinggah.svg" />
@@ -375,79 +374,78 @@
           </span>
         </li>
         <li>
-          <a href="profile_page.html"
-            ><img src="website_materials/icon_user.svg" alt="Logo Akun"
-          /></a>
+          <a href="profile_page.html"><img src="website_materials/icon_user.svg" alt="Logo Akun" /></a>
         </li>
       </ul>
     </nav>
-    </header>
+  </header>
 
-    <div class="hero">
-      <h1>Tentang Teman Singgah</h1>
-      <p>
-        Temukan ruang singgah yang tenang, nyaman, dan terjangkau. Kami selalu
-        ada untuk menemani setiap langkah perjalananmu.
-      </p>
+  <div class="hero">
+    <h1>Tentang Teman Singgah</h1>
+    <p>
+      Temukan ruang singgah yang tenang, nyaman, dan terjangkau. Kami selalu
+      ada untuk menemani setiap langkah perjalananmu.
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="about-grid">
+      <div>
+        <h2 class="about-title">Siapa Kami?</h2>
+        <p class="about-desc">
+          Teman Singgah merupakan platform yang menyediakan berbagai pilihan
+          tempat menginap, mulai dari villa, hotel, resort, homestay, hingga
+          guesthouse. Setiap penginapan kami tampilkan dengan informasi yang
+          lengkap, mulai dari fasilitas, foto, harga, hingga ulasan, agar
+          pengguna dapat memilih tempat yang paling sesuai dengan kebutuhan
+          mereka.
+          <br /><br />
+          Kami berkomitmen untuk menghadirkan pengalaman booking yang mudah,
+          cepat, dan nyaman. Teman Singgah akan membantu pengguna menemukan
+          penginapan secara lebih efisien.
+        </p>
+      </div>
+      <img src="img/rumah 1.svg" alt="Tentang Teman Singgah" />
     </div>
+  </div>
 
-    <div class="section">
-      <div class="about-grid">
-        <div>
-          <h2 class="about-title">Siapa Kami?</h2>
-          <p class="about-desc">
-            Teman Singgah merupakan platform yang menyediakan berbagai pilihan
-            tempat menginap, mulai dari villa, hotel, resort, homestay, hingga
-            guesthouse. Setiap penginapan kami tampilkan dengan informasi yang
-            lengkap, mulai dari fasilitas, foto, harga, hingga ulasan, agar
-            pengguna dapat memilih tempat yang paling sesuai dengan kebutuhan
-            mereka.
-            <br /><br />
-            Kami berkomitmen untuk menghadirkan pengalaman booking yang mudah,
-            cepat, dan nyaman. Teman Singgah akan membantu pengguna menemukan
-            penginapan secara lebih efisien.
+  <div class="section">
+    <div class="team-section">
+      <h2>Tim Teman Singgah</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="img/sumi 1.svg" />
+          <h4>Keysha</h4>
+          <p>Orang Jago</p>
+        </div>
+        <div class="team-card">
+          <img src="img/sumi 1.svg" />
+          <h4>Daqiqul</h4>
+          <p>Orang Aring</p>
+        </div>
+        <div class="team-card">
+          <img src="img/sumi 1.svg" />
+          <h4>Pemilik penginapan</h4>
+          <p>
+            Terima kasih kepada pengelola penginapan lokal yang melestarikan
+            budaya Indonesia.
           </p>
         </div>
-        <img src="img/rumah 1.svg" alt="Tentang Teman Singgah" />
       </div>
     </div>
+  </div>
 
-    <div class="section">
-      <div class="team-section">
-        <h2>Tim Teman Singgah</h2>
-        <div class="team-grid">
-          <div class="team-card">
-            <img src="img/sumi 1.svg" />
-            <h4>Keysha</h4>
-            <p>UI/UX Designer.</p>
-          </div>
-          <div class="team-card">
-            <img src="img/sumi 1.svg" />
-            <h4>Daqiqul</h4>
-            <p>UI/UX Designer.</p>
-          </div>
-          <div class="team-card">
-            <img src="img/sumi 1.svg" />
-            <h4>Pemilik penginapan</h4>
-            <p>
-              Terima kasih kepada pengelola penginapan lokal yang melestarikan
-              budaya Indonesia.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="cta">
+    <h2>Siap Singgah Bersama Kami?</h2>
+    <p>Temukan penginapan terbaikmu dengan cepat dan mudah.</p>
+    <button><a href="home_page.html">Booking sekarang</a></button>
+  </div>
 
-    <div class="cta">
-      <h2>Siap Singgah Bersama Kami?</h2>
-      <p>Temukan penginapan terbaikmu dengan cepat dan mudah.</p>
-      <button><a href="homePageUdahLogin.html">Booking sekarang</a></button>
-    </div>
+  <script>
+    function toggleMenu() {
+      document.querySelector("nav ul").classList.toggle("show");
+    }
+  </script>
+</body>
 
-    <script>
-      function toggleMenu() {
-        document.querySelector("nav ul").classList.toggle("show");
-      }
-    </script>
-  </body>
 </html>

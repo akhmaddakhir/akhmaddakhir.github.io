@@ -1,3 +1,18 @@
+const monthNamesShort = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "Mei",
+  "Jun",
+  "Jul",
+  "Agu",
+  "Sep",
+  "Okt",
+  "Nov",
+  "Des",
+];
+
 const monthNames = [
   "Januari",
   "Februari",
@@ -35,6 +50,7 @@ const btnNext = document.getElementById("nextGlobal");
 
 renderCalendars();
 updateHeader();
+updateDateDisplay();
 
 function renderCalendars() {
   container.innerHTML = "";
@@ -76,6 +92,33 @@ function updateHeader() {
     btnNext.classList.add("month-arrow-disabled");
   } else {
     btnNext.classList.remove("month-arrow-disabled");
+  }
+}
+
+function updateDateDisplay() {
+  const dateDisplay = document.querySelector(".search-bar-date .item-content");
+  if (!dateDisplay) return;
+
+  if (checkInDate && checkOutDate) {
+    const checkInDay = checkInDate.getDate();
+    const checkInMonth = monthNamesShort[checkInDate.getMonth()];
+    const checkInYear = checkInDate.getFullYear();
+    const checkOutDay = checkOutDate.getDate();
+    const checkOutMonth = monthNamesShort[checkOutDate.getMonth()];
+    const checkOutYear = checkOutDate.getFullYear();
+    
+    dateDisplay.textContent = `${checkInDay} ${checkInMonth} ${checkInYear} - ${checkOutDay} ${checkOutMonth} ${checkOutYear}`;
+    dateDisplay.classList.add("filled");
+  } else if (checkInDate) {
+    const checkInDay = checkInDate.getDate();
+    const checkInMonth = monthNamesShort[checkInDate.getMonth()];
+    const checkInYear = checkInDate.getFullYear();
+    
+    dateDisplay.textContent = `${checkInDay} ${checkInMonth} ${checkInYear}`;
+    dateDisplay.classList.add("filled");
+  } else {
+    dateDisplay.textContent = "Tambahkan Tanggal";
+    dateDisplay.classList.remove("filled");
   }
 }
 
@@ -189,6 +232,7 @@ function handleDateClick(date) {
   }
 
   renderCalendars();
+  updateDateDisplay();
 }
 
 function isSameDate(date1, date2) {

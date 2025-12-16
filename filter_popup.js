@@ -85,32 +85,29 @@ sliderWrapper.addEventListener("click", function (e) {
   }
 });
 
-// Budaya Options - Single Selection
+// Budaya Options - Multiple Selection
 const budayaOptions = document.querySelectorAll(
   "#budayaOptions .filter-option"
 );
 budayaOptions.forEach((option) => {
   option.addEventListener("click", function () {
-    budayaOptions.forEach((opt) => opt.classList.remove("active"));
-    this.classList.add("active");
+    this.classList.toggle("active");
   });
 });
 
-// Jenis Options - Single Selection
+// Jenis Options - Multiple Selection
 const jenisOptions = document.querySelectorAll("#jenisOptions .filter-option");
 jenisOptions.forEach((option) => {
   option.addEventListener("click", function () {
-    jenisOptions.forEach((opt) => opt.classList.remove("active"));
-    this.classList.add("active");
+    this.classList.toggle("active");
   });
 });
 
-// Rating Options Toggle
+// Rating Options - Multiple Selection
 const ratingOptions = document.querySelectorAll(".rating-option");
 ratingOptions.forEach((option) => {
   option.addEventListener("click", function () {
-    ratingOptions.forEach((opt) => opt.classList.remove("active"));
-    this.classList.add("active");
+    this.classList.toggle("active");
   });
 });
 
@@ -129,31 +126,38 @@ document.getElementById("resetBtn").addEventListener("click", function () {
 
 // Confirm Button
 document.getElementById("confirmBtn").addEventListener("click", function () {
-  const selectedBudaya = document.querySelector(
-    "#budayaOptions .filter-option.active"
-  );
-  const selectedJenis = document.querySelector(
-    "#jenisOptions .filter-option.active"
-  );
-  const selectedRating = document.querySelector(".rating-option.active");
+  const selectedBudaya = Array.from(
+    document.querySelectorAll("#budayaOptions .filter-option.active")
+  ).map((el) => el.textContent);
+  
+  const selectedJenis = Array.from(
+    document.querySelectorAll("#jenisOptions .filter-option.active")
+  ).map((el) => el.textContent);
+  
+  const selectedRatings = Array.from(
+    document.querySelectorAll(".rating-option.active")
+  ).map((el) => el.querySelectorAll("img").length);
 
   const selectedFilters = {
     priceRange: {
       min: minValue,
       max: maxValue,
     },
-    budaya: selectedBudaya ? selectedBudaya.textContent : null,
-    jenis: selectedJenis ? selectedJenis.textContent : null,
+    budaya: selectedBudaya,
+    jenis: selectedJenis,
     facilities: Array.from(
       document.querySelectorAll('input[type="checkbox"]:checked')
     ).map((el) => el.nextElementSibling.textContent),
-    rating: selectedRating
-      ? selectedRating.querySelectorAll("span").length
-      : null,
+    rating: selectedRatings,
   };
 
   console.log("Selected Filters:", selectedFilters);
-  alert("Filter diterapkan! Lihat console untuk detail.");
+  
+  // Close popup if it exists
+  const filterPopup = document.getElementById("filterPopup");
+  if (filterPopup) {
+    filterPopup.classList.remove("active");
+  }
 });
 
 updateSliderUI();
