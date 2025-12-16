@@ -214,7 +214,7 @@
             border-radius: 12px;
             display: flex;
             gap: 20px;
-            box-shadow: 0 6px 20px rgba(16,24,40,0.04);
+            box-shadow: 0 6px 20px rgba(16, 24, 40, 0.04);
             margin-bottom: 18px;
             align-items: center;
             justify-content: space-between;
@@ -291,15 +291,19 @@
             gap: 8px;
         }
 
-        .btn:hover { transform: translateY(-2px); }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
 
         .btn-primary {
             background: #8d330c;
             color: white;
-            box-shadow: 0 6px 18px rgba(141,51,12,0.12);
+            box-shadow: 0 6px 18px rgba(141, 51, 12, 0.12);
         }
 
-        .btn-primary:hover { box-shadow: 0 10px 28px rgba(141,51,12,0.16); }
+        .btn-primary:hover {
+            box-shadow: 0 10px 28px rgba(141, 51, 12, 0.16);
+        }
 
         .btn-outline {
             background: transparent;
@@ -307,7 +311,9 @@
             color: #8d330c;
         }
 
-        .btn-outline:hover { background: rgba(141,51,12,0.06); }
+        .btn-outline:hover {
+            background: rgba(141, 51, 12, 0.06);
+        }
 
         .btn-disabled {
             background: #f3f3f3;
@@ -321,10 +327,25 @@
 
         /* Ensure buttons stack nicely on small screens */
         @media (max-width: 768px) {
-            .card { flex-direction: column; align-items: stretch }
-            .card img { width: 100%; height: 200px; border-radius: 8px }
-            .card .card-info { margin-top: 8px }
-            .card .btn { width: 100%; justify-content: center }
+            .card {
+                flex-direction: column;
+                align-items: stretch
+            }
+
+            .card img {
+                width: 100%;
+                height: 200px;
+                border-radius: 8px
+            }
+
+            .card .card-info {
+                margin-top: 8px
+            }
+
+            .card .btn {
+                width: 100%;
+                justify-content: center
+            }
         }
 
         .tab-content {

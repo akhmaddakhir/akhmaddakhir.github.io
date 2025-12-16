@@ -30,16 +30,21 @@ nav {
   position: relative;
 }
 
-.logo a .logo-icon {
-  width: 35px;
+.logo a{
+  text-decoration:none;
+}
+
+.logo .logo-icon {
+  width: 33px;
+  margin-bottom:58px;
   z-index: 2;
   cursor: pointer;
 }
 
-.logo a .logo-name {
+.logo .logo-name {
   width: 178px;
   z-index: 1;
-  margin-left: -23px;
+  margin-left: -25px;
   margin-top: 10px;
   cursor: pointer;
 }
