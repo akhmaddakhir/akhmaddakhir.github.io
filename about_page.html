@@ -40,8 +40,13 @@
       position: relative;
     }
 
+    .logo a {
+      text-decoration: none;
+    }
+
     .logo .logo-icon {
       width: 35px;
+      margin-bottom: 55px;
       z-index: 2;
       cursor: pointer;
     }
@@ -49,7 +54,7 @@
     .logo .logo-name {
       width: 178px;
       z-index: 1;
-      margin-left: -23px;
+      margin-left: -25px;
       margin-top: 10px;
       cursor: pointer;
     }
@@ -60,7 +65,8 @@
     }
 
     nav ul li a {
-      color: #806b4d;
+      color: rgba(128, 107, 77, 0.6);
+      /* non-active lighter */
       margin-left: 60px;
       font-size: 14px;
       align-items: center;
@@ -71,7 +77,7 @@
     }
 
     nav ul li span {
-      color: #806b4d;
+      color: rgba(128, 107, 77, 0.6);
       margin-left: 60px;
       font-size: 14px;
       align-items: center;
@@ -91,6 +97,54 @@
       width: 24px;
       height: 24px;
       margin-right: 30px;
+      margin-left: -60px;
+    }
+
+    /* Underline for navbar items using primary color #806b4d */
+    nav ul li a,
+    nav ul li span {
+      position: relative;
+      transition: color 0.18s ease;
+    }
+
+    nav ul li a::after,
+    nav ul li span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      bottom: -8px;
+      background: transparent;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.18s ease, background-color 0.18s ease;
+    }
+
+    /* Active / hover state uses the primary brand color */
+    nav ul li a:hover,
+    nav ul li a.active,
+    nav ul li a.nav-active,
+    nav ul li span:hover,
+    nav ul li span.active,
+    nav ul li span.nav-active {
+      color: #806b4d;
+    }
+
+    nav ul li a:hover::after,
+    nav ul li a.active::after,
+    nav ul li a.nav-active::after,
+    nav ul li span:hover::after,
+    nav ul li span.active::after,
+    nav ul li span.nav-active::after {
+      background-color: #806b4d;
+      transform: scaleX(1);
+    }
+
+    /* Disable underline for anchors explicitly marked no-underline (e.g. account icon) */
+    nav ul li a.no-underline::after,
+    nav ul li a.no-underline .icon-wrapper::after {
+      display: none !important;
     }
 
     .hamburger {
@@ -359,22 +413,27 @@
   <header>
     <nav>
       <div class="logo">
-        <img class="logo-icon" src="/website_materials/logo_temansinggah.svg" />
-        <img class="logo-name" src="website_materials/label_temansinggah.svg" />
+        <a href="home_page.html">
+          <img class="logo-icon" src="website_materials/logo_temansinggah.svg" alt="TemanSinggah logo" />
+          <img class="logo-name" src="website_materials/label_temansinggah.svg" alt="TemanSinggah" />
+        </a>
       </div>
 
       <ul>
         <li><a href="home_page.html">Beranda</a></li>
-        <li><a href="about_page.html">Tentang Kami</a></li>
+        <li><a href="about_page.html" class="nav-active">Tentang Kami</a></li>
         <li><a href="favorite_page.html">Favorit</a></li>
+        <li><a href="login_page.html">Masuk / Daftar</a></li>
         <li>
-          <span>
-            <img src="website_materials/icon_globe.svg" />
+          <span id="lang-currency-toggle" style="cursor: pointer;" aria-haspopup="dialog" aria-expanded="false">
+            <img src="website_materials/icon_globe.svg" alt="Bahasa dan Mata Uang" />
             | IDR
           </span>
-        </li>
         <li>
-          <a href="profile_page.html"><img src="website_materials/icon_user.svg" alt="Logo Akun" /></a>
+          <a href="/profile-page_about-me.html" class="no-underline">
+            <span class="icon-wrapper"><img src="website_materials/icon_user.svg" alt="Logo Akun" /></span>
+          </a>
+        </li>
         </li>
       </ul>
     </nav>

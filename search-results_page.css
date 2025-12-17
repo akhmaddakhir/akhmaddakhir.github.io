@@ -8,79 +8,133 @@ body {
   font-family: "inter";
 }
 
-nav {
-  display: flex;
-  background-color: #fff;
-  top: 0;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  height: 60px;
-  box-shadow: 0 2px 10px #8d8a8a;
-  font-family: "inter", sans-serif;
-  z-index: 99;
-  width: 100%;
-  left: 0;
-}
-.logo {
-  display: flex;
-  margin-left: 40px;
-  margin-top: -3px;
-  position: relative;
-}
+ nav {
+      display: flex;
+      background-color: #fff;
+      top: 0;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      height: 60px;
+      box-shadow: 0 2px 10px #8d8a8a;
+      font-family: "inter", sans-serif;
+      z-index: 99;
+      width: 100%;
+      left: 0;
+    }
 
-.logo .logo-icon {
-  width: 35px;
-  z-index: 2;
-  cursor: pointer;
-}
+    .logo {
+      display: flex;
+      margin-left: 40px;
+      margin-top: -3px;
+      position: relative;
+    }
 
-.logo .logo-name {
-  width: 178px;
-  z-index: 1;
-  margin-left: -23px;
-  margin-top: 10px;
-  cursor: pointer;
-}
+    .logo a {
+      text-decoration: none;
+    }
 
-nav ul li {
-  list-style: none;
-  display: inline-block;
-}
+    .logo .logo-icon {
+      width: 35px;
+      margin-bottom: 55px;
+      z-index: 2;
+      cursor: pointer;
+    }
 
-nav ul li a {
-  color: #806b4d;
-  margin-left: 60px;
-  font-size: 14px;
-  align-items: center;
-  display: inline-flex;
-  vertical-align: middle;
-  text-decoration: none;
-  cursor: pointer;
-}
+    .logo .logo-name {
+      width: 178px;
+      z-index: 1;
+      margin-left: -25px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
 
-nav ul li span {
-  color: #806b4d;
-  margin-left: 60px;
-  font-size: 14px;
-  align-items: center;
-  display: inline-flex;
-  vertical-align: middle;
-  text-decoration: none;
-  cursor: pointer;
-}
+    nav ul li {
+      list-style: none;
+      display: inline-block;
+    }
 
-nav ul li span img {
-  width: 24px;
-  height: 24px;
-  margin-right: 3px;
-}
+    nav ul li a {
+      color: rgba(128, 107, 77, 0.6);
+      /* non-active lighter */
+      margin-left: 60px;
+      font-size: 14px;
+      align-items: center;
+      display: inline-flex;
+      vertical-align: middle;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-nav ul li a img {
-  width: 24px;
-  height: 24px;
-  margin-right: 30px;
-}
+    nav ul li span {
+      color: rgba(128, 107, 77, 0.6);
+      margin-left: 60px;
+      font-size: 14px;
+      align-items: center;
+      display: inline-flex;
+      vertical-align: middle;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    nav ul li span img {
+      width: 24px;
+      height: 24px;
+      margin-right: 3px;
+    }
+
+    nav ul li a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 30px;
+    }
+
+    /* Underline for navbar items using primary color #806b4d */
+    nav ul li a,
+    nav ul li span {
+      position: relative;
+      transition: color 0.18s ease;
+    }
+
+    nav ul li a::after,
+    nav ul li span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      bottom: -8px;
+      background: transparent;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.18s ease, background-color 0.18s ease;
+    }
+
+    /* Active / hover state uses the primary brand color */
+    nav ul li a:hover,
+    nav ul li a.active,
+    nav ul li a.nav-active,
+    nav ul li span:hover,
+    nav ul li span.active,
+    nav ul li span.nav-active {
+      color: #806b4d;
+    }
+
+    nav ul li a:hover::after,
+    nav ul li a.active::after,
+    nav ul li a.nav-active::after,
+    nav ul li span:hover::after,
+    nav ul li span.active::after,
+    nav ul li span.nav-active::after {
+      background-color: #806b4d;
+      transform: scaleX(1);
+    }
+
+    /* Disable underline for anchors explicitly marked no-underline (e.g. account icon) */
+    nav ul li a.no-underline::after,
+    nav ul li a.no-underline .icon-wrapper::after {
+      display: none !important;
+    }
 
 .search-section {
   max-width: 1300px;

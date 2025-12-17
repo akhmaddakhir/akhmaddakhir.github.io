@@ -9,14 +9,40 @@ body {
   background-color: #f8f8f8;
 }
 
+/* Overlay to match filter popup behavior */
+#languageCurrencyPopup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+
+#languageCurrencyPopup.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .section {
   max-width: 1200px;
   margin: 30px auto;
   padding: 30px 40px;
-  border-radius: 16px;
+  border-radius: 30px;
   background-color: #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   font-family: "inter", sans-serif;
+  max-height: 85vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* keep scrolling confined to popup */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
 }
 
 .close-button {
@@ -104,7 +130,8 @@ body {
 
 .list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  /* Wider columns and equal widths for language and currency lists */
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 12px;
 }
 
@@ -155,4 +182,24 @@ body {
 
 .hidden {
   display: none;
+}
+
+/* Custom scrollbar for the popup section only */
+.section::-webkit-scrollbar {
+  width: 10px;
+}
+.section::-webkit-scrollbar-track {
+  background: transparent;
+}
+.section::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 6px;
+}
+.section::-webkit-scrollbar-corner {
+  background: transparent; /* remove visible corner artifact */
+}
+
+/* Add a bit of right padding so scrollbar doesn't overlap rounded corner */
+.section {
+  padding-right: 36px;
 }

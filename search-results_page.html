@@ -1,382 +1,388 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Results Page</title>
-    <link rel="stylesheet" href="search-results_page.css" />
-    <link rel="stylesheet" href="filter.css" />
-    <link rel="icon" href="website_materials/logo_temansinggah.svg" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-    </style>
-  </head>
-  <body>
-    <nav>
-      <div class="logo">
-        <img class="logo-icon" src="/website_materials/logo_temansinggah.svg" />
-        <img class="logo-name" src="website_materials/label_temansinggah.svg" />
-      </div>
 
-      <ul>
-        <li><a href="home_page.html">Beranda</a></li>
-        <li><a href="about_page.html">Tentang Kami</a></li>
-        <li><a href="favorite_page.html">Favorit</a></li>
-        <li>
-          <span>
-            <img src="website_materials/icon_globe.svg" />
-            | IDR
-          </span>
-        </li>
-        <li>
-          <a href="profile_page.html"
-            ><img src="website_materials/icon_user.svg" alt="Logo Akun"
-          /></a>
-        </li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Results Page</title>
+  <link rel="stylesheet" href="search-results_page.css" />
+  <link rel="stylesheet" href="filter.css" />
+  <link rel="icon" href="website_materials/logo_temansinggah.svg" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+  </style>
+</head>
 
-    <section class="search-section">
-      <section class="card-section">
-        <div class="card-list">
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="home_page.html">
+        <img class="logo-icon" src="website_materials/logo_temansinggah.svg" alt="TemanSinggah logo" />
+        <img class="logo-name" src="website_materials/label_temansinggah.svg" alt="TemanSinggah" />
+      </a>
+    </div>
+
+    <ul>
+      <li><a href="home_page.html">Beranda</a></li>
+      <li><a href="about_page.html">Tentang Kami</a></li>
+      <li><a href="favorite_page.html">Favorit</a></li>
+      <li><a href="login_page.html">Masuk / Daftar</a></li>
+      <li>
+        <span id="lang-currency-toggle" style="cursor: pointer;" aria-haspopup="dialog" aria-expanded="false">
+          <img src="website_materials/icon_globe.svg" alt="Bahasa dan Mata Uang" />
+          | IDR
+        </span>
+      <li>
+        <a href="/profile-page_about-me.html" class="no-underline">
+          <span class="icon-wrapper"><img src="website_materials/icon_user.svg" alt="Logo Akun" /></span>
+        </a>
+      </li>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="search-section">
+    <section class="card-section">
+      <div class="card-list">
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img src="/website_materials/resort-pict/amanjiwo_dalem_jiwo.jpg" /></a>
           </div>
-
-          <div class="card">
-            <div class="card-pict">
-              <img
-                src="https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-bagus4.jpg"
-                alt="Nusa Dua Resort"
-              />
-            </div>
-            <button class="save-button-notag">
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
               <img src="/website_materials/icon_save.svg" />
             </button>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9</span
-                >
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
+          </div>
+          <div class="card-text">
+            <h3>Amanjiwo</h3>
+            <p>Magelang, Yogyakarta</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.7
+              </span>
+              <span class="total-review">(1.252&nbsp;ulasan)</span>
             </div>
           </div>
         </div>
 
-        <div class="card-list">
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"><img src="/website_materials/resort-pict/amarterra_villa_resort.jpg" /></a>
           </div>
-
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-list">
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-list">
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-list">
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-list">
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-pict">
-              <img src="/website_materials/resort-pict/gambar_hero.svg" />
-            </div>
-            <div class="card-button">
-              <p class="favorite-tag">Favorit Pengunjung</p>
-              <button class="save-button">
-                <img src="/website_materials/icon_save.svg" />
-              </button>
-            </div>
-            <div class="card-text">
-              <h3>Nusa Dua Resort</h3>
-              <p>Yogyakarta, Indonesia</p>
-              <div class="card-rating">
-                <span class="total-rating">
-                  <img src="/website_materials/icon_rating-fill.svg" />4.9
-                </span>
-                <span class="total-review">(1.000&nbsp;ulasan)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pagination-container">
-          <button class="pagination-btn prev-btn" id="prevBtn">
-            <img src="/website_materials/icon_prev.svg" />
+          <button class="save-button-notag">
+            <img src="/website_materials/icon_save.svg" />
           </button>
-
-          <div class="pagination-numbers" id="paginationNumbers"></div>
-
-          <button class="pagination-btn next-btn" id="nextBtn">
-            <img src="/website_materials/icon_next.svg" />
-          </button>
-        </div>
-      </section>
-
-      <section class="map-section">
-        <div class="map-content">
-          <div id="mapSearch"></div>
-          <div class="map-zoom-controls">
-            <button id="zoom-in">+</button>
-            <button id="zoom-out">−</button>
+          <div class="card-text">
+            <h3>Amarterra Villa Resort</h3>
+            <p>Nusa Dua, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.8</span>
+              <span class="total-review">(75&nbsp;ulasan)</span>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div class="card-list">
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"><img src="img/image 34.svg" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>Nusa Dua Resort</h3>
+            <p>Nusa Dua, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.7
+              </span>
+              <span class="total-review">(76&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img
+                src="/website_materials/resort-pict/sekar_jogja_heritage-1.svg" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>Sekar Jogja Heritage</h3>
+            <p>Sleman, Yogyakarta</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.7
+              </span>
+              <span class="total-review">(812&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-list">
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img src="img/image 42.svg" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>Sol Benoa Bali</h3>
+            <p>Tanjung Benoa, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.9
+              </span>
+              <span class="total-review">(120&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img src="img/image 45.svg" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>Tandjung Sari Hotel</h3>
+            <p>Sanur, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.9
+              </span>
+              <span class="total-review">(92&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-list">
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img src="img/image 6.svg" alt="Nusa Dua Resort" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>Bougainvillea Canggu</h3>
+            <p>Canggu, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.9
+              </span>
+              <span class="total-review">(1.000&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"><img src="/website_materials/resort-pict/padma_resort_ubud.jpg"
+                alt="Nusa Dua Resort" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>Padma Resort Ubud</h3>
+            <p>Ubud, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.6
+              </span>
+              <span class="total-review">(321&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-list">
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img src="/website_materials/resort-pict/the_bale.jpg" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>The Bale Nusa Dua</h3>
+            <p>Nusa Dua, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.9
+              </span>
+              <span class="total-review">(1.000&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img src="/website_materials/resort-pict/magic_of-bali_villas.jpg"
+                alt="Nusa Dua Resort" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>Magic Of Bali Villas</h3>
+            <p>Seminyak, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.9
+              </span>
+              <span class="total-review">(43&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-list">
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img src="img/image 40.svg" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>The Udaya Resort</h3>
+            <p>Ubud, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.8
+              </span>
+              <span class="total-review">(90&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-pict">
+            <a href="/description_page.html"> <img src="/website_materials/resort-pict/nipuri_resort.jpg"
+                alt="Nusa Dua Resort" /></a>
+          </div>
+          <div class="card-button">
+            <p class="favorite-tag">Favorit Pengunjung</p>
+            <button class="save-button">
+              <img src="/website_materials/icon_save.svg" />
+            </button>
+          </div>
+          <div class="card-text">
+            <h3>Nipuri Resort</h3>
+            <p>Seminyak, Bali</p>
+            <div class="card-rating">
+              <span class="total-rating">
+                <img src="/website_materials/icon_rating-fill.svg" />4.4
+              </span>
+              <span class="total-review">(200&nbsp;ulasan)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination-container">
+        <button class="pagination-btn prev-btn" id="prevBtn">
+          <img src="/website_materials/icon_prev.svg" />
+        </button>
+
+        <div class="pagination-numbers" id="paginationNumbers"></div>
+
+        <button class="pagination-btn next-btn" id="nextBtn">
+          <img src="/website_materials/icon_next.svg" />
+        </button>
+      </div>
     </section>
-    <footer class="footer-section">
-      <div class="footer-list">
-        <div class="footer-content">
-          <h3>Teman Singgah</h3>
-          <p>
-            Website booking penginapan Nusantara untuk promosi penginapan, dan
-            pelestarian budaya Indonesia.
-          </p>
-        </div>
 
-        <div class="footer-content">
-          <h3>Navigasi</h3>
-          <ul>
-            <li><a href="Home Page.html">Beranda</a></li>
-            <li><a href="#">Pencarian</a></li>
-            <li><a href="Favorite Page.html">Favorit</a></li>
-            <li><a href="#">Daftar Booking</a></li>
-            <li><a href="Account Page.html">Akun</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-content">
-          <h3>Dukungan</h3>
-          <ul>
-            <li><a href="#">Pusat Bantuan</a></li>
-            <li><a href="#">Kontak</a></li>
-            <li><a href="#">Media Sosial</a></li>
-          </ul>
+    <section class="map-section">
+      <div class="map-content">
+        <div id="mapSearch"></div>
+        <div class="map-zoom-controls">
+          <button id="zoom-in">+</button>
+          <button id="zoom-out">−</button>
         </div>
       </div>
-
-      <hr />
-
-      <div class="footer-bottom">
-        <p>© 2025 Teman Singgah — All rights reserved.</p>
-        <p><a href="#">Kebijakan Privasi</a> • <a href="#">S&K</a></p>
+    </section>
+  </section>
+  <footer class="footer-section">
+    <div class="footer-list">
+      <div class="footer-content">
+        <h3>Teman Singgah</h3>
+        <p>
+          Website booking penginapan Nusantara untuk promosi penginapan, dan
+          pelestarian budaya Indonesia.
+        </p>
       </div>
-    </footer>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="search-results_page.js"></script>
-  </body>
+
+      <div class="footer-content">
+        <h3>Navigasi</h3>
+        <ul>
+          <li><a href="Home Page.html">Beranda</a></li>
+          <li><a href="#">Pencarian</a></li>
+          <li><a href="Favorite Page.html">Favorit</a></li>
+          <li><a href="#">Daftar Booking</a></li>
+          <li><a href="Account Page.html">Akun</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-content">
+        <h3>Dukungan</h3>
+        <ul>
+          <li><a href="#">Pusat Bantuan</a></li>
+          <li><a href="#">Kontak</a></li>
+          <li><a href="#">Media Sosial</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="footer-bottom">
+      <p>© 2025 Teman Singgah — All rights reserved.</p>
+      <p><a href="#">Kebijakan Privasi</a> • <a href="#">S&K</a></p>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="search-results_page.js"></script>
+</body>
+
 </html>

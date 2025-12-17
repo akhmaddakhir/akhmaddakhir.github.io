@@ -16,272 +16,308 @@
         }
 
         body {
-            font-family: "inter";
+            font-family: "Inter", sans-serif;
             display: flex;
             height: 100vh;
-            background-color: #fff;
-        }
-
-        .bagian-kiri {
-            flex: 1;
-            background-color: #8D330C;
-            border-top-right-radius: 26px;
-            border-bottom-right-radius: 26px;
-
-        }
-
-        .bagian-kiri {
-            flex: 1;
-            position: relative;
-            border-top-right-radius: 26px;
-            border-bottom-right-radius: 26px;
-            overflow: hidden;
-            background-image: url("img/gambaregis\ \(2\).jpg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        .bagian-kiri::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-color: rgba(141, 51, 12, 0.65);
-        }
-
-        .bagian-kanan {
-            flex: 1;
-            display: flex;
+            background: linear-gradient(135deg, #f5f0ed 0%, #faf8f7 100%);
             align-items: center;
             justify-content: center;
         }
 
-        .register {
-            margin: 0 auto;
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1100px;
+            height: 600px;
+            background: #fff;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(141, 51, 12, 0.15);
+        }
+
+        .left-panel {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .logo {
             text-align: center;
+            margin-bottom: 20px;
         }
 
         .logo img {
-            margin-bottom: 10x;
             width: 100px;
+            height: auto;
         }
 
-        .welcome h2 {
-            font-size: 24px;
-            margin: inherit;
-            margin-bottom: 10px;
-
-        }
-
-        .welcome p {
-            font-size: 16px;
-            margin-bottom: 25px;
+        .form-header {
             text-align: center;
+            margin-bottom: 30px;
         }
 
-        .kotak-input input {
-            display: block;
+        .form-header h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            font-size: 16px;
+            color: #718096;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
             width: 100%;
             padding: 12px 18px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            outline: none;
+            border: 1px solid #e2e8f0;
             border-radius: 30px;
             font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #f7fafc;
         }
 
-        .tombol-daftar button {
+        .input-group input:focus {
+            border-color: #cbd5e0;
+            background: #fff;
+        }
+
+        .input-group input::placeholder {
+            color: #a0aec0;
+        }
+
+        .submit-button {
             width: 100%;
-            background-color: #8D330C;
-            color: #fff;
             padding: 12px 18px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
+            background: #8D330C;
+            border: none;
             border-radius: 30px;
-        }
-
-        .tombol-daftar a {
             color: #fff;
-            text-decoration: none;
+            font-size: 16px;
             font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0 25px;
         }
 
-        .tombol-daftar button:hover {
-            background-color: #a9441c;
+        .submit-button:hover {
+            background: #7c2e0c;
         }
 
-        .atau-daftar-dengan {
+        .divider {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             margin: 25px 0;
-            color: #503327;
+            color: #718096;
             font-size: 14px;
         }
 
-        .atau-daftar-dengan hr {
+        .divider hr {
             flex: 1;
             border: none;
-            border-top: 1px solid #ccc;
+            border-top: 1px solid #e2e8f0;
         }
 
-        .sosmed {
+        .social-login {
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 20px;
             margin-bottom: 25px;
         }
 
-        .icon {
+        .social-icon {
             width: 30px;
             height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .icon img {
-            width: 30px;
-            height: 30px;
-            object-fit: contain;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .sudah {
+        .social-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .right-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #8D330C 0%, #a9441c 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: #fff;
+            position: relative;
+            border-radius: 30px;
+        }
+
+        .right-panel h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 15px;
             text-align: center;
-            font-size: 14px;
-            color: #333;
         }
 
-        .sudah a {
-            color: #8D330C;
-            text-decoration: none;
+        .right-panel p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .switch-button {
+            padding: 12px 40px;
+            background: transparent;
+            border: 2px solid #fff;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 16px;
             font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .switch-button:hover {
+            background: #fff;
+            color: #8D330C;
         }
 
         @media (max-width: 1024px) {
-            body {
+            .container {
                 flex-direction: column;
                 height: auto;
+                width: 95%;
             }
 
-            .bagian-kiri {
-                display: none;
+            .right-panel {
+                padding: 30px;
+                border-radius: 0 0 30px 30px;
             }
 
-            .bagian-kanan {
-                flex: none;
-                width: 100%;
-                padding: 20px 15px;
+            .right-panel h2 {
+                font-size: 28px;
             }
 
-            .register {
-                margin: 0 auto;
-            }
-
-            .welcome h2 {
-                font-size: 20px;
-            }
-
-            .welcome p {
-                font-size: 14px;
-            }
-
-            .kotak-input input {
-                padding: 10px 15px;
-                font-size: 13px;
-            }
-
-            .tombol-daftar button {
-                padding: 10px 15px;
-                font-size: 14px;
-            }
-
-            .sosmed {
-                gap: 15px;
-            }
-
-            .icon img {
-                width: 25px;
-                height: 25px;
+            .left-panel {
+                padding: 30px 20px;
             }
         }
 
         @media (max-width: 600px) {
-            .welcome h2 {
-                font-size: 18px;
+            .container {
+                width: 100%;
+                border-radius: 0;
+                height: 100vh;
             }
 
-            .welcome p {
-                font-size: 12px;
+            .right-panel h2 {
+                font-size: 24px;
             }
 
-            .kotak-input input {
-                padding: 8px 12px;
-                font-size: 12px;
+            .right-panel p {
+                font-size: 14px;
             }
 
-            .tombol-daftar button {
-                padding: 8px 12px;
+            .form-header h2 {
+                font-size: 20px;
+            }
+
+            .form-header p {
+                font-size: 14px;
+            }
+
+            .input-group input {
+                padding: 10px 15px;
                 font-size: 13px;
             }
 
-            .sosmed {
-                gap: 10px;
+            .submit-button {
+                padding: 10px 15px;
+                font-size: 14px;
             }
 
-            .icon img {
-                width: 20px;
-                height: 20px;
+            .social-icon {
+                width: 25px;
+                height: 25px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="bagian-kiri"></div>
-    <div class="bagian-kanan">
-        <div class="register">
-            <div class="logo">
-                <a href="homePage.html">
-                    <img src="img/logo.jpg" alt="Logo Teman Singgah">
-                </a>
-            </div>
+    <div class="container">
+        <div class="left-panel">
+            <div class="form-container">
+                <div class="logo">
+                    <a href="home_page.html">
+                        <img src="/website_materials/logo_temansinggah.svg" alt="Logo Teman Singgah">
+                    </a>
+                </div>
 
-            <div class="welcome">
-                <h2>Selamat Datang di Teman Singgah!</h2>
-                <p>Silahkan Daftar.</p>
-            </div>
+                <div class="form-header">
+                    <h2>Selamat Datang di Teman Singgah!</h2>
+                    <p>Silahkan Daftar</p>
+                </div>
 
-            <div class="kotak-input">
-                <input type="text" placeholder="nama">
-                <input type="email" placeholder="email">
-                <input type="password" placeholder="kata sandi">
-            </div>
+                <form>
+                    <div class="input-group">
+                        <input type="text" placeholder="Masukkan Nama" required>
+                    </div>
 
-            <div class="tombol-daftar">
-                <button><a href="homePageUdahLogin.html">Daftar</a></button>
-            </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Masukkan Email" required>
+                    </div>
 
-            <div class="atau-daftar-dengan">
-                <hr>
-                <span>Atau Daftar Dengan</span>
-                <hr>
-            </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Masukkan Password" required>
+                    </div>
 
-            <div class="sosmed">
-                <div class="icon"><img src="img/FACEBOOK.svg" alt="Facebook"></div>
-                <div class="icon"><img src="img/google.svg" alt="Google"></div>
-                <div class="icon"><img src="img/apple.svg" alt="Apple"></div>
-            </div>
+                    <button type="button" onclick="window.location.href='home_page.html'"
+                        class="submit-button">Daftar</button>
+                </form>
 
-            <div class="sudah">
-                <p>Sudah Memiliki Akun? <a href="login.html" class="masuk">Masuk</a></p>
+                <div class="divider">
+                    <hr>
+                    <span>Atau Daftar Dengan</span>
+                    <hr>
+                </div>
+
+                <div class="social-login">
+                    <div class="social-icon">
+                        <img src="/website_materials/icon_facebook.svg" alt="Facebook">
+                    </div>
+                    <div class="social-icon">
+                        <img src="/website_materials/icon_google.svg" alt="Google">
+                    </div>
+                    <div class="social-icon">
+                        <img src="/website_materials/icon_apple.svg" alt="Apple">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
+        <div class="right-panel">
+            <h2>Selamat Datang!</h2>
+            <p>Sudah Memiliki Akun?</p>
+            <a href="login_page.html" class="switch-button">Masuk</a>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Language & Currency Popup</title>
-    <link rel="stylesheet" href="language-currency_popup.css">
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-    </style>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Language & Currency Popup</title>
+  <link rel="stylesheet" href="language-currency_popup.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+  </style>
+</head>
+
+<body>
+  <div id="languageCurrencyPopup" class="language-currency-popup">
     <section class="section">
-      <button class="close-button">
-        <img src="/website_materials/icon_back-x.svg" />
+      <button class="close-button" aria-label="Tutup">
+        <img src="website_materials/icon_back-x.svg" alt="Tutup" />
       </button>
 
       <div class="header" id="mainHeader">
@@ -20,9 +23,7 @@
           <p>Bahasa dan Wilayah</p>
           <hr class="header-underline" />
         </div>
-        <a class="header-item" id="currencyTab" style="cursor: pointer"
-          >Mata Uang</a
-        >
+        <a class="header-item" id="currencyTab" style="cursor: pointer">Mata Uang</a>
       </div>
 
       <!-- LANGUAGE CONTENT -->
@@ -30,19 +31,11 @@
         <section class="content" id="langRecommendedSection">
           <span class="content-title">Bahasa dan Wilayah yang Disarankan</span>
           <div class="list" id="langRecommendedList">
-            <div
-              class="item"
-              data-language="English"
-              data-country="United States"
-            >
+            <div class="item" data-language="English" data-country="United States">
               <p class="name">English</p>
               <p class="code">United States</p>
             </div>
-            <div
-              class="item"
-              data-language="English"
-              data-country="United Kingdom"
-            >
+            <div class="item" data-language="English" data-country="United Kingdom">
               <p class="name">English</p>
               <p class="code">United Kingdom</p>
             </div>
@@ -52,27 +45,15 @@
         <section class="content">
           <span class="content-title">Pilih Bahasa dan Wilayah Anda</span>
           <div class="list" id="languageList">
-            <div
-              class="item-selected"
-              data-language="Bahasa Indonesia"
-              data-country="Indonesia"
-            >
+            <div class="item-selected" data-language="Bahasa Indonesia" data-country="Indonesia">
               <p class="name">Bahasa Indonesia</p>
               <p class="code">Indonesia</p>
             </div>
-            <div
-              class="item"
-              data-language="English"
-              data-country="United States"
-            >
+            <div class="item" data-language="English" data-country="United States">
               <p class="name">English</p>
               <p class="code">United States</p>
             </div>
-            <div
-              class="item"
-              data-language="English"
-              data-country="United Kingdom"
-            >
+            <div class="item" data-language="English" data-country="United Kingdom">
               <p class="name">English</p>
               <p class="code">United Kingdom</p>
             </div>
@@ -100,11 +81,7 @@
               <p class="name">ไทย</p>
               <p class="code">Thailand</p>
             </div>
-            <div
-              class="item"
-              data-language="Deutsch"
-              data-country="Deutschland"
-            >
+            <div class="item" data-language="Deutsch" data-country="Deutschland">
               <p class="name">Deutsch</p>
               <p class="code">Deutschland</p>
             </div>
@@ -128,11 +105,7 @@
               <p class="name">Русский</p>
               <p class="code">Russia</p>
             </div>
-            <div
-              class="item"
-              data-language="العربية"
-              data-country="Saudi Arabia"
-            >
+            <div class="item" data-language="العربية" data-country="Saudi Arabia">
               <p class="name">العربية</p>
               <p class="code">Saudi Arabia</p>
             </div>
@@ -225,5 +198,7 @@
     </section>
 
     <script src="language-currency_popup.js"></script>
-  </body>
+  </div>
+</body>
+
 </html>

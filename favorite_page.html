@@ -1,125 +1,135 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Favorit Page</title>
-    <link rel="stylesheet" href="favorite_page.css" />
-    <link rel="icon" href="website_materials/logo_temansinggah.svg" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-    </style>
-  </head>
 
-  <body>
-    <nav>
-      <div class="logo">
-        <img class="logo-icon" src="/website_materials/logo_temansinggah.svg" />
-        <img class="logo-name" src="website_materials/label_temansinggah.svg" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorit Page</title>
+  <link rel="stylesheet" href="favorite_page.css" />
+  <link rel="icon" href="website_materials/logo_temansinggah.svg" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      <a href="home_page.html">
+        <img class="logo-icon" src="website_materials/logo_temansinggah.svg" alt="TemanSinggah logo" />
+        <img class="logo-name" src="website_materials/label_temansinggah.svg" alt="TemanSinggah" />
+      </a>
+    </div>
+
+    <ul>
+      <li><a href="home_page.html">Beranda</a></li>
+      <li><a href="about_page.html">Tentang Kami</a></li>
+      <li><a href="favorite_page.html" class="nav-active">Favorit</a></li>
+      <li><a href="login_page.html">Masuk / Daftar</a></li>
+      <li>
+        <span id="lang-currency-toggle" style="cursor: pointer;" aria-haspopup="dialog" aria-expanded="false">
+          <img src="website_materials/icon_globe.svg" alt="Bahasa dan Mata Uang" />
+          | IDR
+        </span>
+      <li>
+        <a href="/profile-page_about-me.html" class="no-underline">
+          <span class="icon-wrapper"><img src="website_materials/icon_user.svg" alt="Logo Akun" /></span>
+        </a>
+      </li>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="favorite-pages">
+    <div class="favorite-header">
+      <div class="back-button">
+        <h2>&lt;</h2>
       </div>
-
-      <ul>
-        <li><a href="home_page.html">Beranda</a></li>
-        <li><a href="about_page.html">Tentang Kami</a></li>
-        <li><a href="favorite_page.html">Favorit</a></li>
-        <li>
-          <span>
-            <img src="website_materials/icon_globe.svg" />
-            | IDR
-          </span>
-        </li>
-        <li>
-          <a href="profile_page.html"
-            ><img src="website_materials/icon_user.svg" alt="Logo Akun"
-          /></a>
-        </li>
-      </ul>
-    </nav>
-
-    <section class="favorite-pages">
-      <div class="favorite-header">
-        <div class="back-button"><h2>&lt;</h2></div>
-        <div class="header-title"><h2>Daftar Favorit</h2></div>
+      <div class="header-title">
+        <h2>Daftar Favorit</h2>
       </div>
+    </div>
 
-      <div class="favorite-list">
-        <div class="card-small">
-          <div class="card-pict-small">
-            <img src="/website_materials/resort-pict/bungalow_room.avif" class="pict-small" />
-          </div>
-          <div class="card-pict-small">
-             <img src="/website_materials/resort-pict/rice_field_view_room.avif" class="pict-small" />
-          </div>
-          <div class="card-pict-small">
-             <img src="/website_materials/resort-pict/sekar_jogja_heritage-1.svg" class="pict-small" />
-          </div>
-          <div class="card-pict-small">
-             <img src="/website_materials/resort-pict/gambar_hero.svg" class="pict-small" />
-          </div>
-          <div class="picture-text">
-            <h3>Baru Dilihat</h3>
-            <p>2 Hari yang Lalu</p>
-          </div>
+    <div class="favorite-list">
+      <div class="card-small">
+        <a href="" class="card-pict-small">
+          <img src="/website_materials/resort-pict/bungalow_room.avif" class="pict-small" />
+        </a>
+        <div class="card-pict-small">
+          <img src="/website_materials/resort-pict/rice_field_view_room.avif" class="pict-small" />
         </div>
-
-        <div class="card-big">
-          <div class="card-pict-big">
-         <a href="saves_page.html">    <img src="/website_materials/resort-pict/rice_field_view_room.avif" class="pict-big" /></a>
-          </div>
-          <div class="picture-text">
-            <h3>Villa Rengasdengklok</h3>
-            <p>2 Disimpan</p>
-          </div>
+        <div class="card-pict-small">
+          <img src="/website_materials/resort-pict/sekar_jogja_heritage-1.svg" class="pict-small" />
         </div>
-        <div class="card-big">
-          <div class="card-pict-big">
-              <img src="/website_materials/resort-pict//sekar_jogja_heritage-1.svg" class="pict-big" />
-          </div>
-          <div class="picture-text">
-            <h3>Villa Rengasdengklok</h3>
-            <p>2 Disimpan</p>
-          </div>
+        <div class="card-pict-small">
+          <img src="/website_materials/resort-pict/gambar_hero.svg" class="pict-small" />
         </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Teman Singgah</h3>
-          <p>
-            Website booking penginapan Nusantara untuk promosi penginapan, dan
-            pelestarian budaya Indonesia.
-          </p>
-        </div>
-
-        <div class="footer-section">
-          <h3>Navigasi</h3>
-          <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#">Pencarian</a></li>
-            <li><a href="#">Favorit</a></li>
-            <li><a href="#">Daftar Booking</a></li>
-            <li><a href="#">Akun</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Dukungan</h3>
-          <ul>
-            <li><a href="#">Pusat Bantuan</a></li>
-            <li><a href="#">Kontak</a></li>
-            <li><a href="#">Media Sosial</a></li>
-          </ul>
+        <div class="picture-text">
+          <h3>Baru Dilihat</h3>
+          <p>2 Hari yang Lalu</p>
         </div>
       </div>
 
-      <hr />
-
-      <div class="footer-bawah">
-        <p>© 2025 Teman Singgah — All rights reserved.</p>
-        <p><a href="#">Kebijakan Privasi</a> • <a href="#">S&K</a></p>
+      <div class="card-big">
+        <div class="card-pict-big">
+          <a href="saves_page.html"> <img src="/website_materials/resort-pict/rice_field_view_room.avif"
+              class="pict-big" /></a>
+        </div>
+        <div class="picture-text">
+          <h3>Villa Rengasdengklok</h3>
+          <p>2 Disimpan</p>
+        </div>
       </div>
-    </footer>
-  </body>
+      <div class="card-big">
+        <a href="/saves_page.html" class="card-pict-big">
+          <img src="/website_materials/resort-pict//sekar_jogja_heritage-1.svg" class="pict-big" />
+        </a>
+        <div class="picture-text">
+          <h3>Villa Rengasdengklok</h3>
+          <p>2 Disimpan</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Teman Singgah</h3>
+        <p>
+          Website booking penginapan Nusantara untuk promosi penginapan, dan
+          pelestarian budaya Indonesia.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Navigasi</h3>
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#">Pencarian</a></li>
+          <li><a href="#">Favorit</a></li>
+          <li><a href="#">Daftar Booking</a></li>
+          <li><a href="#">Akun</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Dukungan</h3>
+        <ul>
+          <li><a href="#">Pusat Bantuan</a></li>
+          <li><a href="#">Kontak</a></li>
+          <li><a href="#">Media Sosial</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="footer-bawah">
+      <p>© 2025 Teman Singgah — All rights reserved.</p>
+      <p><a href="#">Kebijakan Privasi</a> • <a href="#">S&K</a></p>
+    </div>
+  </footer>
+</body>
+
 </html>

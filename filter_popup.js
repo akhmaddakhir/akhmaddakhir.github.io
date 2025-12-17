@@ -129,11 +129,11 @@ document.getElementById("confirmBtn").addEventListener("click", function () {
   const selectedBudaya = Array.from(
     document.querySelectorAll("#budayaOptions .filter-option.active")
   ).map((el) => el.textContent);
-  
+
   const selectedJenis = Array.from(
     document.querySelectorAll("#jenisOptions .filter-option.active")
   ).map((el) => el.textContent);
-  
+
   const selectedRatings = Array.from(
     document.querySelectorAll(".rating-option.active")
   ).map((el) => el.querySelectorAll("img").length);
@@ -152,11 +152,13 @@ document.getElementById("confirmBtn").addEventListener("click", function () {
   };
 
   console.log("Selected Filters:", selectedFilters);
-  
+
   // Close popup if it exists
   const filterPopup = document.getElementById("filterPopup");
   if (filterPopup) {
     filterPopup.classList.remove("active");
+    // Re-enable page scrolling after closing
+    document.body.style.overflow = "";
   }
 });
 

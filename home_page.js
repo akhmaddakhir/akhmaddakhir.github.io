@@ -316,6 +316,68 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error loading filter popup:", error);
     });
 
+  // Load language / currency popup (same pattern as filter)
+  let languagePopup = null;
+  const langToggle = document.getElementById("lang-currency-toggle");
+
+  fetch("language-currency_popup.html")
+    .then((res) => res.text())
+    .then((html) => {
+      const container = document.createElement("div");
+      container.innerHTML = html;
+      document.body.appendChild(container);
+
+      languagePopup =
+        document.getElementById("languageCurrencyPopup") ||
+        document.getElementById("language-popup") ||
+        document.querySelector(".language-currency-popup");
+
+      const script = document.createElement("script");
+      script.src = "language-currency_popup.js";
+      document.body.appendChild(script);
+
+      if (languagePopup) {
+        // Close when clicking overlay
+        languagePopup.addEventListener("click", function (e) {
+          if (e.target === languagePopup) {
+            languagePopup.classList.remove("active");
+            document.body.style.overflow = "";
+            if (langToggle) langToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        // Prevent closing when clicking inside the content area
+        const inner = languagePopup.querySelector(
+          ".language-section, .lc-section, .popup-section, .filter-section"
+        );
+        if (inner) {
+          inner.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        }
+
+        // Toggle popup when clicking the navbar language/currency toggle
+        if (langToggle) {
+          langToggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const isActive = languagePopup.classList.contains("active");
+            if (isActive) {
+              languagePopup.classList.remove("active");
+              document.body.style.overflow = "";
+              langToggle.setAttribute("aria-expanded", "false");
+            } else {
+              languagePopup.classList.add("active");
+              document.body.style.overflow = "hidden";
+              langToggle.setAttribute("aria-expanded", "true");
+            }
+          });
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Error loading language/currency popup:", error);
+    });
+
   // Save buttons
   const saveButtons = document.querySelectorAll(
     ".save-button, .save-button-notag"
@@ -325,12 +387,13 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", (e) => {
       e.stopPropagation();
       const img = button.querySelector("img");
-      const currentSrc = img.getAttribute("src");
+      if (!img) return;
+      const currentSrc = img.getAttribute("src") || "";
 
       if (currentSrc.includes("icon_save-on.svg")) {
-        img.setAttribute("src", "/website_materials/icon_save.svg");
+        img.setAttribute("src", "website_materials/icon_save.svg");
       } else {
-        img.setAttribute("src", "/website_materials/icon_save-on.svg");
+        img.setAttribute("src", "website_materials/icon_save-on.svg");
       }
     });
   });

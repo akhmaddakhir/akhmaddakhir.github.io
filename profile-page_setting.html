@@ -313,7 +313,8 @@
             color: #000;
             font-size: 14px;
             font-weight: 500;
-            transition: 0.2s;margin-right:10px;
+            transition: 0.2s;
+            margin-right: 10px;
         }
 
         .edit-button:hover {
@@ -424,24 +425,27 @@
 
     <nav>
         <div class="logo">
-            <img class="logo-icon" src="/website_materials/logo_temansinggah.svg" />
-            <img class="logo-name" src="website_materials/label_temansinggah.svg" />
+            <a href="home_page.html">
+                <img class="logo-icon" src="website_materials/logo_temansinggah.svg" alt="TemanSinggah logo" />
+                <img class="logo-name" src="website_materials/label_temansinggah.svg" alt="TemanSinggah" />
+            </a>
         </div>
 
         <ul>
             <li><a href="home_page.html">Beranda</a></li>
-            <li><a href="about_page.html">Tentang Kami</a></li>
+            <li><a href="about_page.html" class="nav-active">Tentang Kami</a></li>
             <li><a href="favorite_page.html">Favorit</a></li>
+            <li><a href="login_page.html">Masuk / Daftar</a></li>
             <li>
-                <span>
-                    <img src="website_materials/icon_globe.svg" />
+                <span id="lang-currency-toggle" style="cursor: pointer;" aria-haspopup="dialog" aria-expanded="false">
+                    <img src="website_materials/icon_globe.svg" alt="Bahasa dan Mata Uang" />
                     | IDR
                 </span>
-            </li>
             <li>
-                <a href="profile_page.html">
-                    <img src="website_materials/icon_user.svg" alt="Logo Akun" />
+                <a href="/profile-page_about-me.html" class="no-underline">
+                    <span class="icon-wrapper"><img src="website_materials/icon_user.svg" alt="Logo Akun" /></span>
                 </a>
+            </li>
             </li>
         </ul>
     </nav>
