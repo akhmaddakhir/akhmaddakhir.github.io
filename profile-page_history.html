@@ -41,8 +41,13 @@
             position: relative;
         }
 
+        .logo a {
+            text-decoration: none;
+        }
+
         .logo .logo-icon {
             width: 35px;
+            margin-bottom: 55px;
             z-index: 2;
             cursor: pointer;
         }
@@ -50,7 +55,7 @@
         .logo .logo-name {
             width: 178px;
             z-index: 1;
-            margin-left: -23px;
+            margin-left: -25px;
             margin-top: 10px;
             cursor: pointer;
         }
@@ -61,7 +66,8 @@
         }
 
         nav ul li a {
-            color: #806b4d;
+            color: rgba(128, 107, 77, 0.6);
+            /* non-active lighter */
             margin-left: 60px;
             font-size: 14px;
             align-items: center;
@@ -72,7 +78,7 @@
         }
 
         nav ul li span {
-            color: #806b4d;
+            color: rgba(128, 107, 77, 0.6);
             margin-left: 60px;
             font-size: 14px;
             align-items: center;
@@ -80,18 +86,75 @@
             vertical-align: middle;
             text-decoration: none;
             cursor: pointer;
+            transition: color 0.18s ease;
         }
 
         nav ul li span img {
             width: 24px;
             height: 24px;
             margin-right: 3px;
+            margin-bottom: 2px;
+            opacity: 0.6;
+            transition: opacity 0.18s ease;
         }
 
         nav ul li a img {
             width: 24px;
             height: 24px;
             margin-right: 30px;
+            margin-left: -60px;
+            opacity: 0.6;
+            margin-bottom: 0;
+        }
+
+        /* Underline for navbar items using primary color #806b4d */
+        nav ul li a,
+        nav ul li span {
+            position: relative;
+            transition: color 0.18s ease;
+        }
+
+        nav ul li a::after,
+        nav ul li span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px;
+            bottom: -8px;
+            background: transparent;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.18s ease, background-color 0.18s ease;
+        }
+
+        /* Active / hover state uses the primary brand color */
+        nav ul li a:hover,
+        nav ul li a.active,
+        nav ul li a.nav-active,
+        nav ul li span:hover,
+        nav ul li span img:hover,
+        nav ul li a img:hover,
+        nav ul li span.active,
+        nav ul li span.nav-active {
+            color: #806b4d;
+            opacity: 1;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after,
+        nav ul li a.nav-active::after,
+        nav ul li span:hover::after,
+        nav ul li span.active::after,
+        nav ul li span.nav-active::after {
+            background-color: #806b4d;
+            transform: scaleX(1);
+        }
+
+        /* Disable underline for anchors explicitly marked no-underline (e.g. account icon) */
+        nav ul li a.no-underline::after,
+        nav ul li a.no-underline .icon-wrapper::after {
+            display: none !important;
         }
 
         .sidebar {
@@ -470,7 +533,7 @@
 
         <ul>
             <li><a href="home_page.html">Beranda</a></li>
-            <li><a href="about_page.html" class="nav-active">Tentang Kami</a></li>
+            <li><a href="about_page.html">Tentang Kami</a></li>
             <li><a href="favorite_page.html">Favorit</a></li>
             <li><a href="login_page.html">Masuk / Daftar</a></li>
             <li>
@@ -599,6 +662,125 @@
         document.getElementById("hamburger").addEventListener("click", () => {
             document.getElementById("sidebar").classList.toggle("active");
         });
+
+        // Load language / currency popup (same pattern as filter)
+        let languagePopup = null;
+        const langToggle = document.getElementById("lang-currency-toggle");
+        const berandaLink = document.querySelector('nav ul li a[href="home_page.html"]');
+
+        fetch("language-currency_popup.html")
+            .then((res) => res.text())
+            .then((html) => {
+                const container = document.createElement("div");
+                container.innerHTML = html;
+                document.body.appendChild(container);
+
+                languagePopup =
+                    document.getElementById("languageCurrencyPopup") ||
+                    document.getElementById("language-popup") ||
+                    document.querySelector(".language-currency-popup");
+
+                const script = document.createElement("script");
+                script.src = "language-currency_popup.js";
+                document.body.appendChild(script);
+
+                if (languagePopup) {
+                    // Fungsi untuk close popup dan kembalikan ke Beranda
+                    function closeLanguagePopup() {
+                        languagePopup.classList.remove("active");
+                        document.body.style.overflow = "";
+                        if (langToggle) {
+                            langToggle.classList.remove("nav-active");
+                            langToggle.setAttribute("aria-expanded", "false");
+                        }
+                        // Kembalikan active ke Beranda
+                        if (berandaLink) {
+                            berandaLink.classList.add("nav-active");
+                        }
+                    }
+
+                    // Observer untuk mendeteksi perubahan pada popup (ketika option dipilih dan popup tertutup)
+                    const observer = new MutationObserver((mutations) => {
+                        mutations.forEach((mutation) => {
+                            if (mutation.attributeName === 'class') {
+                                const isActive = languagePopup.classList.contains("active");
+                                // Jika popup tidak active lagi, kembalikan ke Beranda
+                                if (!isActive && langToggle.classList.contains("nav-active")) {
+                                    langToggle.classList.remove("nav-active");
+                                    if (berandaLink) {
+                                        berandaLink.classList.add("nav-active");
+                                    }
+                                }
+                            }
+                        });
+                    });
+
+                    observer.observe(languagePopup, { attributes: true });
+
+                    // Close when clicking overlay
+                    languagePopup.addEventListener("click", function (e) {
+                        if (e.target === languagePopup) {
+                            closeLanguagePopup();
+                        }
+                    });
+
+                    // Tunggu script language-currency_popup.js selesai load, lalu attach event ke options
+                    setTimeout(() => {
+                        // Close ketika tombol X diklik
+                        const closeButton = languagePopup.querySelector(".close-button, .close-btn, button[class*='close'], .lc-close");
+                        if (closeButton) {
+                            closeButton.addEventListener("click", function (e) {
+                                e.stopPropagation();
+                                closeLanguagePopup();
+                            });
+                        }
+
+                        // Close ketika memilih option (language atau currency)
+                        const allOptions = languagePopup.querySelectorAll(".language-option, .currency-option, .lc-option, [data-lang], [data-currency]");
+                        allOptions.forEach(option => {
+                            option.addEventListener("click", function () {
+                                // Tunggu sebentar agar popup tertutup oleh script aslinya
+                                setTimeout(() => {
+                                    closeLanguagePopup();
+                                }, 100);
+                            });
+                        });
+                    }, 500);
+
+                    // Prevent closing when clicking inside the content area
+                    const inner = languagePopup.querySelector(
+                        ".language-section, .lc-section, .popup-section, .filter-section"
+                    );
+                    if (inner) {
+                        inner.addEventListener("click", function (e) {
+                            e.stopPropagation();
+                        });
+                    }
+
+                    // Toggle popup when clicking the navbar language/currency toggle
+                    if (langToggle) {
+                        langToggle.addEventListener("click", function (e) {
+                            e.stopPropagation();
+                            const isActive = languagePopup.classList.contains("active");
+                            if (isActive) {
+                                closeLanguagePopup();
+                            } else {
+                                languagePopup.classList.add("active");
+                                document.body.style.overflow = "hidden";
+                                langToggle.classList.add("nav-active");
+                                langToggle.setAttribute("aria-expanded", "true");
+                                // Remove active dari Beranda
+                                if (berandaLink) {
+                                    berandaLink.classList.remove("nav-active");
+                                }
+                            }
+                        });
+                    }
+                }
+            })
+            .catch((error) => {
+                console.error("Error loading language/currency popup:", error);
+            });
     </script>
 
 </body>

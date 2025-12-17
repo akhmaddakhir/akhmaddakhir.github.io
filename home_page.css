@@ -74,12 +74,16 @@ nav ul li span {
   vertical-align: middle;
   text-decoration: none;
   cursor: pointer;
+  transition: color 0.18s ease;
 }
 
 nav ul li span img {
   width: 24px;
   height: 24px;
   margin-right: 3px;
+  margin-bottom: 2px;
+  opacity: 0.6;
+  transition: opacity 0.18s ease;
 }
 
 nav ul li a img {
@@ -87,6 +91,7 @@ nav ul li a img {
   height: 24px;
   margin-right: 30px;
   margin-left: -60px;
+  opacity: 0.6; margin-bottom: 0;
 }
 
 /* Underline for navbar items using primary color #806b4d */
@@ -115,9 +120,11 @@ nav ul li a:hover,
 nav ul li a.active,
 nav ul li a.nav-active,
 nav ul li span:hover,
+nav ul li span img:hover,
+nav ul li a img:hover,
 nav ul li span.active,
 nav ul li span.nav-active {
-  color: #806b4d;
+  color: #806b4d;opacity:1;
 }
 
 nav ul li a:hover::after,

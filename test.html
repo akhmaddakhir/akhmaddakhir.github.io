@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Robot Coding Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .game {
+    text-align: center;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    gap: 5px;
+    margin: 15px auto;
+  }
+  .cell {
+    width: 60px;
+    height: 60px;
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+  button {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="game">
+  <h2>🤖 Bantu Robot ke Bintang ⭐</h2>
+
+  <div class="grid">
+    <div class="cell">🤖</div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell">⭐</div>
+  </div>
+
+  <p>Pilih 3 perintah:</p>
+  <button onclick="add('Maju')">⬆️ Maju</button>
+  <button onclick="add('Kiri')">⬅️ Kiri</button>
+  <button onclick="add('Kanan')">➡️ Kanan</button>
+
+  <p id="cmd"></p>
+
+  <button onclick="run()">▶️ Jalankan</button>
+  <p id="result"></p>
+</div>
+
+<script>
+let commands = [];
+
+function add(cmd) {
+  if (commands.length < 3) {
+    commands.push(cmd);
+    document.getElementById("cmd").textContent = commands.join(" → ");
+  }
+}
+
+function run() {
+  if (commands.join() === "Maju,Maju,Kanan") {
+    document.getElementById("result").textContent = "🎉 Berhasil! Kamu baru saja ngoding!";
+  } else {
+    document.getElementById("result").textContent = "❌ Belum tepat, coba lagi";
+  }
+  commands = [];
+  document.getElementById("cmd").textContent = "";
+}
+</script>
+
+</body>
+</html>
