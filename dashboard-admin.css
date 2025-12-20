@@ -1,0 +1,22 @@
+:root {
+  --white-color: #fff;
+  --bg-color: #e8e5e3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.dashboard-admin {
+  background: var(--bg-color);
+}
+
+.sidebar {
+  background: var(--white-color);
+}
