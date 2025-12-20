@@ -29,7 +29,7 @@ body {
   justify-content: center;
 }
 
-.section {
+#languageCurrencyPopup .section {
   max-width: 1200px;
   margin: 30px auto;
   padding: 30px 40px;
@@ -185,21 +185,22 @@ body {
 }
 
 /* Custom scrollbar for the popup section only */
-.section::-webkit-scrollbar {
+.language-currency-popup #section-scroller,
+#languageCurrencyPopup .section::-webkit-scrollbar {
   width: 10px;
 }
-.section::-webkit-scrollbar-track {
+#languageCurrencyPopup .section::-webkit-scrollbar-track {
   background: transparent;
 }
-.section::-webkit-scrollbar-thumb {
+#languageCurrencyPopup .section::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.18);
   border-radius: 6px;
 }
-.section::-webkit-scrollbar-corner {
+#languageCurrencyPopup .section::-webkit-scrollbar-corner {
   background: transparent; /* remove visible corner artifact */
 }
 
 /* Add a bit of right padding so scrollbar doesn't overlap rounded corner */
-.section {
+#languageCurrencyPopup .section {
   padding-right: 36px;
 }

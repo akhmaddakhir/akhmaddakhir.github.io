@@ -316,10 +316,12 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error loading filter popup:", error);
     });
 
- // Load language / currency popup (same pattern as filter)
+  // Load language / currency popup (same pattern as filter)
   let languagePopup = null;
   const langToggle = document.getElementById("lang-currency-toggle");
-  const berandaLink = document.querySelector('nav ul li a[href="home_page.html"]');
+  const berandaLink = document.querySelector(
+    'nav ul li a[href="home_page.html"]'
+  );
 
   fetch("language-currency_popup.html")
     .then((res) => res.text())
@@ -355,7 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Observer untuk mendeteksi perubahan pada popup (ketika option dipilih dan popup tertutup)
         const observer = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
-            if (mutation.attributeName === 'class') {
+            if (mutation.attributeName === "class") {
               const isActive = languagePopup.classList.contains("active");
               // Jika popup tidak active lagi, kembalikan ke Beranda
               if (!isActive && langToggle.classList.contains("nav-active")) {
@@ -380,7 +382,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Tunggu script language-currency_popup.js selesai load, lalu attach event ke options
         setTimeout(() => {
           // Close ketika tombol X diklik
-          const closeButton = languagePopup.querySelector(".close-button, .close-btn, button[class*='close'], .lc-close");
+          const closeButton = languagePopup.querySelector(
+            ".close-button, .close-btn, button[class*='close'], .lc-close"
+          );
           if (closeButton) {
             closeButton.addEventListener("click", function (e) {
               e.stopPropagation();
@@ -389,8 +393,10 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           // Close ketika memilih option (language atau currency)
-          const allOptions = languagePopup.querySelectorAll(".language-option, .currency-option, .lc-option, [data-lang], [data-currency]");
-          allOptions.forEach(option => {
+          const allOptions = languagePopup.querySelectorAll(
+            ".language-option, .currency-option, .lc-option, [data-lang], [data-currency]"
+          );
+          allOptions.forEach((option) => {
             option.addEventListener("click", function () {
               // Tunggu sebentar agar popup tertutup oleh script aslinya
               setTimeout(() => {

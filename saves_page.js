@@ -170,7 +170,7 @@ dislikeBtns.forEach((btn) => {
 let languagePopup = null;
 const langToggle = document.getElementById("lang-currency-toggle");
 const berandaLink = document.querySelector(
-  'nav ul li a[href="home_page.html"]'
+  'nav ul li a[href="favorite_page.html"]'
 );
 
 fetch("language-currency_popup.html")
