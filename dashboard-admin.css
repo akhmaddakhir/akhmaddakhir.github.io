@@ -1,6 +1,10 @@
 :root {
-  --white-color: #fff;
+  --light-color: #fff;
+  --dark-color: #000;
+  --light-second-color: #fcfcfc;
+  --dark-second-color: #222;
   --bg-color: #e8e5e3;
+  --border: #e0e0e0;
 }
 
 * {
@@ -15,8 +19,81 @@ body {
 
 .dashboard-admin {
   background: var(--bg-color);
+  display: grid;
+  grid-template-columns: 280px 1fr;
 }
 
 .sidebar {
-  background: var(--white-color);
+  background: var(--light-color);
+  border-right: 1px solid var(--border);
+  max-width: 300px;
+}
+
+.sidebar-logo {
+  display: flex;
+  margin-left: 30px;
+  margin-top: -10.5px;
+  position: relative;
+}
+
+.sidebar-logo a {
+  text-decoration: none;
+}
+
+.sidebar-logo .logo-icon {
+  width: 35px;
+  margin-bottom: 10px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.sidebar-logo .logo-name {
+  width: 178px;
+  z-index: 1;
+  margin-left: -20.5px;
+  cursor: pointer;
+  margin-top: 6.5px;
+}
+
+.sidebar-menu {
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  margin-top: -20px;
+  max-width: 230px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--dark-second-color);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 17px 10px;
+  border-radius: 10px;
+}
+
+a:hover {
+  background: var(--bg-color);
+}
+
+a:active {
+  background: var(--dark-second-color);
+  color: var(--light-second-color);
+}
+
+a i {
+  font-size: 22px;
+  color: var(--dark-second-color);
+  font-weight: 500;
+}
+
+#main-section i,
+#booking-section i {
+  transform: translateY(-1.5px);
+  font-size: 21.5px;
 }

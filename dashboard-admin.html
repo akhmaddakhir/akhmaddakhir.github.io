@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Admin | TemanSinggah</title>
 
   <link rel="stylesheet" href="dashboard-admin.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
 
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap");
@@ -17,28 +20,46 @@
   <section class="dashboard-admin">
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <img src="website_materials/logo_temansinggah.svg">
-        <img src="website_materials/label_temansinggah.svg">
+        <img class="logo-icon" src="website_materials/logo_temansinggah.svg">
+        <img class="logo-name" src="website_materials/label_temansinggah.svg">
       </div>
 
       <nav class="sidebar-menu">
         <a href="#" id="main-section">
           <i class="ri-dashboard-fill"></i>
+          Ringkasan
         </a>
-        <a href="#" id="user-section">
-          <i class="ri-user-3-line"></i>
+        <a href="#user-section" id="user-section">
+          <i class="ph-bold ph-user"></i>
+          Pengguna
         </a>
-        <a href="#" id="resort-section">
+        <a href="#resort-section" id="resort-section">
           <i class="ri-hotel-line"></i>
+          Penginapan
         </a>
-        <a href="#" id="booking-section">
-          <i class="ri-calendar-check-line"></i>
+        <a href="#booking-section" id="booking-section">
+          <i class="ri-calendar-line"></i>
+          Pemesanan
         </a>
-        <a href="#" id="interaction-section">
-          <i class="ri-message-3-line"></i>
+        <a href="#interaction-section" id="interaction-section">
+          <i class="ri-chat-1-line"></i>
+          Interaksi
         </a>
       </nav>
+
+      <div class="admin-profile-box">
+        <div class="profile-info">
+
+        </div>
+        <div class="admin-logout">
+          <i class="ph-bold ph-sign-out"></i>Keluar
+        </div>
+      </div>
     </aside>
+    <section class="dashboard-content">
+      <div class="dashboard-title">Dashboard Admin</div>
+    </section>
   </section>
 </body>
+
 </html>
