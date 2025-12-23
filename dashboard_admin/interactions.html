@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction Management - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏖️ Resort Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    <span class="text">Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <span class="icon">👥</span>
+                    <span class="text">User Management</span>
+                </a>
+                <a href="resorts.html" class="nav-item">
+                    <span class="icon">🏨</span>
+                    <span class="text">Resort</span>
+                </a>
+                <a href="bookings.html" class="nav-item">
+                    <span class="icon">📅</span>
+                    <span class="text">Booking</span>
+                </a>
+                <a href="interactions.html" class="nav-item active">
+                    <span class="icon">💬</span>
+                    <span class="text">Interaction</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <span class="icon">📈</span>
+                    <span class="text">Reports</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span class="text">Settings</span>
+                </a>
+                <a href="#" class="nav-item" onclick="logout()">
+                    <span class="icon">🚪</span>
+                    <span class="text">Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Interaction Management</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <span class="icon">🔔</span>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="user-name">Admin</span>
+                        <span class="user-avatar">👤</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Daftar Interaksi (Ulasan, Pesan, Feedback)</h3>
+                        <button class="btn btn-primary" onclick="openInteractionModal()">
+                            ➕ Tambah Interaksi
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-controls">
+                            <input type="text" id="searchInteraction" placeholder="🔍 Cari interaksi..." class="search-input">
+                            <select id="filterType" class="filter-select">
+                                <option value="">Semua Tipe</option>
+                                <option value="Review">Review</option>
+                                <option value="Message">Message</option>
+                                <option value="Feedback">Feedback</option>
+                                <option value="Complaint">Complaint</option>
+                            </select>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User</th>
+                                    <th>Tipe</th>
+                                    <th>Pesan</th>
+                                    <th>Rating</th>
+                                    <th>Tanggal</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="interactionTableBody">
+                                <tr>
+                                    <td colspan="8" class="text-center">Memuat data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah/Edit Interaction -->
+    <div id="interactionModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="modalTitle">Tambah Interaksi</h2>
+                <span class="close" onclick="closeInteractionModal()">&times;</span>
+            </div>
+            <form id="interactionForm" class="modal-body">
+                <input type="hidden" id="interactionId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="interactionUser">User *</label>
+                        <select id="interactionUser" required>
+                            <option value="">Pilih User</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="interactionType">Tipe *</label>
+                        <select id="interactionType" required>
+                            <option value="Review">Review</option>
+                            <option value="Message">Message</option>
+                            <option value="Feedback">Feedback</option>
+                            <option value="Complaint">Complaint</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="interactionRating">Rating (1-5)</label>
+                        <input type="number" id="interactionRating" min="1" max="5" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="interactionDate">Tanggal *</label>
+                        <input type="date" id="interactionDate" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="interactionMessage">Pesan/Isi *</label>
+                    <textarea id="interactionMessage" rows="4" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="interactionStatus">Status *</label>
+                        <select id="interactionStatus" required>
+                            <option value="Pending">Pending</option>
+                            <option value="Reviewed">Reviewed</option>
+                            <option value="Resolved">Resolved</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="interactionResort">Resort (opsional)</label>
+                        <select id="interactionResort">
+                            <option value="">Pilih Resort</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="interactionResponse">Respon Admin</label>
+                    <textarea id="interactionResponse" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeInteractionModal()">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        checkAuth();
+        let interactions = [];
+        let editingInteractionId = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadInteractions();
+            populateUserSelect();
+            populateResortSelect();
+            
+            document.getElementById('searchInteraction').addEventListener('input', filterInteractions);
+            document.getElementById('filterType').addEventListener('change', filterInteractions);
+
+            document.getElementById('interactionForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveInteraction();
+            });
+        });
+
+        function loadInteractions() {
+            const stored = localStorage.getItem('interactions');
+            if (stored) {
+                interactions = JSON.parse(stored);
+            } else {
+                interactions = [
+                    { id: 1, userId: 1, userName: 'John Doe', type: 'Review', message: 'Pengalaman menginap yang luar biasa! Resort sangat bersih dan staf sangat ramah.', rating: 5, date: '2024-12-20', status: 'Reviewed', resortId: 1, resortName: 'Bali Beach Resort', response: 'Terima kasih atas ulasan positifnya!' },
+                    { id: 2, userId: 2, userName: 'Jane Smith', type: 'Complaint', message: 'AC di kamar tidak berfungsi dengan baik, mohon segera diperbaiki.', rating: 2, date: '2024-12-19', status: 'Resolved', resortId: 2, resortName: 'Mountain View Villa', response: 'Mohon maaf atas ketidaknyamanannya. AC sudah kami perbaiki.' },
+                    { id: 3, userId: 1, userName: 'John Doe', type: 'Feedback', message: 'Saran: tolong tambahkan menu vegetarian di restaurant.', rating: 4, date: '2024-12-18', status: 'Reviewed', resortId: 1, resortName: 'Bali Beach Resort', response: 'Terima kasih atas sarannya, akan kami pertimbangkan.' }
+                ];
+                localStorage.setItem('interactions', JSON.stringify(interactions));
+            }
+            displayInteractions(interactions);
+        }
+
+        function displayInteractions(data) {
+            const tbody = document.getElementById('interactionTableBody');
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="text-center">Tidak ada data</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = data.map(interaction => `
+                <tr>
+                    <td>${interaction.id}</td>
+                    <td>${interaction.userName}</td>
+                    <td><span class="badge badge-info">${interaction.type}</span></td>
+                    <td>${interaction.message.substring(0, 50)}${interaction.message.length > 50 ? '...' : ''}</td>
+                    <td>${interaction.rating ? '⭐'.repeat(interaction.rating) : '-'}</td>
+                    <td>${interaction.date}</td>
+                    <td><span class="badge badge-${interaction.status === 'Resolved' || interaction.status === 'Reviewed' ? 'success' : interaction.status === 'Pending' ? 'warning' : 'secondary'}">${interaction.status}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-warning" onclick="editInteraction(${interaction.id})">✏️ Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteInteraction(${interaction.id})">🗑️ Hapus</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function populateUserSelect() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const select = document.getElementById('interactionUser');
+            select.innerHTML = '<option value="">Pilih User</option>' + 
+                users.map(u => `<option value="${u.id}" data-name="${u.name}">${u.name}</option>`).join('');
+        }
+
+        function populateResortSelect() {
+            const resorts = JSON.parse(localStorage.getItem('resorts') || '[]');
+            const select = document.getElementById('interactionResort');
+            select.innerHTML = '<option value="">Pilih Resort</option>' + 
+                resorts.map(r => `<option value="${r.id}" data-name="${r.name}">${r.name}</option>`).join('');
+        }
+
+        function filterInteractions() {
+            const searchTerm = document.getElementById('searchInteraction').value.toLowerCase();
+            const typeFilter = document.getElementById('filterType').value;
+            
+            let filtered = interactions;
+            
+            if (searchTerm) {
+                filtered = filtered.filter(i => 
+                    i.userName.toLowerCase().includes(searchTerm) || 
+                    i.message.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            if (typeFilter) {
+                filtered = filtered.filter(i => i.type === typeFilter);
+            }
+            
+            displayInteractions(filtered);
+        }
+
+        function openInteractionModal() {
+            editingInteractionId = null;
+            document.getElementById('modalTitle').textContent = 'Tambah Interaksi';
+            document.getElementById('interactionForm').reset();
+            document.getElementById('interactionId').value = '';
+            document.getElementById('interactionDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('interactionModal').style.display = 'flex';
+        }
+
+        function closeInteractionModal() {
+            document.getElementById('interactionModal').style.display = 'none';
+        }
+
+        function editInteraction(id) {
+            const interaction = interactions.find(i => i.id === id);
+            if (!interaction) return;
+
+            editingInteractionId = id;
+            document.getElementById('modalTitle').textContent = 'Edit Interaksi';
+            document.getElementById('interactionId').value = interaction.id;
+            document.getElementById('interactionUser').value = interaction.userId;
+            document.getElementById('interactionType').value = interaction.type;
+            document.getElementById('interactionMessage').value = interaction.message;
+            document.getElementById('interactionRating').value = interaction.rating || '';
+            document.getElementById('interactionDate').value = interaction.date;
+            document.getElementById('interactionStatus').value = interaction.status;
+            document.getElementById('interactionResort').value = interaction.resortId || '';
+            document.getElementById('interactionResponse').value = interaction.response || '';
+            document.getElementById('interactionModal').style.display = 'flex';
+        }
+
+        function saveInteraction() {
+            const userSelect = document.getElementById('interactionUser');
+            const resortSelect = document.getElementById('interactionResort');
+            
+            const id = editingInteractionId || Date.now();
+            const interactionData = {
+                id: id,
+                userId: parseInt(userSelect.value),
+                userName: userSelect.options[userSelect.selectedIndex].dataset.name,
+                type: document.getElementById('interactionType').value,
+                message: document.getElementById('interactionMessage').value,
+                rating: parseInt(document.getElementById('interactionRating').value) || null,
+                date: document.getElementById('interactionDate').value,
+                status: document.getElementById('interactionStatus').value,
+                resortId: parseInt(resortSelect.value) || null,
+                resortName: resortSelect.value ? resortSelect.options[resortSelect.selectedIndex].dataset.name : null,
+                response: document.getElementById('interactionResponse').value
+            };
+
+            if (editingInteractionId) {
+                const index = interactions.findIndex(i => i.id === editingInteractionId);
+                interactions[index] = interactionData;
+            } else {
+                interactions.push(interactionData);
+            }
+
+            localStorage.setItem('interactions', JSON.stringify(interactions));
+            displayInteractions(interactions);
+            closeInteractionModal();
+            alert('Interaksi berhasil disimpan!');
+        }
+
+        function deleteInteraction(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus interaksi ini?')) {
+                interactions = interactions.filter(i => i.id !== id);
+                localStorage.setItem('interactions', JSON.stringify(interactions));
+                displayInteractions(interactions);
+                alert('Interaksi berhasil dihapus!');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('interactionModal');
+            if (event.target === modal) {
+                closeInteractionModal();
+            }
+        }
+    </script>
+</body>
+</html>

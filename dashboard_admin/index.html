@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏖️ Resort Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <span class="icon">📊</span>
+                    <span class="text">Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <span class="icon">👥</span>
+                    <span class="text">User Management</span>
+                </a>
+                <a href="resorts.html" class="nav-item">
+                    <span class="icon">🏨</span>
+                    <span class="text">Resort</span>
+                </a>
+                <a href="bookings.html" class="nav-item">
+                    <span class="icon">📅</span>
+                    <span class="text">Booking</span>
+                </a>
+                <a href="interactions.html" class="nav-item">
+                    <span class="icon">💬</span>
+                    <span class="text">Interaction</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <span class="icon">📈</span>
+                    <span class="text">Reports</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span class="text">Settings</span>
+                </a>
+                <a href="#" class="nav-item" onclick="logout()">
+                    <span class="icon">🚪</span>
+                    <span class="text">Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Dashboard Utama</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <span class="icon">🔔</span>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="user-name" id="adminUserName">Admin</span>
+                        <span class="user-avatar">👤</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-area">
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">👥</div>
+                        <div class="stat-details">
+                            <h3 id="totalUsers">0</h3>
+                            <p>Total Users</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">🏨</div>
+                        <div class="stat-details">
+                            <h3 id="totalResorts">0</h3>
+                            <p>Total Resorts</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">📅</div>
+                        <div class="stat-details">
+                            <h3 id="totalBookings">0</h3>
+                            <p>Total Bookings</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">💰</div>
+                        <div class="stat-details">
+                            <h3 id="totalRevenue">Rp 0</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Booking Terbaru</h3>
+                            <a href="bookings.html" class="btn btn-sm">Lihat Semua</a>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Resort</th>
+                                        <th>Tanggal</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentBookings">
+                                    <tr>
+                                        <td colspan="4" class="text-center">Memuat data...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Interaksi Terbaru</h3>
+                            <a href="interactions.html" class="btn btn-sm">Lihat Semua</a>
+                        </div>
+                        <div class="card-body">
+                            <div id="recentInteractions" class="interaction-list">
+                                <p class="text-center">Memuat data...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Check login
+        checkAuth();
+        
+        // Load dashboard data
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardStats();
+            loadRecentBookings();
+            loadRecentInteractions();
+            
+            // Display admin name
+            const adminUser = localStorage.getItem('adminUser') || 'Admin';
+            document.getElementById('adminUserName').textContent = adminUser;
+        });
+
+        function loadDashboardStats() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const resorts = JSON.parse(localStorage.getItem('resorts') || '[]');
+            const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+            
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('totalResorts').textContent = resorts.length;
+            document.getElementById('totalBookings').textContent = bookings.length;
+            
+            const totalRevenue = bookings.reduce((sum, b) => sum + (parseFloat(b.totalPrice) || 0), 0);
+            document.getElementById('totalRevenue').textContent = formatCurrency(totalRevenue);
+        }
+
+        function loadRecentBookings() {
+            const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+            const recent = bookings.slice(-5).reverse();
+            
+            const tbody = document.getElementById('recentBookings');
+            if (recent.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="text-center">Belum ada booking</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = recent.map(b => `
+                <tr>
+                    <td>${b.userName}</td>
+                    <td>${b.resortName}</td>
+                    <td>${b.checkIn}</td>
+                    <td><span class="badge badge-${b.status === 'Confirmed' ? 'success' : b.status === 'Pending' ? 'warning' : 'danger'}">${b.status}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function loadRecentInteractions() {
+            const interactions = JSON.parse(localStorage.getItem('interactions') || '[]');
+            const recent = interactions.slice(-5).reverse();
+            
+            const container = document.getElementById('recentInteractions');
+            if (recent.length === 0) {
+                container.innerHTML = '<p class="text-center">Belum ada interaksi</p>';
+                return;
+            }
+            
+            container.innerHTML = recent.map(i => `
+                <div class="interaction-item">
+                    <div class="interaction-header">
+                        <strong>${i.userName}</strong>
+                        <span class="text-muted">${i.date}</span>
+                    </div>
+                    <p>${i.message.substring(0, 80)}${i.message.length > 80 ? '...' : ''}</p>
+                    <span class="badge badge-info">${i.type}</span>
+                </div>
+            `).join('');
+        }
+
+        function formatCurrency(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏖️ Resort Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    <span class="text">Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <span class="icon">👥</span>
+                    <span class="text">User Management</span>
+                </a>
+                <a href="resorts.html" class="nav-item">
+                    <span class="icon">🏨</span>
+                    <span class="text">Resort</span>
+                </a>
+                <a href="bookings.html" class="nav-item">
+                    <span class="icon">📅</span>
+                    <span class="text">Booking</span>
+                </a>
+                <a href="interactions.html" class="nav-item">
+                    <span class="icon">💬</span>
+                    <span class="text">Interaction</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <span class="icon">📈</span>
+                    <span class="text">Reports</span>
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <span class="icon">⚙️</span>
+                    <span class="text">Settings</span>
+                </a>
+                <a href="#" class="nav-item" onclick="logout()">
+                    <span class="icon">🚪</span>
+                    <span class="text">Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Settings</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <span class="icon">🔔</span>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="user-name">Admin</span>
+                        <span class="user-avatar">👤</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="settings-container">
+                    <!-- General Settings -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🏢 General Settings</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="generalSettingsForm">
+                                <div class="form-group">
+                                    <label for="siteName">Site Name</label>
+                                    <input type="text" id="siteName" value="Resort Admin Dashboard">
+                                </div>
+                                <div class="form-group">
+                                    <label for="siteEmail">Contact Email</label>
+                                    <input type="email" id="siteEmail" value="admin@resort.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sitePhone">Contact Phone</label>
+                                    <input type="tel" id="sitePhone" value="+62 812-3456-7890">
+                                </div>
+                                <div class="form-group">
+                                    <label for="siteAddress">Address</label>
+                                    <textarea id="siteAddress" rows="3">Jl. Pantai Indah No. 123, Bali, Indonesia</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save General Settings</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>🔔 Notification Settings</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="notificationSettingsForm">
+                                <div class="setting-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="emailNotif" checked>
+                                        <span>Email Notifications</span>
+                                    </label>
+                                    <p class="setting-description">Receive email notifications for new bookings and messages</p>
+                                </div>
+                                <div class="setting-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="pushNotif" checked>
+                                        <span>Push Notifications</span>
+                                    </label>
+                                    <p class="setting-description">Receive push notifications in the browser</p>
+                                </div>
+                                <div class="setting-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="bookingNotif" checked>
+                                        <span>Booking Notifications</span>
+                                    </label>
+                                    <p class="setting-description">Get notified when new bookings are created</p>
+                                </div>
+                                <div class="setting-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="reviewNotif" checked>
+                                        <span>Review Notifications</span>
+                                    </label>
+                                    <p class="setting-description">Get notified when users submit reviews</p>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Notification Settings</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Account Settings -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>👤 Account Settings</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="accountSettingsForm">
+                                <div class="form-group">
+                                    <label for="adminName">Admin Name</label>
+                                    <input type="text" id="adminName" value="Admin User">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminEmail">Admin Email</label>
+                                    <input type="email" id="adminEmail" value="admin@resort.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword" placeholder="Enter current password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword" placeholder="Enter new password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Account</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- System Settings -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>⚙️ System Settings</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="systemSettingsForm">
+                                <div class="form-group">
+                                    <label for="currency">Currency</label>
+                                    <select id="currency">
+                                        <option value="IDR" selected>Indonesian Rupiah (IDR)</option>
+                                        <option value="USD">US Dollar (USD)</option>
+                                        <option value="EUR">Euro (EUR)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="timezone">Timezone</label>
+                                    <select id="timezone">
+                                        <option value="Asia/Jakarta" selected>Asia/Jakarta (WIB)</option>
+                                        <option value="Asia/Makassar">Asia/Makassar (WITA)</option>
+                                        <option value="Asia/Jayapura">Asia/Jayapura (WIT)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateFormat">Date Format</label>
+                                    <select id="dateFormat">
+                                        <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                                        <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                                        <option value="YYYY-MM-DD" selected>YYYY-MM-DD</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save System Settings</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Data Management -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>💾 Data Management</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="data-actions">
+                                <div class="action-item">
+                                    <h4>Export Data</h4>
+                                    <p>Export all data to JSON format</p>
+                                    <button class="btn btn-info" onclick="exportData()">📥 Export Data</button>
+                                </div>
+                                <div class="action-item">
+                                    <h4>Import Data</h4>
+                                    <p>Import data from JSON file</p>
+                                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                                    <button class="btn btn-info" onclick="document.getElementById('importFile').click()">📤 Import Data</button>
+                                </div>
+                                <div class="action-item">
+                                    <h4>Clear All Data</h4>
+                                    <p>Delete all data from localStorage (cannot be undone)</p>
+                                    <button class="btn btn-danger" onclick="clearAllData()">🗑️ Clear All Data</button>
+                                </div>
+                                <div class="action-item">
+                                    <h4>Reset to Default</h4>
+                                    <p>Reset all data to default sample data</p>
+                                    <button class="btn btn-warning" onclick="resetToDefault()">🔄 Reset to Default</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        checkAuth();
+
+        // General Settings Form
+        document.getElementById('generalSettingsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const settings = {
+                siteName: document.getElementById('siteName').value,
+                siteEmail: document.getElementById('siteEmail').value,
+                sitePhone: document.getElementById('sitePhone').value,
+                siteAddress: document.getElementById('siteAddress').value
+            };
+            localStorage.setItem('generalSettings', JSON.stringify(settings));
+            alert('General settings saved successfully!');
+        });
+
+        // Notification Settings Form
+        document.getElementById('notificationSettingsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const settings = {
+                emailNotif: document.getElementById('emailNotif').checked,
+                pushNotif: document.getElementById('pushNotif').checked,
+                bookingNotif: document.getElementById('bookingNotif').checked,
+                reviewNotif: document.getElementById('reviewNotif').checked
+            };
+            localStorage.setItem('notificationSettings', JSON.stringify(settings));
+            alert('Notification settings saved successfully!');
+        });
+
+        // Account Settings Form
+        document.getElementById('accountSettingsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (newPassword && newPassword !== confirmPassword) {
+                alert('New password and confirmation do not match!');
+                return;
+            }
+            
+            const settings = {
+                adminName: document.getElementById('adminName').value,
+                adminEmail: document.getElementById('adminEmail').value
+            };
+            localStorage.setItem('accountSettings', JSON.stringify(settings));
+            
+            if (newPassword) {
+                alert('Account updated and password changed successfully!');
+            } else {
+                alert('Account updated successfully!');
+            }
+            
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+        });
+
+        // System Settings Form
+        document.getElementById('systemSettingsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const settings = {
+                currency: document.getElementById('currency').value,
+                timezone: document.getElementById('timezone').value,
+                dateFormat: document.getElementById('dateFormat').value
+            };
+            localStorage.setItem('systemSettings', JSON.stringify(settings));
+            alert('System settings saved successfully!');
+        });
+
+        // Load saved settings on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+        });
+
+        function loadSettings() {
+            // Load general settings
+            const generalSettings = JSON.parse(localStorage.getItem('generalSettings') || '{}');
+            if (generalSettings.siteName) document.getElementById('siteName').value = generalSettings.siteName;
+            if (generalSettings.siteEmail) document.getElementById('siteEmail').value = generalSettings.siteEmail;
+            if (generalSettings.sitePhone) document.getElementById('sitePhone').value = generalSettings.sitePhone;
+            if (generalSettings.siteAddress) document.getElementById('siteAddress').value = generalSettings.siteAddress;
+
+            // Load notification settings
+            const notificationSettings = JSON.parse(localStorage.getItem('notificationSettings') || '{}');
+            if (notificationSettings.emailNotif !== undefined) document.getElementById('emailNotif').checked = notificationSettings.emailNotif;
+            if (notificationSettings.pushNotif !== undefined) document.getElementById('pushNotif').checked = notificationSettings.pushNotif;
+            if (notificationSettings.bookingNotif !== undefined) document.getElementById('bookingNotif').checked = notificationSettings.bookingNotif;
+            if (notificationSettings.reviewNotif !== undefined) document.getElementById('reviewNotif').checked = notificationSettings.reviewNotif;
+
+            // Load account settings
+            const accountSettings = JSON.parse(localStorage.getItem('accountSettings') || '{}');
+            if (accountSettings.adminName) document.getElementById('adminName').value = accountSettings.adminName;
+            if (accountSettings.adminEmail) document.getElementById('adminEmail').value = accountSettings.adminEmail;
+
+            // Load system settings
+            const systemSettings = JSON.parse(localStorage.getItem('systemSettings') || '{}');
+            if (systemSettings.currency) document.getElementById('currency').value = systemSettings.currency;
+            if (systemSettings.timezone) document.getElementById('timezone').value = systemSettings.timezone;
+            if (systemSettings.dateFormat) document.getElementById('dateFormat').value = systemSettings.dateFormat;
+        }
+
+        function exportData() {
+            const data = {
+                users: JSON.parse(localStorage.getItem('users') || '[]'),
+                resorts: JSON.parse(localStorage.getItem('resorts') || '[]'),
+                bookings: JSON.parse(localStorage.getItem('bookings') || '[]'),
+                interactions: JSON.parse(localStorage.getItem('interactions') || '[]')
+            };
+            
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'resort-admin-data-' + new Date().toISOString().split('T')[0] + '.json';
+            link.click();
+            URL.revokeObjectURL(url);
+            alert('Data exported successfully!');
+        }
+
+        document.getElementById('importFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    const data = JSON.parse(event.target.result);
+                    if (data.users) localStorage.setItem('users', JSON.stringify(data.users));
+                    if (data.resorts) localStorage.setItem('resorts', JSON.stringify(data.resorts));
+                    if (data.bookings) localStorage.setItem('bookings', JSON.stringify(data.bookings));
+                    if (data.interactions) localStorage.setItem('interactions', JSON.stringify(data.interactions));
+                    alert('Data imported successfully! Please refresh the page.');
+                } catch (error) {
+                    alert('Error importing data: Invalid JSON format');
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        function clearAllData() {
+            if (confirm('Are you sure you want to delete ALL data? This cannot be undone!')) {
+                if (confirm('FINAL WARNING: This will permanently delete all users, resorts, bookings, and interactions. Continue?')) {
+                    localStorage.removeItem('users');
+                    localStorage.removeItem('resorts');
+                    localStorage.removeItem('bookings');
+                    localStorage.removeItem('interactions');
+                    alert('All data has been cleared! The page will refresh.');
+                    location.reload();
+                }
+            }
+        }
+
+        function resetToDefault() {
+            if (confirm('This will reset all data to default sample data. Continue?')) {
+                localStorage.removeItem('users');
+                localStorage.removeItem('resorts');
+                localStorage.removeItem('bookings');
+                localStorage.removeItem('interactions');
+                alert('Data has been reset to default! The page will refresh.');
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

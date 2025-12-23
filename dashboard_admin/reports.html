@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏖️ Resort Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    <span class="text">Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <span class="icon">👥</span>
+                    <span class="text">User Management</span>
+                </a>
+                <a href="resorts.html" class="nav-item">
+                    <span class="icon">🏨</span>
+                    <span class="text">Resort</span>
+                </a>
+                <a href="bookings.html" class="nav-item">
+                    <span class="icon">📅</span>
+                    <span class="text">Booking</span>
+                </a>
+                <a href="interactions.html" class="nav-item">
+                    <span class="icon">💬</span>
+                    <span class="text">Interaction</span>
+                </a>
+                <a href="reports.html" class="nav-item active">
+                    <span class="icon">📈</span>
+                    <span class="text">Reports</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span class="text">Settings</span>
+                </a>
+                <a href="#" class="nav-item" onclick="logout()">
+                    <span class="icon">🚪</span>
+                    <span class="text">Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Reports & Statistics</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <span class="icon">🔔</span>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="user-name">Admin</span>
+                        <span class="user-avatar">👤</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Summary Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">💰</div>
+                        <div class="stat-details">
+                            <h3 id="totalRevenue">Rp 0</h3>
+                            <p>Total Revenue</p>
+                            <small class="stat-change positive">+12.5% dari bulan lalu</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">📅</div>
+                        <div class="stat-details">
+                            <h3 id="totalBookings">0</h3>
+                            <p>Total Bookings</p>
+                            <small class="stat-change positive">+8.3% dari bulan lalu</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon orange">⭐</div>
+                        <div class="stat-details">
+                            <h3 id="avgRating">0.0</h3>
+                            <p>Average Rating</p>
+                            <small class="stat-change positive">+0.3 poin</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">👥</div>
+                        <div class="stat-details">
+                            <h3 id="activeUsers">0</h3>
+                            <p>Active Users</p>
+                            <small class="stat-change positive">+15 user baru</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts & Reports -->
+                <div class="dashboard-grid">
+                    <!-- Booking Status -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Booking by Status</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="bookingStatusChart"></canvas>
+                            </div>
+                            <div class="chart-legend" id="bookingStatusLegend"></div>
+                        </div>
+                    </div>
+
+                    <!-- Top Resorts -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Top Performing Resorts</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Resort</th>
+                                        <th>Bookings</th>
+                                        <th>Revenue</th>
+                                        <th>Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="topResortsTable">
+                                    <tr>
+                                        <td colspan="4" class="text-center">Memuat data...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Revenue -->
+                    <div class="card full-width">
+                        <div class="card-header">
+                            <h3>Monthly Revenue Trend</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="revenueChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Statistics -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>User Statistics</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="userStats" class="stats-list">
+                                <div class="stat-item">
+                                    <span class="label">Total Users:</span>
+                                    <span class="value" id="statTotalUsers">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">Active Users:</span>
+                                    <span class="value" id="statActiveUsers">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">Inactive Users:</span>
+                                    <span class="value" id="statInactiveUsers">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">Admin Users:</span>
+                                    <span class="value" id="statAdminUsers">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interaction Summary -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Interaction Summary</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="interactionStats" class="stats-list">
+                                <div class="stat-item">
+                                    <span class="label">Total Reviews:</span>
+                                    <span class="value" id="statReviews">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">Messages:</span>
+                                    <span class="value" id="statMessages">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">Feedback:</span>
+                                    <span class="value" id="statFeedback">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">Complaints:</span>
+                                    <span class="value" id="statComplaints">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        checkAuth();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadReportData();
+            drawBookingStatusChart();
+            drawRevenueChart();
+        });
+
+        function loadReportData() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const resorts = JSON.parse(localStorage.getItem('resorts') || '[]');
+            const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+            const interactions = JSON.parse(localStorage.getItem('interactions') || '[]');
+
+            // Calculate revenue
+            const totalRevenue = bookings.reduce((sum, b) => sum + (b.totalPrice || 0), 0);
+            document.getElementById('totalRevenue').textContent = 'Rp ' + totalRevenue.toLocaleString('id-ID');
+            document.getElementById('totalBookings').textContent = bookings.length;
+
+            // Calculate average rating
+            const reviews = interactions.filter(i => i.rating);
+            const avgRating = reviews.length > 0 ? reviews.reduce((sum, i) => sum + i.rating, 0) / reviews.length : 0;
+            document.getElementById('avgRating').textContent = avgRating.toFixed(1);
+
+            // Active users
+            const activeUsers = users.filter(u => u.status === 'Active').length;
+            document.getElementById('activeUsers').textContent = activeUsers;
+
+            // User statistics
+            document.getElementById('statTotalUsers').textContent = users.length;
+            document.getElementById('statActiveUsers').textContent = activeUsers;
+            document.getElementById('statInactiveUsers').textContent = users.filter(u => u.status === 'Inactive').length;
+            document.getElementById('statAdminUsers').textContent = users.filter(u => u.role === 'Admin').length;
+
+            // Interaction statistics
+            document.getElementById('statReviews').textContent = interactions.filter(i => i.type === 'Review').length;
+            document.getElementById('statMessages').textContent = interactions.filter(i => i.type === 'Message').length;
+            document.getElementById('statFeedback').textContent = interactions.filter(i => i.type === 'Feedback').length;
+            document.getElementById('statComplaints').textContent = interactions.filter(i => i.type === 'Complaint').length;
+
+            // Top resorts
+            loadTopResorts(resorts, bookings);
+        }
+
+        function loadTopResorts(resorts, bookings) {
+            const resortStats = {};
+            
+            resorts.forEach(resort => {
+                const resortBookings = bookings.filter(b => b.resortId === resort.id);
+                const revenue = resortBookings.reduce((sum, b) => sum + (b.totalPrice || 0), 0);
+                
+                resortStats[resort.id] = {
+                    name: resort.name,
+                    bookings: resortBookings.length,
+                    revenue: revenue,
+                    rating: resort.rating
+                };
+            });
+
+            const sorted = Object.values(resortStats).sort((a, b) => b.revenue - a.revenue).slice(0, 5);
+            
+            const tbody = document.getElementById('topResortsTable');
+            if (sorted.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="text-center">Belum ada data</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = sorted.map(s => `
+                <tr>
+                    <td>${s.name}</td>
+                    <td>${s.bookings}</td>
+                    <td>Rp ${s.revenue.toLocaleString('id-ID')}</td>
+                    <td>⭐ ${s.rating}</td>
+                </tr>
+            `).join('');
+        }
+
+        function drawBookingStatusChart() {
+            const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+            const statusCount = {
+                'Pending': 0,
+                'Confirmed': 0,
+                'Cancelled': 0,
+                'Completed': 0
+            };
+
+            bookings.forEach(b => {
+                if (statusCount.hasOwnProperty(b.status)) {
+                    statusCount[b.status]++;
+                }
+            });
+
+            const canvas = document.getElementById('bookingStatusChart');
+            const ctx = canvas.getContext('2d');
+            const total = Object.values(statusCount).reduce((a, b) => a + b, 0);
+            
+            if (total === 0) {
+                ctx.font = '14px Arial';
+                ctx.fillStyle = '#999';
+                ctx.textAlign = 'center';
+                ctx.fillText('Belum ada data', canvas.width / 2, canvas.height / 2);
+                return;
+            }
+
+            const colors = {
+                'Pending': '#ffc107',
+                'Confirmed': '#28a745',
+                'Cancelled': '#dc3545',
+                'Completed': '#17a2b8'
+            };
+
+            let currentAngle = -Math.PI / 2;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = Math.min(centerX, centerY) - 20;
+
+            Object.keys(statusCount).forEach(status => {
+                const sliceAngle = (statusCount[status] / total) * 2 * Math.PI;
+                
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+                ctx.lineTo(centerX, centerY);
+                ctx.fillStyle = colors[status];
+                ctx.fill();
+                
+                currentAngle += sliceAngle;
+            });
+
+            // Legend
+            const legend = document.getElementById('bookingStatusLegend');
+            legend.innerHTML = Object.keys(statusCount).map(status => `
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: ${colors[status]}"></span>
+                    <span class="legend-label">${status}: ${statusCount[status]}</span>
+                </div>
+            `).join('');
+        }
+
+        function drawRevenueChart() {
+            const canvas = document.getElementById('revenueChart');
+            const ctx = canvas.getContext('2d');
+            
+            // Dummy monthly data
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+            const revenue = [8500000, 12000000, 15000000, 11000000, 18000000, 22000000];
+            
+            const maxRevenue = Math.max(...revenue);
+            const chartHeight = canvas.height - 40;
+            const chartWidth = canvas.width - 60;
+            const barWidth = chartWidth / months.length - 20;
+            
+            // Draw bars
+            revenue.forEach((rev, index) => {
+                const barHeight = (rev / maxRevenue) * chartHeight;
+                const x = 40 + (index * (barWidth + 20));
+                const y = canvas.height - barHeight - 20;
+                
+                ctx.fillStyle = '#007bff';
+                ctx.fillRect(x, y, barWidth, barHeight);
+                
+                // Labels
+                ctx.fillStyle = '#333';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(months[index], x + barWidth / 2, canvas.height - 5);
+                
+                // Values
+                ctx.fillText((rev / 1000000).toFixed(1) + 'M', x + barWidth / 2, y - 5);
+            });
+        }
+    </script>
+</body>
+</html>

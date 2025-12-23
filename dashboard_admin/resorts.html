@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resort Management - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏖️ Resort Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    <span class="text">Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <span class="icon">👥</span>
+                    <span class="text">User Management</span>
+                </a>
+                <a href="resorts.html" class="nav-item active">
+                    <span class="icon">🏨</span>
+                    <span class="text">Resort</span>
+                </a>
+                <a href="bookings.html" class="nav-item">
+                    <span class="icon">📅</span>
+                    <span class="text">Booking</span>
+                </a>
+                <a href="interactions.html" class="nav-item">
+                    <span class="icon">💬</span>
+                    <span class="text">Interaction</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <span class="icon">📈</span>
+                    <span class="text">Reports</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span class="text">Settings</span>
+                </a>
+                <a href="#" class="nav-item" onclick="logout()">
+                    <span class="icon">🚪</span>
+                    <span class="text">Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Resort Management</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <span class="icon">🔔</span>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="user-name">Admin</span>
+                        <span class="user-avatar">👤</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Daftar Resort / Penginapan</h3>
+                        <button class="btn btn-primary" onclick="openResortModal()">
+                            ➕ Tambah Resort
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-controls">
+                            <input type="text" id="searchResort" placeholder="🔍 Cari resort..." class="search-input">
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama Resort</th>
+                                    <th>Lokasi</th>
+                                    <th>Harga/Malam</th>
+                                    <th>Kapasitas</th>
+                                    <th>Rating</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resortTableBody">
+                                <tr>
+                                    <td colspan="8" class="text-center">Memuat data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah/Edit Resort -->
+    <div id="resortModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="modalTitle">Tambah Resort</h2>
+                <span class="close" onclick="closeResortModal()">&times;</span>
+            </div>
+            <form id="resortForm" class="modal-body">
+                <input type="hidden" id="resortId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="resortName">Nama Resort *</label>
+                        <input type="text" id="resortName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resortLocation">Lokasi *</label>
+                        <input type="text" id="resortLocation" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="resortPrice">Harga per Malam (Rp) *</label>
+                        <input type="number" id="resortPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resortCapacity">Kapasitas (orang) *</label>
+                        <input type="number" id="resortCapacity" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="resortRating">Rating (1-5) *</label>
+                        <input type="number" id="resortRating" min="1" max="5" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resortStatus">Status *</label>
+                        <select id="resortStatus" required>
+                            <option value="Available">Available</option>
+                            <option value="Booked">Booked</option>
+                            <option value="Maintenance">Maintenance</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="resortDescription">Deskripsi</label>
+                    <textarea id="resortDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="resortFacilities">Fasilitas (pisahkan dengan koma)</label>
+                    <input type="text" id="resortFacilities" placeholder="WiFi, AC, TV, Kolam Renang">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeResortModal()">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        checkAuth();
+        let resorts = [];
+        let editingResortId = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadResorts();
+            
+            document.getElementById('searchResort').addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const filtered = resorts.filter(r => 
+                    r.name.toLowerCase().includes(searchTerm) || 
+                    r.location.toLowerCase().includes(searchTerm)
+                );
+                displayResorts(filtered);
+            });
+
+            document.getElementById('resortForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveResort();
+            });
+        });
+
+        function loadResorts() {
+            const stored = localStorage.getItem('resorts');
+            if (stored) {
+                resorts = JSON.parse(stored);
+            } else {
+                resorts = [
+                    { id: 1, name: 'Bali Beach Resort', location: 'Seminyak, Bali', price: 1500000, capacity: 4, rating: 4.8, status: 'Available', description: 'Resort mewah di tepi pantai', facilities: 'WiFi, AC, TV, Kolam Renang, Restaurant' },
+                    { id: 2, name: 'Mountain View Villa', location: 'Ubud, Bali', price: 2000000, capacity: 6, rating: 4.9, status: 'Available', description: 'Villa dengan pemandangan gunung', facilities: 'WiFi, AC, Kitchen, Garden, Parking' },
+                    { id: 3, name: 'Tropical Paradise Inn', location: 'Gili Trawangan', price: 1200000, capacity: 2, rating: 4.7, status: 'Booked', description: 'Penginapan nyaman di pulau tropis', facilities: 'WiFi, AC, Beach Access, Snorkeling' }
+                ];
+                localStorage.setItem('resorts', JSON.stringify(resorts));
+            }
+            displayResorts(resorts);
+        }
+
+        function displayResorts(data) {
+            const tbody = document.getElementById('resortTableBody');
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="text-center">Tidak ada data</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = data.map(resort => `
+                <tr>
+                    <td>${resort.id}</td>
+                    <td>${resort.name}</td>
+                    <td>${resort.location}</td>
+                    <td>Rp ${resort.price.toLocaleString('id-ID')}</td>
+                    <td>${resort.capacity} orang</td>
+                    <td>⭐ ${resort.rating}</td>
+                    <td><span class="badge badge-${resort.status === 'Available' ? 'success' : resort.status === 'Booked' ? 'warning' : 'secondary'}">${resort.status}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-warning" onclick="editResort(${resort.id})">✏️ Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteResort(${resort.id})">🗑️ Hapus</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function openResortModal() {
+            editingResortId = null;
+            document.getElementById('modalTitle').textContent = 'Tambah Resort';
+            document.getElementById('resortForm').reset();
+            document.getElementById('resortId').value = '';
+            document.getElementById('resortModal').style.display = 'flex';
+        }
+
+        function closeResortModal() {
+            document.getElementById('resortModal').style.display = 'none';
+        }
+
+        function editResort(id) {
+            const resort = resorts.find(r => r.id === id);
+            if (!resort) return;
+
+            editingResortId = id;
+            document.getElementById('modalTitle').textContent = 'Edit Resort';
+            document.getElementById('resortId').value = resort.id;
+            document.getElementById('resortName').value = resort.name;
+            document.getElementById('resortLocation').value = resort.location;
+            document.getElementById('resortPrice').value = resort.price;
+            document.getElementById('resortCapacity').value = resort.capacity;
+            document.getElementById('resortRating').value = resort.rating;
+            document.getElementById('resortStatus').value = resort.status;
+            document.getElementById('resortDescription').value = resort.description || '';
+            document.getElementById('resortFacilities').value = resort.facilities || '';
+            document.getElementById('resortModal').style.display = 'flex';
+        }
+
+        function saveResort() {
+            const id = editingResortId || Date.now();
+            const resortData = {
+                id: id,
+                name: document.getElementById('resortName').value,
+                location: document.getElementById('resortLocation').value,
+                price: parseInt(document.getElementById('resortPrice').value),
+                capacity: parseInt(document.getElementById('resortCapacity').value),
+                rating: parseFloat(document.getElementById('resortRating').value),
+                status: document.getElementById('resortStatus').value,
+                description: document.getElementById('resortDescription').value,
+                facilities: document.getElementById('resortFacilities').value
+            };
+
+            if (editingResortId) {
+                const index = resorts.findIndex(r => r.id === editingResortId);
+                resorts[index] = resortData;
+            } else {
+                resorts.push(resortData);
+            }
+
+            localStorage.setItem('resorts', JSON.stringify(resorts));
+            displayResorts(resorts);
+            closeResortModal();
+            alert('Resort berhasil disimpan!');
+        }
+
+        function deleteResort(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus resort ini?')) {
+                resorts = resorts.filter(r => r.id !== id);
+                localStorage.setItem('resorts', JSON.stringify(resorts));
+                displayResorts(resorts);
+                alert('Resort berhasil dihapus!');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('resortModal');
+            if (event.target === modal) {
+                closeResortModal();
+            }
+        }
+    </script>
+</body>
+</html>

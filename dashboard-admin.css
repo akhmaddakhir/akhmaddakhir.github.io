@@ -1,10 +1,21 @@
 :root {
   --light-color: #fff;
+  --light-second-color: #f5f5f5;
+  --bg-color: #f8f8f8;
+  --box-bg: #ededed;
   --dark-color: #000;
-  --light-second-color: #fcfcfc;
   --dark-second-color: #222;
-  --bg-color: #e8e5e3;
+  --dark-third-color: #555;
+
+  --font: "inter", sans-serif;
   --border: #e0e0e0;
+  --border-hover: #c0c0c0;
+  --border-radius: 10px;
+  --card-border-radius: 12px;
+  --button-border-radius: 8px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+  --padding: 16px 20px;
 }
 
 * {
@@ -14,7 +25,8 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font);
+  color: var(--dark-second-color);
 }
 
 .dashboard-admin {
@@ -26,14 +38,16 @@ body {
 .sidebar {
   background: var(--light-color);
   border-right: 1px solid var(--border);
-  max-width: 300px;
+  min-width: 280px;
+  position: fixed;
 }
 
 .sidebar-logo {
   display: flex;
   margin-left: 30px;
-  margin-top: -10.5px;
+  margin-top: -22px;
   position: relative;
+  margin-bottom: -35px;
 }
 
 .sidebar-logo a {
@@ -59,41 +73,321 @@ body {
   border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  padding-top: 30px;
-  margin-top: -20px;
+  padding-top: 25px;
   max-width: 230px;
   margin: 0 auto;
 }
 
-a {
+.sidebar a {
   text-decoration: none;
   display: flex;
   gap: 10px;
   align-items: center;
   color: var(--dark-second-color);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  padding: 17px 10px;
-  border-radius: 10px;
+  padding: 17px 15px;
+  border-radius: var(--border-radius);
 }
 
-a:hover {
+.sidebar a:hover {
   background: var(--bg-color);
 }
 
-a:active {
+.sidebar a:active {
   background: var(--dark-second-color);
   color: var(--light-second-color);
 }
 
-a i {
-  font-size: 22px;
+.sidebar a i {
+  font-size: 21px;
   color: var(--dark-second-color);
   font-weight: 500;
 }
 
-#main-section i,
-#booking-section i {
-  transform: translateY(-1.5px);
-  font-size: 21.5px;
+.main-menu i {
+  transform: translateY(-1.1px);
+  font-size: 20.5px;
+}
+
+.booking-menu i {
+  transform: translateY(-1.21px);
+  font-size: 20px;
+}
+
+.resort-menu i {
+  transform: translateY(-1.4px);
+}
+
+.interaction-menu i,
+.user-menu i {
+  transform: translateY(-1px);
+}
+
+.setting-menu i {
+  transform: translateY(-0.5px);
+}
+
+.report-menu i,
+.setting-menu i,
+.notification-menu i {
+  font-size: 20px;
+}
+
+.admin-profile-box {
+  background: var(--box-bg);
+  max-width: 230px;
+  margin: 0 auto;
+  padding: 17px 15px;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.admin-avatar {
+  width: 36px;
+  height: 36px;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: var(--dark-second-color);
+}
+
+.admin-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.admin-role {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--dark-third-color);
+}
+
+.logout-button {
+  background: var(--light-color);
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  justify-content: center;
+  min-width: 200px;
+  border-radius: var(--button-border-radius);
+  padding: 10px 0 8px;
+  border: 1px solid var(--bg-color);
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: var(--bg-color);
+  border: 1px solid var(--border-hover);
+}
+
+.logout-button i {
+  font-size: 16px;
+  transform: translateY(-1.3px);
+}
+
+.dashboard-content {
+  margin: 45px 50px;
+  min-height: 1000px;
+}
+
+.dashboard-title {
+  color: var(--dark-second-color);
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.title-desc {
+  font-size: 15px;
+  color: var(--dark-third-color);
+}
+
+.stats-card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 20px;
+}
+
+.stats-title {
+  color: var(--dark-second-color);
+  font-size: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.stat-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: var(--light-color);
+  padding: 40px 20px;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.stat-card i {
+  font-size: 42px;
+  background: #e0f2fe;
+  color: #0284c7;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+#resort-stat i {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+#booking-stat i {
+  background: #ffedd5;
+  color: #ea580c;
+}
+
+#revenue-stat i {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.stat-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-number {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--dark-third-color);
+}
+
+.revenue-summary {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.cards-summary {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.card-summary {
+  background: var(--light-color);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--card-border-radius);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 20px 25px;
+}
+
+.stats-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  background: var(--light-second-color);
+  padding: 12px 15px;
+  border-radius: var(--button-border-radius);
+}
+
+.stat-item .stat-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.table-container {
+  border: 1px solid var(--border);
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  background: var(--light-color);
+}
+
+.card-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: var(--box-bg);
+}
+
+th {
+  padding: var(--padding);
+  text-align: left;
+}
+
+td {
+  padding: var(--padding);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:last-child td {
+  border: none;
+}
+
+.booking-value {
+  padding-left: 60px;
+}
+
+.rating-value {
+  display: flex;
+  align-items: center;
+  color: #ffcd29;
+  gap: 3.5px;
+  text-align: center;
+  padding-left: 25px;
+}
+
+.rating-value i {
+  transform: translateY(-1.1px);
 }

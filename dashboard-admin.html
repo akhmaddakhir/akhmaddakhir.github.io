@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
 
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap");
@@ -25,40 +26,208 @@
       </div>
 
       <nav class="sidebar-menu">
-        <a href="#" id="main-section">
+        <a href="#" class="main-menu">
           <i class="ri-dashboard-fill"></i>
           Ringkasan
         </a>
-        <a href="#user-section" id="user-section">
+        <a href="#user-section" class="user-menu">
           <i class="ph-bold ph-user"></i>
           Pengguna
         </a>
-        <a href="#resort-section" id="resort-section">
+        <a href="#resort-section" class="resort-menu">
           <i class="ri-hotel-line"></i>
           Penginapan
         </a>
-        <a href="#booking-section" id="booking-section">
+        <a href="#booking-section" class="booking-menu">
           <i class="ri-calendar-line"></i>
           Pemesanan
         </a>
-        <a href="#interaction-section" id="interaction-section">
+        <a href="#interaction-section" class="interaction-menu">
           <i class="ri-chat-1-line"></i>
           Interaksi
+        </a>
+        <a href="#interaction-section" class="setting-menu">
+          <i class="ph-bold ph-gear"></i>
+          Pengaturan
+        </a>
+        <a href="#interaction-section" class="notification-menu">
+          <i class="ph-bold ph-bell"></i>
+          Notifikasi
         </a>
       </nav>
 
       <div class="admin-profile-box">
         <div class="profile-info">
-
+          <img class="admin-avatar" src="/website_materials/icon_profile.svg">
+          <div class="profile-text">
+            <div class="admin-name">Om Gatot</div>
+            <div class="admin-role">Developer</div>
+          </div>
         </div>
-        <div class="admin-logout">
+        <button class="logout-button">
           <i class="ph-bold ph-sign-out"></i>Keluar
-        </div>
+        </button>
       </div>
     </aside>
-    <section class="dashboard-content">
-      <div class="dashboard-title">Dashboard Admin</div>
-    </section>
+
+    <main class="dashboard-content">
+      <h1 class="dashboard-title">Dashboard Admin</h1>
+      <p class="title-desc">
+        Pantau Pengguna, Penginapan, Pemesanan, dan Interaksi di TemanSinggah
+      </p>
+
+      <section class="stats-card">
+        <h2 class="stats-title">Ringkasan Sistem</h2>
+        <div class="stats-grid">
+          <div class="stat-card" id="user-stat">
+            <i class="ph-bold ph-user"></i>
+            <div class="stat-details">
+              <p class="stat-number" id="userNumber">0</p>
+              <p class="stat-label">Total Pengguna</p>
+            </div>
+          </div>
+          <div class="stat-card" id="resort-stat">
+            <i class="ri-hotel-line"></i>
+            <div class="stat-details">
+              <p class="stat-number" id="resortNumber">0</p>
+              <p class="stat-label">Total Penginapan</p>
+            </div>
+          </div>
+          <div class="stat-card" id="booking-stat">
+            <i class="ri-calendar-line"></i>
+            <div class="stat-details">
+              <p class="stat-number" id="bookingNumber">0</p>
+              <p class="stat-label">Total Pemesanan</p>
+            </div>
+          </div>
+          <div class="stat-card" id="revenue-stat">
+            <i class="ph-bold ph-credit-card"></i>
+            <div class="stat-details">
+              <p class="stat-number" id="revenueNumber">Rp. 0</p>
+              <p class="stat-label">Total Pendapatan</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cards-summary">
+        <section class="card-summary" id="user-card">
+          <div class="card-header">
+            <p class="card-title">Statistik Pengguna</p>
+          </div>
+          <div class="card-body">
+            <div class="stats-list">
+              <div class="stat-item">
+                <p class="stat-label">Total Pengguna: </p>
+                <p class="stat-value">0</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-label">Pengguna Aktif: </p>
+                <p class="stat-value">0</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-label">Pengguna Nonaktif: </p>
+                <p class="stat-value">0</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-label">Total Admin: </p>
+                <p class="stat-value">0</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card-summary" id="interaction-card">
+          <div class="card-header">
+            <p class="card-title">Statistik Interaksi</p>
+          </div>
+          <div class="card-body">
+            <div class="stats-list">
+              <div class="stat-item">
+                <p class="stat-label">Total Ulasan: </p>
+                <p class="stat-value">0</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-label">Total Pesan: </p>
+                <p class="stat-value">0</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-label">Pengguna Nonaktif: </p>
+                <p class="stat-value">0</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-label">Total Admin: </p>
+                <p class="stat-value">0</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="revenue-summary">
+        <section class="card-summary" id="revenue-card">
+          <div class="card-header">
+            <p class="card-title">Pendapatan Bulanan</p>
+          </div>
+          <div class="card-body"></div>
+        </section>
+      </section>
+
+      <section class="cards-summary">
+        <section class="card-summary" id="booking-card">
+          <div class="card-header">
+            <p class="card-title">Pemesanan Berdasarkan Status</p>
+          </div>
+          <div class="card-body"></div>
+        </section>
+
+        <section class="card-summary" id="resort-card">
+          <div class="card-header">
+            <p class="card-title">Penginapan Teratas</p>
+          </div>
+          <div class="card-body">
+            <div class="table-container">
+              <table class="card-table">
+                <thead>
+                  <tr>
+                    <th>Penginapan</th>
+                    <th>Pemesanan</th>
+                    <th>Ulasan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Sunrise Beach Hotel</td>
+                    <td class="booking-value">0</td>
+                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                  </tr>
+                  <tr>
+                    <td>Mountain View Villa</td>
+                    <td class="booking-value">0</td>
+                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                  </tr>
+                  <tr>
+                    <td>Bali Beach Resort</td>
+                    <td class="booking-value">0</td>
+                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                  </tr>
+                  <tr>
+                    <td>Tropical Paradise Inn</td>
+                    <td class="booking-value">0</td>
+                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                  </tr>
+                  <tr>
+                    <td>Jungle Retreat Hotel</td>
+                    <td class="booking-value">0</td>
+                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
   </section>
 </body>
 

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Management - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>🏖️ Resort Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <span class="icon">📊</span>
+                    <span class="text">Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <span class="icon">👥</span>
+                    <span class="text">User Management</span>
+                </a>
+                <a href="resorts.html" class="nav-item">
+                    <span class="icon">🏨</span>
+                    <span class="text">Resort</span>
+                </a>
+                <a href="bookings.html" class="nav-item active">
+                    <span class="icon">📅</span>
+                    <span class="text">Booking</span>
+                </a>
+                <a href="interactions.html" class="nav-item">
+                    <span class="icon">💬</span>
+                    <span class="text">Interaction</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <span class="icon">📈</span>
+                    <span class="text">Reports</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span class="text">Settings</span>
+                </a>
+                <a href="#" class="nav-item" onclick="logout()">
+                    <span class="icon">🚪</span>
+                    <span class="text">Logout</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Booking Management</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="notification">
+                        <span class="icon">🔔</span>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <span class="user-name">Admin</span>
+                        <span class="user-avatar">👤</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Daftar Booking</h3>
+                        <button class="btn btn-primary" onclick="openBookingModal()">
+                            ➕ Tambah Booking
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-controls">
+                            <input type="text" id="searchBooking" placeholder="🔍 Cari booking..." class="search-input">
+                            <select id="filterStatus" class="filter-select">
+                                <option value="">Semua Status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Cancelled">Cancelled</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User</th>
+                                    <th>Resort</th>
+                                    <th>Check-in</th>
+                                    <th>Check-out</th>
+                                    <th>Total Harga</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookingTableBody">
+                                <tr>
+                                    <td colspan="8" class="text-center">Memuat data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah/Edit Booking -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="modalTitle">Tambah Booking</h2>
+                <span class="close" onclick="closeBookingModal()">&times;</span>
+            </div>
+            <form id="bookingForm" class="modal-body">
+                <input type="hidden" id="bookingId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingUser">User *</label>
+                        <select id="bookingUser" required>
+                            <option value="">Pilih User</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingResort">Resort *</label>
+                        <select id="bookingResort" required>
+                            <option value="">Pilih Resort</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingCheckIn">Check-in *</label>
+                        <input type="date" id="bookingCheckIn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingCheckOut">Check-out *</label>
+                        <input type="date" id="bookingCheckOut" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingGuests">Jumlah Tamu *</label>
+                        <input type="number" id="bookingGuests" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTotalPrice">Total Harga (Rp) *</label>
+                        <input type="number" id="bookingTotalPrice" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookingStatus">Status *</label>
+                    <select id="bookingStatus" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bookingNotes">Catatan</label>
+                    <textarea id="bookingNotes" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeBookingModal()">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        checkAuth();
+        let bookings = [];
+        let editingBookingId = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBookings();
+            populateUserSelect();
+            populateResortSelect();
+            
+            document.getElementById('searchBooking').addEventListener('input', filterBookings);
+            document.getElementById('filterStatus').addEventListener('change', filterBookings);
+
+            document.getElementById('bookingForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveBooking();
+            });
+        });
+
+        function loadBookings() {
+            const stored = localStorage.getItem('bookings');
+            if (stored) {
+                bookings = JSON.parse(stored);
+            } else {
+                bookings = [
+                    { id: 1, userId: 1, userName: 'John Doe', resortId: 1, resortName: 'Bali Beach Resort', checkIn: '2024-12-25', checkOut: '2024-12-28', guests: 2, totalPrice: 4500000, status: 'Confirmed', notes: 'Kamar dengan pemandangan laut' },
+                    { id: 2, userId: 2, userName: 'Jane Smith', resortId: 2, resortName: 'Mountain View Villa', checkIn: '2024-12-30', checkOut: '2025-01-03', guests: 4, totalPrice: 8000000, status: 'Pending', notes: '' },
+                    { id: 3, userId: 1, userName: 'John Doe', resortId: 3, resortName: 'Tropical Paradise Inn', checkIn: '2024-11-15', checkOut: '2024-11-17', guests: 2, totalPrice: 2400000, status: 'Completed', notes: 'Booking selesai dengan baik' }
+                ];
+                localStorage.setItem('bookings', JSON.stringify(bookings));
+            }
+            displayBookings(bookings);
+        }
+
+        function displayBookings(data) {
+            const tbody = document.getElementById('bookingTableBody');
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="text-center">Tidak ada data</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = data.map(booking => `
+                <tr>
+                    <td>${booking.id}</td>
+                    <td>${booking.userName}</td>
+                    <td>${booking.resortName}</td>
+                    <td>${booking.checkIn}</td>
+                    <td>${booking.checkOut}</td>
+                    <td>Rp ${booking.totalPrice.toLocaleString('id-ID')}</td>
+                    <td><span class="badge badge-${booking.status === 'Confirmed' ? 'success' : booking.status === 'Pending' ? 'warning' : booking.status === 'Completed' ? 'info' : 'danger'}">${booking.status}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-warning" onclick="editBooking(${booking.id})">✏️ Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteBooking(${booking.id})">🗑️ Hapus</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function populateUserSelect() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const select = document.getElementById('bookingUser');
+            select.innerHTML = '<option value="">Pilih User</option>' + 
+                users.map(u => `<option value="${u.id}" data-name="${u.name}">${u.name}</option>`).join('');
+        }
+
+        function populateResortSelect() {
+            const resorts = JSON.parse(localStorage.getItem('resorts') || '[]');
+            const select = document.getElementById('bookingResort');
+            select.innerHTML = '<option value="">Pilih Resort</option>' + 
+                resorts.map(r => `<option value="${r.id}" data-name="${r.name}">${r.name} - Rp ${r.price.toLocaleString('id-ID')}/malam</option>`).join('');
+        }
+
+        function filterBookings() {
+            const searchTerm = document.getElementById('searchBooking').value.toLowerCase();
+            const statusFilter = document.getElementById('filterStatus').value;
+            
+            let filtered = bookings;
+            
+            if (searchTerm) {
+                filtered = filtered.filter(b => 
+                    b.userName.toLowerCase().includes(searchTerm) || 
+                    b.resortName.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            if (statusFilter) {
+                filtered = filtered.filter(b => b.status === statusFilter);
+            }
+            
+            displayBookings(filtered);
+        }
+
+        function openBookingModal() {
+            editingBookingId = null;
+            document.getElementById('modalTitle').textContent = 'Tambah Booking';
+            document.getElementById('bookingForm').reset();
+            document.getElementById('bookingId').value = '';
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        function editBooking(id) {
+            const booking = bookings.find(b => b.id === id);
+            if (!booking) return;
+
+            editingBookingId = id;
+            document.getElementById('modalTitle').textContent = 'Edit Booking';
+            document.getElementById('bookingId').value = booking.id;
+            document.getElementById('bookingUser').value = booking.userId;
+            document.getElementById('bookingResort').value = booking.resortId;
+            document.getElementById('bookingCheckIn').value = booking.checkIn;
+            document.getElementById('bookingCheckOut').value = booking.checkOut;
+            document.getElementById('bookingGuests').value = booking.guests;
+            document.getElementById('bookingTotalPrice').value = booking.totalPrice;
+            document.getElementById('bookingStatus').value = booking.status;
+            document.getElementById('bookingNotes').value = booking.notes || '';
+            document.getElementById('bookingModal').style.display = 'flex';
+        }
+
+        function saveBooking() {
+            const userSelect = document.getElementById('bookingUser');
+            const resortSelect = document.getElementById('bookingResort');
+            
+            const id = editingBookingId || Date.now();
+            const bookingData = {
+                id: id,
+                userId: parseInt(userSelect.value),
+                userName: userSelect.options[userSelect.selectedIndex].dataset.name,
+                resortId: parseInt(resortSelect.value),
+                resortName: resortSelect.options[resortSelect.selectedIndex].dataset.name,
+                checkIn: document.getElementById('bookingCheckIn').value,
+                checkOut: document.getElementById('bookingCheckOut').value,
+                guests: parseInt(document.getElementById('bookingGuests').value),
+                totalPrice: parseInt(document.getElementById('bookingTotalPrice').value),
+                status: document.getElementById('bookingStatus').value,
+                notes: document.getElementById('bookingNotes').value
+            };
+
+            if (editingBookingId) {
+                const index = bookings.findIndex(b => b.id === editingBookingId);
+                bookings[index] = bookingData;
+            } else {
+                bookings.push(bookingData);
+            }
+
+            localStorage.setItem('bookings', JSON.stringify(bookings));
+            displayBookings(bookings);
+            closeBookingModal();
+            alert('Booking berhasil disimpan!');
+        }
+
+        function deleteBooking(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus booking ini?')) {
+                bookings = bookings.filter(b => b.id !== id);
+                localStorage.setItem('bookings', JSON.stringify(bookings));
+                displayBookings(bookings);
+                alert('Booking berhasil dihapus!');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingModal();
+            }
+        }
+    </script>
+</body>
+</html>
