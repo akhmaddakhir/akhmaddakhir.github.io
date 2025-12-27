@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Admin | TemanSinggah</title>
+  <title>Dashboard Admin - Main Dashboard | TemanSinggah</title>
 
-  <link rel="stylesheet" href="dashboard-admin.css">
+  <link rel="stylesheet" href="dashboard-admin_main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
@@ -21,36 +21,36 @@
   <section class="dashboard-admin">
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <img class="logo-icon" src="website_materials/logo_temansinggah.svg">
-        <img class="logo-name" src="website_materials/label_temansinggah.svg">
+        <img class="logo-icon" src="/website_materials/logo_temansinggah.svg">
+        <img class="logo-name" src="/website_materials/label_temansinggah.svg">
       </div>
 
       <nav class="sidebar-menu">
-        <a href="#" class="main-menu">
+        <a href="/dashboard_admin/dashboard-admin_main.html" class="sidebar-item main-menu active">
           <i class="ri-dashboard-fill"></i>
           Ringkasan
         </a>
-        <a href="#user-section" class="user-menu">
+        <a href="/dashboard_admin/dashboard-admin_user.html" class="sidebar-item user-menu">
           <i class="ph-bold ph-user"></i>
           Pengguna
         </a>
-        <a href="#resort-section" class="resort-menu">
+        <a href="/dashboard_admin/dashboard-admin_resort.html" class="sidebar-item resort-menu">
           <i class="ri-hotel-line"></i>
           Penginapan
         </a>
-        <a href="#booking-section" class="booking-menu">
+        <a href="/dashboard_admin/dashboard-admin_booking.html" class="sidebar-item booking-menu">
           <i class="ri-calendar-line"></i>
           Pemesanan
         </a>
-        <a href="#interaction-section" class="interaction-menu">
+        <a href="/dashboard_admin/dashboard-admin_interaction.html" class="sidebar-item interaction-menu">
           <i class="ri-chat-1-line"></i>
           Interaksi
         </a>
-        <a href="#interaction-section" class="setting-menu">
+        <a href="/dashboard_admin/dashboard-admin_setting.html" class="sidebar-item setting-menu">
           <i class="ph-bold ph-gear"></i>
           Pengaturan
         </a>
-        <a href="#interaction-section" class="notification-menu">
+        <a href="/dashboard_admin/dashboard-admin_notification.html" class="sidebar-item notification-menu">
           <i class="ph-bold ph-bell"></i>
           Notifikasi
         </a>
@@ -71,10 +71,18 @@
     </aside>
 
     <main class="dashboard-content">
-      <h1 class="dashboard-title">Dashboard Admin</h1>
-      <p class="title-desc">
-        Pantau Pengguna, Penginapan, Pemesanan, dan Interaksi di TemanSinggah
-      </p>
+      <header>
+        <div class="top-bar">
+          <h1 class="dashboard-title">Dashboard Admin</h1>
+          <div class="online-badge">
+            <div class="online-icon"></div>
+            <p>Online</p>
+          </div>
+        </div>
+        <p class="title-desc">
+          Pantau Pengguna, Penginapan, Pemesanan, dan Interaksi di TemanSinggah
+        </p>
+      </header>
 
       <section class="stats-card">
         <h2 class="stats-title">Ringkasan Sistem</h2>
@@ -115,6 +123,7 @@
           <div class="card-header">
             <p class="card-title">Statistik Pengguna</p>
           </div>
+
           <div class="card-body">
             <div class="stats-list">
               <div class="stat-item">
@@ -141,6 +150,7 @@
           <div class="card-header">
             <p class="card-title">Statistik Interaksi</p>
           </div>
+
           <div class="card-body">
             <div class="stats-list">
               <div class="stat-item">
@@ -152,11 +162,11 @@
                 <p class="stat-value">0</p>
               </div>
               <div class="stat-item">
-                <p class="stat-label">Pengguna Nonaktif: </p>
+                <p class="stat-label">Total Share: </p>
                 <p class="stat-value">0</p>
               </div>
               <div class="stat-item">
-                <p class="stat-label">Total Admin: </p>
+                <p class="stat-label">Total Simpan: </p>
                 <p class="stat-value">0</p>
               </div>
             </div>
@@ -195,6 +205,7 @@
                     <th>Ulasan</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   <tr>
                     <td>Sunrise Beach Hotel</td>
@@ -229,6 +240,7 @@
       </section>
     </main>
   </section>
+  <script href="dashboard-admin_main.js"></script>
 </body>
 
 </html>

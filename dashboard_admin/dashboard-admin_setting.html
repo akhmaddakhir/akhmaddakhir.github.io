@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - Main Dashboard | TemanSinggah</title>
+
+  <link rel="stylesheet" href="dashboard-admin.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap");
+  </style>
+</head>
+
+<body>
+  <section class="dashboard-admin">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img class="logo-icon" src="/website_materials/logo_temansinggah.svg">
+        <img class="logo-name" src="/website_materials/label_temansinggah.svg">
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="/dashboard_admin/dashboard-admin_main.html" class="sidebar-item main-menu">
+          <i class="ri-dashboard-fill"></i>
+          Ringkasan
+        </a>
+        <a href="/dashboard_admin/dashboard-admin_user.html" class="sidebar-item user-menu">
+          <i class="ph-bold ph-user"></i>
+          Pengguna
+        </a>
+        <a href="/dashboard_admin/dashboard-admin_resort.html" class="sidebar-item resort-menu">
+          <i class="ri-hotel-line"></i>
+          Penginapan
+        </a>
+        <a href="/dashboard_admin/dashboard-admin_booking.html" class="sidebar-item booking-menu">
+          <i class="ri-calendar-line"></i>
+          Pemesanan
+        </a>
+        <a href="/dashboard_admin/dashboard-admin_interaction.html" class="sidebar-item interaction-menu">
+          <i class="ri-chat-1-line"></i>
+          Interaksi
+        </a>
+        <a href="/dashboard_admin/dashboard-admin_setting.html" class="sidebar-item setting-menu active">
+          <i class="ph-bold ph-gear"></i>
+          Pengaturan
+        </a>
+        <a href="/dashboard_admin/dashboard-admin_notification.html" class="sidebar-item notification-menu">
+          <i class="ph-bold ph-bell"></i>
+          Notifikasi
+        </a>
+      </nav>
+
+      <div class="admin-profile-box">
+        <div class="profile-info">
+          <img class="admin-avatar" src="/website_materials/icon_profile.svg">
+          <div class="profile-text">
+            <div class="admin-name">Om Gatot</div>
+            <div class="admin-role">Developer</div>
+          </div>
+        </div>
+        <button class="logout-button">
+          <i class="ph-bold ph-sign-out"></i>Keluar
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-content">
+      <header>
+        <div class="top-bar">
+          <h1 class="dashboard-title">Dashboard Admin</h1>
+          <div class="online-badge">
+            <div class="online-icon"></div>
+            <p>Online</p>
+          </div>
+        </div>
+        <p class="title-desc">
+          Pantau Pengguna, Penginapan, Pemesanan, dan Interaksi di TemanSinggah
+        </p>
+      </header>
+
+      <section class="table-section">
+        <header class="table-header">
+          <h2 class="table-title">Manajemen Pengguna</h2>
+          <div class="header-button">
+            <input type="search" class="search-bar" placeholder="Cari ID, Nama, Email, atau No. Telp">
+            <select name="status-option" class="status-option">
+              <option value="">Semua Pengguna</option>
+              <option value="Active">Pengguna Aktif</option>
+              <option value="Block">Pengguna Diblokir</option>
+            </select>
+            <button class="create-button">
+              <i class="ph-bold ph-plus"></i>
+              <p>Tambah Pengguna</p>
+            </button>
+          </div>
+        </header>
+        <div class="table-container">
+          <table class="table-content user-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>No. Telepon</th>
+                <th>Total Pemesanan</th>
+                <th>Tanggal Daftar</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="table-section">
+        <header class="table-header">
+          <h2 class="table-title">Manajemen Host</h2>
+          <div class="header-button">
+            <input type="search" class="search-bar" placeholder="Cari ID, Nama, Email, atau No. Telp">
+            <select name="status-option" class="status-option">
+              <option value="">Semua Host</option>
+              <option value="Active">Host Aktif</option>
+              <option value="Block">Host Diblokir</option>
+            </select>
+            <button class="create-button">
+              <i class="ph-bold ph-plus"></i>
+              <p>Tambah Pengguna</p>
+            </button>
+          </div>
+        </header>
+        <div class="table-container">
+          <table class="table-content host-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>No. Telepon</th>
+                <th>Total Pemesanan</th>
+                <th>Tanggal Daftar</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>Om Gatot</td>
+                <td>omganteng@gmail.com</td>
+                <td>0812345678</td>
+                <td>5 (3 Selesai, 2 Batal)</td>
+                <td>12 Mei 2025</td>
+                <td>Aktif</td>
+                <td class="table-button">
+                  <button class="action-button check-button">
+                    <i class="ri-eye-line"></i>
+                  </button>
+                  <button class="action-button edit-button">
+                    <i class="ri-edit-box-line"></i>
+                  </button>
+                  <button class="action-button block-button">
+                    <i class="ri-prohibited-line"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </section>
+  <script href="dashboard-admin.js"></script>
+</body>
+
+</html>
