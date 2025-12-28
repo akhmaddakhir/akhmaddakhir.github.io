@@ -9,6 +9,8 @@
   --dark-color: #000;
   --dark-second-color: #222;
   --dark-third-color: #555;
+  --rating-color: #ffcd29;
+  --logo-filter: drop-shadow(0 2px 4px rgba(146, 64, 14, 0.2));
 
   --user-color: #0284c7;
   --user-background: #e0f2fe;
@@ -80,7 +82,7 @@ body {
   margin-top: -22px;
   position: relative;
   margin-bottom: -35px;
-  filter: drop-shadow(0 2px 4px rgba(146, 64, 14, 0.2));
+  filter: var(--logo-filter);
 }
 
 .sidebar-logo a {
@@ -136,12 +138,21 @@ body {
 
 .sidebar-item.active {
   background: var(--side-bar-active);
-  color: white;
-  pointer-events: none;
+  color: var(--light-color);
 }
 
 .sidebar-item.active i {
   color: var(--light-second-color) !important;
+  font-weight: 500;
+}
+
+.sidebar-item.active:hover {
+  background: var(--side-bar-active);
+  color: var(--light-color);
+}
+
+.sidebar-item.active i:hover {
+  color: var(--light-second-color);
   font-weight: 500;
 }
 
@@ -398,6 +409,16 @@ td {
   padding: var(--padding);
   font-size: 14px;
   font-weight: 600;
+}
+
+.rating-value {
+  display: flex;
+  align-items: center;
+  color: var(--rating-color);
+  gap: 3.5px;
+  text-align: center;
+  padding-left: 30px;
+  font-size: 14px;
 }
 
 .table-button {

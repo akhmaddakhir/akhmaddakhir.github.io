@@ -86,13 +86,13 @@
 
       <section class="table-section">
         <header class="table-header">
-          <h2 class="table-title">Manajemen Interaksi</h2>
+          <h2 class="table-title">Manajemen Pesan</h2>
           <div class="header-button">
             <input type="search" class="search-bar" placeholder="Cari ID, Nama, Email, atau No. Telp">
             <select name="status-option" class="status-option">
-              <option value="">Semua Pengguna</option>
-              <option value="Active">Pengguna Aktif</option>
-              <option value="Block">Pengguna Diblokir</option>
+              <option value="">Semua Pesan</option>
+              <option value="Read">Pesan Dibaca</option>
+              <option value="Delete">Pesan Dihapus</option>
             </select>
             <button class="create-button">
               <i class="ph-bold ph-plus"></i>
@@ -207,11 +207,11 @@
 
       <section class="table-section">
         <header class="table-header">
-          <h2 class="table-title">Manajemen Host</h2>
+          <h2 class="table-title">Manajemen Ulasan</h2>
           <div class="header-button">
             <input type="search" class="search-bar" placeholder="Cari ID, Nama, Email, atau No. Telp">
             <select name="status-option" class="status-option">
-              <option value="">Semua Host</option>
+              <option value="">Semua Ulasan</option>
               <option value="Active">Host Aktif</option>
               <option value="Block">Host Diblokir</option>
             </select>
@@ -222,34 +222,29 @@
           </div>
         </header>
         <div class="table-container">
-          <table class="table-content host-table">
+          <table class="table-content user-table">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>No. Telepon</th>
-                <th>Total Pemesanan</th>
-                <th>Tanggal Daftar</th>
-                <th>Status</th>
+                <th>Nama Penginapan</th>
+                <th>Pengguna</th>
+                <th>Rating</th>
+                <th>Ulasan</th>
+                <th>Tanggal</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>01</td>
-                <td>Om Gatot</td>
-                <td>omganteng@gmail.com</td>
-                <td>0812345678</td>
-                <td>5 (3 Selesai, 2 Batal)</td>
-                <td>12 Mei 2025</td>
-                <td>Aktif</td>
+                <td>IN00</td>
+                <td>Amanjiwo Hotel</td>
+                <td>El Capitano</td>
+                <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                <td>Pinjam dulu 100</td>
+                <td>1 Januari 2000</td>
                 <td class="table-button">
                   <button class="action-button check-button">
                     <i class="ri-eye-line"></i>
-                  </button>
-                  <button class="action-button edit-button">
-                    <i class="ri-edit-box-line"></i>
                   </button>
                   <button class="action-button block-button">
                     <i class="ri-prohibited-line"></i>
@@ -257,19 +252,15 @@
                 </td>
               </tr>
               <tr>
-                <td>01</td>
-                <td>Om Gatot</td>
-                <td>omganteng@gmail.com</td>
-                <td>0812345678</td>
-                <td>5 (3 Selesai, 2 Batal)</td>
-                <td>12 Mei 2025</td>
-                <td>Aktif</td>
+                <td>IN00</td>
+                <td>Amanjiwo Hotel</td>
+                <td>El Capitano</td>
+                <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                <td>Pinjam dulu 100</td>
+                <td>1 Januari 2000</td>
                 <td class="table-button">
                   <button class="action-button check-button">
                     <i class="ri-eye-line"></i>
-                  </button>
-                  <button class="action-button edit-button">
-                    <i class="ri-edit-box-line"></i>
                   </button>
                   <button class="action-button block-button">
                     <i class="ri-prohibited-line"></i>
@@ -277,19 +268,15 @@
                 </td>
               </tr>
               <tr>
-                <td>01</td>
-                <td>Om Gatot</td>
-                <td>omganteng@gmail.com</td>
-                <td>0812345678</td>
-                <td>5 (3 Selesai, 2 Batal)</td>
-                <td>12 Mei 2025</td>
-                <td>Aktif</td>
+                <td>IN00</td>
+                <td>Amanjiwo Hotel</td>
+                <td>El Capitano</td>
+                <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                <td>Pinjam dulu 100</td>
+                <td>1 Januari 2000</td>
                 <td class="table-button">
                   <button class="action-button check-button">
                     <i class="ri-eye-line"></i>
-                  </button>
-                  <button class="action-button edit-button">
-                    <i class="ri-edit-box-line"></i>
                   </button>
                   <button class="action-button block-button">
                     <i class="ri-prohibited-line"></i>
@@ -297,19 +284,15 @@
                 </td>
               </tr>
               <tr>
-                <td>01</td>
-                <td>Om Gatot</td>
-                <td>omganteng@gmail.com</td>
-                <td>0812345678</td>
-                <td>5 (3 Selesai, 2 Batal)</td>
-                <td>12 Mei 2025</td>
-                <td>Aktif</td>
+                <td>IN00</td>
+                <td>Amanjiwo Hotel</td>
+                <td>El Capitano</td>
+                <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                <td>Pinjam dulu 100</td>
+                <td>1 Januari 2000</td>
                 <td class="table-button">
                   <button class="action-button check-button">
                     <i class="ri-eye-line"></i>
-                  </button>
-                  <button class="action-button edit-button">
-                    <i class="ri-edit-box-line"></i>
                   </button>
                   <button class="action-button block-button">
                     <i class="ri-prohibited-line"></i>
@@ -317,19 +300,15 @@
                 </td>
               </tr>
               <tr>
-                <td>01</td>
-                <td>Om Gatot</td>
-                <td>omganteng@gmail.com</td>
-                <td>0812345678</td>
-                <td>5 (3 Selesai, 2 Batal)</td>
-                <td>12 Mei 2025</td>
-                <td>Aktif</td>
+                <td>IN00</td>
+                <td>Amanjiwo Hotel</td>
+                <td>El Capitano</td>
+                <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
+                <td>Pinjam dulu 100</td>
+                <td>1 Januari 2000</td>
                 <td class="table-button">
                   <button class="action-button check-button">
                     <i class="ri-eye-line"></i>
-                  </button>
-                  <button class="action-button edit-button">
-                    <i class="ri-edit-box-line"></i>
                   </button>
                   <button class="action-button block-button">
                     <i class="ri-prohibited-line"></i>

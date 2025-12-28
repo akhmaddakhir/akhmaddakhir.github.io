@@ -172,11 +172,20 @@ body {
 .sidebar-item.active {
   background: var(--side-bar-active);
   color: white;
-  pointer-events: none;
 }
 
 .sidebar-item.active i {
   color: var(--light-second-color) !important;
+  font-weight: 500;
+}
+
+.sidebar-item.active:hover {
+  background: var(--side-bar-active);
+  color: var(--light-color);
+}
+
+.sidebar-item.active i:hover {
+  color: var(--light-second-color);
   font-weight: 500;
 }
 
@@ -351,17 +360,17 @@ body {
   border-radius: 12px;
 }
 
-#resort-stat i {
+.stat-card.resort-stat i {
   background: var(--resort-background);
   color: var(--resort-color);
 }
 
-#booking-stat i {
+.stat-card.booking-stat i {
   background: var(--booking-background);
   color: var(--booking-color);
 }
 
-#revenue-stat i {
+.stat-card.revenue-stat i {
   background: var(--succes-background);
   color: var(--succes-color);
 }
@@ -442,6 +451,41 @@ body {
   font-size: 14px;
   font-weight: 700;
   color: inherit;
+}
+
+.chart-header {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.chart-value {
+  font-size: 30px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.chart-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--succes-color);
+  background: var(--succes-background);
+  padding: 4px 6px;
+  border-radius: var(--table-button-border-radius);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.chart-change::before {
+  content: "▲";
+  font-size: 12px;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 300px;
 }
 
 .table-container {

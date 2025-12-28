@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap");
@@ -56,18 +57,18 @@
         </a>
       </nav>
 
-      <div class="admin-profile-box">
+      <section class="admin-profile-box">
         <div class="profile-info">
           <img class="admin-avatar" src="/website_materials/icon_profile.svg">
           <div class="profile-text">
-            <div class="admin-name">Om Gatot</div>
-            <div class="admin-role">Developer</div>
+            <span class="admin-name">Om Gatot</span>
+            <span class="admin-role">Developer</span>
           </div>
         </div>
         <button class="logout-button">
           <i class="ph-bold ph-sign-out"></i>Keluar
         </button>
-      </div>
+      </section>
     </aside>
 
     <main class="dashboard-content">
@@ -75,7 +76,7 @@
         <div class="top-bar">
           <h1 class="dashboard-title">Dashboard Admin</h1>
           <div class="online-badge">
-            <div class="online-icon"></div>
+            <span class="online-icon"></span>
             <p>Online</p>
           </div>
         </div>
@@ -87,28 +88,28 @@
       <section class="stats-card">
         <h2 class="stats-title">Ringkasan Sistem</h2>
         <div class="stats-grid">
-          <div class="stat-card" id="user-stat">
+          <div class="stat-card user-stat">
             <i class="ph-bold ph-user"></i>
             <div class="stat-details">
               <p class="stat-number" id="userNumber">0</p>
               <p class="stat-label">Total Pengguna</p>
             </div>
           </div>
-          <div class="stat-card" id="resort-stat">
+          <div class="stat-card resort-stat">
             <i class="ri-hotel-line"></i>
             <div class="stat-details">
               <p class="stat-number" id="resortNumber">0</p>
               <p class="stat-label">Total Penginapan</p>
             </div>
           </div>
-          <div class="stat-card" id="booking-stat">
+          <div class="stat-card booking-stat">
             <i class="ri-calendar-line"></i>
             <div class="stat-details">
               <p class="stat-number" id="bookingNumber">0</p>
               <p class="stat-label">Total Pemesanan</p>
             </div>
           </div>
-          <div class="stat-card" id="revenue-stat">
+          <div class="stat-card revenue-stat">
             <i class="ph-bold ph-credit-card"></i>
             <div class="stat-details">
               <p class="stat-number" id="revenueNumber">Rp. 0</p>
@@ -119,7 +120,7 @@
       </section>
 
       <section class="cards-summary">
-        <section class="card-summary" id="user-card">
+        <section class="card-summary user-card">
           <div class="card-header">
             <p class="card-title">Statistik Pengguna</p>
           </div>
@@ -146,7 +147,7 @@
           </div>
         </section>
 
-        <section class="card-summary" id="interaction-card">
+        <section class="card-summary interaction-card">
           <div class="card-header">
             <p class="card-title">Statistik Interaksi</p>
           </div>
@@ -175,25 +176,34 @@
       </section>
 
       <section class="revenue-summary">
-        <section class="card-summary" id="revenue-card">
+        <section class="card-summary revenue-card">
           <div class="card-header">
-            <p class="card-title">Pendapatan Bulanan</p>
+            <span class="card-title">Pendapatan Bulanan</span>
           </div>
-          <div class="card-body"></div>
+          <div class="card-body">
+            <div class="chart-header">
+              <div class="chart-value" id="totalValue">123</div>
+              <div class="chart-change" id="changePercent">1.1</div>
+            </div>
+
+            <div class="canvas-wrapper">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
         </section>
       </section>
 
       <section class="cards-summary">
-        <section class="card-summary" id="booking-card">
+        <section class="card-summary booking-card">
           <div class="card-header">
-            <p class="card-title">Pemesanan Berdasarkan Status</p>
+            <span class="card-title">Pemesanan Berdasarkan Status</span>
           </div>
           <div class="card-body"></div>
         </section>
 
-        <section class="card-summary" id="resort-card">
+        <section class="card-summary resort-card">
           <div class="card-header">
-            <p class="card-title">Penginapan Teratas</p>
+            <span class="card-title">Penginapan Teratas</span>
           </div>
           <div class="card-body">
             <div class="table-container">
