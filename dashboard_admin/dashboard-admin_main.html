@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap");
@@ -182,11 +181,11 @@
           </div>
           <div class="card-body">
             <div class="chart-header">
-              <div class="chart-value" id="totalValue">123</div>
-              <div class="chart-change" id="changePercent">1.1</div>
+              <div class="chart-value" id="totalValue">0</div>
+              <div class="chart-change" id="changePercent">0</div>
             </div>
 
-            <div class="canvas-wrapper">
+            <div class="chart-wrapper">
               <canvas id="revenueChart"></canvas>
             </div>
           </div>
@@ -250,7 +249,8 @@
       </section>
     </main>
   </section>
-  <script href="dashboard-admin_main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dashboard-admin_main.js"></script>
 </body>
 
 </html>
