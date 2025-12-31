@@ -11,52 +11,80 @@
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
-
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap");
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
   <section class="dashboard-admin">
+    <header class="topbar">
+      <nav>
+        <ul>
+          <li>
+            <h1 class="dashboard-title">Ringkasan Sistem</h1>
+          </li>
+          <li class="topbar-right">
+            <button class="notif-button">
+              <i class="ph-fill ph-bell"></i>
+            </button>
+            <button class="account-button">
+              <img class="admin-avatar" src="/website_materials/icon_profile.svg">
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
     <aside class="sidebar">
       <div class="sidebar-logo">
         <img class="logo-icon" src="/website_materials/logo_temansinggah.svg">
         <img class="logo-name" src="/website_materials/label_temansinggah.svg">
       </div>
-
       <nav class="sidebar-menu">
-        <a href="/dashboard_admin/dashboard-admin_main.html" class="sidebar-item main-menu active">
-          <i class="ri-dashboard-fill"></i>
-          Ringkasan
-        </a>
-        <a href="/dashboard_admin/dashboard-admin_user.html" class="sidebar-item user-menu">
-          <i class="ph-bold ph-user"></i>
-          Pengguna
-        </a>
-        <a href="/dashboard_admin/dashboard-admin_resort.html" class="sidebar-item resort-menu">
-          <i class="ri-hotel-line"></i>
-          Penginapan
-        </a>
-        <a href="/dashboard_admin/dashboard-admin_booking.html" class="sidebar-item booking-menu">
-          <i class="ri-calendar-line"></i>
-          Pemesanan
-        </a>
-        <a href="/dashboard_admin/dashboard-admin_interaction.html" class="sidebar-item interaction-menu">
-          <i class="ri-chat-1-line"></i>
-          Interaksi
-        </a>
-        <a href="/dashboard_admin/dashboard-admin_setting.html" class="sidebar-item setting-menu">
-          <i class="ph-bold ph-gear"></i>
-          Pengaturan
-        </a>
-        <a href="/dashboard_admin/dashboard-admin_notification.html" class="sidebar-item notification-menu">
-          <i class="ph-bold ph-bell"></i>
-          Notifikasi
-        </a>
+        <ul>
+          <li>
+            <a href="/dashboard_admin/dashboard-admin_main.html" class="sidebar-item main-menu active">
+              <i class="ri-dashboard-fill"></i>
+              Ringkasan
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard_admin/dashboard-admin_user.html" class="sidebar-item user-menu">
+              <i class="ph-bold ph-user"></i>
+              Pengguna
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard_admin/dashboard-admin_resort.html" class="sidebar-item resort-menu">
+              <i class="ri-hotel-line"></i>
+              Penginapan
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard_admin/dashboard-admin_booking.html" class="sidebar-item booking-menu">
+              <i class="ri-calendar-line"></i>
+              Pemesanan
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard_admin/dashboard-admin_interaction.html" class="sidebar-item interaction-menu">
+              <i class="ri-chat-1-line"></i>
+              Interaksi
+            </a>
+          </li>
+          <li>
+            <a href="/dashboard_admin/dashboard-admin_setting.html" class="sidebar-item setting-menu">
+              <i class="ph-bold ph-gear"></i>
+              Pengaturan
+            </a>
+          </li>
+        </ul>
       </nav>
 
-      <section class="admin-profile-box">
+      <div class="admin-profile-box">
         <div class="profile-info">
           <img class="admin-avatar" src="/website_materials/icon_profile.svg">
           <div class="profile-text">
@@ -67,189 +95,113 @@
         <button class="logout-button">
           <i class="ph-bold ph-sign-out"></i>Keluar
         </button>
-      </section>
+      </div>
     </aside>
 
     <main class="dashboard-content">
-      <header>
-        <div class="top-bar">
-          <h1 class="dashboard-title">Dashboard Admin</h1>
-          <div class="online-badge">
-            <span class="online-icon"></span>
-            <p>Online</p>
+      <header class="dashboard-header">
+        <div class="header-button-left">
+          <div class="custom-select">
+            <div class="select-trigger" id="selectTrigger" tabindex="0">
+              <span id="selectedText">Keseluruhan</span>
+              <i class="ph-bold ph-caret-down select-icon"></i>
+            </div>
+
+            <div class="select-dropdown" id="selectDropdown">
+              <div class="select-option selected" data-value="all-time">Keseluruhan</div>
+              <div class="select-option" data-value="this-week">Mingguan</div>
+              <div class="select-option" data-value="this-month">Bulanan</div>
+              <div class="select-option" data-value="this-year">Tahunan</div>
+            </div>
           </div>
+
+          <select name="period-option" class="native-select" id="nativeSelect">
+            <option value="all-time" selected>Keseluruhan</option>
+            <option value="this-week">Mingguan</option>
+            <option value="this-month">Bulanan</option>
+            <option value="last-year">Tahunan</option>
+          </select>
         </div>
-        <p class="title-desc">
-          Pantau Pengguna, Penginapan, Pemesanan, dan Interaksi di TemanSinggah
-        </p>
+
+        <div class="header-button-right">
+          <button class="header-button share-button">
+            <i class="ph-bold ph-share-network"></i>
+            Bagikan
+          </button>
+          <button class="header-button export-button">
+            <i class="ph-bold ph-export"></i>
+            Ekspor
+          </button>
+        </div>
       </header>
-
-      <section class="stats-card">
-        <h2 class="stats-title">Ringkasan Sistem</h2>
-        <div class="stats-grid">
-          <div class="stat-card user-stat">
-            <i class="ph-bold ph-user"></i>
-            <div class="stat-details">
-              <p class="stat-number" id="userNumber">0</p>
-              <p class="stat-label">Total Pengguna</p>
-            </div>
-          </div>
-          <div class="stat-card resort-stat">
-            <i class="ri-hotel-line"></i>
-            <div class="stat-details">
-              <p class="stat-number" id="resortNumber">0</p>
-              <p class="stat-label">Total Penginapan</p>
-            </div>
-          </div>
-          <div class="stat-card booking-stat">
-            <i class="ri-calendar-line"></i>
-            <div class="stat-details">
-              <p class="stat-number" id="bookingNumber">0</p>
-              <p class="stat-label">Total Pemesanan</p>
-            </div>
-          </div>
-          <div class="stat-card revenue-stat">
-            <i class="ph-bold ph-credit-card"></i>
-            <div class="stat-details">
-              <p class="stat-number" id="revenueNumber">Rp. 0</p>
-              <p class="stat-label">Total Pendapatan</p>
-            </div>
-          </div>
+      <section class="dashboard-card stats-grid">
+        <div class="stat-card">
+          <h3 class="stat-title">
+            Total Pendapatan
+          </h3>
+          <div class="stat-value" id="">Rp. 0</div>
+          <div class="stat-change">+1%</div>
+        </div>
+        <div class="stat-card">
+          <h3 class="stat-title">
+            Total Pemesanan
+          </h3>
+          <div class="stat-value" id="">0</div>
+          <div class="stat-change">+1%</div>
+        </div>
+        <div class="stat-card">
+          <h3 class="stat-title">
+            Pengguna Aktif
+          </h3>
+          <div class="stat-value" id="">0</div>
+          <div class="stat-change">+1%</div>
+        </div>
+        <div class="stat-card">
+          <h3 class="stat-title">
+            Total Host
+          </h3>
+          <div class="stat-value" id="">0</div>
+          <div class="stat-change">+1%</div>
         </div>
       </section>
 
-      <section class="cards-summary">
-        <section class="card-summary user-card">
+      <section class="charts-grid">
+        <div class="dashboard-card chart-card large">
           <div class="card-header">
-            <p class="card-title">Statistik Pengguna</p>
-          </div>
-
-          <div class="card-body">
-            <div class="stats-list">
-              <div class="stat-item">
-                <p class="stat-label">Total Pengguna: </p>
-                <p class="stat-value">0</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-label">Pengguna Aktif: </p>
-                <p class="stat-value">0</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-label">Pengguna Nonaktif: </p>
-                <p class="stat-value">0</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-label">Total Admin: </p>
-                <p class="stat-value">0</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="card-summary interaction-card">
-          <div class="card-header">
-            <p class="card-title">Statistik Interaksi</p>
-          </div>
-
-          <div class="card-body">
-            <div class="stats-list">
-              <div class="stat-item">
-                <p class="stat-label">Total Ulasan: </p>
-                <p class="stat-value">0</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-label">Total Pesan: </p>
-                <p class="stat-value">0</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-label">Total Share: </p>
-                <p class="stat-value">0</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-label">Total Simpan: </p>
-                <p class="stat-value">0</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
-
-      <section class="revenue-summary">
-        <section class="card-summary revenue-card">
-          <div class="card-header">
-            <span class="card-title">Pendapatan Bulanan</span>
+            <h2 class="card-title">Tren Pendapatan</h2>
           </div>
           <div class="card-body">
-            <div class="chart-header">
-              <div class="chart-value" id="totalValue">0</div>
-              <div class="chart-change" id="changePercent">0</div>
-            </div>
-
-            <div class="chart-wrapper">
-              <canvas id="revenueChart"></canvas>
+            <div class="chart-wrapper line-chart">
+              <canvas id="revenueTrendChart"></canvas>
             </div>
           </div>
-        </section>
-      </section>
+        </div>
 
-      <section class="cards-summary">
-        <section class="card-summary booking-card">
+        <div class="dashboard-card chart-card">
           <div class="card-header">
-            <span class="card-title">Pemesanan Berdasarkan Status</span>
-          </div>
-          <div class="card-body"></div>
-        </section>
-
-        <section class="card-summary resort-card">
-          <div class="card-header">
-            <span class="card-title">Penginapan Teratas</span>
+            <h2 class="card-title">Top 10 Kota Populer</h2>
           </div>
           <div class="card-body">
-            <div class="table-container">
-              <table class="card-table">
-                <thead>
-                  <tr>
-                    <th>Penginapan</th>
-                    <th>Pemesanan</th>
-                    <th>Ulasan</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>Sunrise Beach Hotel</td>
-                    <td class="booking-value">0</td>
-                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
-                  </tr>
-                  <tr>
-                    <td>Mountain View Villa</td>
-                    <td class="booking-value">0</td>
-                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
-                  </tr>
-                  <tr>
-                    <td>Bali Beach Resort</td>
-                    <td class="booking-value">0</td>
-                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
-                  </tr>
-                  <tr>
-                    <td>Tropical Paradise Inn</td>
-                    <td class="booking-value">0</td>
-                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
-                  </tr>
-                  <tr>
-                    <td>Jungle Retreat Hotel</td>
-                    <td class="booking-value">0</td>
-                    <td class="rating-value"><i class="ph-fill ph-star"></i>0</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="chart-wrapper bar-chart">
+              <canvas id="popularCityChart"></canvas>
             </div>
           </div>
-        </section>
+        </div>
+
+        <div class="dashboard-card chart-card">
+          <div class="card-header">
+            <h2 class="card-title">Pemesanan Berdasarkan Status</h2>
+          </div>
+          <div class="card-body">
+            <div class="chart-wrapper doughnut-chart">
+              <canvas id="bookingStatusChart"></canvas>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   </section>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
   <script src="dashboard-admin_main.js"></script>
 </body>
 
