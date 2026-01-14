@@ -25,11 +25,27 @@ const rawData = {
     },
 
     revenueTrend: {
-      labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Ags", "Sep", "Okt", "Nov", "Des"],
+      labels: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mei",
+        "Jun",
+        "Jul",
+        "Ags",
+        "Sep",
+        "Okt",
+        "Nov",
+        "Des",
+      ],
       datasets: [
         {
           label: "Revenue",
-          data: [125000000, 138000000, 145000000, 167000000, 182000000, 195000000, 210000000, 198000000, 225000000, 245000000, 268000000, 290000000],
+          data: [
+            125000000, 138000000, 145000000, 167000000, 182000000, 195000000,
+            210000000, 198000000, 225000000, 245000000, 268000000, 290000000,
+          ],
           borderColor: "#14b8a6",
           backgroundColor: "rgba(20, 184, 166, 0.1)",
           borderWidth: 3,
@@ -70,11 +86,27 @@ const rawData = {
     },
 
     revenueTrend: {
-      labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Ags", "Sep", "Okt", "Nov", "Des"],
+      labels: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mei",
+        "Jun",
+        "Jul",
+        "Ags",
+        "Sep",
+        "Okt",
+        "Nov",
+        "Des",
+      ],
       datasets: [
         {
           label: "Revenue",
-          data: [125000000, 138000000, 145000000, 167000000, 182000000, 195000000, 210000000, 198000000, 225000000, 245000000, 268000000, 290000000],
+          data: [
+            125000000, 138000000, 145000000, 167000000, 182000000, 195000000,
+            210000000, 198000000, 225000000, 245000000, 268000000, 290000000,
+          ],
           borderColor: "#14b8a6",
           backgroundColor: "rgba(20, 184, 166, 0.1)",
           borderWidth: 3,
@@ -164,7 +196,10 @@ const rawData = {
       datasets: [
         {
           label: "Revenue",
-          data: [14000000, 15500000, 16200000, 17800000, 18500000, 21000000, 19500000],
+          data: [
+            14000000, 15500000, 16200000, 17800000, 18500000, 21000000,
+            19500000,
+          ],
           borderColor: "#14b8a6",
           backgroundColor: "rgba(20, 184, 166, 0.1)",
           borderWidth: 3,
@@ -467,9 +502,9 @@ const revenueTrendConfig = {
           },
           label: function (context) {
             const value = context.parsed.y;
-            const formatted = new Intl.NumberFormat('id-ID', {
-              style: 'currency',
-              currency: 'IDR',
+            const formatted = new Intl.NumberFormat("id-ID", {
+              style: "currency",
+              currency: "IDR",
               minimumFractionDigits: 0,
               maximumFractionDigits: 0,
             }).format(value);
@@ -534,7 +569,7 @@ if (revenueTrendContext) {
 // Function to update all charts based on period
 function updateCharts(period) {
   currentPeriod = period;
-  
+
   // Update Popular City Chart
   if (popularCityChart && rawData[period]) {
     popularCityChart.data = rawData[period].popularCity;
@@ -544,8 +579,10 @@ function updateCharts(period) {
   // Update Booking Status Chart
   if (bookingStatusChart && rawData[period]) {
     bookingStatusChart.data.labels = rawData[period].bookingStatus.labels;
-    bookingStatusChart.data.datasets[0].data = rawData[period].bookingStatus.data;
-    bookingStatusChart.data.datasets[0].backgroundColor = rawData[period].bookingStatus.backgroundColor;
+    bookingStatusChart.data.datasets[0].data =
+      rawData[period].bookingStatus.data;
+    bookingStatusChart.data.datasets[0].backgroundColor =
+      rawData[period].bookingStatus.backgroundColor;
     bookingStatusChart.update();
   }
 
