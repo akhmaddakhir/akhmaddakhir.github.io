@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page | Teman Singgah</title>
+    <link rel="stylesheet" href="styles/home_page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <nav class="navbar-container">
+        <a href="home_page.html" class="logo-section">
+          <img
+            src="/assets/logo/logo_temansinggah.svg"
+            alt="Logo Teman Singgah"
+            class="logo-icon" />
+          <img
+            src="/assets/logo/label_temansinggah.svg"
+            alt="Brand Name Teman Singgah"
+            class="logo-name" />
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="home_page.html" class="nav-link active">Cari Penginapan</a>
+          </li>
+          <li class="nav-item">
+            <a href="promo_deals_page.html" class="nav-link">Promo & Deals</a>
+          </li>
+          <li class="nav-item">
+            <a href="become_host_page.html" class="nav-link">Jadi Host</a>
+          </li>
+          <li class="nav-item">
+            <a href="blog_page.html" class="nav-link">Blog</a>
+          </li>
+        </ul>
+
+        <div class="nav-right">
+          <button class="icon-button" aria-label="Notifications">
+            <i class="ph-bold ph-bell"></i>
+            <span class="badge"></span>
+          </button>
+          <div class="divider"></div>
+          <button class="icon-button" aria-label="Profile">
+            <i class="ph-bold ph-user"></i>
+          </button>
+          <div class="auth-buttons">
+            <a href="login_page.html">
+              <button class="login-button">Masuk</button>
+            </a>
+            <a href="register_page.html">
+              <button class="register-button">Daftar</button>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Temukan Penginapan Impianmu di Seluruh Indonesia
+            </h1>
+            <p class="hero-description">
+              Platform all-in-one untuk cari penginapan, bandingkan harga, dan
+              pesan dalam hitungan menit. Perjalananmu makin mudah dan
+              menyenangkan!
+            </p>
+
+            <div class="hero-buttons" id="hero-buttons">
+              <a href="#hero-buttons">
+                <button class="hero-button primary-button">
+                  Cari Penginapan
+                </button>
+              </a>
+              <a href="become_host_page.html">
+                <button class="hero-button secondary-button">Jadi Host</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="search-bar">
+        <div class="search-fields">
+          <div class="search-field">
+            <i class="ph-bold ph-map-pin"></i>
+            <div class="field-text">
+              <span class="field-label">Mau Kemana?</span>
+              <input
+                type="text"
+                class="field-value"
+                placeholder="Cari Tempatnya" />
+            </div>
+          </div>
+          <div class="search-field">
+            <i class="ph-bold ph-calendar-blank"></i>
+            <div class="field-text">
+              <span class="field-label">Kapan?</span>
+              <input
+                type="text"
+                class="field-value"
+                placeholder="Tambahkan Tanggal" />
+            </div>
+          </div>
+          <div class="search-field">
+            <i class="ph-bold ph-users-three"></i>
+            <div class="field-text">
+              <span class="field-label">Siapa Saja?</span>
+              <input
+                type="text"
+                class="field-value"
+                placeholder="Tambahkan Pengunjung" />
+            </div>
+            <a href="search_results_page.html">
+              <button class="search-button">
+                <i class="ph-bold ph-magnifying-glass"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-section popular-card">
+        <span class="section-header">
+          <h2 class="section-title">Destinasi Populer</h2>
+        </span>
+        <div class="card-grid">
+          <a href="detail_card.html" class="grid-card big">
+            <img
+              class="card-image"
+              src="/assets/images/nihi_sumba.webp"
+              alt="Nihi Sumba" />
+            <div class="card-overlay"></div>
+            <div class="card-text">
+              <span class="card-location">Sumba, NTT</span>
+              <span class="card-name">Nihi Sumba</span>
+            </div>
+          </a>
+          <a href="detail_card.html" class="grid-card">
+            <img
+              class="card-image"
+              src="/assets/images/desa_potato_head_bali.webp"
+              alt="Desa Potato Head Bali" />
+            <div class="card-overlay"></div>
+            <div class="card-text">
+              <span class="card-location">Kuta, Bali</span>
+              <span class="card-name">Desa Potato Head</span>
+            </div>
+          </a>
+          <a href="detail_card.html" class="grid-card">
+            <img
+              class="card-image"
+              src="/assets/images/adiwana_suweta_bali.jpg"
+              alt="Adiwana Suweta Bali" />
+            <div class="card-overlay"></div>
+            <div class="card-text">
+              <span class="card-location">Ubud, Bali</span>
+              <span class="card-name">Adiwana Suweta</span>
+            </div>
+          </a>
+          <a href="detail_card.html" class="grid-card">
+            <img
+              class="card-image"
+              src="/assets/images/padma_resort_ubud_bali.jpg"
+              alt="Padma Resort Ubud Bali" />
+            <div class="card-overlay"></div>
+            <div class="card-text">
+              <span class="card-location">Ubud, Bali</span>
+              <span class="card-name">Padma Resort Ubud</span>
+            </div>
+          </a>
+          <a href="detail_card.html" class="grid-card">
+            <img
+              class="card-image"
+              src="/assets/images/apurva_kempinski_bali.jpg"
+              alt="Apurva Kempinski Bali" />
+            <div class="card-overlay"></div>
+            <div class="card-text">
+              <span class="card-location">Nusa Dua, Bali</span>
+              <span class="card-name">Apurva Kempinski</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <div class="card-section nearby-card">
+        <div class="section-header">
+          <h2 class="section-title">Penginapan di Dekat Anda</h2>
+          <div class="section-controls">
+            <button class="control-button prev-button" aria-label="Sebelumnya">
+              <i class="ph-bold ph-caret-left"></i>
+            </button>
+            <button class="control-button next-button" aria-label="Selanjutnya">
+              <i class="ph-bold ph-caret-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-list">
+          <a href="detail_card.html" class="card">
+            <img
+              class="card-image"
+              src="/assets/images/apurva_kempinski_bali.jpg"
+              alt="Apurva Kempinski Bali" />
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <div class="card-top">
+                <span class="card-label">uhuy</span>
+                <i class="ph ph-heart"></i>
+              </div>
+              <div class="card-bottom">
+                <div class="card-text">
+                  <span class="card-location">Nusa Dua, Bali</span>
+                  <span class="card-name">Apurva Kempinski</span>
+                </div>
+                
+              </div>
+            </div>
+          </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+        </div>
+      </div>
+
+      <div class="card-section nearby-card">
+        <div class="section-header">
+          <h2 class="section-title">Destinasi Populer</h2>
+          <div class="section-controls">
+            <button class="control-button prev-button" aria-label="Sebelumnya">
+              <i class="ph-bold ph-caret-left"></i>
+            </button>
+            <button class="control-button next-button" aria-label="Selanjutnya">
+              <i class="ph-bold ph-caret-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-list">
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+        </div>
+      </div>
+
+      <div class="card-section nearby-card">
+        <div class="section-header">
+          <h2 class="section-title">Destinasi Populer</h2>
+          <div class="section-controls">
+            <button class="control-button prev-button" aria-label="Sebelumnya">
+              <i class="ph-bold ph-caret-left"></i>
+            </button>
+            <button class="control-button next-button" aria-label="Selanjutnya">
+              <i class="ph-bold ph-caret-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-list">
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+          <a href="detail_card.html" class="card"> </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
