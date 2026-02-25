@@ -1,608 +1,376 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimalist Hotel Cards - Teman Singgah</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
-    
-    <style>
-        :root {
-            --color-primary: #8b2500;
-            --color-primary-hover: #7a1f00;
-            --color-accent: #c9933a;
-            --color-accent-light: #f0c97a;
-            --color-text-primary: #1a0a00;
-            --color-text-secondary: #6b4f3a;
-            --color-text-inverse: #ffffff;
-            --color-text-muted: rgba(255, 255, 255, 0.85);
-            --color-bg: #fffaf5;
-            --color-bg-card: #ffffff;
-            --color-border-subtle: #f0e4d8;
-            
-            --font-family: "Inter", sans-serif;
-            
-            --text-xs: 0.75rem;
-            --text-sm: 0.875rem;
-            --text-base: 1rem;
-            --text-lg: 1.125rem;
-            --text-xl: 1.25rem;
-            --text-2xl: 1.5rem;
-            
-            --font-medium: 500;
-            --font-semibold: 600;
-            --font-bold: 700;
-            --font-extrabold: 800;
-            
-            --space-4: 0.25rem;
-            --space-6: 0.375rem;
-            --space-8: 0.5rem;
-            --space-10: 0.625rem;
-            --space-12: 0.75rem;
-            --space-16: 1rem;
-            --space-20: 1.25rem;
-            --space-24: 1.5rem;
-            
-            --radius-lg: 12px;
-            --radius-xl: 16px;
-            --radius-2xl: 20px;
-            --radius-full: 9999px;
-            
-            --shadow-card: 0 4px 20px rgba(26, 10, 0, 0.08);
-            --shadow-card-hover: 0 12px 40px rgba(26, 10, 0, 0.15);
-            --shadow-float: 0 4px 12px rgba(0, 0, 0, 0.15);
-            
-            --transition-base: 300ms ease;
-            --transition-bounce: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: var(--font-family);
-        }
-
-        body {
-            background: var(--color-bg);
-            padding: 60px 40px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: var(--font-bold);
-            color: var(--color-text-primary);
-            margin-bottom: 8px;
-        }
-
-        .section-subtitle {
-            font-size: var(--text-lg);
-            color: var(--color-text-secondary);
-            font-weight: var(--font-medium);
-        }
-
-        /* ============================================
-           GRID LAYOUT (4 Columns seperti gambar 2)
-           ============================================ */
-        .hotel-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        @media (max-width: 1200px) {
-            .hotel-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .hotel-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hotel-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ============================================
-           MINIMALIST HOTEL CARD
-           Style: Overlay text seperti gambar 1 + Badge/Rating seperti gambar 2
-           ============================================ */
-        .hotel-card {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4/5;
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: var(--shadow-card);
-            transition: all var(--transition-bounce);
-            background: var(--color-bg-card);
-        }
-
-        .hotel-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-card-hover);
-        }
-
-        .hotel-card__image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-base);
-        }
-
-        .hotel-card:hover .hotel-card__image {
-            transform: scale(1.08);
-        }
-
-        /* Gradient Overlay - Style gambar 1 */
-        .hotel-card__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(26, 10, 0, 0.9) 0%,
-                rgba(26, 10, 0, 0.5) 40%,
-                rgba(26, 10, 0, 0.2) 70%,
-                transparent 100%
-            );
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: var(--space-20);
-        }
-
-        /* Badge - Style gambar 2 */
-        .hotel-card__badge {
-            position: absolute;
-            top: var(--space-16);
-            left: var(--space-16);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            color: var(--color-text-primary);
-            padding: var(--space-8) var(--space-14);
-            border-radius: var(--radius-full);
-            font-size: var(--text-xs);
-            font-weight: var(--font-bold);
-            letter-spacing: 0.3px;
-            box-shadow: var(--shadow-float);
-            z-index: 2;
-        }
-
-        .hotel-card__badge--accent {
-            background: var(--color-accent);
-            color: var(--color-text-inverse);
-        }
-
-        /* Favorite Button */
-        .hotel-card__favorite {
-            position: absolute;
-            top: var(--space-16);
-            right: var(--space-16);
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all var(--transition-bounce);
-            color: var(--color-text-secondary);
-            font-size: var(--text-lg);
-            box-shadow: var(--shadow-float);
-            z-index: 2;
-        }
-
-        .hotel-card__favorite:hover {
-            transform: scale(1.15);
-            color: var(--color-primary);
-        }
-
-        .hotel-card__favorite.active {
-            background: var(--color-primary);
-            color: var(--color-text-inverse);
-        }
-
-        /* Content - Text Style */
-        .hotel-card__content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hotel-card__title {
-            color: var(--color-text-inverse);
-            font-size: var(--text-xl);
-            font-weight: var(--font-bold);
-            line-height: 1.3;
-            margin-bottom: var(--space-6);
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .hotel-card__location {
-            color: var(--color-text-muted);
-            font-size: var(--text-sm);
-            font-weight: var(--font-medium);
-            margin-bottom: var(--space-12);
-            display: flex;
-            align-items: center;
-            gap: var(--space-6);
-        }
-
-        .hotel-card__location i {
-            font-size: var(--text-base);
-            color: var(--color-accent-light);
-        }
-
-        /* Rating Bar - Style gambar 2 */
-        .hotel-card__rating-bar {
-            display: flex;
-            align-items: center;
-            gap: var(--space-10);
-            padding-top: var(--space-12);
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .hotel-card__rating {
-            display: flex;
-            align-items: center;
-            gap: var(--space-6);
-            background: rgba(201, 147, 58, 0.25);
-            padding: var(--space-6) var(--space-10);
-            border-radius: var(--radius-lg);
-        }
-
-        .hotel-card__rating i {
-            color: var(--color-accent);
-            font-size: var(--text-sm);
-        }
-
-        .hotel-card__rating span {
-            color: var(--color-accent-light);
-            font-size: var(--text-sm);
-            font-weight: var(--font-bold);
-        }
-
-        .hotel-card__reviews {
-            color: var(--color-text-muted);
-            font-size: var(--text-xs);
-            font-weight: var(--font-medium);
-        }
-
-        /* ============================================
-           VARIAN: CARD TANPA BADGE (Clean Look)
-           ============================================ */
-        .hotel-card--clean .hotel-card__overlay {
-            background: linear-gradient(
-                to top,
-                rgba(26, 10, 0, 0.85) 0%,
-                rgba(26, 10, 0, 0.4) 50%,
-                transparent 100%
-            );
-        }
-
-        /* ============================================
-           VARIAN: CARD HORIZONTAL (Untuk mobile/desktop alternatif)
-           ============================================ */
-        .hotel-card--horizontal {
-            aspect-ratio: 16/9;
-            max-height: 280px;
-        }
-
-        .hotel-card--horizontal .hotel-card__overlay {
-            padding: var(--space-24);
-        }
-
-        .hotel-card--horizontal .hotel-card__title {
-            font-size: var(--text-2xl);
-        }
-
-        /* Price Tag */
-        .hotel-card__price {
-            position: absolute;
-            bottom: var(--space-20);
-            right: var(--space-20);
-            background: var(--color-primary);
-            color: var(--color-text-inverse);
-            padding: var(--space-8) var(--space-14);
-            border-radius: var(--radius-lg);
-            font-size: var(--text-sm);
-            font-weight: var(--font-bold);
-            z-index: 2;
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <link rel="stylesheet" href="home_page.css" />
+  <link rel="icon" href="website_materials/logo_temansinggah.svg" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+  </style>
 </head>
+
 <body>
-
-<div class="container">
-    <div class="section-header">
-        <h1 class="section-title">Favorit Pengunjung</h1>
-        <p class="section-subtitle">Pilihan penginapan terbaik minggu ini</p>
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img class="logo-icon" src="website_materials/logo_temansinggah.svg" alt="TemanSinggah logo" />
+        <img class="logo-name" src="website_materials/label_temansinggah.svg" alt="TemanSinggah" />
+      </a>
     </div>
 
-    <div class="hotel-grid">
-        <!-- Card 1: The Udaya Resort -->
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1571896349842-61c2a3083791?w=800&q=80" alt="The Udaya Resort" class="hotel-card__image">
-            
-            <span class="hotel-card__badge">Favorit Pengunjung</span>
-            
-            <button class="hotel-card__favorite">
-                <i class="ph-fill ph-heart"></i>
-            </button>
+    <ul>
+      <li><a href="home_page.html" class="nav-active">Beranda</a></li>
+      <li><a href="about_page.html">Tentang Kami</a></li>
+      <li><a href="favorite_page.html">Favorit</a></li>
+      <li><a href="login_page.html">Masuk / Daftar</a></li>
+      <li>
+        <span id="lang-currency-toggle" style="cursor: pointer;" aria-haspopup="dialog" aria-expanded="false">
+          <img src="website_materials/icon_globe.svg" alt="Bahasa dan Mata Uang" />
+          <p> | IDR</p>
+        </span>
+      <li>
+        <a href="/profile-page_about-me.html" class="no-underline">
+          <span class="icon-wrapper"><img src="website_materials/icon_user.svg" alt="Logo Akun" /></span>
+        </a>
+      </li>
+      </li>
+    </ul>
+  </nav>
 
-            <div class="hotel-card__overlay">
-                <div class="hotel-card__content">
-                    <h3 class="hotel-card__title">The Udaya Resort</h3>
-                    <div class="hotel-card__location">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Ubud, Bali
-                    </div>
-                    <div class="hotel-card__rating-bar">
-                        <div class="hotel-card__rating">
-                            <i class="ph-fill ph-star"></i>
-                            <span>4.8</span>
-                        </div>
-                        <span class="hotel-card__reviews">(90 ulasan)</span>
-                    </div>
-                </div>
-            </div>
+  <section class="hero-section">
+    <img src="website_materials/resort-pict/gambar_hero.svg" alt="Hero Background" class="hero-bg" />
+    <div class="hero-text">
+      <p class="hero-title">
+        Siap<br />
+        Menjelajahi<br />
+        Nusantara?
+      </p>
+      <p class="hero-subtitle">
+        Temukan penginapan impian dan rasakan pesona<br />
+        dari berbagai destinasi di Indonesia.
+      </p>
+      <button class="hero-cta-btn" onclick="scrollToSearch()">Mulai Jelajahi</button>
+    </div>
+  </section>
+
+  <section class="search-bar">
+    <div class="search-bar-content">
+      <div style="position: relative;">
+        <div class="search-bar-loc">
+          <span class="search-bar-item">
+            <p class="item-label">Mau Kemana?</p>
+            <input class="item-input" type="search" placeholder="Cari Tempatnya" />
+          </span>
         </div>
+        <!-- Search popup akan dimuat di sini oleh JavaScript -->
+      </div>
 
-        <!-- Card 2: Sol Benoa Bali -->
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80" alt="Sol Benoa Bali" class="hotel-card__image">
-            
-            <button class="hotel-card__favorite">
-                <i class="ph ph-heart"></i>
-            </button>
+      <div class="search-bar-divider"></div>
 
-            <div class="hotel-card__overlay">
-                <div class="hotel-card__content">
-                    <h3 class="hotel-card__title">Sol Benoa Bali</h3>
-                    <div class="hotel-card__location">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Tanjung Benoa, Bali
-                    </div>
-                    <div class="hotel-card__rating-bar">
-                        <div class="hotel-card__rating">
-                            <i class="ph-fill ph-star"></i>
-                            <span>4.9</span>
-                        </div>
-                        <span class="hotel-card__reviews">(120 ulasan)</span>
-                    </div>
-                </div>
-            </div>
+      <div style="position: relative;">
+        <div id="search-bar-date" class="search-bar-date">
+          <img src="website_materials/icon_calendar.svg" class="calendar-icon" />
+          <span class="search-bar-item">
+            <p class="item-label">Kapan?</p>
+            <p class="item-content">Tambahkan Tanggal</p>
+          </span>
         </div>
+        <div id="calendar-popup"></div>
+      </div>
 
-        <!-- Card 3: Tanjung Sari Hotel -->
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Tanjung Sari Hotel" class="hotel-card__image">
-            
-            <button class="hotel-card__favorite">
-                <i class="ph ph-heart"></i>
-            </button>
+      <div class="search-bar-divider"></div>
 
-            <div class="hotel-card__overlay">
-                <div class="hotel-card__content">
-                    <h3 class="hotel-card__title">Tanjung Sari Hotel</h3>
-                    <div class="hotel-card__location">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Sanur, Bali
-                    </div>
-                    <div class="hotel-card__rating-bar">
-                        <div class="hotel-card__rating">
-                            <i class="ph-fill ph-star"></i>
-                            <span>4.9</span>
-                        </div>
-                        <span class="hotel-card__reviews">(92 ulasan)</span>
-                    </div>
-                </div>
-            </div>
+      <div class="guest-container">
+        <div class="search-bar-guest">
+          <img src="website_materials/icon_person.svg" class="guest-icon" />
+          <span class="search-bar-item">
+            <p class="item-label">Siapa Saja?</p>
+            <p class="item-content">Tambahkan Pengunjung</p>
+          </span>
         </div>
+        <a href="search-results_page.html">
+          <button class="search-button">
+            <img src="website_materials/icon_search.svg" class="search-icon" />
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <!-- Card 4: Bougainvillea Canggu -->
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80" alt="Bougainvillea Canggu" class="hotel-card__image">
-            
-            <span class="hotel-card__badge hotel-card__badge--accent">Favorit Pengunjung</span>
-            
-            <button class="hotel-card__favorite">
-                <i class="ph ph-heart"></i>
-            </button>
-
-            <div class="hotel-card__overlay">
-                <div class="hotel-card__content">
-                    <h3 class="hotel-card__title">Bougainvillea Canggu</h3>
-                    <div class="hotel-card__location">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Canggu, Bali
-                    </div>
-                    <div class="hotel-card__rating-bar">
-                        <div class="hotel-card__rating">
-                            <i class="ph-fill ph-star"></i>
-                            <span>4.7</span>
-                        </div>
-                        <span class="hotel-card__reviews">(678 ulasan)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <section class="recommendation-section">
+    <div class="recommendation-header">
+      <h2>Destinasi Populer</h2>
+      <button id="filter-button" class="filter-button">
+        <img src="website_materials/icon_filter.svg" />
+        <p>Filter</p>
+      </button>
     </div>
 
-    <!-- Section 2: Alternatif dengan Price Tag -->
-    <div class="section-header" style="margin-top: 60px;">
-        <h2 class="section-title">Penawaran Terbaik</h2>
-        <p class="section-subtitle">Harga spesial untuk minggu ini</p>
+    <div class="recommendation-pict">
+      <div class="card-pict-big">
+        <a href="/description_page.html"> <img src="/website_materials/resort-pict/amanjiwo_dalem_jiwo.jpg" /></a>
+        <div class="card-text">
+          <h3>Amanjiwo</h3>
+          <p>Magelang, Yogyakarta</p>
+        </div>
+      </div>
+      <div class="card-pict">
+        <a href="/description_page.html"> <img src="/website_materials/resort-pict/the_bale.jpg" /></a>
+        <div class="card-text">
+          <h3>The Bale Nusa Dua</h3>
+          <p>Nusa Dua, Bali</p>
+        </div>
+      </div>
+      <div class="card-pict">
+        <a href="/description_page.html"><img src="/website_materials/resort-pict/amarterra_villa_resort.jpg" /></a>
+        <div class="card-text">
+          <h3>Amarterra Villa Resort</h3>
+          <p>Nusa Dua, Bali</p>
+        </div>
+      </div>
+      <div class="card-pict">
+        <a href="/description_page.html"><img src="img/image 34.svg" alt="Nusa Dua Resort" /></a>
+        <div class="card-text">
+          <h3>Nusa Dua Resort</h3>
+          <p>Nusa Dua, Bali</p>
+        </div>
+      </div>
+      <div class="card-pict">
+        <a href="/description_page.html"> <img src="/website_materials/resort-pict/magic_of-bali_villas.jpg"
+            alt="Nusa Dua Resort" /></a>
+        <div class="card-text">
+          <h3>Magic Of Bali Villas</h3>
+          <p>Seminyak, Bali</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card-section">
+    <span class="card-header">
+      <h2>Rekomendasi Penginapan</h2>
+      <button class="see-more-button">
+        <a href="search-results_page.html">Lihat Semua &#62;</a>
+      </button>
+    </span>
+
+    <div class="card-list">
+      <div class="card">
+        <div class="card-pict">
+          <a href="/description_page.html"> <img src="/website_materials/resort-pict/sekar_jogja_heritage-1.svg" /></a>
+        </div>
+        <div class="card-button">
+          <p class="favorite-tag">Favorit Pengunjung</p>
+          <button class="save-button">
+            <img src="website_materials/icon_save.svg" />
+          </button>
+        </div>
+        <div class="card-text">
+          <h3>Sekar Jogja Heritage</h3>
+          <p>Sleman, Yogyakarta</p>
+          <div class="card-rating">
+            <span class="total-rating">
+              <img src="website_materials/icon_rating-fill.svg" />4.7
+            </span>
+            <span class="total-review">(812&nbsp;ulasan)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pict">
+          <a href="/description_page.html"> <img src="img/image 34.svg" alt="Nusa Dua Resort" /></a>
+        </div>
+        <button class="save-button-notag">
+          <img src="website_materials/icon_save.svg" />
+        </button>
+        <div class="card-text">
+          <h3>Nusa Dua Resort</h3>
+          <p>Nusa Dua, Bali</p>
+          <div class="card-rating">
+            <span class="total-rating">
+              <img src="website_materials/icon_rating-fill.svg" />4.9</span>
+            <span class="total-review">(63&nbsp;ulasan)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pict">
+          <a href="/description_page.html"> <img src="/website_materials/resort-pict/nipuri_resort.jpg"
+              alt="Nusa Dua Resort" /></a>
+        </div>
+        <button class="save-button-notag">
+          <img src="website_materials/icon_save.svg" />
+        </button>
+        <div class="card-text">
+          <h3>Nipuri Resort</h3>
+          <p>Seminyak, Bali</p>
+          <div class="card-rating">
+            <span class="total-rating">
+              <img src="website_materials/icon_rating-fill.svg" />4.4</span>
+            <span class="total-review">(200&nbsp;ulasan)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pict">
+          <a href="/description_page.html"><img src="/website_materials/resort-pict/padma_resort_ubud.jpg"
+              alt="Nusa Dua Resort" /></a>
+        </div>
+        <div class="card-button">
+          <p class="favorite-tag">Favorit Pengunjung</p>
+          <button class="save-button">
+            <img src="website_materials/icon_save.svg" />
+          </button>
+        </div>
+        <div class="card-text">
+          <h3>Padma Resort Ubud</h3>
+          <p>Ubud, Bali</p>
+          <div class="card-rating">
+            <span class="total-rating">
+              <img src="website_materials/icon_rating-fill.svg" />4.6</span>
+            <span class="total-review">(321&nbsp;ulasan)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card-section">
+    <span class="card-header">
+      <h2>Rekomendasi Penginapan</h2>
+      <button class="see-more-button">
+        <a href="search-results_page.html">Lihat Semua &#62;</a>
+      </button>
+    </span>
+
+    <div class="card-list">
+      <div class="card">
+        <div class="card-pict">
+          <a href="/description_page.html"> <img src="img/image 40.svg" /></a>
+        </div>
+        <div class="card-button">
+          <p class="favorite-tag">Favorit Pengunjung</p>
+          <button class="save-button">
+            <img src="website_materials/icon_save.svg" />
+          </button>
+        </div>
+        <div class="card-text">
+          <h3>The Udaya Resort</h3>
+          <p>Ubud, Bali</p>
+          <div class="card-rating">
+            <span class="total-rating">
+              <img src="website_materials/icon_rating-fill.svg" />4.8
+            </span>
+            <span class="total-review">(90&nbsp;ulasan)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pict">
+          <a href="/description_page.html"> <img src="img/image 42.svg" /></a>
+        </div>
+        <button class="save-button-notag">
+          <img src="website_materials/icon_save.svg" />
+        </button>
+        <div class="card-text">
+          <h3>Sol Benoa Bali</h3>
+          <p>Tanjung Benoa, Bali</p>
+          <div class="card-rating">
+            <span class="total-rating">
+              <img src="website_materials/icon_rating-fill.svg" />4.9</span>
+            <span class="total-review">(120&nbsp;ulasan)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pict">
+          <a href="/description_page.html"> <img src="img/image 45.svg" /></a>
+        </div>
+        <button class="save-button-notag">
+          <img src="website_materials/icon_save.svg" />
+        </button>
+        <div class="card-text">
+          <h3>Tandjung Sari Hotel</h3>
+          <p>Sanur, Bali</p>
+          <div class="card-rating">
+            <span class="total-rating">
+              <img src="website_materials/icon_rating-fill.svg" />4.9</span>
+            <span class="total-review">(92&nbsp;ulasan)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-pict">
+          <a href="/description_page.html"> <img src="img/image 6.svg" alt="Nusa Dua Resort" /></a>
+        </div>
+        <div class="card-button">
+          <p class="favorite-tag">Favorit Pengunjung</p>
+          <button class="save-button">
+            <img src="website_materials/icon_save.svg" />
+          </button>
+        </div>
+        <div class="card-text">
+          <h3>Bougainvillea Canggu</h3>
+          <p>Canggu, Bali</p>
+          <div class="card-rating">
+            <span class="total-rating">
+              <img src="website_materials/icon_rating-fill.svg" />4.7</span>
+            <span class="total-review">(678&nbsp;ulasan)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-section">
+    <div class="footer-list">
+      <div class="footer-content">
+        <h3>Teman Singgah</h3>
+        <p>
+          Website booking penginapan Nusantara untuk promosi penginapan, dan
+          pelestarian budaya Indonesia.
+        </p>
+      </div>
+
+      <div class="footer-content">
+        <h3>Navigasi</h3>
+        <ul>
+          <li><a href="Home Page.html">Beranda</a></li>
+          <li><a href="#">Pencarian</a></li>
+          <li><a href="Favorite Page.html">Favorit</a></li>
+          <li><a href="#">Daftar Booking</a></li>
+          <li><a href="Account Page.html">Akun</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-content">
+        <h3>Dukungan</h3>
+        <ul>
+          <li><a href="#">Pusat Bantuan</a></li>
+          <li><a href="#">Kontak</a></li>
+          <li><a href="#">Media Sosial</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="hotel-grid">
-        <!-- Card with Price -->
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80" alt="Alila Ubud" class="hotel-card__image">
-            
-            <span class="hotel-card__badge">-30%</span>
-            
-            <button class="hotel-card__favorite">
-                <i class="ph ph-heart"></i>
-            </button>
+    <hr />
 
-            <span class="hotel-card__price">Rp 2.5jt</span>
-
-            <div class="hotel-card__overlay">
-                <div class="hotel-card__content">
-                    <h3 class="hotel-card__title">Alila Ubud</h3>
-                    <div class="hotel-card__location">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Payangan, Bali
-                    </div>
-                    <div class="hotel-card__rating-bar">
-                        <div class="hotel-card__rating">
-                            <i class="ph-fill ph-star"></i>
-                            <span>4.9</span>
-                        </div>
-                        <span class="hotel-card__reviews">(245 ulasan)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80" alt="Ayana Resort" class="hotel-card__image">
-            
-            <button class="hotel-card__favorite">
-                <i class="ph ph-heart"></i>
-            </button>
-
-            <span class="hotel-card__price">Rp 4.2jt</span>
-
-            <div class="hotel-card__overlay">
-                <div class="hotel-card__content">
-                    <h3 class="hotel-card__title">Ayana Resort</h3>
-                    <div class="hotel-card__location">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Jimbaran, Bali
-                    </div>
-                    <div class="hotel-card__rating-bar">
-                        <div class="hotel-card__rating">
-                            <i class="ph-fill ph-star"></i>
-                            <span>4.8</span>
-                        </div>
-                        <span class="hotel-card__reviews">(1.2k ulasan)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80" alt="Four Seasons" class="hotel-card__image">
-            
-            <span class="hotel-card__badge hotel-card__badge--accent">Best Seller</span>
-            
-            <button class="hotel-card__favorite">
-                <i class="ph ph-heart"></i>
-            </button>
-
-            <span class="hotel-card__price">Rp 8.5jt</span>
-
-            <div class="hotel-card__overlay">
-                <div class="hotel-card__content">
-                    <h3 class="hotel-card__title">Four Seasons</h3>
-                    <div class="hotel-card__location">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Sayan, Bali
-                    </div>
-                    <div class="hotel-card__rating-bar">
-                        <div class="hotel-card__rating">
-                            <i class="ph-fill ph-star"></i>
-                            <span>5.0</span>
-                        </div>
-                        <span class="hotel-card__reviews">(89 ulasan)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="hotel-card">
-            <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&q=80" alt="Mandapa Ritz" class="hotel-card__image">
-            
-            <button class="hotel-card__favorite">
-                <i class="ph ph-heart"></i>
-            </button>
-
-            <span class="hotel-card__price">Rp 12jt</span>
-
-            <div class="hotel-card__overlay">
-                <div class="hotel-card__content">
-                    <h3 class="hotel-card__title">Mandapa Ritz</h3>
-                    <div class="hotel-card__location">
-                        <i class="ph-fill ph-map-pin"></i>
-                        Ubud, Bali
-                    </div>
-                    <div class="hotel-card__rating-bar">
-                        <div class="hotel-card__rating">
-                            <i class="ph-fill ph-star"></i>
-                            <span>4.9</span>
-                        </div>
-                        <span class="hotel-card__reviews">(156 ulasan)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="footer-bottom">
+      <p>© 2025 Teman Singgah — All rights reserved.</p>
+      <p><a href="#">Kebijakan Privasi</a> • <a href="#">S&K</a></p>
     </div>
-</div>
+  </footer>
 
-<script>
-    // Toggle favorite
-    document.querySelectorAll('.hotel-card__favorite').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            btn.classList.toggle('active');
-            const icon = btn.querySelector('i');
-            
-            if (btn.classList.contains('active')) {
-                icon.classList.remove('ph-heart');
-                icon.classList.add('ph-fill', 'ph-heart');
-            } else {
-                icon.classList.remove('ph-fill', 'ph-heart');
-                icon.classList.add('ph-heart');
-            }
-        });
-    });
-
-    // Card click handler
-    document.querySelectorAll('.hotel-card').forEach(card => {
-        card.addEventListener('click', () => {
-            console.log('Card clicked');
-        });
-    });
-</script>
-
+  <script src="home_page.js"></script>
 </body>
+
 </html>
