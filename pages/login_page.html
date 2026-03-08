@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page | Teman Singgah</title>
+
+    <link rel="stylesheet" href="/styles/login_page.css" />
+    <link rel="stylesheet" href="/styles/root.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+  </head>
+
+  <body>
+    <main class="main-content">
+      <section class="auth-banner">
+        <div class="auth-banner-decoration"></div>
+        <div class="auth-banner-content">
+          <h2 class="auth-banner-quote">
+            Selamat Datang Kembali, Penjelajah Nusantara!
+          </h2>
+          <p class="auth-banner-text">
+            Ribuan penginapan terbaik di seluruh Indonesia siap menyambut
+            perjalananmu berikutnya.
+          </p>
+        </div>
+      </section>
+
+      <section class="auth-form-section">
+        <a href="/" class="auth-back-link">
+          <i class="ph ph-arrow-left"></i>
+          Kembali ke Beranda
+        </a>
+
+        <div class="auth-form-card">
+          <div class="auth-logo-wrapper">
+            <div class="auth-logo">
+              <img
+                class="auth-logo-image"
+                src="/assets/logo/logo_temansinggah.svg"
+                alt="Teman Singgah" />
+            </div>
+            <h3 class="auth-form-title">Masuk</h3>
+            <p class="auth-form-subtitle">
+              Temukan penginapan impianmu di seluruh Indonesia
+            </p>
+          </div>
+
+          <form class="auth-form" action="">
+            <div class="auth-input-wrapper">
+              <i class="ph ph-envelope auth-input-icon"></i>
+              <input
+                type="email"
+                class="auth-input"
+                placeholder="Masukkan email"
+                required />
+            </div>
+
+            <div class="auth-input-wrapper">
+              <i class="ph ph-lock-key auth-input-icon"></i>
+              <input
+                type="password"
+                class="auth-input"
+                placeholder="Masukkan kata sandi"
+                id="passwordInput"
+                required />
+            </div>
+
+            <a class="auth-forgot-password" href="#">Lupa kata sandi?</a>
+
+            <button class="auth-submit-button" type="submit">Masuk</button>
+          </form>
+
+          <div class="auth-divider">
+            <span class="auth-divider-line"></span>
+            <span class="auth-divider-text">atau</span>
+            <span class="auth-divider-line"></span>
+          </div>
+
+          <div class="auth-social-icons">
+            <img
+              class="auth-social-icon facebook"
+              src="/assets/icons/facebook.svg"
+              alt="Facebook" />
+            <img
+              class="auth-social-icon google"
+              src="/assets/icons/google.svg"
+              alt="Google" />
+            <img
+              class="auth-social-icon apple"
+              src="/assets/icons/apple.svg"
+              alt="Apple" 
+              style="transform:translateY(-4px)"/>
+          </div>
+
+          <p class="auth-switch">
+            Belum punya akun?
+            <a class="auth-switch-link" href="/register.html"
+              >Daftar sekarang</a
+            >
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

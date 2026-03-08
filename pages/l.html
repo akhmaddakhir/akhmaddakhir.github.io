@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masuk | Teman Singgah</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
+    <style>
+      :root {
+        --color-primary: #8b2500;
+        --color-primary-hover: #7a1f00;
+        --color-primary-light: #f9ede8;
+        --color-accent: #c9933a;
+        --color-text-primary: #1a0a00;
+        --color-text-secondary: #6b4f3a;
+        --color-text-muted: #9b8b7a;
+        --color-border: #e8d5c0;
+        --color-bg: #fffaf5;
+        --color-bg-card: #ffffff;
+
+        --font-display: "Playfair Display", serif;
+        --font-body: "Inter", sans-serif;
+
+        --radius-lg: 12px;
+        --radius-full: 9999px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: var(--font-body);
+      }
+
+      body {
+        background: var(--color-bg);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .login-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 900px;
+        width: 100%;
+        background: var(--color-bg-card);
+        border-radius: 20px;
+        overflow: hidden;
+        min-height: 550px;
+        box-shadow: 0 20px 60px rgba(139, 37, 0, 0.08);
+      }
+
+      /* Left Side - Form */
+      .form-section {
+        padding: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .logo {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 32px;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .form-title {
+        font-family: var(--font-display);
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 8px;
+      }
+
+      .form-subtitle {
+        color: var(--color-text-secondary);
+        font-size: 14px;
+        margin-bottom: 32px;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1.5px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        font-size: 14px;
+        color: var(--color-text-primary);
+        transition: all 0.2s;
+        background: transparent;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--color-primary);
+      }
+
+      .form-input::placeholder {
+        color: var(--color-text-muted);
+      }
+
+      .input-wrapper {
+        position: relative;
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0;
+        font-size: 13px;
+      }
+
+      .remember-me {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--color-text-secondary);
+        cursor: pointer;
+      }
+
+      .remember-me input {
+        accent-color: var(--color-primary);
+      }
+
+      .forgot-link {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .btn-primary {
+        width: 100%;
+        padding: 14px;
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        border-radius: var(--radius-lg);
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn-primary:hover {
+        background: var(--color-primary-hover);
+        transform: translateY(-1px);
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        margin: 24px 0;
+        color: var(--color-text-muted);
+        font-size: 12px;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--color-border);
+      }
+
+      .divider span {
+        padding: 0 16px;
+      }
+
+      .social-login {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .social-btn {
+        width: 44px;
+        height: 44px;
+        border: 1.5px solid var(--color-border);
+        border-radius: var(--radius-full);
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 20px;
+      }
+
+      .social-btn:hover {
+        border-color: var(--color-primary);
+        background: var(--color-primary-light);
+      }
+
+      .social-btn.google {
+        color: #ea4335;
+      }
+
+      .social-btn.facebook {
+        color: #1877f2;
+      }
+
+      .social-btn.apple {
+        color: #000;
+      }
+
+      .register-text {
+        text-align: center;
+        font-size: 13px;
+        color: var(--color-text-secondary);
+      }
+
+      .register-text a {
+        color: var(--color-primary);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* Right Side - Illustration */
+      .illustration-section {
+        background: linear-gradient(
+          135deg,
+          var(--color-primary) 0%,
+          #a03000 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Decorative circles */
+      .illustration-section::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        top: -100px;
+        right: -100px;
+      }
+
+      .illustration-section::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgba(201, 147, 58, 0.2);
+        border-radius: 50%;
+        bottom: -50px;
+        left: -50px;
+      }
+
+      .illustration-content {
+        text-align: center;
+        color: white;
+        z-index: 1;
+        padding: 40px;
+      }
+
+      .illustration-icon {
+        font-size: 120px;
+        margin-bottom: 24px;
+        opacity: 0.9;
+      }
+
+      .illustration-title {
+        font-family: var(--font-display);
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .illustration-text {
+        font-size: 14px;
+        opacity: 0.9;
+        line-height: 1.6;
+        max-width: 280px;
+      }
+
+      /* Alternative: Use SVG Illustration */
+      .travel-illustration {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .login-container {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+        }
+
+        .illustration-section {
+          display: none;
+        }
+
+        .form-section {
+          padding: 40px 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <!-- Left Side - Form -->
+      <div class="form-section">
+        <div class="logo">
+          <img
+            src="/assets/logo/logo_temansinggah.svg"
+            alt="Teman Singgah"
+            onerror="this.style.display = 'none'" />
+          <!-- Fallback if logo not loaded -->
+          <div
+            style="
+              width: 48px;
+              height: 48px;
+              background: var(--color-primary);
+              border-radius: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 24px;
+              display: none;
+            "></div>
+        </div>
+
+        <h1 class="form-title">Masuk</h1>
+        <p class="form-subtitle">Silakan masuk ke akun Anda</p>
+
+        <form>
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-input"
+              placeholder="Masukkan Email"
+              required />
+          </div>
+
+          <div class="form-group">
+            <div class="input-wrapper">
+              <input
+                type="password"
+                class="form-input"
+                placeholder="Masukkan Password"
+                required />
+              <button type="button" class="password-toggle">
+                <i class="ph-bold ph-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" />
+              <span>Ingat saya</span>
+            </label>
+            <a href="#" class="forgot-link">Lupa password?</a>
+          </div>
+
+          <button type="submit" class="btn-primary">Masuk</button>
+        </form>
+
+        <div class="divider">
+          <span>Atau masuk dengan</span>
+        </div>
+
+        <div class="social-login">
+          <button class="social-btn google">
+            <i class="ph-fill ph-google-logo"></i>
+          </button>
+          <button class="social-btn facebook">
+            <i class="ph-fill ph-facebook-logo"></i>
+          </button>
+          <button class="social-btn apple">
+            <i class="ph-fill ph-apple-logo"></i>
+          </button>
+        </div>
+
+        <p class="register-text">
+          Belum punya akun? <a href="register_page.html">Daftar</a>
+        </p>
+      </div>
+
+      <!-- Right Side - Illustration -->
+      <div class="illustration-section">
+        <div class="illustration-content">
+          <!-- Option 1: Icon Style -->
+          <div class="illustration-icon">
+            <i class="ph-fill ph-airplane-tilt"></i>
+          </div>
+          <h2 class="illustration-title">Jelajahi Nusantara</h2>
+          <p class="illustration-text">
+            Temukan penginapan terbaik dari Sabang sampai Merauke dengan harga
+            terjangkau
+          </p>
+
+          <!-- Option 2: SVG Illustration (uncomment to use) -->
+          <!-- <svg class="travel-illustration" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="200" r="150" fill="rgba(255,255,255,0.1)"/>
+            <path d="M200 100 L220 180 L300 180 L235 230 L260 310 L200 260 L140 310 L165 230 L100 180 L180 180 Z" fill="rgba(255,255,255,0.9)"/>
+            <circle cx="200" cy="200" r="40" fill="#c9933a"/>
+          </svg> -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Toggle password visibility
+      document
+        .querySelector(".password-toggle")
+        .addEventListener("click", function () {
+          const input = this.previousElementSibling;
+          const icon = this.querySelector("i");
+          if (input.type === "password") {
+            input.type = "text";
+            icon.classList.replace("ph-eye", "ph-eye-slash");
+          } else {
+            input.type = "password";
+            icon.classList.replace("ph-eye-slash", "ph-eye");
+          }
+        });
+    </script>
+  </body>
+</html>
