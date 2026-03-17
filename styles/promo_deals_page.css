@@ -1,0 +1,13 @@
+.hero-section {
+  height: auto;
+  min-height: 50vh;
+  padding: calc(var(--navbar-height) + var(--space-48)) 0 var(--space-64);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-footer) 100%
+  );
+  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+  position: relative;
+  overflow: hidden;
+}

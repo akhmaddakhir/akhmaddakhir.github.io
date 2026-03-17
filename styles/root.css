@@ -56,6 +56,7 @@
 
   /* Typography */
   --font-family: "inter", sans-serif;
+  --font-display: montserrat, sans-serif;
 
   --text-xs: 0.75rem; /* -> 12px */
   --text-sm: 0.875rem; /* -> 14px */
@@ -135,6 +136,7 @@
   --container-lg: 1024px;
   --container-xl: 1300px;
   --container-2xl: 1440px;
+  --container-full: 100vh;
 
   --navbar-height: 68px;
   --hero-height: 100vh;
