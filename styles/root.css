@@ -144,3 +144,20 @@
   --searchbar-width: 910px;
   --sidebar-width: 260px;
 }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background: var(--color-bg);
+}
+
+a {
+  text-decoration: none;
+}

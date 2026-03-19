@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Page | Teman Singgah</title>
+    <title>Register Page | Teman Singgah</title>
 
-    <link rel="stylesheet" href="/styles/login_page.css" />
+    <link rel="stylesheet" href="/styles/auth.css" />
     <link rel="stylesheet" href="/styles/root.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,11 +34,11 @@
         <div class="auth-banner-decoration"></div>
         <div class="auth-banner-content">
           <h2 class="auth-banner-quote">
-            Selamat Datang Kembali, Penjelajah Nusantara!
+            Mulai Perjalananmu Bersama Kami, Penjelajah Baru!
           </h2>
           <p class="auth-banner-text">
-            Ribuan penginapan terbaik di seluruh Indonesia siap menyambut
-            perjalananmu berikutnya.
+            Bergabunglah dengan jutaan penjelajah yang telah menemukan
+            penginapan impian mereka di seluruh penjuru Nusantara.
           </p>
         </div>
       </section>
@@ -55,6 +55,15 @@
           </div>
 
           <form class="auth-form" action="/index.html" method="get">
+            <div class="auth-input-wrapper">
+              <i class="ph ph-user auth-input-icon"></i>
+              <input
+                type="text"
+                class="auth-input"
+                placeholder="Masukkan nama"
+                required />
+            </div>
+
             <div class="auth-input-wrapper">
               <i class="ph ph-envelope auth-input-icon"></i>
               <input
@@ -74,9 +83,15 @@
                 required />
             </div>
 
-            <a class="auth-forgot-password" href="forgot_password_page.html">
-              Lupa kata sandi?
-            </a>
+            <div class="auth-input-wrapper">
+              <i class="ph ph-lock-key-open auth-input-icon"></i>
+              <input
+                type="password"
+                class="auth-input"
+                placeholder="Masukkan kembali kata sandi"
+                id="passwordConfirmInput"
+                required />
+            </div>
 
             <button class="auth-submit-button" type="submit">Masuk</button>
           </form>
@@ -103,9 +118,9 @@
           </div>
 
           <p class="auth-switch">
-            Belum punya akun?
-            <a class="auth-switch-link" href="/pages/register_page.html">
-              Daftar sekarang
+            Sudah punya akun?
+            <a class="auth-switch-link" href="/pages/login_page.html">
+              Masuk sekarang
             </a>
           </p>
         </div>

@@ -4,42 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promo & Deals | Teman Singgah</title>
-    <link rel="stylesheet" href="/styles/home_page.css" />
+    <link rel="stylesheet" href="/styles/promo_deals_page.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
     <style>
-      /* Additional styles specific to Promo Page */
       .promo-hero {
         height: auto;
         min-height: 50vh;
         padding: calc(var(--navbar-height) + var(--space-48)) 0 var(--space-64);
-        background: linear-gradient(
-          135deg,
-          var(--color-primary) 0%,
-          var(--color-primary-footer) 100%
-        );
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-footer) 100%);
         border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
         position: relative;
         overflow: hidden;
       }
-
       .promo-hero::before {
         content: "";
         position: absolute;
@@ -52,7 +36,6 @@
         border-radius: 50%;
         filter: blur(80px);
       }
-
       .promo-hero::after {
         content: "";
         position: absolute;
@@ -65,7 +48,6 @@
         border-radius: 50%;
         filter: blur(60px);
       }
-
       .promo-hero-container {
         max-width: var(--container-xl);
         margin: 0 auto;
@@ -74,7 +56,6 @@
         z-index: 10;
         text-align: center;
       }
-
       .promo-badge {
         display: inline-flex;
         align-items: center;
@@ -86,20 +67,17 @@
         margin-bottom: var(--space-24);
         border: 1px solid rgba(255, 255, 255, 0.2);
       }
-
       .promo-badge i {
         color: var(--color-accent-light);
         font-size: var(--text-lg);
         animation: pulse 2s infinite;
       }
-
       .promo-badge span {
         color: var(--color-text-inverse);
         font-weight: var(--font-semibold);
         font-size: var(--text-sm);
         letter-spacing: var(--space-letter);
       }
-
       .promo-hero-title {
         font-size: var(--text-4xl);
         font-weight: var(--font-bold);
@@ -107,7 +85,6 @@
         margin-bottom: var(--space-16);
         line-height: 1.2;
       }
-
       .promo-hero-subtitle {
         font-size: var(--text-lg);
         color: var(--color-text-inverse);
@@ -116,14 +93,12 @@
         margin: 0 auto var(--space-32);
         line-height: 1.6;
       }
-
       .countdown-section {
         display: flex;
         justify-content: center;
         gap: var(--space-16);
         margin-bottom: var(--space-32);
       }
-
       .countdown-item {
         background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(10px);
@@ -133,7 +108,6 @@
         min-width: 80px;
         text-align: center;
       }
-
       .countdown-number {
         font-size: var(--text-2xl);
         font-weight: var(--font-bold);
@@ -141,7 +115,6 @@
         display: block;
         line-height: 1;
       }
-
       .countdown-label {
         font-size: var(--text-xs);
         color: var(--color-text-inverse);
@@ -150,7 +123,6 @@
         letter-spacing: 1px;
         margin-top: var(--space-4);
       }
-
       .promo-filters {
         max-width: var(--container-xl);
         margin: calc(-1 * var(--space-32)) auto var(--space-48);
@@ -158,7 +130,6 @@
         position: relative;
         z-index: 20;
       }
-
       .filter-container {
         background: var(--color-bg-card);
         border-radius: var(--radius-xl);
@@ -170,13 +141,11 @@
         align-items: center;
         justify-content: space-between;
       }
-
       .filter-group {
         display: flex;
         gap: var(--space-12);
         flex-wrap: wrap;
       }
-
       .filter-chip {
         padding: var(--space-12) var(--space-20);
         border: 1.5px solid var(--color-border);
@@ -191,26 +160,10 @@
         align-items: center;
         gap: var(--space-8);
       }
-
-      .filter-chip:hover {
-        border-color: var(--color-primary);
-        color: var(--color-primary);
-      }
-
-      .filter-chip.active {
-        background: var(--color-primary);
-        border-color: var(--color-primary);
-        color: var(--color-text-inverse);
-      }
-
-      .filter-chip i {
-        font-size: var(--text-base);
-      }
-
-      .sort-dropdown {
-        position: relative;
-      }
-
+      .filter-chip:hover { border-color: var(--color-primary); color: var(--color-primary); }
+      .filter-chip.active { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-text-inverse); }
+      .filter-chip i { font-size: var(--text-base); }
+      .sort-dropdown { position: relative; }
       .sort-button {
         padding: var(--space-12) var(--space-20);
         border: 1.5px solid var(--color-border);
@@ -225,110 +178,95 @@
         gap: var(--space-8);
         transition: all var(--transition-base);
       }
-
-      .sort-button:hover {
-        border-color: var(--color-primary);
-        color: var(--color-primary);
-      }
-
+      .sort-button:hover { border-color: var(--color-primary); color: var(--color-primary); }
       .promo-grid-section {
         max-width: var(--container-xl);
         margin: 0 auto var(--space-80);
         padding: 0 var(--space-24);
       }
-
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--space-24);
+      }
+      .section-title { color: var(--color-text-primary); font-weight: var(--font-semibold); }
       .promo-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: var(--space-24);
       }
 
+      /* ── Promo Card — Airbnb Style ── */
       .promo-card {
-        background: var(--color-bg-card);
-        border-radius: var(--radius-xl);
-        overflow: hidden;
-        box-shadow: var(--shadow-card);
-        transition: all var(--transition-base);
+        background: transparent;
+        border-radius: 0;
+        overflow: visible;
+        box-shadow: none;
         position: relative;
         display: flex;
         flex-direction: column;
+        cursor: pointer;
       }
-
-      .promo-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-card-hover);
-      }
-
-      .promo-card-badge {
-        position: absolute;
-        top: var(--space-16);
-        left: var(--space-16);
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-8);
-      }
-
-      .discount-tag {
-        background: var(--color-error);
-        color: var(--color-text-inverse);
-        padding: var(--space-8) var(--space-14);
-        border-radius: var(--radius-full);
-        font-weight: var(--font-bold);
-        font-size: var(--text-sm);
-        display: flex;
-        align-items: center;
-        gap: var(--space-6);
-        box-shadow: 0 4px 12px rgba(204, 43, 43, 0.3);
-      }
-
-      .exclusive-tag {
-        background: var(--color-accent);
-        color: var(--color-text-primary);
-        padding: var(--space-8) var(--space-14);
-        border-radius: var(--radius-full);
-        font-weight: var(--font-semibold);
-        font-size: var(--text-xs);
-        display: flex;
-        align-items: center;
-        gap: var(--space-6);
-      }
+      .promo-card:hover { transform: none; box-shadow: none; }
 
       .promo-image-wrapper {
         position: relative;
-        height: 220px;
+        height: 260px;
+        border-radius: var(--radius-xl);
         overflow: hidden;
+        margin-bottom: var(--space-12);
       }
-
       .promo-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform var(--transition-slow);
       }
+      .promo-card:hover .promo-image { transform: scale(1.03); }
+      .promo-image-overlay { display: none; }
 
-      .promo-card:hover .promo-image {
-        transform: scale(1.05);
-      }
-
-      .promo-image-overlay {
+      .promo-card-badge {
         position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to top,
-          rgba(26, 10, 0, 0.4) 0%,
-          transparent 50%
-        );
+        top: var(--space-14);
+        left: var(--space-14);
+        z-index: 10;
       }
+      .discount-tag {
+        background: var(--color-bg-card);
+        color: var(--color-text-primary);
+        padding: var(--space-6) var(--space-12);
+        border-radius: var(--radius-full);
+        font-weight: var(--font-semibold);
+        font-size: var(--text-sm);
+        box-shadow: var(--shadow-card);
+      }
+      .exclusive-tag { display: none; }
+
+      .promo-wishlist {
+        position: absolute;
+        top: var(--space-14);
+        right: var(--space-14);
+        z-index: 10;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: var(--text-xl);
+        color: var(--color-text-inverse);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        transition: transform var(--transition-fast);
+        line-height: 1;
+      }
+      .promo-wishlist:hover { transform: var(--button-transform-hover); }
 
       .promo-timer {
         position: absolute;
-        bottom: var(--space-16);
-        left: var(--space-16);
-        right: var(--space-16);
+        bottom: var(--space-14);
+        left: var(--space-14);
+        right: var(--space-14);
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
-        padding: var(--space-10) var(--space-14);
+        padding: var(--space-8) var(--space-12);
         border-radius: var(--radius-md);
         display: flex;
         align-items: center;
@@ -337,131 +275,82 @@
         font-weight: var(--font-semibold);
         font-size: var(--text-sm);
         color: var(--color-text-primary);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
+      .promo-timer i { color: var(--color-error); }
 
-      .promo-timer i {
-        color: var(--color-error);
-        animation: pulse 2s infinite;
-      }
-
-      .promo-content {
-        padding: var(--space-20);
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .promo-location {
-        display: flex;
-        align-items: center;
-        gap: var(--space-6);
-        color: var(--color-text-secondary);
-        font-size: var(--text-sm);
-        margin-bottom: var(--space-8);
-      }
-
-      .promo-location i {
-        color: var(--color-primary);
-      }
+      .promo-content { padding: 0; flex: 1; display: flex; flex-direction: column; }
+      .promo-location { display: none; }
 
       .promo-title {
-        font-size: var(--text-lg);
-        font-weight: var(--font-bold);
+        font-size: var(--text-base);
+        font-weight: var(--font-semibold);
         color: var(--color-text-primary);
-        margin-bottom: var(--space-12);
-        line-height: 1.3;
+        margin-bottom: var(--space-4);
+        line-height: 1.4;
       }
 
       .promo-amenities {
         display: flex;
-        gap: var(--space-16);
-        margin-bottom: var(--space-16);
+        gap: var(--space-4);
+        margin-bottom: var(--space-8);
         flex-wrap: wrap;
       }
-
-      .amenity-item {
-        display: flex;
-        align-items: center;
-        gap: var(--space-6);
-        color: var(--color-text-secondary);
-        font-size: var(--text-xs);
-      }
-
-      .amenity-item i {
-        color: var(--color-accent);
-      }
+      .amenity-item { font-size: var(--text-sm); color: var(--color-text-secondary); }
+      .amenity-item i { display: none; }
+      .amenity-item::after { content: " ·"; color: var(--color-text-hint); margin-left: var(--space-2); }
+      .amenity-item:last-child::after { content: ""; }
 
       .promo-price-section {
-        margin-top: auto;
-        padding-top: var(--space-16);
-        border-top: 1px solid var(--color-border-subtle);
+        margin-top: var(--space-4);
+        padding-top: 0;
+        border-top: none;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: space-between;
+        gap: var(--space-12);
       }
-
-      .price-wrapper {
-        display: flex;
-        flex-direction: column;
-      }
-
+      .price-wrapper { display: flex; flex-direction: column; }
       .original-price {
-        font-size: var(--text-sm);
+        font-size: var(--text-xs);
         color: var(--color-text-hint);
         text-decoration: line-through;
         margin-bottom: var(--space-2);
       }
-
       .current-price {
-        font-size: var(--text-xl);
-        font-weight: var(--font-bold);
-        color: var(--color-primary);
+        font-size: var(--text-base);
+        font-weight: var(--font-semibold);
+        color: var(--color-text-primary);
+        line-height: 1.3;
       }
-
       .price-unit {
-        font-size: var(--text-sm);
+        font-size: var(--text-xs);
         color: var(--color-text-secondary);
         font-weight: var(--font-regular);
       }
-
       .claim-button {
         background: var(--color-primary);
         color: var(--color-text-inverse);
         border: none;
-        padding: var(--space-12) var(--space-24);
+        padding: var(--space-10) var(--space-16);
         border-radius: var(--radius-md);
         font-weight: var(--font-semibold);
         font-size: var(--text-sm);
         cursor: pointer;
         transition: all var(--transition-base);
-        display: flex;
-        align-items: center;
-        gap: var(--space-8);
+        white-space: nowrap;
+        flex-shrink: 0;
       }
+      .claim-button:hover { background: var(--color-primary-hover); transform: scale(1.03); }
+      .claim-button:active { background: var(--color-primary-active); transform: scale(0.98); }
 
-      .claim-button:hover {
-        background: var(--color-primary-hover);
-        transform: scale(1.05);
-      }
-
-      .claim-button:active {
-        background: var(--color-primary-active);
-        transform: scale(0.98);
-      }
-
+      /* ── Featured Section ── */
       .featured-section {
         max-width: var(--container-xl);
         margin: 0 auto var(--space-64);
         padding: 0 var(--space-24);
       }
-
       .featured-banner {
-        background: linear-gradient(
-          135deg,
-          var(--color-accent-subtle) 0%,
-          var(--color-primary-light) 100%
-        );
+        background: linear-gradient(135deg, var(--color-accent-subtle) 0%, var(--color-primary-light) 100%);
         border-radius: var(--radius-2xl);
         padding: var(--space-48);
         display: grid;
@@ -472,7 +361,6 @@
         overflow: hidden;
         border: 2px solid var(--color-border);
       }
-
       .featured-banner::before {
         content: "";
         position: absolute;
@@ -485,12 +373,7 @@
         border-radius: 50%;
         filter: blur(60px);
       }
-
-      .featured-content {
-        position: relative;
-        z-index: 2;
-      }
-
+      .featured-content { position: relative; z-index: 2; }
       .featured-label {
         display: inline-flex;
         align-items: center;
@@ -503,7 +386,6 @@
         font-weight: var(--font-semibold);
         margin-bottom: var(--space-20);
       }
-
       .featured-title {
         font-size: var(--text-3xl);
         font-weight: var(--font-bold);
@@ -511,35 +393,11 @@
         margin-bottom: var(--space-16);
         line-height: 1.2;
       }
-
-      .featured-description {
-        color: var(--color-text-secondary);
-        line-height: 1.7;
-        margin-bottom: var(--space-24);
-      }
-
-      .featured-stats {
-        display: flex;
-        gap: var(--space-32);
-        margin-bottom: var(--space-24);
-      }
-
-      .stat-item {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .stat-value {
-        font-size: var(--text-2xl);
-        font-weight: var(--font-bold);
-        color: var(--color-primary);
-      }
-
-      .stat-label {
-        font-size: var(--text-sm);
-        color: var(--color-text-secondary);
-      }
-
+      .featured-description { color: var(--color-text-secondary); line-height: 1.7; margin-bottom: var(--space-24); }
+      .featured-stats { display: flex; gap: var(--space-32); margin-bottom: var(--space-24); }
+      .stat-item { display: flex; flex-direction: column; }
+      .stat-value { font-size: var(--text-2xl); font-weight: var(--font-bold); color: var(--color-primary); }
+      .stat-label { font-size: var(--text-sm); color: var(--color-text-secondary); }
       .featured-cta {
         display: inline-flex;
         align-items: center;
@@ -555,12 +413,7 @@
         cursor: pointer;
         font-size: var(--text-base);
       }
-
-      .featured-cta:hover {
-        background: var(--color-primary-hover);
-        transform: translateX(4px);
-      }
-
+      .featured-cta:hover { background: var(--color-primary-hover); transform: translateX(4px); }
       .featured-image {
         position: relative;
         z-index: 2;
@@ -570,43 +423,23 @@
         overflow: hidden;
         box-shadow: var(--shadow-card-hover);
       }
+      .featured-image img { width: 100%; height: 100%; object-fit: cover; }
 
-      .featured-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .voucher-section {
-        max-width: var(--container-xl);
-        margin: 0 auto var(--space-64);
-        padding: 0 var(--space-24);
-      }
-
-      .voucher-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-20);
-      }
-
+      /* ── Voucher Section ── */
+      .voucher-section { max-width: var(--container-xl); margin: 0 auto var(--space-64); padding: 0 var(--space-24); }
+      .voucher-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-20); }
       .voucher-card {
         background: var(--color-bg-card);
         border: 2px dashed var(--color-border-strong);
         border-radius: var(--radius-lg);
         padding: var(--space-24);
+        padding-bottom: var(--space-64);
         position: relative;
         transition: all var(--transition-base);
         cursor: pointer;
       }
-
-      .voucher-card:hover {
-        border-color: var(--color-primary);
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-card);
-      }
-
-      .voucher-card::before,
-      .voucher-card::after {
+      .voucher-card:hover { border-color: var(--color-primary); transform: translateY(-4px); box-shadow: var(--shadow-card); }
+      .voucher-card::before, .voucher-card::after {
         content: "";
         position: absolute;
         width: 20px;
@@ -616,29 +449,10 @@
         top: 50%;
         transform: translateY(-50%);
       }
-
-      .voucher-card::before {
-        left: -10px;
-        border-right: 2px dashed var(--color-border-strong);
-      }
-
-      .voucher-card::after {
-        right: -10px;
-        border-left: 2px dashed var(--color-border-strong);
-      }
-
-      .voucher-card:hover::before,
-      .voucher-card:hover::after {
-        border-color: var(--color-primary);
-      }
-
-      .voucher-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: var(--space-16);
-      }
-
+      .voucher-card::before { left: -10px; border-right: 2px dashed var(--color-border-strong); }
+      .voucher-card::after { right: -10px; border-left: 2px dashed var(--color-border-strong); }
+      .voucher-card:hover::before, .voucher-card:hover::after { border-color: var(--color-primary); }
+      .voucher-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-16); }
       .voucher-code {
         background: var(--color-primary-light);
         color: var(--color-primary);
@@ -649,27 +463,9 @@
         font-family: monospace;
         letter-spacing: 1px;
       }
-
-      .voucher-discount {
-        font-size: var(--text-2xl);
-        font-weight: var(--font-bold);
-        color: var(--color-primary);
-      }
-
-      .voucher-title {
-        font-weight: var(--font-semibold);
-        color: var(--color-text-primary);
-        margin-bottom: var(--space-8);
-      }
-
-      .voucher-validity {
-        font-size: var(--text-sm);
-        color: var(--color-text-secondary);
-        display: flex;
-        align-items: center;
-        gap: var(--space-6);
-      }
-
+      .voucher-discount { font-size: var(--text-2xl); font-weight: var(--font-bold); color: var(--color-primary); }
+      .voucher-title { font-weight: var(--font-semibold); color: var(--color-text-primary); margin-bottom: var(--space-8); }
+      .voucher-validity { font-size: var(--text-sm); color: var(--color-text-secondary); display: flex; align-items: center; gap: var(--space-6); }
       .copy-button {
         position: absolute;
         bottom: var(--space-16);
@@ -686,18 +482,10 @@
         transition: all var(--transition-base);
         color: var(--color-text-secondary);
       }
+      .copy-button:hover { background: var(--color-primary); color: var(--color-text-inverse); }
 
-      .copy-button:hover {
-        background: var(--color-primary);
-        color: var(--color-text-inverse);
-      }
-
-      .newsletter-section {
-        max-width: var(--container-xl);
-        margin: 0 auto var(--space-80);
-        padding: 0 var(--space-24);
-      }
-
+      /* ── Newsletter Section ── */
+      .newsletter-section { max-width: var(--container-xl); margin: 0 auto var(--space-80); padding: 0 var(--space-24); }
       .newsletter-box {
         background: var(--color-primary);
         border-radius: var(--radius-2xl);
@@ -709,7 +497,6 @@
         position: relative;
         overflow: hidden;
       }
-
       .newsletter-box::before {
         content: "";
         position: absolute;
@@ -722,35 +509,10 @@
         border-radius: 50%;
         filter: blur(80px);
       }
-
-      .newsletter-content {
-        position: relative;
-        z-index: 2;
-        max-width: 500px;
-      }
-
-      .newsletter-title {
-        font-size: var(--text-2xl);
-        font-weight: var(--font-bold);
-        color: var(--color-text-inverse);
-        margin-bottom: var(--space-12);
-      }
-
-      .newsletter-description {
-        color: var(--color-text-inverse);
-        opacity: 0.9;
-        line-height: 1.6;
-      }
-
-      .newsletter-form {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        gap: var(--space-12);
-        flex: 1;
-        max-width: 450px;
-      }
-
+      .newsletter-content { position: relative; z-index: 2; max-width: 500px; }
+      .newsletter-title { font-size: var(--text-2xl); font-weight: var(--font-bold); color: var(--color-text-inverse); margin-bottom: var(--space-12); }
+      .newsletter-description { color: var(--color-text-inverse); opacity: 0.9; line-height: 1.6; }
+      .newsletter-form { position: relative; z-index: 2; display: flex; gap: var(--space-12); flex: 1; max-width: 450px; }
       .newsletter-input {
         flex: 1;
         padding: var(--space-16) var(--space-24);
@@ -764,16 +526,8 @@
         outline: none;
         transition: all var(--transition-base);
       }
-
-      .newsletter-input::placeholder {
-        color: rgba(255, 255, 255, 0.7);
-      }
-
-      .newsletter-input:focus {
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
-      }
-
+      .newsletter-input::placeholder { color: rgba(255, 255, 255, 0.7); }
+      .newsletter-input:focus { background: rgba(255, 255, 255, 0.25); box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2); }
       .newsletter-button {
         padding: var(--space-16) var(--space-32);
         background: var(--color-accent);
@@ -786,13 +540,9 @@
         transition: all var(--transition-base);
         white-space: nowrap;
       }
+      .newsletter-button:hover { background: var(--color-accent-hover); transform: scale(1.05); }
 
-      .newsletter-button:hover {
-        background: var(--color-accent-hover);
-        transform: scale(1.05);
-      }
-
-      /* Toast Notification */
+      /* ── Toast ── */
       .toast {
         position: fixed;
         bottom: 30px;
@@ -810,113 +560,47 @@
         opacity: 0;
         transition: all var(--transition-base);
       }
+      .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+      .toast i { color: var(--color-success); font-size: var(--text-xl); }
 
-      .toast.show {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-      }
-
-      .toast i {
-        color: var(--color-success);
-        font-size: var(--text-xl);
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
       @media (max-width: 1024px) {
-        .featured-banner {
-          grid-template-columns: 1fr;
-        }
-
-        .featured-image {
-          order: -1;
-          min-height: 250px;
-        }
-
-        .voucher-grid {
-          grid-template-columns: 1fr;
-        }
+        .featured-banner { grid-template-columns: 1fr; }
+        .featured-image { order: -1; min-height: 250px; }
+        .voucher-grid { grid-template-columns: 1fr; }
       }
-
       @media (max-width: 768px) {
-        .promo-hero-title {
-          font-size: var(--text-3xl);
-        }
-
-        .countdown-section {
-          gap: var(--space-10);
-        }
-
-        .countdown-item {
-          padding: var(--space-12) var(--space-16);
-          min-width: 60px;
-        }
-
-        .countdown-number {
-          font-size: var(--text-xl);
-        }
-
-        .filter-container {
-          flex-direction: column;
-          align-items: stretch;
-        }
-
-        .filter-group {
-          justify-content: center;
-        }
-
-        .promo-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .newsletter-box {
-          flex-direction: column;
-          text-align: center;
-          padding: var(--space-32);
-        }
-
-        .newsletter-form {
-          flex-direction: column;
-          width: 100%;
-        }
-
-        .newsletter-button {
-          width: 100%;
-        }
+        .promo-hero-title { font-size: var(--text-3xl); }
+        .countdown-section { gap: var(--space-10); }
+        .countdown-item { padding: var(--space-12) var(--space-16); min-width: 60px; }
+        .countdown-number { font-size: var(--text-xl); }
+        .filter-container { flex-direction: column; align-items: stretch; }
+        .filter-group { justify-content: center; }
+        .promo-grid { grid-template-columns: 1fr; }
+        .newsletter-box { flex-direction: column; text-align: center; padding: var(--space-32); }
+        .newsletter-form { flex-direction: column; width: 100%; }
+        .newsletter-button { width: 100%; }
       }
     </style>
   </head>
 
   <body>
-    <!-- Navbar (Consistent with Homepage) -->
     <header class="navbar">
       <nav class="navbar-container">
         <a href="index.html" class="logo-section">
-          <img
-            src="/assets/logo/logo_temansinggah.svg"
-            alt="Logo Teman Singgah"
-            class="logo-icon" />
-          <img
-            src="/assets/logo/label_temansinggah.svg"
-            alt="Brand Name Teman Singgah"
-            class="logo-name" />
+          <img src="/assets/logo/logo_temansinggah.svg" alt="Logo Teman Singgah" class="logo-icon" />
+          <img src="/assets/logo/label_temansinggah.svg" alt="Brand Name Teman Singgah" class="logo-name" />
         </a>
-
         <ul class="nav-menu">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">Cari Penginapan</a>
-          </li>
-          <li class="nav-item">
-            <a href="promo_deals_page.html" class="nav-link active"
-              >Promo & Deals</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="become_host_page.html" class="nav-link">Jadi Host</a>
-          </li>
-          <li class="nav-item">
-            <a href="blog_page.html" class="nav-link">Blog</a>
-          </li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Cari Penginapan</a></li>
+          <li class="nav-item"><a href="promo_deals_page.html" class="nav-link active">Promo & Deals</a></li>
+          <li class="nav-item"><a href="become_host_page.html" class="nav-link">Jadi Host</a></li>
+          <li class="nav-item"><a href="blog_page.html" class="nav-link">Blog</a></li>
         </ul>
-
         <div class="nav-right">
           <button class="icon-button" aria-label="Notifications">
             <i class="ph-bold ph-bell"></i>
@@ -927,19 +611,15 @@
             <i class="ph-bold ph-user"></i>
           </button>
           <div class="auth-buttons">
-            <a href="pages/login_page.html">
-              <button class="login-button">Masuk</button>
-            </a>
-            <a href="pages/register_page.html">
-              <button class="register-button">Daftar</button>
-            </a>
+            <a href="pages/login_page.html"><button class="login-button">Masuk</button></a>
+            <a href="pages/register_page.html"><button class="register-button">Daftar</button></a>
           </div>
         </div>
       </nav>
     </header>
 
     <main class="main-content">
-      <!-- Hero Section -->
+
       <section class="promo-hero">
         <div class="promo-hero-container">
           <div class="promo-badge">
@@ -951,8 +631,6 @@
             Hemat hingga 70% untuk penginapan pilihan di seluruh Indonesia.
             Penawaran terbatas, jangan sampai terlewat!
           </p>
-
-          <!-- Countdown Timer -->
           <div class="countdown-section" id="countdown">
             <div class="countdown-item">
               <span class="countdown-number" id="hours">23</span>
@@ -970,29 +648,23 @@
         </div>
       </section>
 
-      <!-- Filter Section -->
       <section class="promo-filters">
         <div class="filter-container">
           <div class="filter-group">
             <button class="filter-chip active" data-filter="all">
-              <i class="ph-bold ph-squares-four"></i>
-              Semua Promo
+              <i class="ph-bold ph-squares-four"></i>Semua Promo
             </button>
             <button class="filter-chip" data-filter="flash">
-              <i class="ph-bold ph-lightning"></i>
-              Flash Sale
+              <i class="ph-bold ph-lightning"></i>Flash Sale
             </button>
             <button class="filter-chip" data-filter="weekend">
-              <i class="ph-bold ph-sun"></i>
-              Weekend Deal
+              <i class="ph-bold ph-sun"></i>Weekend Deal
             </button>
             <button class="filter-chip" data-filter="early">
-              <i class="ph-bold ph-calendar-check"></i>
-              Early Bird
+              <i class="ph-bold ph-calendar-check"></i>Early Bird
             </button>
             <button class="filter-chip" data-filter="last">
-              <i class="ph-bold ph-clock-countdown"></i>
-              Last Minute
+              <i class="ph-bold ph-clock-countdown"></i>Last Minute
             </button>
           </div>
           <div class="sort-dropdown">
@@ -1005,7 +677,6 @@
         </div>
       </section>
 
-      <!-- Featured Deal Section -->
       <section class="featured-section">
         <div class="featured-banner">
           <div class="featured-content">
@@ -1015,9 +686,8 @@
             </span>
             <h2 class="featured-title">Paket Liburan Keluarga ke Bali</h2>
             <p class="featured-description">
-              Nikmati pengalaman menginap 3 malam di resort bintang 5 dengan
-              harga spesial. Termasuk sarapan, airport transfer, dan voucher
-              spa. Berlaku untuk minimal 2 kamar.
+              Nikmati pengalaman menginap 3 malam di resort bintang 5 dengan harga spesial.
+              Termasuk sarapan, airport transfer, dan voucher spa. Berlaku untuk minimal 2 kamar.
             </p>
             <div class="featured-stats">
               <div class="stat-item">
@@ -1033,24 +703,19 @@
                 <span class="stat-label">Rating</span>
               </div>
             </div>
-            <button
-              class="featured-cta"
-              onclick="claimDeal('Bali Family Package')">
+            <button class="featured-cta" onclick="claimDeal('Bali Family Package')">
               Klaim Sekarang
               <i class="ph-bold ph-arrow-right"></i>
             </button>
           </div>
           <div class="featured-image">
-            <img
-              src="/assets/images/padma_resort_ubud_bali.jpg"
-              alt="Bali Family Package" />
+            <img src="/assets/images/padma_resort_ubud_bali.jpg" alt="Bali Family Package" />
           </div>
         </div>
       </section>
 
-      <!-- Voucher Codes Section -->
       <section class="voucher-section">
-        <div class="section-header" style="margin-bottom: var(--space-24)">
+        <div class="section-header">
           <h2 class="section-title">Kode Voucher</h2>
         </div>
         <div class="voucher-grid">
@@ -1064,11 +729,8 @@
               <i class="ph-bold ph-clock"></i>
               Berlaku hingga 31 Maret 2026
             </div>
-            <button class="copy-button">
-              <i class="ph-bold ph-copy"></i>
-            </button>
+            <button class="copy-button"><i class="ph-bold ph-copy"></i></button>
           </div>
-
           <div class="voucher-card" onclick="copyVoucher('NEWMEMBER50', this)">
             <div class="voucher-header">
               <span class="voucher-code">NEWMEMBER50</span>
@@ -1079,11 +741,8 @@
               <i class="ph-bold ph-clock"></i>
               Khusus pendaftar baru
             </div>
-            <button class="copy-button">
-              <i class="ph-bold ph-copy"></i>
-            </button>
+            <button class="copy-button"><i class="ph-bold ph-copy"></i></button>
           </div>
-
           <div class="voucher-card" onclick="copyVoucher('STAY3PAY2', this)">
             <div class="voucher-header">
               <span class="voucher-code">STAY3PAY2</span>
@@ -1094,360 +753,194 @@
               <i class="ph-bold ph-clock"></i>
               Berlaku di hotel pilihan
             </div>
-            <button class="copy-button">
-              <i class="ph-bold ph-copy"></i>
-            </button>
+            <button class="copy-button"><i class="ph-bold ph-copy"></i></button>
           </div>
         </div>
       </section>
 
-      <!-- Promo Grid Section -->
       <section class="promo-grid-section">
-        <div class="section-header" style="margin-bottom: var(--space-24)">
+        <div class="section-header">
           <h2 class="section-title">Penawaran Terbatas</h2>
         </div>
         <div class="promo-grid" id="promoGrid">
-          <!-- Promo Card 1 -->
+
           <article class="promo-card" data-category="flash">
             <div class="promo-card-badge">
-              <span class="discount-tag">
-                <i class="ph-bold ph-lightning"></i>
-                -45%
-              </span>
+              <span class="discount-tag">-45%</span>
             </div>
             <div class="promo-image-wrapper">
-              <img
-                src="/assets/images/nihi_sumba.webp"
-                alt="Nihi Sumba"
-                class="promo-image" />
-              <div class="promo-image-overlay"></div>
+              <img src="/assets/images/nihi_sumba.webp" alt="Nihi Sumba" class="promo-image" />
+              <button class="promo-wishlist">♡</button>
               <div class="promo-timer">
                 <i class="ph-bold ph-clock-countdown"></i>
                 <span>Berakhir dalam 5 jam</span>
               </div>
             </div>
             <div class="promo-content">
-              <div class="promo-location">
-                <i class="ph-bold ph-map-pin"></i>
-                <span>Sumba, NTT</span>
-              </div>
               <h3 class="promo-title">Nihi Sumba - Villa Ocean View</h3>
               <div class="promo-amenities">
-                <span class="amenity-item">
-                  <i class="ph-bold ph-wifi-high"></i>
-                  WiFi
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-swimming-pool"></i>
-                  Pool
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-utensils"></i>
-                  Breakfast
-                </span>
+                <span class="amenity-item">Sumba, NTT</span>
+                <span class="amenity-item">WiFi</span>
+                <span class="amenity-item">Pool</span>
               </div>
               <div class="promo-price-section">
                 <div class="price-wrapper">
                   <span class="original-price">Rp 8.500.000</span>
-                  <span class="current-price"
-                    >Rp 4.675.000 <span class="price-unit">/ malam</span></span
-                  >
+                  <span class="current-price">Rp 4.675.000 <span class="price-unit">/ malam</span></span>
                 </div>
-                <button class="claim-button" onclick="claimDeal('Nihi Sumba')">
-                  Klaim
-                  <i class="ph-bold ph-arrow-right"></i>
-                </button>
+                <button class="claim-button" onclick="claimDeal('Nihi Sumba')">Klaim</button>
               </div>
             </div>
           </article>
 
-          <!-- Promo Card 2 -->
           <article class="promo-card" data-category="weekend">
             <div class="promo-card-badge">
-              <span class="discount-tag">
-                <i class="ph-bold ph-sun"></i>
-                -30%
-              </span>
-              <span class="exclusive-tag">
-                <i class="ph-fill ph-crown"></i>
-                Member
-              </span>
+              <span class="discount-tag">-30%</span>
             </div>
             <div class="promo-image-wrapper">
-              <img
-                src="/assets/images/desa_potato_head_bali.webp"
-                alt="Desa Potato Head"
-                class="promo-image" />
-              <div class="promo-image-overlay"></div>
+              <img src="/assets/images/desa_potato_head_bali.webp" alt="Desa Potato Head" class="promo-image" />
+              <button class="promo-wishlist">♡</button>
               <div class="promo-timer">
                 <i class="ph-bold ph-clock-countdown"></i>
                 <span>Berlaku akhir pekan</span>
               </div>
             </div>
             <div class="promo-content">
-              <div class="promo-location">
-                <i class="ph-bold ph-map-pin"></i>
-                <span>Kuta, Bali</span>
-              </div>
               <h3 class="promo-title">Desa Potato Head - Studio Suite</h3>
               <div class="promo-amenities">
-                <span class="amenity-item">
-                  <i class="ph-bold ph-wifi-high"></i>
-                  WiFi
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-beach-ball"></i>
-                  Beach
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-barbell"></i>
-                  Gym
-                </span>
+                <span class="amenity-item">Kuta, Bali</span>
+                <span class="amenity-item">Beach</span>
+                <span class="amenity-item">Gym</span>
               </div>
               <div class="promo-price-section">
                 <div class="price-wrapper">
                   <span class="original-price">Rp 3.200.000</span>
-                  <span class="current-price"
-                    >Rp 2.240.000 <span class="price-unit">/ malam</span></span
-                  >
+                  <span class="current-price">Rp 2.240.000 <span class="price-unit">/ malam</span></span>
                 </div>
-                <button
-                  class="claim-button"
-                  onclick="claimDeal('Desa Potato Head')">
-                  Klaim
-                  <i class="ph-bold ph-arrow-right"></i>
-                </button>
+                <button class="claim-button" onclick="claimDeal('Desa Potato Head')">Klaim</button>
               </div>
             </div>
           </article>
 
-          <!-- Promo Card 3 -->
           <article class="promo-card" data-category="early">
             <div class="promo-card-badge">
-              <span class="discount-tag">
-                <i class="ph-bold ph-calendar-check"></i>
-                -25%
-              </span>
+              <span class="discount-tag">-25%</span>
             </div>
             <div class="promo-image-wrapper">
-              <img
-                src="/assets/images/adiwana_suweta_bali.jpg"
-                alt="Adiwana Suweta"
-                class="promo-image" />
-              <div class="promo-image-overlay"></div>
+              <img src="/assets/images/adiwana_suweta_bali.jpg" alt="Adiwana Suweta" class="promo-image" />
+              <button class="promo-wishlist">♡</button>
               <div class="promo-timer">
                 <i class="ph-bold ph-clock-countdown"></i>
                 <span>Book 30 hari sebelumnya</span>
               </div>
             </div>
             <div class="promo-content">
-              <div class="promo-location">
-                <i class="ph-bold ph-map-pin"></i>
-                <span>Ubud, Bali</span>
-              </div>
               <h3 class="promo-title">Adiwana Suweta - Deluxe Room</h3>
               <div class="promo-amenities">
-                <span class="amenity-item">
-                  <i class="ph-bold ph-wifi-high"></i>
-                  WiFi
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-tree-palm"></i>
-                  Garden
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-spa"></i>
-                  Spa
-                </span>
+                <span class="amenity-item">Ubud, Bali</span>
+                <span class="amenity-item">Garden</span>
+                <span class="amenity-item">Spa</span>
               </div>
               <div class="promo-price-section">
                 <div class="price-wrapper">
                   <span class="original-price">Rp 2.800.000</span>
-                  <span class="current-price"
-                    >Rp 2.100.000 <span class="price-unit">/ malam</span></span
-                  >
+                  <span class="current-price">Rp 2.100.000 <span class="price-unit">/ malam</span></span>
                 </div>
-                <button
-                  class="claim-button"
-                  onclick="claimDeal('Adiwana Suweta')">
-                  Klaim
-                  <i class="ph-bold ph-arrow-right"></i>
-                </button>
+                <button class="claim-button" onclick="claimDeal('Adiwana Suweta')">Klaim</button>
               </div>
             </div>
           </article>
 
-          <!-- Promo Card 4 -->
           <article class="promo-card" data-category="last">
             <div class="promo-card-badge">
-              <span class="discount-tag">
-                <i class="ph-bold ph-clock-countdown"></i>
-                -50%
-              </span>
+              <span class="discount-tag">-50%</span>
             </div>
             <div class="promo-image-wrapper">
-              <img
-                src="/assets/images/apurva_kempinski_bali.jpg"
-                alt="Apurva Kempinski"
-                class="promo-image" />
-              <div class="promo-image-overlay"></div>
+              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="promo-image" />
+              <button class="promo-wishlist">♡</button>
               <div class="promo-timer">
                 <i class="ph-bold ph-clock-countdown"></i>
                 <span>Check-in besok</span>
               </div>
             </div>
             <div class="promo-content">
-              <div class="promo-location">
-                <i class="ph-bold ph-map-pin"></i>
-                <span>Nusa Dua, Bali</span>
-              </div>
               <h3 class="promo-title">Apurva Kempinski - Ocean View Suite</h3>
               <div class="promo-amenities">
-                <span class="amenity-item">
-                  <i class="ph-bold ph-wifi-high"></i>
-                  WiFi
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-swimming-pool"></i>
-                  Pool
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-car"></i>
-                  Parking
-                </span>
+                <span class="amenity-item">Nusa Dua, Bali</span>
+                <span class="amenity-item">Pool</span>
+                <span class="amenity-item">Parking</span>
               </div>
               <div class="promo-price-section">
                 <div class="price-wrapper">
                   <span class="original-price">Rp 5.500.000</span>
-                  <span class="current-price"
-                    >Rp 2.750.000 <span class="price-unit">/ malam</span></span
-                  >
+                  <span class="current-price">Rp 2.750.000 <span class="price-unit">/ malam</span></span>
                 </div>
-                <button
-                  class="claim-button"
-                  onclick="claimDeal('Apurva Kempinski')">
-                  Klaim
-                  <i class="ph-bold ph-arrow-right"></i>
-                </button>
+                <button class="claim-button" onclick="claimDeal('Apurva Kempinski')">Klaim</button>
               </div>
             </div>
           </article>
 
-          <!-- Promo Card 5 -->
           <article class="promo-card" data-category="flash">
             <div class="promo-card-badge">
-              <span class="discount-tag">
-                <i class="ph-bold ph-lightning"></i>
-                -40%
-              </span>
+              <span class="discount-tag">-40%</span>
             </div>
             <div class="promo-image-wrapper">
-              <img
-                src="/assets/images/padma_resort_ubud_bali.jpg"
-                alt="Padma Resort"
-                class="promo-image" />
-              <div class="promo-image-overlay"></div>
+              <img src="/assets/images/padma_resort_ubud_bali.jpg" alt="Padma Resort" class="promo-image" />
+              <button class="promo-wishlist">♡</button>
               <div class="promo-timer">
                 <i class="ph-bold ph-clock-countdown"></i>
                 <span>Berakhir dalam 12 jam</span>
               </div>
             </div>
             <div class="promo-content">
-              <div class="promo-location">
-                <i class="ph-bold ph-map-pin"></i>
-                <span>Ubud, Bali</span>
-              </div>
               <h3 class="promo-title">Padma Resort Ubud - Premier Room</h3>
               <div class="promo-amenities">
-                <span class="amenity-item">
-                  <i class="ph-bold ph-wifi-high"></i>
-                  WiFi
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-swimming-pool"></i>
-                  Pool
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-utensils"></i>
-                  All Meals
-                </span>
+                <span class="amenity-item">Ubud, Bali</span>
+                <span class="amenity-item">Pool</span>
+                <span class="amenity-item">All Meals</span>
               </div>
               <div class="promo-price-section">
                 <div class="price-wrapper">
                   <span class="original-price">Rp 4.200.000</span>
-                  <span class="current-price"
-                    >Rp 2.520.000 <span class="price-unit">/ malam</span></span
-                  >
+                  <span class="current-price">Rp 2.520.000 <span class="price-unit">/ malam</span></span>
                 </div>
-                <button
-                  class="claim-button"
-                  onclick="claimDeal('Padma Resort')">
-                  Klaim
-                  <i class="ph-bold ph-arrow-right"></i>
-                </button>
+                <button class="claim-button" onclick="claimDeal('Padma Resort')">Klaim</button>
               </div>
             </div>
           </article>
 
-          <!-- Promo Card 6 -->
           <article class="promo-card" data-category="weekend">
             <div class="promo-card-badge">
-              <span class="discount-tag">
-                <i class="ph-bold ph-sun"></i>
-                -35%
-              </span>
+              <span class="discount-tag">-35%</span>
             </div>
             <div class="promo-image-wrapper">
-              <img
-                src="/assets/images/nihi_sumba.webp"
-                alt="Sumba Retreat"
-                class="promo-image" />
-              <div class="promo-image-overlay"></div>
+              <img src="/assets/images/nihi_sumba.webp" alt="Sumba Retreat" class="promo-image" />
+              <button class="promo-wishlist">♡</button>
               <div class="promo-timer">
                 <i class="ph-bold ph-clock-countdown"></i>
                 <span>Berlaku Sabtu-Minggu</span>
               </div>
             </div>
             <div class="promo-content">
-              <div class="promo-location">
-                <i class="ph-bold ph-map-pin"></i>
-                <span>Sumba, NTT</span>
-              </div>
               <h3 class="promo-title">Sumba Retreat - Garden Villa</h3>
               <div class="promo-amenities">
-                <span class="amenity-item">
-                  <i class="ph-bold ph-wifi-high"></i>
-                  WiFi
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-tree-palm"></i>
-                  Nature
-                </span>
-                <span class="amenity-item">
-                  <i class="ph-bold ph-horse"></i>
-                  Activities
-                </span>
+                <span class="amenity-item">Sumba, NTT</span>
+                <span class="amenity-item">Nature</span>
+                <span class="amenity-item">Activities</span>
               </div>
               <div class="promo-price-section">
                 <div class="price-wrapper">
                   <span class="original-price">Rp 3.800.000</span>
-                  <span class="current-price"
-                    >Rp 2.470.000 <span class="price-unit">/ malam</span></span
-                  >
+                  <span class="current-price">Rp 2.470.000 <span class="price-unit">/ malam</span></span>
                 </div>
-                <button
-                  class="claim-button"
-                  onclick="claimDeal('Sumba Retreat')">
-                  Klaim
-                  <i class="ph-bold ph-arrow-right"></i>
-                </button>
+                <button class="claim-button" onclick="claimDeal('Sumba Retreat')">Klaim</button>
               </div>
             </div>
           </article>
+
         </div>
       </section>
 
-      <!-- Newsletter Section -->
       <section class="newsletter-section">
         <div class="newsletter-box">
           <div class="newsletter-content">
@@ -1458,11 +951,7 @@
             </p>
           </div>
           <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-            <input
-              type="email"
-              class="newsletter-input"
-              placeholder="Masukkan email Anda..."
-              required />
+            <input type="email" class="newsletter-input" placeholder="Masukkan email Anda..." required />
             <button type="submit" class="newsletter-button">
               Berlangganan
               <i class="ph-bold ph-paper-plane-right"></i>
@@ -1470,47 +959,30 @@
           </form>
         </div>
       </section>
+
     </main>
 
-    <!-- Footer (Consistent with Homepage) -->
     <footer class="footer">
       <div class="footer-grid">
         <div class="footer-column">
           <span class="footer-brand">Teman Singgah</span>
           <p class="footer-description">
-            Platform booking penginapan terpercaya di seluruh Indonesia, dari
-            hotel berbintang hingga homestay lokal.
+            Platform booking penginapan terpercaya di seluruh Indonesia, dari hotel berbintang hingga homestay lokal.
           </p>
           <div class="footer-social">
-            <a href="" class="social-link">
-              <i class="ri-instagram-line"></i>
-            </a>
-            <a href="" class="social-link">
-              <i class="ri-facebook-circle-line"></i>
-            </a>
-            <a href="" class="social-link">
-              <i class="ri-youtube-line"></i>
-            </a>
-            <a href="" class="social-link">
-              <i class="ri-twitter-line"></i>
-            </a>
-            <a href="" class="social-link">
-              <i class="ri-mail-line"></i>
-            </a>
+            <a href="" class="social-link"><i class="ri-instagram-line"></i></a>
+            <a href="" class="social-link"><i class="ri-facebook-circle-line"></i></a>
+            <a href="" class="social-link"><i class="ri-youtube-line"></i></a>
+            <a href="" class="social-link"><i class="ri-twitter-line"></i></a>
+            <a href="" class="social-link"><i class="ri-mail-line"></i></a>
           </div>
         </div>
         <div class="footer-column">
           <h3 class="footer-title">Navigasi</h3>
           <ul class="footer-links">
             <li><a href="index.html" class="footer-link">Beranda</a></li>
-            <li>
-              <a href="promo_deals_page.html" class="footer-link"
-                >Promo & Deals</a
-              >
-            </li>
-            <li>
-              <a href="become_host_page.html" class="footer-link">Jadi Host</a>
-            </li>
+            <li><a href="promo_deals_page.html" class="footer-link">Promo & Deals</a></li>
+            <li><a href="become_host_page.html" class="footer-link">Jadi Host</a></li>
             <li><a href="blog_page.html" class="footer-link">Blog</a></li>
             <li><a href="" class="footer-link">Akun</a></li>
           </ul>
@@ -1527,9 +999,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">
-          © 2026 Teman Singgah — All rights reserved.
-        </p>
+        <p class="footer-copyright">© 2026 Teman Singgah — All rights reserved.</p>
         <div class="footer-legal">
           <a href="" class="footer-link bottom">Kebijakan Privasi</a>
           <span class="footer-dot">•</span>
@@ -1538,54 +1008,35 @@
       </div>
     </footer>
 
-    <!-- Toast Notification -->
     <div class="toast" id="toast">
       <i class="ph-fill ph-check-circle"></i>
       <span id="toastMessage">Berhasil!</span>
     </div>
 
     <script>
-      // Countdown Timer
       function updateCountdown() {
         const now = new Date();
         const tomorrow = new Date(now);
         tomorrow.setDate(tomorrow.getDate() + 1);
         tomorrow.setHours(0, 0, 0, 0);
-
         const diff = tomorrow - now;
-
         const hours = Math.floor(diff / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById("hours").textContent = String(hours).padStart(
-          2,
-          "0",
-        );
-        document.getElementById("minutes").textContent = String(
-          minutes,
-        ).padStart(2, "0");
-        document.getElementById("seconds").textContent = String(
-          seconds,
-        ).padStart(2, "0");
+        document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+        document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+        document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
       }
-
       setInterval(updateCountdown, 1000);
       updateCountdown();
 
-      // Filter Functionality
       const filterChips = document.querySelectorAll(".filter-chip");
       const promoCards = document.querySelectorAll(".promo-card");
-
       filterChips.forEach((chip) => {
         chip.addEventListener("click", () => {
-          // Update active state
           filterChips.forEach((c) => c.classList.remove("active"));
           chip.classList.add("active");
-
           const filter = chip.dataset.filter;
-
-          // Filter cards with animation
           promoCards.forEach((card) => {
             if (filter === "all" || card.dataset.category === filter) {
               card.style.display = "flex";
@@ -1597,38 +1048,26 @@
         });
       });
 
-      // Toast Notification
       function showToast(message) {
         const toast = document.getElementById("toast");
         const toastMessage = document.getElementById("toastMessage");
-
         toastMessage.textContent = message;
         toast.classList.add("show");
-
-        setTimeout(() => {
-          toast.classList.remove("show");
-        }, 3000);
+        setTimeout(() => { toast.classList.remove("show"); }, 3000);
       }
 
-      // Copy Voucher
       function copyVoucher(code, element) {
         navigator.clipboard.writeText(code).then(() => {
           showToast(`Kode ${code} berhasil disalin!`);
-
-          // Visual feedback on card
           element.style.borderColor = "var(--color-success)";
-          setTimeout(() => {
-            element.style.borderColor = "";
-          }, 1000);
+          setTimeout(() => { element.style.borderColor = ""; }, 1000);
         });
       }
 
-      // Claim Deal
       function claimDeal(dealName) {
         showToast(`Promo ${dealName} berhasil diklaim!`);
       }
 
-      // Newsletter Subscribe
       function subscribeNewsletter(e) {
         e.preventDefault();
         const input = e.target.querySelector("input");
@@ -1637,16 +1076,6 @@
           input.value = "";
         }
       }
-
-      // Add fade-in animation keyframes
-      const style = document.createElement("style");
-      style.textContent = `
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `;
-      document.head.appendChild(style);
     </script>
   </body>
 </html>
