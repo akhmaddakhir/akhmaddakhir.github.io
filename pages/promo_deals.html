@@ -4,27 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promo & Deals | Teman Singgah</title>
-    <link rel="stylesheet" href="/styles/promo_deals.css" />
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/navbar.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/promo_deals.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
   </head>
   <body>
     <header class="navbar">
@@ -214,54 +210,43 @@
 
       <section class="card-section">
         <h2 class="section-title">Penawaran Terbatas</h2>
-        <div class="promo-card-grid">
-          <article class="promo-card">
-            <span class="promo-card-badge">
-              <i class="ph-bold ph-lightning"></i>
-              45%
-            </span>
-            <div class="promo-image-container">
-              <img src="/assets/images/adiwana_suweta_bali.jpg" alt="" />
-              <div class="promo-image-overlay"></div>
-              <div class="promo-timer">
-                <i class="ph-bold ph-clock-countdown"></i>
-                <span>Berakhir dalam 5 jam</span>
+        <div class="promo-grid" id="promoGrid">
+          <div class="card-grid">
+            <article class="promo-card" data-category="flash">
+              <div class="promo-card-badge">
+                <span class="discount-tag">-45%</span>
               </div>
-            </div>
-            <div class="promo-content">
-              <span class="promo-location">Sumba, NTT</span>
-            </div>
-          </article>
-          <article class="promo-card">
-            <span class="promo-card-badge">
-              <i class="ph-bold ph-lightning"></i>
-              45%
-            </span>
-          </article>
-          <article class="promo-card">
-            <span class="promo-card-badge">
-              <i class="ph-bold ph-lightning"></i>
-              45%
-            </span>
-          </article>
-          <article class="promo-card">
-            <span class="promo-card-badge">
-              <i class="ph-bold ph-lightning"></i>
-              45%
-            </span>
-          </article>
-          <article class="promo-card">
-            <span class="promo-card-badge">
-              <i class="ph-bold ph-lightning"></i>
-              45%
-            </span>
-          </article>
-          <article class="promo-card">
-            <span class="promo-card-badge">
-              <i class="ph-bold ph-lightning"></i>
-              45%
-            </span>
-          </article>
+              <div class="promo-image-wrapper">
+                <img
+                  src="/assets/images/nihi_sumba.webp"
+                  alt="Nihi Sumba"
+                  class="promo-image" />
+                <button class="promo-wishlist">♡</button>
+                <div class="promo-timer">
+                  <i class="ph-bold ph-clock-countdown"></i>
+                  <span>Berakhir dalam 5 jam</span>
+                </div>
+              </div>
+              <div class="promo-content">
+                <h3 class="promo-title">Nihi Sumba - Villa Ocean View</h3>
+                <div class="promo-amenities">
+                  <span class="amenity-item">Sumba, NTT</span>
+                  <span class="amenity-item">WiFi</span>
+                  <span class="amenity-item">Pool</span>
+                </div>
+                <div class="promo-price-section">
+                  <div class="price-wrapper">
+                    <span class="original-price">Rp 8.500.000</span>
+                    <span class="current-price">
+                      Rp 4.675.000
+                      <span class="price-unit">/ malam</span>
+                    </span>
+                  </div>
+                  <button class="claim-button">Klaim</button>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
     </main>

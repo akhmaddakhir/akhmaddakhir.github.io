@@ -151,11 +151,21 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-family);
 }
 
 body {
   background: var(--color-bg);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: var(--font-family);
 }
 
 a {
