@@ -3,29 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page | Teman Singgah</title>
-    <link rel="stylesheet" href="styles/home.css" />
-    <link rel="stylesheet" href="styles/root.css" />
-    <link rel="stylesheet" href="styles/navbar.css" />
-    <link rel="stylesheet" href="styles/footer.css" />
+    <title>Cari Penginapan | Teman Singgah</title>
+    <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
+
+    <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/home.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css" />
   </head>
 
   <body>
@@ -47,23 +43,24 @@
             <a href="/index.html" class="nav-link active">Cari Penginapan</a>
           </li>
           <li class="nav-item">
-            <a href="/pages/promo_deals_page.html" class="nav-link">Promo & Deals</a>
+            <a href="/pages/promo_deals_page.html" class="nav-link">
+              Promo & Deals
+            </a>
           </li>
           <li class="nav-item">
             <a href="become_host_page.html" class="nav-link">Jadi Host</a>
           </li>
           <li class="nav-item">
-            <a href="blog_page.html" class="nav-link">Blog</a>
+            <a href="blog_page.html" class="nav-link">Bantuan</a>
           </li>
         </ul>
 
         <div class="nav-right">
-          <button class="icon-button" aria-label="Notifications">
-            <i class="ph-bold ph-bell"></i>
-            <span class="badge"></span>
+          <button class="icon-button hamburger" aria-label="Hamburger">
+            <i class="ph-bold ph-list"></i>
           </button>
           <div class="divider"></div>
-          <button class="icon-button" aria-label="Profile">
+          <button class="icon-button profile" aria-label="Profile">
             <i class="ph-bold ph-user"></i>
           </button>
           <div class="auth-buttons">
@@ -94,7 +91,9 @@
             </p>
             <div class="hero-buttons" id="hero-buttons">
               <a href="#hero-buttons">
-                <button class="hero-button primary-button">Cari Penginapan</button>
+                <button class="hero-button primary-button">
+                  Cari Penginapan
+                </button>
               </a>
               <a href="become_host_page.html">
                 <button class="hero-button secondary-button">Jadi Host</button>
@@ -110,21 +109,30 @@
             <i class="ph-bold ph-map-pin"></i>
             <div class="field-text">
               <span class="field-label">Mau Kemana?</span>
-              <input type="text" class="field-value" placeholder="Cari Tempatnya" />
+              <input
+                type="text"
+                class="field-value"
+                placeholder="Cari Tempatnya" />
             </div>
           </div>
           <div class="search-field">
             <i class="ph-bold ph-calendar-blank"></i>
             <div class="field-text">
               <span class="field-label">Kapan?</span>
-              <input type="text" class="field-value" placeholder="Tambahkan Tanggal" />
+              <input
+                type="text"
+                class="field-value"
+                placeholder="Tambahkan Tanggal" />
             </div>
           </div>
           <div class="search-field">
             <i class="ph-bold ph-users-three"></i>
             <div class="field-text">
               <span class="field-label">Siapa Saja?</span>
-              <input type="text" class="field-value" placeholder="Tambahkan Pengunjung" />
+              <input
+                type="text"
+                class="field-value"
+                placeholder="Tambahkan Pengunjung" />
             </div>
             <a href="search_results_page.html">
               <button class="search-button">
@@ -142,7 +150,10 @@
         </span>
         <div class="card-grid">
           <a href="detail_card.html" class="grid-card big">
-            <img class="card-image" src="/assets/images/nihi_sumba.webp" alt="Nihi Sumba" />
+            <img
+              class="card-image"
+              src="/assets/images/nihi_sumba.webp"
+              alt="Nihi Sumba" />
             <div class="card-overlay"></div>
             <div class="card-text">
               <span class="card-location">Sumba, NTT</span>
@@ -150,7 +161,10 @@
             </div>
           </a>
           <a href="detail_card.html" class="grid-card">
-            <img class="card-image" src="/assets/images/desa_potato_head_bali.webp" alt="Desa Potato Head Bali" />
+            <img
+              class="card-image"
+              src="/assets/images/desa_potato_head_bali.webp"
+              alt="Desa Potato Head Bali" />
             <div class="card-overlay"></div>
             <div class="card-text">
               <span class="card-location">Kuta, Bali</span>
@@ -158,7 +172,10 @@
             </div>
           </a>
           <a href="detail_card.html" class="grid-card">
-            <img class="card-image" src="/assets/images/adiwana_suweta_bali.jpg" alt="Adiwana Suweta Bali" />
+            <img
+              class="card-image"
+              src="/assets/images/adiwana_suweta_bali.jpg"
+              alt="Adiwana Suweta Bali" />
             <div class="card-overlay"></div>
             <div class="card-text">
               <span class="card-location">Ubud, Bali</span>
@@ -166,7 +183,10 @@
             </div>
           </a>
           <a href="detail_card.html" class="grid-card">
-            <img class="card-image" src="/assets/images/padma_resort_ubud_bali.jpg" alt="Padma Resort Ubud Bali" />
+            <img
+              class="card-image"
+              src="/assets/images/padma_resort_ubud_bali.jpg"
+              alt="Padma Resort Ubud Bali" />
             <div class="card-overlay"></div>
             <div class="card-text">
               <span class="card-location">Ubud, Bali</span>
@@ -174,7 +194,10 @@
             </div>
           </a>
           <a href="detail_card.html" class="grid-card">
-            <img class="card-image" src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski Bali" />
+            <img
+              class="card-image"
+              src="/assets/images/apurva_kempinski_bali.jpg"
+              alt="Apurva Kempinski Bali" />
             <div class="card-overlay"></div>
             <div class="card-text">
               <span class="card-location">Nusa Dua, Bali</span>
@@ -198,11 +221,16 @@
           </div>
         </div>
         <div class="card-list">
-
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -225,8 +253,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -249,8 +283,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -273,8 +313,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -297,8 +343,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -321,8 +373,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -345,8 +403,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -369,8 +433,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -393,8 +463,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -418,13 +494,21 @@
           <!-- See All Card -->
           <a href="search_results_page.html" class="see-all-card">
             <div class="see-all-photos">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
             </div>
             <span class="see-all-label">Lihat Semua</span>
           </a>
-
         </div>
       </div>
 
@@ -442,11 +526,16 @@
           </div>
         </div>
         <div class="card-list">
-
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -469,8 +558,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -493,8 +588,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -517,8 +618,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -541,8 +648,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -565,8 +678,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -589,8 +708,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -614,13 +739,21 @@
           <!-- See All Card -->
           <a href="search_results_page.html" class="see-all-card">
             <div class="see-all-photos">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
             </div>
             <span class="see-all-label">Lihat Semua</span>
           </a>
-
         </div>
       </div>
 
@@ -638,11 +771,16 @@
           </div>
         </div>
         <div class="card-list">
-
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -665,8 +803,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -689,8 +833,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -713,8 +863,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -737,8 +893,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -761,8 +923,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -785,8 +953,14 @@
 
           <a href="detail_card.html" class="hotel-card">
             <div class="card-image-wrapper">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="Apurva Kempinski" class="card-image" />
-              <img src="assets/icons/save.svg" alt="wishlist" class="save-button" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt="Apurva Kempinski"
+                class="card-image" />
+              <img
+                src="assets/icons/save.svg"
+                alt="wishlist"
+                class="save-button" />
             </div>
             <div class="card-content">
               <div class="card-top">
@@ -809,13 +983,21 @@
 
           <a href="search_results_page.html" class="see-all-card">
             <div class="see-all-photos">
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
-              <img src="/assets/images/apurva_kempinski_bali.jpg" alt="" class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                alt=""
+                class="see-all-photo" />
             </div>
             <span class="see-all-label">Lihat Semua</span>
           </a>
-
         </div>
       </div>
     </main>
@@ -830,7 +1012,9 @@
           </p>
           <div class="footer-social">
             <a href="" class="social-link"><i class="ri-instagram-line"></i></a>
-            <a href="" class="social-link"><i class="ri-facebook-circle-line"></i></a>
+            <a href="" class="social-link"
+              ><i class="ri-facebook-circle-line"></i
+            ></a>
             <a href="" class="social-link"><i class="ri-youtube-line"></i></a>
             <a href="" class="social-link"><i class="ri-twitter-line"></i></a>
             <a href="" class="social-link"><i class="ri-mail-line"></i></a>
@@ -858,7 +1042,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2026 Teman Singgah — All rights reserved.</p>
+        <p class="footer-copyright">
+          © 2026 Teman Singgah — All rights reserved.
+        </p>
         <div class="footer-legal">
           <a href="" class="footer-link bottom">Kebijakan Privasi</a>
           <span class="footer-dot">•</span>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forgot Password | Teman Singgah</title>
+    <title>Login Page | Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
     <link rel="stylesheet" href="/styles/auth.css" />
@@ -29,11 +29,11 @@
         <div class="auth-banner-decoration"></div>
         <div class="auth-banner-content">
           <h2 class="auth-banner-quote">
-            Kami Di Sini Untuk Membantumu Kembali.
+            Selamat Datang Kembali, Penjelajah Nusantara!
           </h2>
           <p class="auth-banner-text">
-            Masukkan emailmu dan kami akan segera mengirimkan tautan untuk
-            mengatur ulang kata sandimu.
+            Ribuan penginapan terbaik di seluruh Indonesia siap menyambut
+            perjalananmu berikutnya.
           </p>
         </div>
       </section>
@@ -51,17 +51,29 @@
 
           <form class="auth-form" action="/index.html" method="get">
             <div class="auth-input-wrapper">
-              <i classv="ph ph-envelope auth-input-icon"></i>
+              <i class="ph ph-phone auth-input-icon"></i>
               <input
                 type="email"
                 class="auth-input"
-                placeholder="Masukkan email terdaftar"
+                placeholder="Masukkan email"
                 required />
             </div>
 
-            <button class="auth-submit-button" type="submit">
-              Selanjutnya
-            </button>
+            <div class="auth-input-wrapper">
+              <i class="ph ph-globe-hemisphere-west auth-input-icon"></i>
+              <input
+                type="password"
+                class="auth-input"
+                placeholder="Masukkan kata sandi"
+                id="passwordInput"
+                required />
+            </div>
+
+            <a class="auth-forgot-password" href="forgot_password.html">
+              Lupa kata sandi?
+            </a>
+
+            <button class="auth-submit-button" type="submit">Masuk</button>
           </form>
 
           <div class="auth-divider">
@@ -86,9 +98,9 @@
           </div>
 
           <p class="auth-switch">
-            Sudah punya akun?
-            <a class="auth-switch-link" href="/pages/login.html">
-              Masuk sekarang
+            Belum punya akun?
+            <a class="auth-switch-link" href="/pages/register.html">
+              Daftar sekarang
             </a>
           </p>
         </div>

@@ -86,8 +86,7 @@
 .secondary-button {
   background: transparent;
   color: var(--color-text-inverse);
-  border: var(--space-2) solid var(--color-text-inverse);
-  padding: var(--space-14) var(--space-32);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
 }
 
 .primary-button:hover {
@@ -108,7 +107,6 @@
   transform: scale(0.99);
 }
 
-/* ===== SEARCH BAR ===== */
 .search-bar {
   width: 100%;
   max-width: var(--searchbar-width);
@@ -348,6 +346,7 @@
 
 .control-button:active {
   background: var(--color-primary-active);
+  transform: scale(0.99);
 }
 
 .control-button.prev-button {

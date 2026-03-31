@@ -136,27 +136,6 @@
   color: var(--color-primary);
 }
 
-.badge {
-  position: absolute;
-  top: var(--space-8);
-  right: var(--space-8);
-  width: var(--space-8);
-  height: var(--space-8);
-  background-color: var(--color-accent);
-  border-radius: var(--radius-full);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-}
-
 .divider {
   width: 1px;
   height: var(--space-20);
