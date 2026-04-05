@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jadi Host | Teman Singgah</title>
-    <link rel="stylesheet" href="/styles/become_host.css" />
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/navbar.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/become_host.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
@@ -41,30 +41,30 @@
             alt="Brand Name Teman Singgah"
             class="logo-name" />
         </a>
+
         <ul class="nav-menu">
           <li class="nav-item">
             <a href="/index.html" class="nav-link">Cari Penginapan</a>
           </li>
           <li class="nav-item">
-            <a href="/pages/promo_deals_page.html" class="nav-link"
-              >Promo & Deals</a
-            >
+            <a href="/pages/promo_deals_page.html" class="nav-link">
+              Promo & Deals
+            </a>
           </li>
           <li class="nav-item">
-            <a href="become_host_page.html" class="nav-link active"
-              >Jadi Host</a
-            >
+            <a href="become_host_page.html" class="nav-link active">Jadi Host</a>
           </li>
           <li class="nav-item">
-            <a href="bantuan_page.html" class="nav-link">Bantuan</a>
+            <a href="blog_page.html" class="nav-link">Bantuan</a>
           </li>
         </ul>
+
         <div class="nav-right">
-          <button class="icon-button hamburger-btn" aria-label="Menu">
+          <button class="icon-button hamburger" aria-label="Hamburger">
             <i class="ph-bold ph-list"></i>
           </button>
           <div class="divider"></div>
-          <button class="icon-button account-btn" aria-label="Profile">
+          <button class="icon-button profile" aria-label="Profile">
             <i class="ph-bold ph-user"></i>
           </button>
           <div class="auth-buttons">
@@ -468,44 +468,5 @@
         </div>
       </div>
     </footer>
-
-    <script>
-      document.querySelectorAll(".faq-question").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const item = btn.closest(".faq-item");
-          const isOpen = item.classList.contains("open");
-          document
-            .querySelectorAll(".faq-item")
-            .forEach((i) => i.classList.remove("open"));
-          if (!isOpen) item.classList.add("open");
-        });
-      });
-
-      // ===== Navbar sliding indicator =====
-      const navMenu = document.querySelector(".nav-menu");
-      const indicator = document.createElement("div");
-      indicator.className = "nav-indicator";
-      document.querySelector(".navbar-container").appendChild(indicator);
-
-      function moveIndicator(el) {
-        const rect = el.getBoundingClientRect();
-        const navRect = navMenu.getBoundingClientRect();
-        indicator.style.left = rect.left - navRect.left + "px";
-        indicator.style.width = rect.width + "px";
-        indicator.style.top =
-          navMenu.offsetTop + navMenu.offsetHeight - 1 + "px";
-      }
-
-      const activeLink = document.querySelector(".nav-link.active");
-      if (activeLink) moveIndicator(activeLink);
-
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("mouseenter", () => moveIndicator(link));
-      });
-
-      navMenu.addEventListener("mouseleave", () => {
-        if (activeLink) moveIndicator(activeLink);
-      });
-    </script>
   </body>
 </html>
