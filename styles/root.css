@@ -155,6 +155,7 @@
 
 body {
   background: var(--color-bg);
+  min-height: var(--container-full);
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

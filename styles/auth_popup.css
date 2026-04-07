@@ -1,8 +1,3 @@
-body {
-  background: var(--color-bg);
-  min-height: var(--container-full);
-}
-
 .main-content {
   position: relative;
   width: 100%;
@@ -532,7 +527,7 @@ body {
 
 .auth-community-commitment {
   font-size: var(--text-base);
-  font-weight:var(--font-semibold);
+  font-weight:var(--font-medium);
   color: var(--color-text-primary);
   text-align: center;
   line-height: 1.6;
