@@ -225,7 +225,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background var(--transition-base);
+  transition: all var(--transition-base);
 }
 
 .benefit-icon i {
