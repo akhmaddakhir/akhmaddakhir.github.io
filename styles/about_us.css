@@ -94,7 +94,7 @@
   margin-bottom: var(--space-20);
 }
 
-.story-text:last-of-type{
+.story-text:last-of-type {
   margin-bottom: 0;
 }
 
@@ -479,7 +479,7 @@
   background: transparent;
   color: var(--color-text-inverse);
   border: 1.5px solid rgba(255, 255, 255, 0.4);
-  padding: var(--space-16) var(--space-32) ;
+  padding: var(--space-16) var(--space-32);
 }
 
 .invite-button.secondary:hover {
