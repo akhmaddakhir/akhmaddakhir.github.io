@@ -81,10 +81,6 @@
   color: var(--color-primary);
 }
 
-.nav-link:hover::after {
-  width: 100%;
-}
-
 .nav-link:active {
   color: var(--color-primary-active);
 }
