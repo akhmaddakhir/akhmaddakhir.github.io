@@ -139,33 +139,7 @@
   border-radius: var(--radius-full);
 }
 
-.auth-buttons {
-  display: flex;
-  align-items: center;
-  gap: var(--space-16);
-}
-
-.auth-buttons a {
-  text-decoration: none;
-}
-
-.login-button {
-  color: var(--color-text-secondary);
-  font-weight: var(--font-semibold);
-  letter-spacing: var(--space-letter);
-  font-size: var(--text-sm);
-  transition: color var(--transition-base);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--font-family);
-}
-
-.login-button:hover {
-  color: var(--color-primary);
-}
-
-.register-button {
+.auth-button {
   border: none;
   background: var(--color-primary);
   color: var(--color-text-inverse);
@@ -179,11 +153,11 @@
   font-family: var(--font-family);
 }
 
-.register-button:hover {
+.auth-button:hover {
   background: var(--color-primary-hover);
 }
 
-.register-button:active {
+.auth-button:active {
   background: var(--color-primary-active);
   transform: scale(0.99);
 }
