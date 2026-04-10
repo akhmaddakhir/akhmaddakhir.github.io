@@ -17,17 +17,12 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
 
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
   </head>
   <body>
     <header class="navbar">
@@ -65,72 +60,78 @@
             <i class="ph-bold ph-list"></i>
           </button>
           <div class="divider"></div>
-          <button class="icon-button profile active" aria-label="Profile">
-            <i class="ph-fill ph-user"></i>
+          <button class="icon-button profile" aria-label="Profile">
+            <i class="ph-bold ph-user"></i>
           </button>
+          <div class="auth-buttons">
+            <a href="/components/auth_popup.html">
+              <button class="auth-button">Masuk</button>
+            </a>
+          </div>
         </div>
       </nav>
     </header>
 
     <main class="main-content">
-      <section class="account-section">
-        <div class="account-container">
-          <aside class="account-sidebar">
-            <h2 class="section-title">Profil</h2>
-            <nav class="sidebar-nav">
-              <a href="#about" class="sidebar-link active">
-                <div class="link-icon">AD</div>
-                <span>Tentang Saya</span>
-              </a>
-              <a href="#trips" class="sidebar-link">
-                <div class="link-icon trips">
-                  <i class="ph-bold ph-suitcase"></i>
-                </div>
-                <span>Riwayat Perjalanan</span>
-              </a>
-              <a href="#connections" class="sidebar-link">
-                <div class="link-icon connections">
-                  <i class="ph-bold ph-users"></i>
-                </div>
-                <span>Pertemanan</span>
-              </a>
-            </nav>
-          </aside>
-
-          <div class="content-card">
-            <div class="card-header">
-              <h2 class="section-title">Tentang Saya</h2>
-              <a href="">
-                <button class="edit-button">Edit</button>
-              </a>
-            </div>
-            <div class="account-content">
-              <div class="profile-main">
-                <div class="profile-avatar-section">
-                   <div class="avatar-large">AD</div>
-                  <h3 class="profile-name">Kairul</h3>
-                  <span class="profile-role">Guest</span>
-                </div>
+      <div class="account-container">
+        <aside class="account-sidebar">
+          <h2 class="section-title">Profil</h2>
+          <nav class="sidebar-nav">
+            <a href="#about" class="sidebar-link active">
+              <div class="link-icon primary-avatar">K</div>
+              <span>Tentang Saya</span>
+            </a>
+            <a href="#trips" class="sidebar-link">
+              <div class="link-icon">
+                <i class="ph-bold ph-suitcase"></i>
               </div>
-
-              <div class="profile-details">
-                <div class="detail-item">
-                  <i class="ph-bold ph-briefcase"></i>
-                  <span>Pekerjaan Saya: Pembangkang</span>
-                </div>
-                <div class="detail-item">
-                  <i class="ph-bold ph-globe"></i>
-                  <span>Destinasi Impian: Heaven</span>
-                </div>
-                <div class="detail-item">
-                  <i class="ph-bold ph-paw-print"></i>
-                  <span>Peliharaan: Mang Ucup</span>
-                </div>
+              <span>Riwayat Perjalanan</span>
+            </a>
+            <a href="#connections" class="sidebar-link">
+              <div class="link-icon">
+                <i class="ph-bold ph-users"></i>
               </div>
-            </div>
+              <span>Pertemanan</span>
+            </a>
+          </nav>
+        </aside>
+
+        <div class="account-content">
+          <div class="section-header">
+            <h1 class="section-title">Tentang Saya</h1>
+            <button class="edit-button">Edit</button>
           </div>
+
+          <section class="profile-section">
+            <div class="profile-avatar-card">
+              <div class="avatar-large">A</div>
+              <p class="profile-name">Ahahaha</p>
+              <span class="profile-role">Guest</span>
+            </div>
+
+            <div class="profile-panel">
+              <h3 class="panel-title">Lengkapi profilmu</h3>
+              <p class="panel-desc">
+                Profil yang lengkap membuat host dan tamu lain lebih mudah
+                mengenalmu, serta meningkatkan kepercayaan saat melakukan
+                booking.
+              </p>
+              <button class="panel-button">Lengkapi Sekarang</button>
+            </div>
+          </section>
+
+          <div class="section-divider"></div>
+
+          <section class="detail-list">
+            <a href="#" class="detail-item">
+              <button class="history-button">
+                <i class="ph-bold ph-chats"></i>
+                <span>Ulasan yang saya tulis</span>
+              </button>
+            </a>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
 
     <footer class="footer">
