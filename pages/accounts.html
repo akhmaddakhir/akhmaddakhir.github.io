@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akun Saya | Teman Singgah</title>
+    <title>Profil | Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/navbar.css" />
     <link rel="stylesheet" href="/styles/footer.css" />
-    <link rel="stylesheet" href="/styles/account.css" />
+    <link rel="stylesheet" href="/styles/accounts.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,17 +77,18 @@
         <div class="account-hero-container">
           <div class="account-hero-badge">
             <i class="ph-fill ph-user-circle"></i>
-            <span>Akun Saya</span>
+            <span>Profil Saya</span>
           </div>
-          <h1 class="account-hero-title">Tentang Saya</h1>
+          <h1 class="account-hero-title">Kairul</h1>
           <p class="account-hero-subtitle">
-            Kelola informasi profil dan lihat aktivitas perjalanan Anda.
+            Guest • Bergabung sejak 2024
           </p>
         </div>
       </section>
 
       <section class="account-section">
         <div class="account-container">
+          <!-- Sidebar -->
           <aside class="account-sidebar">
             <h2 class="sidebar-title">Profil</h2>
             <nav class="sidebar-nav">
@@ -110,6 +111,8 @@
             </nav>
           </aside>
 
+          <!-- Content - State 1: Profil Belum Lengkap (Ada Panel) -->
+           <!-- 
           <div class="account-content">
             <div class="content-header">
               <h2 class="content-title">Tentang Saya</h2>
@@ -119,14 +122,17 @@
               </button>
             </div>
 
-            <div class="profile-section">
+            <div class="profile-section incomplete">
               <div class="profile-avatar-card">
-                <div class="avatar-large">A</div>
-                <p class="profile-name">Ahahaha</p>
+                <div class="avatar-large">K</div>
+                <p class="profile-name">Kairul</p>
                 <span class="profile-role">Guest</span>
               </div>
 
               <div class="profile-panel">
+                <div class="panel-icon">
+                  <i class="ph-bold ph-user-plus"></i>
+                </div>
                 <h3 class="panel-title">Lengkapi profilmu</h3>
                 <p class="panel-desc">
                   Profil yang lengkap membuat host dan tamu lain lebih mudah
@@ -134,7 +140,6 @@
                   booking.
                 </p>
                 <button class="panel-button">
-                  <i class="ph-bold ph-pencil-simple"></i>
                   Lengkapi Sekarang
                 </button>
               </div>
@@ -142,7 +147,111 @@
 
             <div class="section-divider"></div>
 
-           <div class="detail-section">
+            <div class="detail-section">
+              <h3 class="detail-title">Informasi Dasar</h3>
+              <div class="detail-list">
+                <div class="detail-item static">
+                  <div class="detail-icon">
+                    <i class="ph-bold ph-briefcase"></i>
+                  </div>
+                  <div class="detail-content">
+                    <div class="detail-text">
+                      <span class="detail-label">Pekerjaan</span>
+                      <span class="detail-value">-</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="detail-section">
+              <h3 class="detail-title">Aktivitas</h3>
+              <div class="detail-list">
+                <a href="#" class="detail-item clickable">
+                  <div class="detail-icon">
+                    <i class="ph-bold ph-chats"></i>
+                  </div>
+                  <div class="detail-content">
+                    <span class="detail-label">Ulasan yang saya tulis</span>
+                    <i class="ph-bold ph-caret-right"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+ -->
+
+          <!-- Content - State 2: Profil Sudah Lengkap (Panel Hilang, Layout Full) -->
+          <!-- Uncomment untuk melihat state lengkap -->
+          <div class="account-content">
+            <div class="content-header">
+              <h2 class="content-title">Tentang Saya</h2>
+              <button class="edit-button">
+                <i class="ph-bold ph-pencil-simple"></i>
+                Edit
+              </button>
+            </div>
+
+            <div class="profile-section complete">
+              <div class="profile-avatar-card full-width">
+                <div class="avatar-large">K</div>
+                <div class="profile-info">
+                  <p class="profile-name">Kairul</p>
+                  <span class="profile-role">Guest</span>
+                  <p class="profile-bio">
+                    Travel enthusiast yang suka mengexplore tempat-tempat hidden gem di Indonesia. 
+                    Sudah menginap di lebih dari 20 penginapan melalui Teman Singgah.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="ph-bold ph-briefcase"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Pekerjaan</span>
+                  <span class="info-value">Software Engineer</span>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="ph-bold ph-map-pin"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Lokasi</span>
+                  <span class="info-value">Jakarta, Indonesia</span>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="ph-bold ph-globe"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Bahasa</span>
+                  <span class="info-value">Indonesia, English</span>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-icon">
+                  <i class="ph-bold ph-calendar"></i>
+                </div>
+                <div class="info-content">
+                  <span class="info-label">Bergabung</span>
+                  <span class="info-value">Januari 2024</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <div class="detail-section">
               <h3 class="detail-title">Aktivitas</h3>
               <div class="detail-list">
                 <a href="#" class="detail-item clickable">
