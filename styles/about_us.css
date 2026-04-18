@@ -301,8 +301,8 @@
 }
 
 .contact-icon {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   background: var(--color-primary-light);
   border-radius: var(--radius-lg);
   display: flex;
