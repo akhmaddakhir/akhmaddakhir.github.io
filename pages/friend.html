@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pertemanan | Teman Singgah</title>
+    <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
+
+    <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/account.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <nav class="navbar-container">
+        <a href="/index.html" class="logo-section">
+          <img src="/assets/logo/logo_temansinggah.svg" alt="Logo Teman Singgah" class="logo-icon" />
+          <img src="/assets/logo/label_temansinggah.svg" alt="Brand Name Teman Singgah" class="logo-name" />
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="/index.html" class="nav-link">Cari Penginapan</a></li>
+          <li class="nav-item"><a href="/pages/promo_deals.html" class="nav-link">Promo & Deals</a></li>
+          <li class="nav-item"><a href="/pages/become_host.html" class="nav-link">Jadi Host</a></li>
+          <li class="nav-item"><a href="/pages/about_us.html" class="nav-link">Tentang Kami</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <button class="icon-button hamburger" aria-label="Hamburger">
+            <i class="ph-bold ph-list"></i>
+          </button>
+          <div class="divider"></div>
+          <button class="icon-button profile" aria-label="Profile">
+            <i class="ph-bold ph-user"></i>
+          </button>
+          <div class="auth-buttons">
+            <a href="/components/auth_popup.html"><button class="auth-button">Masuk</button></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="account-hero">
+        <div class="account-hero-container">
+          <div class="account-hero-badge">
+            <i class="ph-fill ph-users"></i>
+            <span>Komunitas</span>
+          </div>
+          <h1 class="account-hero-title">Pertemanan</h1>
+          <p class="account-hero-subtitle">Terhubung dengan traveler dan host lain di komunitas Teman Singgah.</p>
+        </div>
+      </section>
+
+      <section class="account-section">
+        <div class="account-container">
+          <aside class="account-sidebar">
+            <h2 class="sidebar-title">Profil</h2>
+            <nav class="sidebar-nav">
+              <a href="/pages/account.html" class="sidebar-link">
+                <div class="link-icon primary-avatar">K</div>
+                <span>Tentang Saya</span>
+              </a>
+              <a href="/pages/riwayat_perjalanan.html" class="sidebar-link">
+                <div class="link-icon"><i class="ph-bold ph-suitcase"></i></div>
+                <span>Riwayat Perjalanan</span>
+              </a>
+              <a href="/pages/pertemanan.html" class="sidebar-link active">
+                <div class="link-icon"><i class="ph-bold ph-users"></i></div>
+                <span>Pertemanan</span>
+              </a>
+            </nav>
+          </aside>
+
+          <div class="account-content">
+            <div class="content-header">
+              <h2 class="content-title">Daftar Teman</h2>
+            </div>
+
+            <div class="empty-state">
+              <div class="empty-icon">
+                <i class="ph-bold ph-users"></i>
+              </div>
+              <h3 class="empty-title">Belum Ada Teman</h3>
+              <p class="empty-desc">Jelajahi komunitas kami dan temukan traveler serta host lain untuk saling terhubung.</p>
+              <a href="/index.html" class="empty-button">
+                <i class="ph-bold ph-globe-hemisphere-west"></i>
+                Jelajahi Komunitas
+              </a>
+            </div>
+
+            <div class="connections-header">
+              <span class="connections-count"><strong>6</strong> teman ditemukan</span>
+              <div class="search-box">
+                <i class="ph-bold ph-magnifying-glass"></i>
+                <input type="text" placeholder="Cari teman..." />
+              </div>
+            </div>
+
+            <div class="connections-grid">
+              <div class="connection-card">
+                <div class="connection-avatar">AD</div>
+                <h3 class="connection-name">Akhmad Dakhir</h3>
+                <span class="connection-role">Host</span>
+                <p class="connection-meta">Berteman sejak Jan 2025</p>
+                <div class="connection-actions">
+                  <button class="action-btn primary">Lihat Profil</button>
+                  <button class="action-btn secondary"><i class="ph-bold ph-dots-three"></i></button>
+                </div>
+              </div>
+
+              <div class="connection-card">
+                <div class="connection-avatar">KM</div>
+                <h3 class="connection-name">Keysha Marsha</h3>
+                <span class="connection-role">Guest</span>
+                <p class="connection-meta">Berteman sejak Des 2024</p>
+                <div class="connection-actions">
+                  <button class="action-btn primary">Lihat Profil</button>
+                  <button class="action-btn secondary"><i class="ph-bold ph-dots-three"></i></button>
+                </div>
+              </div>
+
+              <div class="connection-card">
+                <div class="connection-avatar">RN</div>
+                <h3 class="connection-name">Rina Ningsih</h3>
+                <span class="connection-role">Host</span>
+                <p class="connection-meta">Berteman se since Nov 2024</p>
+                <div class="connection-actions">
+                  <button class="action-btn primary">Lihat Profil</button>
+                  <button class="action-btn secondary"><i class="ph-bold ph-dots-three"></i></button>
+                </div>
+              </div>
+
+              <div class="connection-card">
+                <div class="connection-avatar">BP</div>
+                <h3 class="connection-name">Bima Pratama</h3>
+                <span class="connection-role">Guest</span>
+                <p class="connection-meta">Berteman sejak Okt 2024</p>
+                <div class="connection-actions">
+                  <button class="action-btn primary">Lihat Profil</button>
+                  <button class="action-btn secondary"><i class="ph-bold ph-dots-three"></i></button>
+                </div>
+              </div>
+
+              <div class="connection-card">
+                <div class="connection-avatar">SL</div>
+                <h3 class="connection-name">Sari Lestari</h3>
+                <span class="connection-role">Host</span>
+                <p class="connection-meta">Berteman sejak Sep 2024</p>
+                <div class="connection-actions">
+                  <button class="action-btn primary">Lihat Profil</button>
+                  <button class="action-btn secondary"><i class="ph-bold ph-dots-three"></i></button>
+                </div>
+              </div>
+
+              <div class="connection-card">
+                <div class="connection-avatar">DW</div>
+                <h3 class="connection-name">Dika Wijaya</h3>
+                <span class="connection-role">Guest</span>
+                <p class="connection-meta">Berteman sejak Agu 2024</p>
+                <div class="connection-actions">
+                  <button class="action-btn primary">Lihat Profil</button>
+                  <button class="action-btn secondary"><i class="ph-bold ph-dots-three"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <span class="footer-brand">Teman Singgah</span>
+          <p class="footer-description">Platform booking penginapan terpercaya di seluruh Indonesia, dari hotel berbintang hingga homestay lokal.</p>
+          <div class="footer-social">
+            <a href="" class="social-link"><i class="ri-instagram-line"></i></a>
+            <a href="" class="social-link"><i class="ri-facebook-circle-line"></i></a>
+            <a href="" class="social-link"><i class="ri-youtube-line"></i></a>
+            <a href="" class="social-link"><i class="ri-twitter-line"></i></a>
+            <a href="" class="social-link"><i class="ri-mail-line"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Navigasi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Beranda</a></li>
+            <li><a href="" class="footer-link">Promo & Deals</a></li>
+            <li><a href="" class="footer-link">Jadi Host</a></li>
+            <li><a href="" class="footer-link">Bantuan</a></li>
+            <li><a href="" class="footer-link">Akun</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Dukungan</h3>
+          <ul class="footer-links">
+            <li><a href="" class="footer-link">Pusat Bantuan</a></li>
+            <li><a href="" class="footer-link">FAQ</a></li>
+            <li><a href="" class="footer-link">Cara Menjadi Host</a></li>
+            <li><a href="" class="footer-link">Cara Booking</a></li>
+            <li><a href="" class="footer-link">Tentang Kami</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Teman Singgah — All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="" class="footer-link bottom">Kebijakan Privasi</a>
+          <span class="footer-dot">•</span>
+          <a href="" class="footer-link bottom">Syarat & Ketentuan</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

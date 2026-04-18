@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riwayat Perjalanan | Teman Singgah</title>
+    <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
+
+    <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/account.css" />
+    <link rel="stylesheet" href="/styles/account-pages.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <nav class="navbar-container">
+        <a href="/index.html" class="logo-section">
+          <img src="/assets/logo/logo_temansinggah.svg" alt="Logo Teman Singgah" class="logo-icon" />
+          <img src="/assets/logo/label_temansinggah.svg" alt="Brand Name Teman Singgah" class="logo-name" />
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="/index.html" class="nav-link">Cari Penginapan</a></li>
+          <li class="nav-item"><a href="/pages/promo_deals.html" class="nav-link">Promo & Deals</a></li>
+          <li class="nav-item"><a href="/pages/become_host.html" class="nav-link">Jadi Host</a></li>
+          <li class="nav-item"><a href="/pages/about_us.html" class="nav-link">Tentang Kami</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <button class="icon-button hamburger" aria-label="Hamburger">
+            <i class="ph-bold ph-list"></i>
+          </button>
+          <div class="divider"></div>
+          <button class="icon-button profile" aria-label="Profile">
+            <i class="ph-bold ph-user"></i>
+          </button>
+          <div class="auth-buttons">
+            <a href="/components/auth_popup.html"><button class="auth-button">Masuk</button></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="account-hero">
+        <div class="account-hero-container">
+          <div class="account-hero-badge">
+            <i class="ph-fill ph-suitcase"></i>
+            <span>Perjalanan</span>
+          </div>
+          <h1 class="account-hero-title">Riwayat Perjalanan</h1>
+          <p class="account-hero-subtitle">Lihat dan kelola semua perjalanan Anda di sini.</p>
+        </div>
+      </section>
+
+      <section class="account-section">
+        <div class="account-container">
+          <aside class="account-sidebar">
+            <h2 class="sidebar-title">Profil</h2>
+            <nav class="sidebar-nav">
+              <a href="/pages/account.html" class="sidebar-link">
+                <div class="link-icon primary-avatar">K</div>
+                <span>Tentang Saya</span>
+              </a>
+              <a href="/pages/riwayat_perjalanan.html" class="sidebar-link active">
+                <div class="link-icon"><i class="ph-bold ph-suitcase"></i></div>
+                <span>Riwayat Perjalanan</span>
+              </a>
+              <a href="/pages/pertemanan.html" class="sidebar-link">
+                <div class="link-icon"><i class="ph-bold ph-users"></i></div>
+                <span>Pertemanan</span>
+              </a>
+            </nav>
+          </aside>
+
+          <div class="account-content">
+            <div class="content-header">
+              <h2 class="content-title">Perjalanan Saya</h2>
+            </div>
+
+            <div class="empty-state">
+              <div class="empty-icon">
+                <i class="ph-bold ph-suitcase"></i>
+              </div>
+              <h3 class="empty-title">Belum Ada Perjalanan</h3>
+              <p class="empty-desc">Anda belum memiliki riwayat perjalanan. Yuk jelajahi penginapan menarik dan buat pengalaman pertama Anda!</p>
+              <a href="/index.html" class="empty-button">
+                <i class="ph-bold ph-magnifying-glass"></i>
+                Cari Penginapan
+              </a>
+            </div>
+
+            <!-- ========== VERSI 2: BERISI ( Uncomment untuk melihat ) ========== -->
+
+            <div class="trips-filter">
+              <button class="filter-btn active">Semua</button>
+              <button class="filter-btn">Mendatang</button>
+              <button class="filter-btn">Selesai</button>
+              <button class="filter-btn">Dibatalkan</button>
+            </div>
+
+            <div class="trips-list">
+              <div class="trip-card">
+                <img src="/assets/images/nihi_sumba.webp" alt="Penginapan" class="trip-image" />
+                <div class="trip-content">
+                  <span class="trip-status upcoming"><i class="ph-fill ph-circle"></i> Mendatang</span>
+                  <h3 class="trip-name">Nihi Sumba Resort</h3>
+                  <div class="trip-meta">
+                    <div class="trip-meta-item"><i class="ph-bold ph-map-pin"></i> Sumba Barat, NTT</div>
+                    <div class="trip-meta-item"><i class="ph-bold ph-calendar"></i> 15 - 18 Juni 2025</div>
+                    <div class="trip-meta-item"><i class="ph-bold ph-user"></i> 2 Tamu • 1 Kamar</div>
+                  </div>
+                </div>
+                <div class="trip-actions">
+                  <div class="trip-price">Rp 4.500.000 <span>/ malam</span></div>
+                  <button class="action-btn primary">Lihat Detail</button>
+                  <button class="action-btn secondary">Ubah Pesanan</button>
+                </div>
+              </div>
+
+              <div class="trip-card">
+                <img src="/assets/images/villa_bali.webp" alt="Penginapan" class="trip-image" />
+                <div class="trip-content">
+                  <span class="trip-status completed"><i class="ph-fill ph-circle"></i> Selesai</span>
+                  <h3 class="trip-name">Ubud Jungle Villa</h3>
+                  <div class="trip-meta">
+                    <div class="trip-meta-item"><i class="ph-bold ph-map-pin"></i> Ubud, Bali</div>
+                    <div class="trip-meta-item"><i class="ph-bold ph-calendar"></i> 2 - 5 Maret 2025</div>
+                    <div class="trip-meta-item"><i class="ph-bold ph-user"></i> 4 Tamu • 2 Kamar</div>
+                  </div>
+                </div>
+                <div class="trip-actions">
+                  <div class="trip-price">Rp 2.800.000 <span>/ malam</span></div>
+                  <button class="action-btn primary">Pesan Lagi</button>
+                  <button class="action-btn secondary">Tulis Ulasan</button>
+                </div>
+              </div>
+
+              <div class="trip-card">
+                <img src="/assets/images/homestay_jogja.webp" alt="Penginapan" class="trip-image" />
+                <div class="trip-content">
+                  <span class="trip-status cancelled"><i class="ph-fill ph-circle"></i> Dibatalkan</span>
+                  <h3 class="trip-name">Omah Kayu Homestay</h3>
+                  <div class="trip-meta">
+                    <div class="trip-meta-item"><i class="ph-bold ph-map-pin"></i> Malioboro, Yogyakarta</div>
+                    <div class="trip-meta-item"><i class="ph-bold ph-calendar"></i> 10 - 12 Januari 2025</div>
+                    <div class="trip-meta-item"><i class="ph-bold ph-user"></i> 2 Tamu • 1 Kamar</div>
+                  </div>
+                </div>
+                <div class="trip-actions">
+                  <div class="trip-price">Rp 850.000 <span>/ malam</span></div>
+                  <button class="action-btn primary">Pesan Lagi</button>
+                  <button class="action-btn secondary">Lihat Detail</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <span class="footer-brand">Teman Singgah</span>
+          <p class="footer-description">Platform booking penginapan terpercaya di seluruh Indonesia, dari hotel berbintang hingga homestay lokal.</p>
+          <div class="footer-social">
+            <a href="" class="social-link"><i class="ri-instagram-line"></i></a>
+            <a href="" class="social-link"><i class="ri-facebook-circle-line"></i></a>
+            <a href="" class="social-link"><i class="ri-youtube-line"></i></a>
+            <a href="" class="social-link"><i class="ri-twitter-line"></i></a>
+            <a href="" class="social-link"><i class="ri-mail-line"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Navigasi</h3>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Beranda</a></li>
+            <li><a href="" class="footer-link">Promo & Deals</a></li>
+            <li><a href="" class="footer-link">Jadi Host</a></li>
+            <li><a href="" class="footer-link">Bantuan</a></li>
+            <li><a href="" class="footer-link">Akun</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Dukungan</h3>
+          <ul class="footer-links">
+            <li><a href="" class="footer-link">Pusat Bantuan</a></li>
+            <li><a href="" class="footer-link">FAQ</a></li>
+            <li><a href="" class="footer-link">Cara Menjadi Host</a></li>
+            <li><a href="" class="footer-link">Cara Booking</a></li>
+            <li><a href="" class="footer-link">Tentang Kami</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Teman Singgah — All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="" class="footer-link bottom">Kebijakan Privasi</a>
+          <span class="footer-dot">•</span>
+          <a href="" class="footer-link bottom">Syarat & Ketentuan</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
