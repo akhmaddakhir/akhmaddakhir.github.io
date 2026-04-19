@@ -289,7 +289,7 @@
   color: var(--color-text-secondary);
 }
 
-.option-icon{
+.option-icon {
   width: 48px;
   height: 48px;
   background: var(--color-primary-light);
@@ -323,7 +323,7 @@
 .location-search {
   position: relative;
   margin-bottom: var(--space-20);
-  display:flex;
+  display: flex;
 }
 
 .location-search input {
@@ -434,6 +434,10 @@
   border-bottom: none;
 }
 
+.counter-row:first-child {
+  padding-top: 0;
+}
+
 .counter-label {
   font-size: var(--text-md);
   font-weight: var(--font-medium);
@@ -445,9 +449,9 @@
   gap: var(--space-20);
 }
 
-.counter-btn {
-  width: 40px;
-  height: 40px;
+.counter-button {
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-full);
   border: 1.5px solid var(--color-border-strong);
   background: transparent;
@@ -457,14 +461,20 @@
   cursor: pointer;
   font-size: var(--text-xl);
   color: var(--color-text-secondary);
-  transition: all var(--transition-fast);
-  font-family: var(--font-family);
-  line-height: 1;
+  transition: all var(--transition-base);
+  text-align: center;
+  box-shadow: var(--shadow-card);
 }
 
-.counter-btn:hover {
-  border-color: var(--color-text-primary);
-  color: var(--color-text-primary);
+.counter-button:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-section);
+  transform: var(--button-transform-hover);
+}
+
+.counter-button:active {
+  transform: scale(0.99);
+  background: var(--color-bg-skeleton);
 }
 
 .counter-value {
