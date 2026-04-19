@@ -2,7 +2,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--color-bg-card);
   font-family: var(--font-family);
   color: var(--color-text-primary);
 }
@@ -123,7 +122,7 @@
   color: var(--color-primary);
 }
 
-.intro-content h1 {
+.intro-content h2 {
   font-size: var(--text-3xl);
   font-weight: var(--font-bold);
   color: var(--color-text-primary);
@@ -153,14 +152,11 @@
   object-fit: contain;
 }
 
-/* ============================================
-   PAGE HEADER — Standard non-intro pages
-   ============================================ */
 .page-header {
-  margin-bottom: var(--space-40);
+  margin-bottom: var(--space-32);
 }
 
-.page-header h1 {
+.page-header h2 {
   font-size: var(--text-3xl);
   font-weight: var(--font-bold);
   margin-bottom: var(--space-12);
@@ -174,13 +170,10 @@
   max-width: 560px;
 }
 
-/* ============================================
-   CATEGORY GRID — Step 2
-   ============================================ */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-12);
+  gap: var(--space-16);
 }
 
 .category-item {
@@ -194,38 +187,59 @@
 }
 
 .category-card {
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid var(--color-border-subtle);
   border-radius: var(--radius-xl);
-  padding: var(--space-20) var(--space-16);
+  padding: var(--space-24);
   cursor: pointer;
   transition: all var(--transition-fast);
   display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
+  align-items:center;
+  gap: var(--space-16);
   background: var(--color-bg-card);
   height: 100%;
+  box-shadow: var(--shadow-card);
+}
+
+.category-icon{
+  width: 48px;
+  height: 48px;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .category-card i {
-  font-size: var(--text-2xl);
-  color: var(--color-text-primary);
+  font-size: var(--text-xl);
+  color: var(--color-primary);
 }
 
 .category-card span {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   font-weight: var(--font-semibold);
-  line-height: 1.3;
+  color: var(--color-text-primary);
 }
 
 .category-item input:checked + .category-card {
-  border-color: var(--color-text-primary);
+  border-color: var(--color-primary);
   background: var(--color-primary-subtle);
-  box-shadow: 0 0 0 1px var(--color-text-primary);
 }
 
 .category-card:hover {
   border-color: var(--color-text-secondary);
   background: var(--color-bg-section);
+}
+
+.category-card:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-section);
+}
+
+.category-card:active {
+  transform: scale(0.99);
+  background: var(--color-bg-skeleton);
 }
 
 /* ============================================
@@ -1265,19 +1279,25 @@ input[type="range"]::-webkit-slider-thumb {
 .back-button {
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
-  color: var(--color-text-primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  background: none;
-  border: none;
+  color: var(--color-text-secondary);
+  background: transparent;
+  padding: var(--space-16) var(--space-24);
+  border: 1.5px solid transparent;
   cursor: pointer;
   padding: var(--space-12) var(--space-16);
   font-family: var(--font-family);
-  transition: color var(--transition-fast);
+  transition: all var(--transition-base);
+  border-radius: var(--radius-md);
 }
 
 .back-button:hover {
   color: var(--color-primary);
+  background: var(--color-bg-section);
+}
+
+.back-button:active {
+  background: var(--color-bg-skeleton);
+  color: var(--color-primary-active);
 }
 
 .next-button,

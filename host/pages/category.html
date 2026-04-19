@@ -1,132 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tipe Properti | Teman Singgah</title>
-  <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
-  <link rel="stylesheet" href="/styles/root.css" />
-  <link rel="stylesheet" href="/host/onboarding.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script type="module" src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
-</head>
-<body class="onboarding-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tipe Properti | Teman Singgah</title>
+    <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
+    <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/host/onboarding.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+  </head>
+  <body class="onboarding-page">
+    <header class="onboarding-header">
+      <nav class="onboarding-nav">
+        <a href="/index.html" class="logo-section">
+          <img
+            src="/assets/logo/logo_temansinggah.svg"
+            alt="Logo Teman Singgah"
+            class="logo-icon" />
+          <img
+            src="/assets/logo/label_temansinggah.svg"
+            alt="Brand Name Teman Singgah"
+            class="logo-name" />
+        </a>
+        <div class="header-actions">
+          <button class="ghost-button">Pertanyaan?</button>
+          <button class="ghost-button">Simpan & keluar</button>
+        </div>
+      </nav>
+    </header>
 
-  <header class="onboarding-header">
-    <a href="/index.html" class="header-logo">
-      <img src="/assets/logo/logo_temansinggah.svg" alt="Teman Singgah" />
-    </a>
-    <div class="header-actions">
-      <button class="btn-ghost">Pertanyaan?</button>
-      <button class="btn-ghost">Simpan &amp; keluar</button>
-    </div>
-  </header>
+    <main class="main-content wide">
+      <div class="page-header">
+        <h2>Properti Anda termasuk yang mana?</h2>
+        <p>Pilih kategori yang paling menggambarkan properti Anda.</p>
+      </div>
 
-  <main class="main-content wide">
-    <div class="page-header">
-      <h1>Properti Anda termasuk yang mana?</h1>
-      <p>Pilih kategori yang paling menggambarkan properti Anda.</p>
-    </div>
+      <div class="category-grid">
+        <label class="category-item">
+          <input type="radio" name="category" value="apartment" />
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="ph-bold ph-buildings"></i>
+            </div>
+            <span>Apartemen</span>
+          </div>
+        </label>
+        <label class="category-item">
+          <input type="radio" name="category" value="hostel" />
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="ph-bold ph-building"></i>
+            </div>
+            <span>Hotel</span>
+          </div>
+        </label>
+        <label class="category-item">
+          <input type="radio" name="category" value="cabin" />
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="ph-bold ph-tree-evergreen"></i>
+            </div>
+            <span>Pondok / Cabin</span>
+          </div>
+        </label>
+        <label class="category-item">
+          <input type="radio" name="category" value="house" />
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="ph-bold ph-house"></i>
+            </div>
+            <span>Rumah</span>
+          </div>
+        </label>
+        <label class="category-item">
+          <input type="radio" name="category" value="traditional" />
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="ph-bold ph-storefront"></i>
+            </div>
+            <span>Rumah Tradisional</span>
+          </div>
+        </label>
+        <label class="category-item">
+          <input type="radio" name="category" value="villa" />
+          <div class="category-card">
+            <div class="category-icon">
+              <i class="ph-bold ph-house-line"></i>
+            </div>
+            <span>Villa</span>
+          </div>
+        </label>
+      </div>
+    </main>
 
-    <div class="category-grid">
-      <label class="category-item">
-        <input type="radio" name="category" value="house" />
-        <div class="category-card">
-          <i class="ph-bold ph-house"></i>
-          <span>Rumah</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="apartment" />
-        <div class="category-card">
-          <i class="ph-bold ph-buildings"></i>
-          <span>Apartemen</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="villa" />
-        <div class="category-card">
-          <i class="ph-bold ph-house-line"></i>
-          <span>Villa</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="bnb" />
-        <div class="category-card">
-          <i class="ph-bold ph-coffee"></i>
-          <span>Bed &amp; Breakfast</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="cabin" />
-        <div class="category-card">
-          <i class="ph-bold ph-tree-evergreen"></i>
-          <span>Pondok / Cabin</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="hostel" />
-        <div class="category-card">
-          <i class="ph-bold ph-users-three"></i>
-          <span>Hostel</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="boat" />
-        <div class="category-card">
-          <i class="ph-bold ph-boat"></i>
-          <span>Kapal / Perahu</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="camper" />
-        <div class="category-card">
-          <i class="ph-bold ph-caravan"></i>
-          <span>Camper / RV</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="barn" />
-        <div class="category-card">
-          <i class="ph-bold ph-warehouse"></i>
-          <span>Gudang / Lumbung</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="traditional" />
-        <div class="category-card">
-          <i class="ph-bold ph-storefront"></i>
-          <span>Rumah Tradisional</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="castle" checked />
-        <div class="category-card">
-          <i class="ph-bold ph-castle-turret"></i>
-          <span>Istana / Bangunan Unik</span>
-        </div>
-      </label>
-      <label class="category-item">
-        <input type="radio" name="category" value="other" />
-        <div class="category-card">
-          <i class="ph-bold ph-dots-three-outline"></i>
-          <span>Lainnya</span>
-        </div>
-      </label>
-    </div>
-  </main>
-
-  <footer class="onboarding-footer">
-    <div class="progress-bar">
-      <div class="progress-segment completed"></div>
-      <div class="progress-segment"></div>
-      <div class="progress-segment"></div>
-    </div>
-    <div class="footer-actions">
-      <a href="about_place.html" class="btn-back">Kembali</a>
-      <a href="place_type.html" class="btn-next">Selanjutnya</a>
-    </div>
-  </footer>
-
-</body>
+    <footer class="onboarding-footer">
+      <div class="progress-bar">
+        <div class="progress-segment completed"></div>
+        <div class="progress-segment"></div>
+        <div class="progress-segment"></div>
+      </div>
+      <div class="footer-actions">
+        <a href="about_place.html" class="back-button">Kembali</a>
+        <a href="category.html" class="next-button">Selanjutnya</a>
+      </div>
+    </footer>
+  </body>
 </html>
