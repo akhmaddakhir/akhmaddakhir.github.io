@@ -191,16 +191,15 @@
   border-radius: var(--radius-xl);
   padding: var(--space-24);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-base);
   display: flex;
-  align-items:center;
+  align-items: center;
   gap: var(--space-16);
   background: var(--color-bg-card);
-  height: 100%;
   box-shadow: var(--shadow-card);
 }
 
-.category-icon{
+.category-icon {
   width: 48px;
   height: 48px;
   background: var(--color-primary-light);
@@ -228,11 +227,6 @@
 }
 
 .category-card:hover {
-  border-color: var(--color-text-secondary);
-  background: var(--color-bg-section);
-}
-
-.category-card:hover {
   border-color: var(--color-border-strong);
   background: var(--color-bg-section);
 }
@@ -246,8 +240,8 @@
    OPTION LIST — Step 3 (place type)
    ============================================ */
 .option-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-16);
 }
 
@@ -265,41 +259,65 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-24);
-  padding: var(--space-24) var(--space-24);
-  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-xl);
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-24);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
   background: var(--color-bg-card);
+  box-shadow: var(--shadow-card);
 }
 
-.option-text h3 {
-  font-size: var(--text-md);
+.option-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.option-text span {
+  font-size: var(--text-base);
   font-weight: var(--font-semibold);
-  margin-bottom: var(--space-6);
+  color: var(--color-text-primary);
 }
 
 .option-text p {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  line-height: 1.5;
 }
 
-.option-icon i {
-  font-size: var(--text-3xl);
-  color: var(--color-text-primary);
+.option-icon{
+  width: 48px;
+  height: 48px;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
+.option-icon i {
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+}
+
 .option-item input:checked + .option-card {
-  border-color: var(--color-text-primary);
+  border-color: var(--color-primary);
   background: var(--color-primary-subtle);
-  box-shadow: 0 0 0 1px var(--color-text-primary);
 }
 
 .option-card:hover {
-  border-color: var(--color-text-secondary);
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-section);
+}
+
+.option-card:active {
+  transform: scale(0.99);
+  background: var(--color-bg-skeleton);
 }
 
 /* ============================================
