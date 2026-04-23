@@ -1,50 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Judul Properti | Teman Singgah</title>
-  <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
-  <link rel="stylesheet" href="/styles/root.css" />
-  <link rel="stylesheet" href="/host/onboarding.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <script type="module" src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
-</head>
-<body class="onboarding-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Judul Properti | Teman Singgah</title>
+    <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
+    <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/host/onboarding.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+  </head>
 
-  <header class="onboarding-header">
-    <a href="/index.html" class="header-logo">
-      <img src="/assets/logo/logo_temansinggah.svg" alt="Teman Singgah" />
-    </a>
-    <div class="header-actions">
-      <button class="btn-ghost">Pertanyaan?</button>
-      <button class="btn-ghost">Simpan &amp; keluar</button>
-    </div>
-  </header>
+  <body class="onboarding-page">
+    <header class="onboarding-header">
+      <nav class="onboarding-nav">
+        <a href="/index.html" class="logo-section">
+          <img
+            src="/assets/logo/logo_temansinggah.svg"
+            alt="Logo Teman Singgah"
+            class="logo-icon" />
+          <img
+            src="/assets/logo/label_temansinggah.svg"
+            alt="Brand Name Teman Singgah"
+            class="logo-name" />
+        </a>
+        <div class="header-actions">
+          <button class="ghost-button">Pertanyaan?</button>
+          <button class="ghost-button">Simpan & keluar</button>
+        </div>
+      </nav>
+    </header>
 
-  <main class="main-content">
-    <div class="page-header">
-      <h1>Sekarang, beri judul untuk properti Anda</h1>
-      <p>Judul yang singkat bekerja paling baik. Bersenang-senanglah — Anda selalu bisa mengubahnya nanti.</p>
-    </div>
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Sekarang, beri judul untuk properti Anda</h2>
+        <p>
+          Judul yang singkat bekerja paling baik. Bersenang-senanglah — Anda
+          selalu bisa mengubahnya nanti.
+        </p>
+      </div>
 
-    <div class="textarea-wrap">
-      <textarea maxlength="50" placeholder="Contoh: Villa Sunset nyaman di tepi pantai..."></textarea>
-    </div>
-    <p class="char-count">0/50</p>
-  </main>
+      <div class="textarea-container">
+        <textarea
+          maxlength="50"
+          placeholder="Contoh: Villa Sunset nyaman di tepi pantai..."></textarea>
+      </div>
+      <p class="char-count">0/50</p>
+    </main>
 
-  <footer class="onboarding-footer">
-    <div class="progress-bar">
-      <div class="progress-segment completed"></div>
-      <div class="progress-segment active"></div>
-      <div class="progress-segment"></div>
-    </div>
-    <div class="footer-actions">
-      <a href="photos_preview.html" class="btn-back">Kembali</a>
-      <a href="highlights.html" class="btn-next">Selanjutnya</a>
-    </div>
-  </footer>
-
-</body>
+    <footer class="onboarding-footer">
+      <div class="progress-bar">
+        <div class="progress-segment completed"></div>
+        <div class="progress-segment"></div>
+        <div class="progress-segment"></div>
+      </div>
+      <div class="footer-actions">
+        <a href="photos_preview.html" class="back-button">Kembali</a>
+        <a href="description.html" class="next-button">Selanjutnya</a>
+      </div>
+    </footer>
+  </body>
 </html>

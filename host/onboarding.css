@@ -338,11 +338,6 @@
   color: var(--color-text-primary);
 }
 
-.location-search input:focus {
-  border-color: var(--color-text-primary);
-  box-shadow: 0 0 0 3px rgba(139, 37, 0, 0.08);
-}
-
 .location-search input::placeholder {
   color: var(--color-text-hint);
 }
@@ -352,9 +347,9 @@
   box-shadow: 0 0 0 4px rgba(139, 37, 0, 0.08);
 }
 
-.auth-input.location-search input:-webkit-autofill,
-.auth-input.location-search input:-webkit-autofill:hover,
-.auth-input.location-search input:-webkit-autofill:focus {
+.location-search input:-webkit-autofill,
+.location-search input:-webkit-autofill:hover,
+.location-search input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px var(--color-bg-card) inset;
   box-shadow: 0 0 0px 1000px var(--color-bg-card) inset;
   -webkit-text-fill-color: var(--color-text-primary);
@@ -547,9 +542,6 @@
   background: var(--color-bg-skeleton);
 }
 
-/* ============================================
-   PHOTO UPLOAD — Step 7
-   ============================================ */
 .photo-upload-area {
   width: 100%;
   min-height: 360px;
@@ -568,7 +560,7 @@
 
 .photo-upload-area:hover {
   border-color: var(--color-primary);
-  background: var(--color-primary-subtle);
+  box-shadow: var(--shadow-card);
 }
 
 .photo-upload-area input[type="file"] {
@@ -595,32 +587,6 @@
   font-size: var(--text-md);
   font-weight: var(--font-semibold);
   color: var(--color-text-primary);
-}
-
-.upload-subtext {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  text-align: center;
-  line-height: 1.5;
-}
-
-.upload-btn {
-  margin-top: var(--space-8);
-  padding: var(--space-12) var(--space-24);
-  border: 1.5px solid var(--color-text-primary);
-  background: var(--color-bg-card);
-  border-radius: var(--radius-lg);
-  font-size: var(--text-sm);
-  font-weight: var(--font-semibold);
-  color: var(--color-text-primary);
-  cursor: pointer;
-  font-family: var(--font-family);
-  transition: all var(--transition-fast);
-}
-
-.upload-btn:hover {
-  background: var(--color-text-primary);
-  color: var(--color-text-inverse);
 }
 
 /* ============================================
@@ -660,12 +626,13 @@
   position: absolute;
   top: var(--space-12);
   left: var(--space-12);
+  z-index: 2;
   background: var(--color-bg-card);
-  padding: var(--space-6) var(--space-12);
-  border-radius: var(--radius-full);
-  font-size: var(--text-xs);
-  font-weight: var(--font-bold);
   color: var(--color-text-primary);
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
   box-shadow: var(--shadow-card);
 }
 
@@ -697,11 +664,11 @@
 /* ============================================
    TITLE & DESCRIPTION — Step 9, 11
    ============================================ */
-.textarea-wrap {
+.textarea-container {
   width: 100%;
 }
 
-.textarea-wrap textarea {
+.textarea-container textarea {
   width: 100%;
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-xl);
@@ -717,12 +684,21 @@
   transition: all var(--transition-fast);
 }
 
-.textarea-wrap textarea:focus {
-  border-color: var(--color-text-primary);
-  box-shadow: 0 0 0 3px rgba(139, 37, 0, 0.08);
+.textarea-container textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(139, 37, 0, 0.08);
 }
 
-.textarea-wrap.tall textarea {
+.textarea-container textarea:-webkit-autofill,
+.textarea-container textarea:-webkit-autofill:hover,
+.textarea-container textarea:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-bg-card) inset;
+  box-shadow: 0 0 0px 1000px var(--color-bg-card) inset;
+  -webkit-text-fill-color: var(--color-text-primary);
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.textarea-container.tall textarea {
   min-height: 200px;
 }
 
@@ -731,55 +707,6 @@
   font-size: var(--text-sm);
   color: var(--color-text-hint);
   margin-top: var(--space-8);
-}
-
-/* ============================================
-   HIGHLIGHTS — Step 10
-   ============================================ */
-.highlights-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-12);
-  max-width: 640px;
-}
-
-.highlight-item {
-  position: relative;
-}
-
-.highlight-item input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.highlight-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-8);
-  padding: var(--space-12) var(--space-20);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-full);
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  background: var(--color-bg-card);
-  white-space: nowrap;
-}
-
-.highlight-pill i {
-  font-size: var(--text-base);
-}
-
-.highlight-item input:checked + .highlight-pill {
-  border-color: var(--color-text-primary);
-  background: var(--color-primary-subtle);
-  box-shadow: 0 0 0 1px var(--color-text-primary);
-}
-
-.highlight-pill:hover {
-  border-color: var(--color-text-secondary);
 }
 
 /* ============================================
