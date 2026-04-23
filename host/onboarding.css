@@ -589,9 +589,6 @@
   color: var(--color-text-primary);
 }
 
-/* ============================================
-   PHOTO GRID — Step 8 (preview)
-   ============================================ */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -661,9 +658,6 @@
   color: var(--color-text-primary);
 }
 
-/* ============================================
-   TITLE & DESCRIPTION — Step 9, 11
-   ============================================ */
 .textarea-container {
   width: 100%;
 }
@@ -709,93 +703,6 @@
   margin-top: var(--space-8);
 }
 
-/* ============================================
-   BOOKING SETTINGS — Step 13
-   ============================================ */
-.settings-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-16);
-}
-
-.setting-item {
-  position: relative;
-  cursor: pointer;
-}
-
-.setting-item input[type="radio"],
-.setting-item input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.setting-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-24);
-  padding: var(--space-24);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  background: var(--color-bg-card);
-}
-
-.setting-info {
-  flex: 1;
-}
-
-.setting-info h3 {
-  font-size: var(--text-md);
-  font-weight: var(--font-semibold);
-  margin-bottom: var(--space-4);
-}
-
-.setting-info p {
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-}
-
-.setting-icon {
-  width: 52px;
-  height: 52px;
-  background: var(--color-bg-section);
-  border-radius: var(--radius-xl);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.setting-icon i {
-  font-size: var(--text-2xl);
-  color: var(--color-text-primary);
-}
-
-.setting-item input:checked + .setting-card {
-  border-color: var(--color-text-primary);
-  background: var(--color-primary-subtle);
-  box-shadow: 0 0 0 1px var(--color-text-primary);
-}
-
-.setting-item input:checked + .setting-card .setting-icon {
-  background: var(--color-primary-light);
-}
-
-.setting-item input:checked + .setting-card .setting-icon i {
-  color: var(--color-primary);
-}
-
-.setting-card:hover {
-  border-color: var(--color-text-secondary);
-}
-
-/* ============================================
-   PRICING — Step 14
-   ============================================ */
 .price-display {
   text-align: center;
   margin: var(--space-32) 0 var(--space-48);
@@ -824,7 +731,7 @@
   margin-top: var(--space-8);
 }
 
-.price-slider-wrap {
+.price-slider-container {
   max-width: 100%;
   margin: 0 auto;
 }
@@ -842,13 +749,13 @@
   color: var(--color-text-secondary);
 }
 
-.slider-input-wrap {
+.slider-input-container {
   display: flex;
   align-items: center;
   gap: var(--space-8);
 }
 
-.slider-input-wrap span {
+.slider-input-container span {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
 }
@@ -881,12 +788,12 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 26px;
-  height: 26px;
-  background: var(--color-text-primary);
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
   border-radius: 50%;
   cursor: pointer;
-  border: 3px solid var(--color-bg-card);
+  border: 1.5px solid var(--color-bg-card);
   box-shadow: var(--shadow-float);
 }
 
