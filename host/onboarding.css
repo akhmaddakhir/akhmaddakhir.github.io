@@ -236,9 +236,6 @@
   background: var(--color-bg-skeleton);
 }
 
-/* ============================================
-   OPTION LIST — Step 3 (place type)
-   ============================================ */
 .option-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -278,7 +275,7 @@
   gap: var(--space-4);
 }
 
-.option-text span {
+.option-text h3 {
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   color: var(--color-text-primary);
@@ -828,9 +825,6 @@ input[type="range"]::-webkit-slider-thumb {
   line-height: 1.6;
 }
 
-/* ============================================
-   DISCOUNT — Step 15
-   ============================================ */
 .discount-list {
   display: flex;
   flex-direction: column;
@@ -839,7 +833,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 .discount-item {
   position: relative;
-  cursor: pointer;
 }
 
 .discount-item input {
@@ -863,43 +856,45 @@ input[type="range"]::-webkit-slider-thumb {
 .discount-badge {
   width: 60px;
   height: 60px;
+  font-size: var(--text-md);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
   border-radius: var(--radius-lg);
-  border: 1.5px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--text-md);
-  font-weight: var(--font-bold);
-  color: var(--color-text-primary);
   flex-shrink: 0;
-  background: var(--color-bg-section);
 }
 
-.discount-info {
-  flex: 1;
+.discount-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
-.discount-info h3 {
+.discount-text h3 {
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
-  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
 }
 
-.discount-info p {
+.discount-text p {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  line-height: 1.5;
 }
 
 .discount-check {
   width: 28px;
   height: 28px;
-  border: 2px solid var(--color-border-strong);
+  border: 1.5px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
   transition: all var(--transition-fast);
 }
 
@@ -911,14 +906,13 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .discount-item input:checked ~ .discount-card {
-  border-color: var(--color-text-primary);
+  border-color: var(--color-primary);
   background: var(--color-primary-subtle);
-  box-shadow: 0 0 0 1px var(--color-text-primary);
 }
 
 .discount-item input:checked ~ .discount-card .discount-check {
-  background: var(--color-text-primary);
-  border-color: var(--color-text-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .discount-item input:checked ~ .discount-card .discount-check i {
@@ -927,6 +921,13 @@ input[type="range"]::-webkit-slider-thumb {
 
 .discount-card:hover {
   border-color: var(--color-text-secondary);
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-section);
+}
+
+.discount-card:active {
+  transform: scale(0.99);
+  background: var(--color-bg-skeleton);
 }
 
 /* ============================================
