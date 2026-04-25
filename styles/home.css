@@ -130,7 +130,7 @@
   gap: var(--space-8);
   padding: var(--space-12) var(--space-20);
   border-radius: var(--radius-full);
-  transition: background var(--transition-fast);
+  transition: all var(--transition-fast);
   position: relative;
 }
 
@@ -209,7 +209,6 @@
   font-size: var(--text-base);
 }
 
-/* ===== CARD SECTION ===== */
 .card-section {
   max-width: var(--container-xl);
   margin: var(--space-32) auto var(--space-80);
