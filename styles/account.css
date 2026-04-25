@@ -152,7 +152,7 @@
     var(--color-primary-footer) 100%
   );
   color: var(--color-text-inverse);
-  font-size: 18px;
+  font-size: var(--text-md);
 }
 
 .link-icon i {
@@ -545,7 +545,6 @@
   background: var(--color-primary-active);
   transform: scale(0.99);
 }
-
 
 .trips-filter {
   display: flex;
