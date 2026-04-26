@@ -70,8 +70,22 @@
     </header>
 
     <main class="main-content">
+      <section class="empty-state">
+        <div class="empty-icon">
+          <i class="ph-bold ph-house"></i>
+        </div>
+        <h3 class="empty-title">Belum Ada Listing</h3>
+        <p class="empty-desc">
+          Mulai dengan mendaftarkan properti Anda dan terima tamu pertama Anda.
+        </p>
+        <a href="/host/onboarding/pages/about_place.html" class="empty-button">
+          <i class="ph-bold ph-plus"></i>
+          Daftarkan Properti
+        </a>
+      </section>
+
       <section class="content-header">
-        <h2 class="content-title">Tentang Saya</h2>
+        <h2 class="content-title">Listing Saya</h2>
         <div class="header-buttons">
           <button class="header-button">
             <i class="ph-bold ph-squares-four"></i>
@@ -85,18 +99,43 @@
         </div>
       </section>
 
-      <a href="#" class="activity-item clickable">
-        <div class="activity-icon">
-          <i class="ph-bold ph-chats"></i>
-        </div>
-        <div class="activity-content">
-          <div class="activity-text">
-            <span class="activity-label">Ulasan yang saya tulis</span>
-            <span class="activity-badge">12 ulasan</span>
-          </div>
-          <i class="ph-bold ph-caret-right"></i>
-        </div>
-      </a>
+      <section class="list-section">
+        <table>
+          <thead>
+            <tr>
+              <th>Listing</th>
+              <th>Tipe</th>
+              <th>Lokasi</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="listing-cell">
+                  <img
+                    src="/assets/images/apurva_kempinski_bali.jpg"
+                    class="listing-thumbnail"
+                    alt="" />
+                  <h3 class="listing-name">Villa Sunset Tepi Pantai</h3>
+                </div>
+              </td>
+              <td>Hotel</td>
+              <td>Kecamatan Blimbing, Indonesia</td>
+              <td>
+                <div class="status-cell">
+                  <span class="status-dot error"></span>
+                  Butuh aksi
+                </div>
+              </td>
+              <td class="chevron-cell">
+                <i class="ph-bold ph-caret-right"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
 
     <footer class="footer">

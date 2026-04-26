@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pesan | Teman Singgah</title>
+    <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
+
+    <link rel="stylesheet" href="/components/root.css" />
+    <link rel="stylesheet" href="/components/navbar.css" />
+    <link rel="stylesheet" href="/host/dashboard/styles/messages.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <nav class="navbar-container">
+        <a href="reservations.html" class="logo-section">
+          <img
+            src="/assets/logo/logo_temansinggah.svg"
+            alt="Logo Teman Singgah"
+            class="logo-icon" />
+          <img
+            src="/assets/logo/label_temansinggah.svg"
+            alt="Brand Name Teman Singgah"
+            class="logo-name" />
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="reservations.html" class="nav-link">Reservasi</a>
+          </li>
+          <li class="nav-item">
+            <a href="calendar_router.html" class="nav-link"> Kalender </a>
+          </li>
+          <li class="nav-item">
+            <a href="listing.html" class="nav-link">Listing</a>
+          </li>
+          <li class="nav-item">
+            <a href="messages.html" class="nav-link active">Pesan</a>
+          </li>
+        </ul>
+
+        <div class="nav-right">
+          <button class="ghost-button">Ganti ke tamu</button>
+          <div class="icon-buttons">
+            <button class="icon-button profile" aria-label="Profile">A</button>
+            <button
+              class="icon-button hamburger"
+              aria-label="Hamburger"
+              style="display: none">
+              <i class="ph-bold ph-list"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <!-- Kolom Kiri: Daftar Pesan -->
+      <aside class="messages-sidebar">
+        <div class="sidebar-header">
+          <h2 class="sidebar-title">Pesan</h2>
+          <div class="sidebar-actions">
+            <button class="sidebar-icon-btn" aria-label="Cari">
+              <i class="ph-bold ph-magnifying-glass"></i>
+            </button>
+            <button class="sidebar-icon-btn" aria-label="Pengaturan">
+              <i class="ph-bold ph-gear"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="sidebar-filter">
+          <button class="filter-pill active">
+            Semua <i class="ph-bold ph-caret-down"></i>
+          </button>
+          <button class="filter-pill">Belum Dibaca</button>
+        </div>
+
+        <div class="conversation-list">
+          <a href="#" class="conversation-item active">
+            <img
+              src="/assets/images/apurva_kempinski_bali.jpg"
+              alt="Avatar"
+              class="conv-avatar" />
+            <div class="conv-body">
+              <div class="conv-top">
+                <span class="conv-name">Stevie</span>
+                <span class="conv-time">12:25</span>
+              </div>
+              <span class="conv-preview">Anda: Gambar dikirim</span>
+              <span class="conv-tag">Superhost Ambassador</span>
+            </div>
+          </a>
+        </div>
+      </aside>
+
+      <!-- Kolom Kanan: Area Chat -->
+      <section class="chat-area">
+        <!-- Header Chat -->
+        <div class="chat-header">
+          <img
+            src="/assets/images/apurva_kempinski_bali.jpg"
+            alt="Avatar"
+            class="chat-avatar" />
+          <span class="chat-name">Stevie</span>
+          <button class="chat-detail-btn" aria-label="Detail">
+            <i class="ph-bold ph-caret-right"></i>
+          </button>
+        </div>
+
+        <!-- Isi Chat -->
+        <div class="chat-messages">
+          <!-- Bubble dari tamu -->
+          <div class="bubble bubble-guest">
+            <p>Halo, apakah properti tersedia untuk akhir pekan ini?</p>
+          </div>
+
+          <!-- Bubble dari host (Anda) -->
+          <div class="bubble bubble-host">
+            <p>Halo! Ya, masih tersedia. Silakan lanjutkan pemesanan.</p>
+          </div>
+        </div>
+
+        <!-- Input Pesan -->
+        <div class="chat-input-wrapper">
+          <div class="chat-input-box">
+            <input
+              type="text"
+              class="chat-input"
+              placeholder="Tulis pesan..." />
+            <div class="chat-input-actions">
+              <button class="chat-attach-btn" aria-label="Lampirkan gambar">
+                <i class="ph-bold ph-image"></i>
+              </button>
+              <button class="chat-send-btn" aria-label="Kirim">
+                <i class="ph-bold ph-arrow-up"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

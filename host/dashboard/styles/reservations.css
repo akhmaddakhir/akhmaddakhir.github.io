@@ -1,7 +1,7 @@
 .main-content {
   max-width: var(--container-xl);
-  margin:var(--space-center);
-  margin-top: var(--space-96);
+  margin: var(--space-center);
+  margin-top: 112px;
 }
 
 .filter-section {
