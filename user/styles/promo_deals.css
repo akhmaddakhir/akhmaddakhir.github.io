@@ -62,7 +62,6 @@
 .promo-badge i {
   color: var(--color-accent-light);
   font-size: var(--text-lg);
-  animation: pulse 2s infinite;
 }
 
 .promo-badge span {
