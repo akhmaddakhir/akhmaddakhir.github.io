@@ -124,6 +124,10 @@
   background: var(--color-primary-light);
 }
 
+.sidebar-link:active {
+  background: var(--color-primary-light-hover);
+}
+
 .sidebar-link.active {
   background: var(--color-primary-light);
 }

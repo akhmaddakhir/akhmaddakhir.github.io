@@ -54,6 +54,11 @@
 
 .list-section {
   width: 100%;
+  background: var(--color-bg-card);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-32);
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid var(--color-border-subtle);
 }
 
 table {

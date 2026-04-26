@@ -5,12 +5,11 @@ body{
 .main-content {
   margin: var(--space-center);
   margin-top: var(--navbar-height);
+  max-width:var(--container-2xl);
   display: grid;
   grid-template-columns: 380px 1fr;
   height: calc(100vh - var(--navbar-height));
   overflow: hidden;
-  background: var(--color-bg-card);
-  box-shadow: var(--shadow-card);
   border: 1.5px solid var(--color-border-subtle);
 }
 
