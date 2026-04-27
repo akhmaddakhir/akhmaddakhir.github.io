@@ -1,0 +1,651 @@
+/* ============================================================
+   calendar_router.css
+   Host Dashboard — Halaman Kalender (Airbnb-style)
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Layout Utama
+   ---------------------------------------------------------- */
+body {
+  overflow: hidden;
+}
+
+.main-content {
+  margin: var(--space-center);
+  margin-top: var(--navbar-height);
+  max-width: var(--container-xl);
+  display: grid;
+  grid-template-columns: 1fr 296px;
+  height: calc(100vh - var(--navbar-height));
+  overflow: hidden;
+}
+
+/* ----------------------------------------------------------
+   Panel Kiri — Kalender
+   ---------------------------------------------------------- */
+.calendar-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: var(--space-32) var(--space-32) 0 var(--space-40);
+}
+
+/* Header: judul + navigasi + toggle tampilan */
+.calendar-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-24);
+  flex-shrink: 0;
+}
+
+.calendar-panel-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.calendar-panel-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.calendar-nav-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+.calendar-nav-btn:hover {
+  background: var(--color-bg-section);
+  border-color: var(--color-border-strong);
+}
+
+.calendar-nav-btn:active {
+  transform: scale(0.96);
+}
+
+.calendar-panel-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+/* View toggle: Bulan / Minggu */
+.view-toggle {
+  display: flex;
+  background: var(--color-bg-section);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.view-toggle-btn {
+  padding: var(--space-6) var(--space-16);
+  border: none;
+  background: none;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  line-height: 1.4;
+}
+
+.view-toggle-btn.active {
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-float);
+}
+
+.view-toggle-btn:not(.active):hover {
+  color: var(--color-text-primary);
+}
+
+/* Icon button pengaturan */
+.header-icon-btn {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.header-icon-btn:hover {
+  background: var(--color-bg-section);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-strong);
+}
+
+/* ----------------------------------------------------------
+   Baris Hari
+   ---------------------------------------------------------- */
+.weekday-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  flex-shrink: 0;
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border-subtle);
+  margin-bottom: var(--space-8);
+}
+
+.weekday-name {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-disabled);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: var(--space-4) 0;
+}
+
+/* ----------------------------------------------------------
+   Grid Kalender
+   ---------------------------------------------------------- */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-4);
+  flex: 1;
+  overflow-y: auto;
+  padding-right: var(--space-4);
+  padding-bottom: var(--space-16);
+  align-content: start;
+}
+
+/* ----------------------------------------------------------
+   Sel Hari
+   ---------------------------------------------------------- */
+.cal-day {
+  aspect-ratio: 0.85;
+  border: 1.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10) var(--space-10) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast),
+    transform var(--transition-fast);
+  background: var(--color-bg-card);
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+}
+
+.cal-day:hover:not(.empty):not(.blocked):not(.booked) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-subtle);
+  z-index: 1;
+}
+
+.cal-day:active:not(.empty):not(.blocked):not(.booked) {
+  transform: scale(0.97);
+}
+
+/* Sel kosong (padding awal bulan) */
+.cal-day.empty {
+  background: none;
+  border-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Hari ini */
+.cal-day.today .day-num {
+  width: 26px;
+  height: 26px;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+}
+
+/* Dipilih */
+.cal-day.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.cal-day.selected .day-num {
+  color: var(--color-primary);
+}
+
+.cal-day.selected .day-price {
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
+}
+
+/* Akhir pekan */
+.cal-day.weekend:not(.blocked):not(.booked) .day-price {
+  color: var(--color-accent);
+  font-weight: var(--font-semibold);
+}
+
+/* Diblokir */
+.cal-day.blocked {
+  background: var(--color-bg-section);
+  cursor: not-allowed;
+  border-color: var(--color-border-subtle);
+}
+
+.cal-day.blocked .day-num {
+  color: var(--color-text-disabled);
+}
+
+/* Terpesan */
+.cal-day.booked {
+  background: var(--color-bg-section);
+  cursor: default;
+  border-color: var(--color-border);
+  pointer-events: none;
+}
+
+.cal-day.booked .day-num {
+  color: var(--color-text-secondary);
+}
+
+/* ----------------------------------------------------------
+   Konten Sel
+   ---------------------------------------------------------- */
+.day-num {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.day-price {
+  font-size: 10px;
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.day-status-label {
+  font-size: 10px;
+  font-weight: var(--font-medium);
+  color: var(--color-text-disabled);
+  line-height: 1;
+  margin-top: auto;
+}
+
+/* Dot indikator terpesan */
+.day-booking-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  position: absolute;
+  bottom: 7px;
+  right: 8px;
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------
+   Legend
+   ---------------------------------------------------------- */
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-20);
+  padding: var(--space-14) 0 var(--space-20);
+  flex-shrink: 0;
+  border-top: 1px solid var(--color-border-subtle);
+  margin-top: var(--space-8);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1;
+}
+
+.legend-swatch {
+  width: 13px;
+  height: 13px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.legend-swatch.available {
+  background: var(--color-bg-card);
+  border: 1.5px solid var(--color-border);
+}
+
+.legend-swatch.selected {
+  background: var(--color-primary-light);
+  border: 1.5px solid var(--color-primary);
+}
+
+.legend-swatch.blocked {
+  background: var(--color-bg-section);
+  border: 1.5px solid var(--color-border);
+}
+
+.legend-swatch.booked {
+  background: var(--color-bg-section);
+  border: 1.5px solid var(--color-border-strong);
+  position: relative;
+  overflow: visible;
+}
+
+.legend-swatch.booked::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  width: 5px;
+  height: 5px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.legend-swatch.weekend {
+  background: var(--color-bg-card);
+  border: 1.5px solid var(--color-accent);
+}
+
+/* ----------------------------------------------------------
+   Sidebar Kanan
+   ---------------------------------------------------------- */
+.calendar-sidebar {
+  border-left: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-card);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* ----------------------------------------------------------
+   Panel Tanggal Dipilih
+   ---------------------------------------------------------- */
+.sidebar-selected {
+  padding: var(--space-24);
+  background: var(--color-primary-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: none;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.sidebar-selected.visible {
+  display: flex;
+}
+
+.sidebar-selected-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.sidebar-selected-date {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.sidebar-selected-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-6);
+}
+
+.sidebar-selected-price {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.sidebar-selected-price-unit {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Status badge */
+.sidebar-selected-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-4) var(--space-10);
+  border-radius: var(--radius-full);
+  background: var(--color-success-light);
+  width: fit-content;
+}
+
+.sidebar-selected-status .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-success);
+  flex-shrink: 0;
+}
+
+.sidebar-selected-status .status-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-success);
+}
+
+.sidebar-selected-status.booked {
+  background: var(--color-error-light);
+}
+
+.sidebar-selected-status.booked .status-dot {
+  background: var(--color-error);
+}
+
+.sidebar-selected-status.booked .status-label {
+  color: var(--color-error);
+}
+
+/* Tombol aksi */
+.sidebar-edit-btn,
+.sidebar-block-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  width: 100%;
+  padding: var(--space-10) var(--space-16);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-edit-btn {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: none;
+}
+
+.sidebar-edit-btn:hover {
+  background: var(--color-primary-hover);
+}
+
+.sidebar-edit-btn:active {
+  background: var(--color-primary-active);
+  transform: scale(0.99);
+}
+
+.sidebar-block-btn {
+  background: none;
+  color: var(--color-text-secondary);
+  border: 1.5px solid var(--color-border);
+}
+
+.sidebar-block-btn:hover {
+  background: var(--color-bg-section);
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+/* ----------------------------------------------------------
+   Sidebar Section (Settings, Summary)
+   ---------------------------------------------------------- */
+.sidebar-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding: var(--space-24);
+  border-bottom: 1px solid var(--color-border-subtle);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar-section:hover {
+  background: var(--color-primary-subtle);
+}
+
+.sidebar-section:active {
+  background: var(--color-primary-light);
+}
+
+.sidebar-section-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.sidebar-section-title {
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.sidebar-section-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sidebar-section-detail {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.sidebar-section-arrow {
+  font-size: var(--text-base);
+  color: var(--color-text-disabled);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: color var(--transition-fast);
+}
+
+.sidebar-section:hover .sidebar-section-arrow {
+  color: var(--color-text-secondary);
+}
+
+/* ----------------------------------------------------------
+   Scrollbar Kalender
+   ---------------------------------------------------------- */
+.calendar-grid::-webkit-scrollbar {
+  width: 4px;
+}
+
+.calendar-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.calendar-grid::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.calendar-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}
+
+/* ----------------------------------------------------------
+   Responsive — Tablet 1024px ke bawah
+   ---------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr 260px;
+  }
+
+  .calendar-panel {
+    padding: var(--space-24) var(--space-24) 0 var(--space-24);
+  }
+
+  .calendar-panel-title {
+    font-size: var(--text-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow: visible;
+  }
+
+  .calendar-panel {
+    padding: var(--space-20);
+    overflow: visible;
+  }
+
+  .calendar-grid {
+    overflow: visible;
+    padding-bottom: var(--space-20);
+  }
+
+  .calendar-sidebar {
+    border-left: none;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+}
