@@ -72,6 +72,7 @@ body {
   display: flex;
   gap: var(--space-12);
   align-items: center;
+  margin-bottom: var(--space-32);
 }
 
 .filter-item {
@@ -87,12 +88,15 @@ body {
   display: flex;
   align-items: center;
   gap: var(--space-8);
-  margin-bottom: var(--space-32);
 }
 
 .filter-item:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
+}
+
+.filter-item:active {
+  transform: scale(0.99);
 }
 
 .filter-item.active {
