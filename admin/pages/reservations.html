@@ -1,27 +1,388 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Utama | Teman Singgah</title>
+    <title>Reservations | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
-    <link rel="stylesheet" href="/components/root.css" />
-    <link rel="stylesheet" href="/components/navbar.css" />
-    <link rel="stylesheet" href="/admin/dashboard.css" />
+    <link rel="stylesheet" href="../dashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
-    <script
-      type="module"
-      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
   </head>
-  <body></body>
+
+  <body>
+    <div class="admin-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <img
+              src="/assets/logo/logo_temansinggah.svg"
+              alt="Logo"
+              class="sidebar-logo-img" />
+            <span class="sidebar-brand-text">Teman Singgah</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Halaman Utama</div>
+            <a href="dashboard.html" class="nav-item">
+              <i class="ri-dashboard-line"></i>
+              Dashboard
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Manajemen</div>
+            <a href="users.html" class="nav-item">
+              <i class="ri-user-line"></i>
+              Users
+            </a>
+            <a href="listings.html" class="nav-item">
+              <i class="ri-home-4-line"></i>
+              Listings
+            </a>
+            <a href="reservations.html" class="nav-item active">
+              <i class="ri-calendar-check-line"></i>
+              Reservations
+            </a>
+            <a href="transactions.html" class="nav-item">
+              <i class="ri-exchange-dollar-line"></i>
+              Transactions
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Moderasi</div>
+            <a href="reviews.html" class="nav-item">
+              <i class="ri-star-line"></i>
+              Reviews
+            </a>
+            <a href="reports.html" class="nav-item">
+              <i class="ri-flag-line"></i>
+              Reports
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Keuangan</div>
+            <a href="payouts.html" class="nav-item">
+              <i class="ri-money-dollar-circle-line"></i>
+              Payouts
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Sistem</div>
+            <a href="settings.html" class="nav-item">
+              <i class="ri-settings-3-line"></i>
+              Settings
+            </a>
+            <a href="logs.html" class="nav-item">
+              <i class="ri-file-list-3-line"></i>
+              Logs
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-wrapper">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Manajemen Reservasi</h1>
+          </div>
+          <div class="topbar-right">
+            <div class="user-menu">
+              <span class="user-name">Administrator</span>
+              <div class="user-avatar">A</div>
+            </div>
+          </div>
+        </header>
+
+        <main class="content-area">
+          <!-- Filters -->
+          <div class="filter-bar">
+            <button class="filter-item active">Semua</button>
+            <button class="filter-item">Pending</button>
+            <button class="filter-item">Confirmed</button>
+            <button class="filter-item">Cancelled</button>
+            <button class="filter-item">Completed</button>
+          </div>
+
+          <!-- Reservations Table -->
+          <section class="table-section">
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID Reservasi</th>
+                    <th>Nama Tamu</th>
+                    <th>Listing</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Total Harga</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0042</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">BS</div>
+                        <span>Budi Santoso</span>
+                      </div>
+                    </td>
+                    <td>Villa Sunset Tepi Pantai</td>
+                    <td>5 Mei 2026</td>
+                    <td>7 Mei 2026</td>
+                    <td>Rp2.450.000</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Confirmed
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0041</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">SA</div>
+                        <span>Siti Aminah</span>
+                      </div>
+                    </td>
+                    <td>Homestay Malioboro</td>
+                    <td>4 Mei 2026</td>
+                    <td>5 Mei 2026</td>
+                    <td>Rp850.000</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Confirmed
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0040</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AW</div>
+                        <span>Agus Wijaya</span>
+                      </div>
+                    </td>
+                    <td>Villa Ubud Hijau</td>
+                    <td>3 Mei 2026</td>
+                    <td>6 Mei 2026</td>
+                    <td>Rp3.200.000</td>
+                    <td>
+                      <span class="badge badge-warning">
+                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        Pending
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0039</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">DK</div>
+                        <span>Dewi Kusuma</span>
+                      </div>
+                    </td>
+                    <td>Apartemen Jakarta Selatan</td>
+                    <td>2 Mei 2026</td>
+                    <td>4 Mei 2026</td>
+                    <td>Rp1.100.000</td>
+                    <td>
+                      <span class="badge badge-error">
+                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        Cancelled
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0038</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">RH</div>
+                        <span>Rudi Hartono</span>
+                      </div>
+                    </td>
+                    <td>Glamping Lembang</td>
+                    <td>1 Mei 2026</td>
+                    <td>3 Mei 2026</td>
+                    <td>Rp1.750.000</td>
+                    <td>
+                      <span class="badge badge-info">
+                        <span class="badge-dot" style="background: var(--color-info)"></span>
+                        Completed
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0037</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">NS</div>
+                        <span>Nina Safitri</span>
+                      </div>
+                    </td>
+                    <td>Villa Sunset Tepi Pantai</td>
+                    <td>30 Apr 2026</td>
+                    <td>2 Mei 2026</td>
+                    <td>Rp2.450.000</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Confirmed
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0036</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AF</div>
+                        <span>Ahmad Fauzi</span>
+                      </div>
+                    </td>
+                    <td>Rumah Kayu Bandung</td>
+                    <td>29 Apr 2026</td>
+                    <td>30 Apr 2026</td>
+                    <td>Rp980.000</td>
+                    <td>
+                      <span class="badge badge-info">
+                        <span class="badge-dot" style="background: var(--color-info)"></span>
+                        Completed
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0035</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">LD</div>
+                        <span>Lestari Dewi</span>
+                      </div>
+                    </td>
+                    <td>Resort Bintan</td>
+                    <td>28 Apr 2026</td>
+                    <td>1 Mei 2026</td>
+                    <td>Rp4.500.000</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Confirmed
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0034</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">IP</div>
+                        <span>Irfan Pratama</span>
+                      </div>
+                    </td>
+                    <td>Villa Gunung Bromo</td>
+                    <td>27 Apr 2026</td>
+                    <td>28 Apr 2026</td>
+                    <td>Rp1.300.000</td>
+                    <td>
+                      <span class="badge badge-warning">
+                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        Pending
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span class="id-code">#RSV-2026-0033</span></td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">MR</div>
+                        <span>Maya Rahmawati</span>
+                      </div>
+                    </td>
+                    <td>Homestay Malioboro</td>
+                    <td>26 Apr 2026</td>
+                    <td>27 Apr 2026</td>
+                    <td>Rp570.000</td>
+                    <td>
+                      <span class="badge badge-error">
+                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        Cancelled
+                      </span>
+                    </td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>

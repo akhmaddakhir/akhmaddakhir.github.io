@@ -1,27 +1,402 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Utama | Teman Singgah</title>
+    <title>Listings | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
-    <link rel="stylesheet" href="/components/root.css" />
-    <link rel="stylesheet" href="/components/navbar.css" />
-    <link rel="stylesheet" href="/admin/dashboard.css" />
+    <link rel="stylesheet" href="../dashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
-    <script
-      type="module"
-      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
   </head>
-  <body></body>
+
+  <body>
+    <div class="admin-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <img
+              src="/assets/logo/logo_temansinggah.svg"
+              alt="Logo"
+              class="sidebar-logo-img" />
+            <span class="sidebar-brand-text">Teman Singgah</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Halaman Utama</div>
+            <a href="dashboard.html" class="nav-item">
+              <i class="ri-dashboard-line"></i>
+              Dashboard
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Manajemen</div>
+            <a href="users.html" class="nav-item">
+              <i class="ri-user-line"></i>
+              Users
+            </a>
+            <a href="listings.html" class="nav-item active">
+              <i class="ri-home-4-line"></i>
+              Listings
+            </a>
+            <a href="reservations.html" class="nav-item">
+              <i class="ri-calendar-check-line"></i>
+              Reservations
+            </a>
+            <a href="transactions.html" class="nav-item">
+              <i class="ri-exchange-dollar-line"></i>
+              Transactions
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Moderasi</div>
+            <a href="reviews.html" class="nav-item">
+              <i class="ri-star-line"></i>
+              Reviews
+            </a>
+            <a href="reports.html" class="nav-item">
+              <i class="ri-flag-line"></i>
+              Reports
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Keuangan</div>
+            <a href="payouts.html" class="nav-item">
+              <i class="ri-money-dollar-circle-line"></i>
+              Payouts
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Sistem</div>
+            <a href="settings.html" class="nav-item">
+              <i class="ri-settings-3-line"></i>
+              Settings
+            </a>
+            <a href="logs.html" class="nav-item">
+              <i class="ri-file-list-3-line"></i>
+              Logs
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-wrapper">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Manajemen Listing</h1>
+          </div>
+          <div class="topbar-right">
+            <div class="user-menu">
+              <span class="user-name">Administrator</span>
+              <div class="user-avatar">A</div>
+            </div>
+          </div>
+        </header>
+
+        <main class="content-area">
+          <!-- Filters -->
+          <div class="filter-bar">
+            <button class="filter-item active">Semua</button>
+            <button class="filter-item">Aktif</button>
+            <button class="filter-item">Nonaktif</button>
+            <button class="filter-item">Pending Review</button>
+          </div>
+
+          <!-- Listings Table -->
+          <section class="table-section">
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nama Listing</th>
+                    <th>Host</th>
+                    <th>Lokasi</th>
+                    <th>Harga/Malam</th>
+                    <th>Status</th>
+                    <th>Tanggal Dibuat</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-12);">
+                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i class="ri-home-4-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                        </div>
+                        <div>
+                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Villa Sunset Tepi Pantai</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">BS</div>
+                        <span>Budi Santoso</span>
+                      </div>
+                    </td>
+                    <td>Kecamatan Blimbing, Indonesia</td>
+                    <td>Rp399.344</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Aktif
+                      </span>
+                    </td>
+                    <td>15 Jan 2025</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-12);">
+                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i class="ri-hotel-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                        </div>
+                        <div>
+                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Homestay Malioboro</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AW</div>
+                        <span>Agus Wijaya</span>
+                      </div>
+                    </td>
+                    <td>Yogyakarta, Indonesia</td>
+                    <td>Rp285.000</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Aktif
+                      </span>
+                    </td>
+                    <td>22 Feb 2025</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-12);">
+                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i class="ri-home-5-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                        </div>
+                        <div>
+                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Villa Ubud Hijau</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">RH</div>
+                        <span>Rudi Hartono</span>
+                      </div>
+                    </td>
+                    <td>Ubud, Bali</td>
+                    <td>Rp1.200.000</td>
+                    <td>
+                      <span class="badge badge-warning">
+                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        Pending Review
+                      </span>
+                    </td>
+                    <td>10 Mar 2025</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-12);">
+                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i class="ri-building-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                        </div>
+                        <div>
+                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Apartemen Jakarta Selatan</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AF</div>
+                        <span>Ahmad Fauzi</span>
+                      </div>
+                    </td>
+                    <td>Jakarta Selatan, DKI Jakarta</td>
+                    <td>Rp550.000</td>
+                    <td>
+                      <span class="badge badge-error">
+                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        Nonaktif
+                      </span>
+                    </td>
+                    <td>5 Apr 2025</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-12);">
+                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i class="ri-tent-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                        </div>
+                        <div>
+                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Glamping Lembang</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">BS</div>
+                        <span>Budi Santoso</span>
+                      </div>
+                    </td>
+                    <td>Lembang, Bandung</td>
+                    <td>Rp875.000</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Aktif
+                      </span>
+                    </td>
+                    <td>18 Jan 2025</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-12);">
+                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i class="ri-home-smile-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                        </div>
+                        <div>
+                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rumah Kayu Bandung</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AW</div>
+                        <span>Agus Wijaya</span>
+                      </div>
+                    </td>
+                    <td>Dago, Bandung</td>
+                    <td>Rp490.000</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Aktif
+                      </span>
+                    </td>
+                    <td>3 Mar 2025</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-12);">
+                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i class="ri-umbrella-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                        </div>
+                        <div>
+                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Resort Bintan</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">RH</div>
+                        <span>Rudi Hartono</span>
+                      </div>
+                    </td>
+                    <td>Lagoi, Bintan</td>
+                    <td>Rp2.250.000</td>
+                    <td>
+                      <span class="badge badge-warning">
+                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        Pending Review
+                      </span>
+                    </td>
+                    <td>25 Apr 2025</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-12);">
+                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i class="ri-home-gear-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                        </div>
+                        <div>
+                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Villa Gunung Bromo</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AF</div>
+                        <span>Ahmad Fauzi</span>
+                      </div>
+                    </td>
+                    <td>Probolinggo, Jawa Timur</td>
+                    <td>Rp650.000</td>
+                    <td>
+                      <span class="badge badge-error">
+                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        Nonaktif
+                      </span>
+                    </td>
+                    <td>12 Feb 2025</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>

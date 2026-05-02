@@ -1,27 +1,331 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Utama | Teman Singgah</title>
+    <title>Payouts | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
-    <link rel="stylesheet" href="/components/root.css" />
-    <link rel="stylesheet" href="/components/navbar.css" />
-    <link rel="stylesheet" href="/admin/dashboard.css" />
+    <link rel="stylesheet" href="../dashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
-    <script
-      type="module"
-      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
   </head>
-  <body></body>
+
+  <body>
+    <div class="admin-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <img
+              src="/assets/logo/logo_temansinggah.svg"
+              alt="Logo"
+              class="sidebar-logo-img" />
+            <span class="sidebar-brand-text">Teman Singgah</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Halaman Utama</div>
+            <a href="dashboard.html" class="nav-item">
+              <i class="ri-dashboard-line"></i>
+              Dashboard
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Manajemen</div>
+            <a href="users.html" class="nav-item">
+              <i class="ri-user-line"></i>
+              Users
+            </a>
+            <a href="listings.html" class="nav-item">
+              <i class="ri-home-4-line"></i>
+              Listings
+            </a>
+            <a href="reservations.html" class="nav-item">
+              <i class="ri-calendar-check-line"></i>
+              Reservations
+            </a>
+            <a href="transactions.html" class="nav-item">
+              <i class="ri-exchange-dollar-line"></i>
+              Transactions
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Moderasi</div>
+            <a href="reviews.html" class="nav-item">
+              <i class="ri-star-line"></i>
+              Reviews
+            </a>
+            <a href="reports.html" class="nav-item">
+              <i class="ri-flag-line"></i>
+              Reports
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Keuangan</div>
+            <a href="payouts.html" class="nav-item active">
+              <i class="ri-money-dollar-circle-line"></i>
+              Payouts
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Sistem</div>
+            <a href="settings.html" class="nav-item">
+              <i class="ri-settings-3-line"></i>
+              Settings
+            </a>
+            <a href="logs.html" class="nav-item">
+              <i class="ri-file-list-3-line"></i>
+              Logs
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-wrapper">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Pencairan Dana Host</h1>
+          </div>
+          <div class="topbar-right">
+            <div class="user-menu">
+              <span class="user-name">Administrator</span>
+              <div class="user-avatar">A</div>
+            </div>
+          </div>
+        </header>
+
+        <main class="content-area">
+          <!-- Filters -->
+          <div class="filter-bar">
+            <button class="filter-item active">Semua</button>
+            <button class="filter-item">Scheduled</button>
+            <button class="filter-item">Processing</button>
+            <button class="filter-item">Completed</button>
+            <button class="filter-item">Failed</button>
+          </div>
+
+          <!-- Payouts Table -->
+          <section class="table-section">
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nama Host</th>
+                    <th>Jumlah Payout</th>
+                    <th>Bank Tujuan</th>
+                    <th>Jadwal Transfer</th>
+                    <th>Status</th>
+                    <th>Tanggal Diproses</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">BS</div>
+                        <span>Budi Santoso</span>
+                      </div>
+                    </td>
+                    <td style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rp4.875.000</td>
+                    <td>BCA — 1234567890</td>
+                    <td>5 Mei 2026</td>
+                    <td>
+                      <span class="badge badge-warning">
+                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        Scheduled
+                      </span>
+                    </td>
+                    <td>—</td>
+                    <td>
+                      <button class="action-btn" aria-label="Proses">
+                        <i class="ri-play-circle-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AW</div>
+                        <span>Agus Wijaya</span>
+                      </div>
+                    </td>
+                    <td style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rp2.340.000</td>
+                    <td>Mandiri — 9876543210</td>
+                    <td>5 Mei 2026</td>
+                    <td>
+                      <span class="badge badge-info">
+                        <span class="badge-dot" style="background: var(--color-info)"></span>
+                        Processing
+                      </span>
+                    </td>
+                    <td>2 Mei 2026, 09:00</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">RH</div>
+                        <span>Rudi Hartono</span>
+                      </div>
+                    </td>
+                    <td style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rp6.120.000</td>
+                    <td>BRI — 1122334455</td>
+                    <td>2 Mei 2026</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Completed
+                      </span>
+                    </td>
+                    <td>2 Mei 2026, 08:15</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AF</div>
+                        <span>Ahmad Fauzi</span>
+                      </div>
+                    </td>
+                    <td style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rp1.890.000</td>
+                    <td>BCA — 5566778899</td>
+                    <td>2 Mei 2026</td>
+                    <td>
+                      <span class="badge badge-error">
+                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        Failed
+                      </span>
+                    </td>
+                    <td>2 Mei 2026, 08:00</td>
+                    <td>
+                      <button class="action-btn" aria-label="Retry">
+                        <i class="ri-restart-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">IP</div>
+                        <span>Irfan Pratama</span>
+                      </div>
+                    </td>
+                    <td style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rp3.450.000</td>
+                    <td>BNI — 9988776655</td>
+                    <td>12 Mei 2026</td>
+                    <td>
+                      <span class="badge badge-warning">
+                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        Scheduled
+                      </span>
+                    </td>
+                    <td>—</td>
+                    <td>
+                      <button class="action-btn" aria-label="Proses">
+                        <i class="ri-play-circle-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">MR</div>
+                        <span>Maya Rahmawati</span>
+                      </div>
+                    </td>
+                    <td style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rp5.670.000</td>
+                    <td>Mandiri — 2233445566</td>
+                    <td>12 Mei 2026</td>
+                    <td>
+                      <span class="badge badge-info">
+                        <span class="badge-dot" style="background: var(--color-info)"></span>
+                        Processing
+                      </span>
+                    </td>
+                    <td>2 Mei 2026, 10:30</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">DR</div>
+                        <span>Dian Rahayu</span>
+                      </div>
+                    </td>
+                    <td style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rp7.230.000</td>
+                    <td>BCA — 3344556677</td>
+                    <td>29 Apr 2026</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        Completed
+                      </span>
+                    </td>
+                    <td>29 Apr 2026, 08:00</td>
+                    <td>
+                      <button class="action-btn" aria-label="Lihat detail">
+                        <i class="ri-eye-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">YS</div>
+                        <span>Yoga Susanto</span>
+                      </div>
+                    </td>
+                    <td style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rp980.000</td>
+                    <td>BRI — 4455667788</td>
+                    <td>29 Apr 2026</td>
+                    <td>
+                      <span class="badge badge-error">
+                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        Failed
+                      </span>
+                    </td>
+                    <td>29 Apr 2026, 08:00</td>
+                    <td>
+                      <button class="action-btn" aria-label="Retry">
+                        <i class="ri-restart-line"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,27 +1,230 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Utama | Teman Singgah</title>
+    <title>Settings | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
-    <link rel="stylesheet" href="/components/root.css" />
-    <link rel="stylesheet" href="/components/navbar.css" />
-    <link rel="stylesheet" href="/admin/dashboard.css" />
+    <link rel="stylesheet" href="../dashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
-    <script
-      type="module"
-      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
   </head>
-  <body></body>
+
+  <body>
+    <div class="admin-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <img
+              src="/assets/logo/logo_temansinggah.svg"
+              alt="Logo"
+              class="sidebar-logo-img" />
+            <span class="sidebar-brand-text">Teman Singgah</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Halaman Utama</div>
+            <a href="dashboard.html" class="nav-item">
+              <i class="ri-dashboard-line"></i>
+              Dashboard
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Manajemen</div>
+            <a href="users.html" class="nav-item">
+              <i class="ri-user-line"></i>
+              Users
+            </a>
+            <a href="listings.html" class="nav-item">
+              <i class="ri-home-4-line"></i>
+              Listings
+            </a>
+            <a href="reservations.html" class="nav-item">
+              <i class="ri-calendar-check-line"></i>
+              Reservations
+            </a>
+            <a href="transactions.html" class="nav-item">
+              <i class="ri-exchange-dollar-line"></i>
+              Transactions
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Moderasi</div>
+            <a href="reviews.html" class="nav-item">
+              <i class="ri-star-line"></i>
+              Reviews
+            </a>
+            <a href="reports.html" class="nav-item">
+              <i class="ri-flag-line"></i>
+              Reports
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Keuangan</div>
+            <a href="payouts.html" class="nav-item">
+              <i class="ri-money-dollar-circle-line"></i>
+              Payouts
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Sistem</div>
+            <a href="settings.html" class="nav-item active">
+              <i class="ri-settings-3-line"></i>
+              Settings
+            </a>
+            <a href="logs.html" class="nav-item">
+              <i class="ri-file-list-3-line"></i>
+              Logs
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-wrapper">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Konfigurasi Platform</h1>
+          </div>
+          <div class="topbar-right">
+            <div class="user-menu">
+              <span class="user-name">Administrator</span>
+              <div class="user-avatar">A</div>
+            </div>
+          </div>
+        </header>
+
+        <main class="content-area">
+          <!-- Informasi Umum -->
+          <div class="settings-card">
+            <h2 class="settings-card-title">Informasi Umum</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="platform-name">Nama Platform</label>
+                <input
+                  type="text"
+                  id="platform-name"
+                  class="form-input"
+                  value="Teman Singgah" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="support-email">Email Support</label>
+                <input
+                  type="email"
+                  id="support-email"
+                  class="form-input"
+                  value="support@temansinggah.id" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Keuangan -->
+          <div class="settings-card">
+            <h2 class="settings-card-title">Keuangan</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="commission-rate">Persentase Komisi Platform (%)</label>
+                <input
+                  type="number"
+                  id="commission-rate"
+                  class="form-input"
+                  value="10"
+                  min="0"
+                  max="100" />
+                <span class="form-hint">Persentase yang dipotong dari setiap transaksi</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="min-payout">Batas Minimum Payout (Rp)</label>
+                <input
+                  type="number"
+                  id="min-payout"
+                  class="form-input"
+                  value="500000"
+                  min="0" />
+                <span class="form-hint">Jumlah minimum sebelum host dapat mencairkan dana</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kebijakan -->
+          <div class="settings-card">
+            <h2 class="settings-card-title">Kebijakan Pembatalan</h2>
+            <div class="form-group">
+              <label class="form-label" for="cancellation-policy">Kebijakan Default</label>
+              <textarea
+                id="cancellation-policy"
+                class="form-textarea"
+                rows="4">Pembatalan dilakukan oleh tamu minimal 48 jam sebelum check-in untuk mendapatkan pengembalian dana penuh. Pembatalan dalam waktu 48 jam akan dikenakan biaya sebesar 1 malam menginap. No-show akan dikenakan biaya penuh.</textarea>
+              <span class="form-hint">Kebijakan ini akan ditampilkan sebagai default untuk listing baru</span>
+            </div>
+          </div>
+
+          <!-- Notifikasi Email -->
+          <div class="settings-card">
+            <h2 class="settings-card-title">Pengaturan Notifikasi Email</h2>
+            <div class="toggle-row">
+              <div class="toggle-label">
+                <h4>Notifikasi Reservasi Baru</h4>
+                <p>Kirim email ke host saat ada reservasi baru masuk</p>
+              </div>
+              <div class="toggle-switch active"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label">
+                <h4>Notifikasi Pembatalan</h4>
+                <p>Kirim email ke host dan tamu saat reservasi dibatalkan</p>
+              </div>
+              <div class="toggle-switch active"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label">
+                <h4>Notifikasi Payout</h4>
+                <p>Kirim email ke host saat dana payout berhasil diproses</p>
+              </div>
+              <div class="toggle-switch active"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label">
+                <h4>Notifikasi Review Baru</h4>
+                <p>Kirim email ke host saat menerima ulasan dari tamu</p>
+              </div>
+              <div class="toggle-switch"></div>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-label">
+                <h4>Notifikasi Laporan</h4>
+                <p>Kirim email ke admin saat ada laporan atau komplain masuk</p>
+              </div>
+              <div class="toggle-switch active"></div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div style="display: flex; justify-content: flex-end; gap: var(--space-12); margin-top: var(--space-8);">
+            <button class="back-button" type="button">Batal</button>
+            <button class="save-button" type="button">
+              <i class="ri-save-line"></i>
+              Simpan Perubahan
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
 </html>

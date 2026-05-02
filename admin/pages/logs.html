@@ -1,27 +1,333 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Utama | Teman Singgah</title>
+    <title>Logs | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
-    <link rel="stylesheet" href="/components/root.css" />
-    <link rel="stylesheet" href="/components/navbar.css" />
-    <link rel="stylesheet" href="/admin/dashboard.css" />
+    <link rel="stylesheet" href="../dashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
-    <script
-      type="module"
-      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
   </head>
-  <body></body>
+
+  <body>
+    <div class="admin-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <img
+              src="/assets/logo/logo_temansinggah.svg"
+              alt="Logo"
+              class="sidebar-logo-img" />
+            <span class="sidebar-brand-text">Teman Singgah</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Halaman Utama</div>
+            <a href="dashboard.html" class="nav-item">
+              <i class="ri-dashboard-line"></i>
+              Dashboard
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Manajemen</div>
+            <a href="users.html" class="nav-item">
+              <i class="ri-user-line"></i>
+              Users
+            </a>
+            <a href="listings.html" class="nav-item">
+              <i class="ri-home-4-line"></i>
+              Listings
+            </a>
+            <a href="reservations.html" class="nav-item">
+              <i class="ri-calendar-check-line"></i>
+              Reservations
+            </a>
+            <a href="transactions.html" class="nav-item">
+              <i class="ri-exchange-dollar-line"></i>
+              Transactions
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Moderasi</div>
+            <a href="reviews.html" class="nav-item">
+              <i class="ri-star-line"></i>
+              Reviews
+            </a>
+            <a href="reports.html" class="nav-item">
+              <i class="ri-flag-line"></i>
+              Reports
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Keuangan</div>
+            <a href="payouts.html" class="nav-item">
+              <i class="ri-money-dollar-circle-line"></i>
+              Payouts
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Sistem</div>
+            <a href="settings.html" class="nav-item">
+              <i class="ri-settings-3-line"></i>
+              Settings
+            </a>
+            <a href="logs.html" class="nav-item active">
+              <i class="ri-file-list-3-line"></i>
+              Logs
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="main-wrapper">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Activity & Error Log</h1>
+          </div>
+          <div class="topbar-right">
+            <div class="user-menu">
+              <span class="user-name">Administrator</span>
+              <div class="user-avatar">A</div>
+            </div>
+          </div>
+        </header>
+
+        <main class="content-area">
+          <!-- Tabs -->
+          <div class="tab-group">
+            <button class="tab-item active">Activity Log</button>
+            <button class="tab-item">Error Log</button>
+          </div>
+
+          <!-- Activity Log Table -->
+          <section class="table-section">
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Waktu</th>
+                    <th>User</th>
+                    <th>Aksi</th>
+                    <th>IP Address</th>
+                    <th>Keterangan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-02 14:32:15</td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">A</div>
+                        <span>Administrator</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-info">UPDATE</span>
+                    </td>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">192.168.1.45</td>
+                    <td>Mengubah persentase komisi platform dari 8% menjadi 10%</td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-02 13:18:42</td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">A</div>
+                        <span>Administrator</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-success">APPROVE</span>
+                    </td>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">192.168.1.45</td>
+                    <td>Menyetujui ulasan #REV-2026-0042 dari Budi Santoso</td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-02 11:05:09</td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">BS</div>
+                        <span>Budi Santoso</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-neutral">LOGIN</span>
+                    </td>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">114.124.22.101</td>
+                    <td>Login berhasil dari perangkat Chrome / Windows</td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-02 09:47:33</td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">A</div>
+                        <span>Administrator</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-warning">PROCESS</span>
+                    </td>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">192.168.1.45</td>
+                    <td>Memproses payout #PYO-2026-0088 untuk Agus Wijaya</td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-01 16:22:51</td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">SA</div>
+                        <span>Siti Aminah</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-error">LOGOUT</span>
+                    </td>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">36.71.140.88</td>
+                    <td>Logout otomatis karena sesi kedaluwarsa</td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-01 14:10:18</td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">A</div>
+                        <span>Administrator</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-error">REJECT</span>
+                    </td>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">192.168.1.45</td>
+                    <td>Menolak ulasan #REV-2026-0039 dari Dewi Kusuma (spam)</td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-01 10:55:04</td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">AW</div>
+                        <span>Agus Wijaya</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-info">CREATE</span>
+                    </td>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">182.253.44.12</td>
+                    <td>Menambahkan listing baru: Villa Ubud Hijau</td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-01 08:30:27</td>
+                    <td>
+                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                        <div class="avatar avatar-sm avatar-primary">A</div>
+                        <span>Administrator</span>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="badge badge-success">RESOLVE</span>
+                    </td>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">192.168.1.45</td>
+                    <td>Menyelesaikan laporan #RPT-2026-0011 tentang kebisingan konstruksi</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+    
+          <section class="table-section">
+            <div class="data-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Waktu</th>
+                    <th>Level</th>
+                    <th>Pesan Error</th>
+                    <th>Stack Trace</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-02 14:15:03</td>
+                    <td>
+                      <span class="badge badge-error">ERROR</span>
+                    </td>
+                    <td>Failed to connect to payment gateway: timeout</td>
+                    <td style="font-family: monospace; font-size: var(--text-xs); max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                      PaymentGatewayException: Connection timed out at /src/services/payment.js:142
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-02 12:40:22</td>
+                    <td>
+                      <span class="badge badge-warning">WARNING</span>
+                    </td>
+                    <td>High memory usage detected on worker node #3</td>
+                    <td style="font-family: monospace; font-size: var(--text-xs); max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                      MemoryMonitor: Heap usage 87% at /src/workers/queue.js:89
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-02 09:12:47</td>
+                    <td>
+                      <span class="badge badge-info">INFO</span>
+                    </td>
+                    <td>Database backup completed successfully</td>
+                    <td style="font-family: monospace; font-size: var(--text-xs); max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                      BackupService: Daily backup finished at /src/jobs/backup.js:55
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-01 23:05:11</td>
+                    <td>
+                      <span class="badge badge-error">ERROR</span>
+                    </td>
+                    <td>Email service SMTP authentication failed</td>
+                    <td style="font-family: monospace; font-size: var(--text-xs); max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                      SMTPException: 535 Authentication failed at /src/services/mailer.js:201
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-01 18:33:59</td>
+                    <td>
+                      <span class="badge badge-warning">WARNING</span>
+                    </td>
+                    <td>Rate limit exceeded for API key ending in ...7a3f</td>
+                    <td style="font-family: monospace; font-size: var(--text-xs); max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                      RateLimiter: 429 Too Many Requests at /src/middleware/rateLimit.js:34
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-family: monospace; font-size: var(--text-xs);">2026-05-01 15:20:08</td>
+                    <td>
+                      <span class="badge badge-info">INFO</span>
+                    </td>
+                    <td>Scheduled payout job started for 12 hosts</td>
+                    <td style="font-family: monospace; font-size: var(--text-xs); max-width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                      PayoutScheduler: Job ID #PY-SCH-20260501 at /src/jobs/payout.js:12
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        
+        </main>
+      </div>
+    </div>
+  </body>
 </html>

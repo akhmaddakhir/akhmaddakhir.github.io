@@ -1,230 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard | Teman Singgah</title>
+    <title>Dashboard | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
-    <link rel="stylesheet" href="/components/root.css" />
     <link rel="stylesheet" href="/admin/dashboard.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
-    <script
-      type="module"
-      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
+
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
   </head>
 
   <body>
     <div class="admin-layout">
-      <aside class="admin-sidebar">
-        <div class="sidebar-brand">
-          <a href="dashboard.html" class="logo-section">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
             <img
               src="/assets/logo/logo_temansinggah.svg"
-              alt="Logo Teman Singgah"
-              class="logo-icon" />
-            <img
-              src="/assets/logo/label_temansinggah.svg"
-              alt="Brand Name Teman Singgah"
-              class="logo-name" />
+              alt="Logo"
+              class="sidebar-logo-img" />
+            <span class="sidebar-brand-text">Teman Singgah</span>
           </a>
         </div>
 
         <nav class="sidebar-nav">
-          <div class="nav-group">
-            <span class="nav-group-label">Halaman Utama</span>
-            <ul class="nav-list">
-              <li class="nav-item">
-                <a href="dashboard.html" class="nav-link active">
-                  <i class="ph-bold ph-squares-four"></i>
-                  <span>Dashboard</span>
-                </a>
-              </li>
-            </ul>
+          <div class="nav-section">
+            <div class="nav-section-title">Halaman Utama</div>
+            <a href="dashboard.html" class="nav-item active">
+              <i class="ri-dashboard-line"></i>
+              Dashboard
+            </a>
           </div>
 
-          <div class="nav-group">
-            <span class="nav-group-label">Manajemen</span>
-            <ul class="nav-list">
-              <li class="nav-item">
-                <a href="users.html" class="nav-link">
-                  <i class="ph-bold ph-users"></i>
-                  <span>Users</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="listings.html" class="nav-link">
-                  <i class="ph-bold ph-house"></i>
-                  <span>Listings</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="reservations.html" class="nav-link">
-                  <i class="ph-bold ph-book-open-text"></i>
-                  <span>Reservations</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="transactions.html" class="nav-link">
-                  <i class="ph-bold ph-currency-dollar"></i>
-                  <span>Transactions</span>
-                </a>
-              </li>
-            </ul>
+          <div class="nav-section">
+            <div class="nav-section-title">Manajemen</div>
+            <a href="users.html" class="nav-item">
+              <i class="ri-user-line"></i>
+              Users
+            </a>
+            <a href="listings.html" class="nav-item">
+              <i class="ri-home-4-line"></i>
+              Listings
+            </a>
+            <a href="reservations.html" class="nav-item">
+              <i class="ri-calendar-check-line"></i>
+              Reservations
+            </a>
+            <a href="transactions.html" class="nav-item">
+              <i class="ri-exchange-dollar-line"></i>
+              Transactions
+            </a>
           </div>
 
-          <div class="nav-group">
-            <span class="nav-group-label">Moderasi</span>
-            <ul class="nav-list">
-              <li class="nav-item">
-                <a href="reviews.html" class="nav-link">
-                  <i class="ph-bold ph-star"></i>
-                  <span>Reviews</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="reports.html" class="nav-link">
-                  <i class="ph-bold ph-flag"></i>
-                  <span>Reports</span>
-                </a>
-              </li>
-            </ul>
+          <div class="nav-section">
+            <div class="nav-section-title">Moderasi</div>
+            <a href="reviews.html" class="nav-item">
+              <i class="ri-star-line"></i>
+              Reviews
+            </a>
+            <a href="reports.html" class="nav-item">
+              <i class="ri-flag-line"></i>
+              Reports
+            </a>
           </div>
 
-          <div class="nav-group">
-            <span class="nav-group-label">Keuangan</span>
-            <ul class="nav-list">
-              <li class="nav-item">
-                <a href="payouts.html" class="nav-link">
-                  <i class="ph-bold ph-money"></i>
-                  <span>Payouts</span>
-                </a>
-              </li>
-            </ul>
+          <div class="nav-section">
+            <div class="nav-section-title">Keuangan</div>
+            <a href="payouts.html" class="nav-item">
+              <i class="ri-money-dollar-circle-line"></i>
+              Payouts
+            </a>
           </div>
 
-          <div class="nav-group">
-            <span class="nav-group-label">Sistem</span>
-            <ul class="nav-list">
-              <li class="nav-item">
-                <a href="settings.html" class="nav-link">
-                  <i class="ph-bold ph-gear"></i>
-                  <span>Settings</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="logs.html" class="nav-link">
-                  <i class="ph-bold ph-list-dashes"></i>
-                  <span>Logs</span>
-                </a>
-              </li>
-            </ul>
+          <div class="nav-section">
+            <div class="nav-section-title">Sistem</div>
+            <a href="settings.html" class="nav-item">
+              <i class="ri-settings-3-line"></i>
+              Settings
+            </a>
+            <a href="logs.html" class="nav-item">
+              <i class="ri-file-list-3-line"></i>
+              Logs
+            </a>
           </div>
         </nav>
       </aside>
 
-      <main class="admin-main">
-        <header class="admin-header">
-          <h1 class="page-title">Dashboard</h1>
-          <div class="header-actions">
-            <button class="icon-button" aria-label="Notifikasi">
-              <i class="ph-bold ph-bell"></i>
-            </button>
-            <div class="profile-dropdown">
-              <button class="profile-button" aria-label="Profile">
-                <span class="profile-avatar">A</span>
-                <span class="profile-name">Admin</span>
-                <i class="ph-bold ph-caret-down"></i>
-              </button>
+      <!-- Main Content -->
+      <div class="main-wrapper">
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Dashboard</h1>
+          </div>
+          <div class="topbar-right">
+            <div class="user-menu">
+              <span class="user-name">Administrator</span>
+              <div class="user-avatar">A</div>
             </div>
           </div>
         </header>
 
-        <div class="main-content">
-          <section class="metrics-section">
-            <div class="metrics-grid">
-              <div class="metric-card">
+        <main class="content-area">
+          <!-- Metric Cards -->
+          <section class="metric-grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <div class="metric-label">Total Reservasi</div>
                 <div class="metric-icon">
-                  <i class="ph-bold ph-book-open-text"></i>
-                </div>
-                <div class="metric-info">
-                  <span class="metric-value">1.247</span>
-                  <span class="metric-label">Total Reservasi</span>
-                  <span class="metric-change positive">
-                    <i class="ph-bold ph-trend-up"></i> +12.5% dari bulan lalu
-                  </span>
+                  <i class="ri-calendar-check-line"></i>
                 </div>
               </div>
+              <div class="metric-value">1.247</div>
+              <div class="metric-change">
+                <i class="ri-arrow-up-line"></i> +12% dari bulan lalu
+              </div>
+            </div>
 
-              <div class="metric-card">
-                <div class="metric-icon accent">
-                  <i class="ph-bold ph-currency-dollar"></i>
-                </div>
-                <div class="metric-info">
-                  <span class="metric-value">Rp 4.8 M</span>
-                  <span class="metric-label">Total Pendapatan</span>
-                  <span class="metric-change positive">
-                    <i class="ph-bold ph-trend-up"></i> +8.3% dari bulan lalu
-                  </span>
+            <div class="metric-card">
+              <div class="metric-header">
+                <div class="metric-label">Total Pendapatan</div>
+                <div class="metric-icon">
+                  <i class="ri-money-rupiah-circle-line"></i>
                 </div>
               </div>
+              <div class="metric-value">Rp892,5jt</div>
+              <div class="metric-change">
+                <i class="ri-arrow-up-line"></i> +8,5% dari bulan lalu
+              </div>
+            </div>
 
-              <div class="metric-card">
-                <div class="metric-icon success">
-                  <i class="ph-bold ph-chart-pie-slice"></i>
-                </div>
-                <div class="metric-info">
-                  <span class="metric-value">78.4%</span>
-                  <span class="metric-label">Occupancy Rate</span>
-                  <span class="metric-change positive">
-                    <i class="ph-bold ph-trend-up"></i> +3.2% dari bulan lalu
-                  </span>
+            <div class="metric-card">
+              <div class="metric-header">
+                <div class="metric-label">Occupancy Rate</div>
+                <div class="metric-icon">
+                  <i class="ri-pie-chart-line"></i>
                 </div>
               </div>
+              <div class="metric-value">78,4%</div>
+              <div class="metric-change">
+                <i class="ri-arrow-up-line"></i> +3,2% dari bulan lalu
+              </div>
+            </div>
 
-              <div class="metric-card">
-                <div class="metric-icon info">
-                  <i class="ph-bold ph-users"></i>
+            <div class="metric-card">
+              <div class="metric-header">
+                <div class="metric-label">Tamu Aktif</div>
+                <div class="metric-icon">
+                  <i class="ri-user-follow-line"></i>
                 </div>
-                <div class="metric-info">
-                  <span class="metric-value">3.521</span>
-                  <span class="metric-label">Tamu Aktif</span>
-                  <span class="metric-change positive">
-                    <i class="ph-bold ph-trend-up"></i> +15.7% dari bulan lalu
-                  </span>
-                </div>
+              </div>
+              <div class="metric-value">3.856</div>
+              <div class="metric-change">
+                <i class="ri-arrow-up-line"></i> +5,1% dari bulan lalu
               </div>
             </div>
           </section>
 
+          <!-- Chart Placeholder -->
           <section class="chart-section">
             <div class="section-header">
-              <h2 class="section-title">Tren Pendapatan</h2>
-              <button class="header-filter">
-                30 Hari <i class="ph-bold ph-caret-down"></i>
-              </button>
+              <h2 class="section-title">Tren Reservasi & Pendapatan</h2>
             </div>
             <div class="chart-placeholder">
               <!-- Chart placeholder -->
+              <i class="ri-bar-chart-box-line"></i>
+              <span>Area chart akan ditampilkan di sini</span>
             </div>
           </section>
 
+          <!-- Recent Reservations -->
           <section class="table-section">
             <div class="section-header">
               <h2 class="section-title">Reservasi Terbaru</h2>
-              <a href="reservations.html" class="view-all-link">
-                Lihat Semua <i class="ph-bold ph-caret-right"></i>
-              </a>
+              <a href="reservations.html" class="section-link">Lihat Semua</a>
             </div>
-
-            <div class="list-section">
+            <div class="data-table">
               <table>
                 <thead>
                   <tr>
@@ -232,170 +192,153 @@
                     <th>Nama Tamu</th>
                     <th>Listing</th>
                     <th>Check-in</th>
-                    <th>Check-out</th>
                     <th>Total</th>
                     <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="id-badge">#RSV-2026-0042</span></td>
                     <td>
-                      <div class="user-cell">
-                        <div class="user-avatar">BS</div>
-                        <span class="user-name">Budi Santoso</span>
-                      </div>
+                      <span class="id-code">#RSV-2026-0042</span>
                     </td>
+                    <td>Budi Santoso</td>
                     <td>Villa Sunset Tepi Pantai</td>
                     <td>5 Mei 2026</td>
-                    <td>8 Mei 2026</td>
-                    <td>Rp 1.197.000</td>
+                    <td>Rp2.450.000</td>
                     <td>
-                      <div class="status-cell">
-                        <span class="status-dot success"></span>
+                      <span class="badge badge-success">
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Confirmed
-                      </div>
+                      </span>
                     </td>
                   </tr>
                   <tr>
-                    <td><span class="id-badge">#RSV-2026-0041</span></td>
                     <td>
-                      <div class="user-cell">
-                        <div class="user-avatar">DW</div>
-                        <span class="user-name">Dewi Wulandari</span>
-                      </div>
+                      <span class="id-code">#RSV-2026-0041</span>
                     </td>
-                    <td>Homestay Padi Emas</td>
+                    <td>Siti Aminah</td>
+                    <td>Homestay Malioboro</td>
                     <td>4 Mei 2026</td>
-                    <td>6 Mei 2026</td>
-                    <td>Rp 798.000</td>
+                    <td>Rp850.000</td>
                     <td>
-                      <div class="status-cell">
-                        <span class="status-dot success"></span>
+                      <span class="badge badge-success">
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Confirmed
-                      </div>
+                      </span>
                     </td>
                   </tr>
                   <tr>
-                    <td><span class="id-badge">#RSV-2026-0040</span></td>
                     <td>
-                      <div class="user-cell">
-                        <div class="user-avatar">AR</div>
-                        <span class="user-name">Ahmad Rizky</span>
-                      </div>
+                      <span class="id-code">#RSV-2026-0040</span>
                     </td>
-                    <td>Rumah Kayu Jogja</td>
+                    <td>Agus Wijaya</td>
+                    <td>Villa Ubud Hijau</td>
                     <td>3 Mei 2026</td>
-                    <td>5 Mei 2026</td>
-                    <td>Rp 850.000</td>
+                    <td>Rp3.200.000</td>
                     <td>
-                      <div class="status-cell">
-                        <span class="status-dot warning"></span>
+                      <span class="badge badge-warning">
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-warning)"></span>
                         Pending
-                      </div>
+                      </span>
                     </td>
                   </tr>
                   <tr>
-                    <td><span class="id-badge">#RSV-2026-0039</span></td>
                     <td>
-                      <div class="user-cell">
-                        <div class="user-avatar">SP</div>
-                        <span class="user-name">Siti Permata</span>
-                      </div>
+                      <span class="id-code">#RSV-2026-0039</span>
                     </td>
-                    <td>Villa Ubud Private Pool</td>
+                    <td>Dewi Kusuma</td>
+                    <td>Apartemen Jakarta Selatan</td>
                     <td>2 Mei 2026</td>
-                    <td>7 Mei 2026</td>
-                    <td>Rp 3.450.000</td>
+                    <td>Rp1.100.000</td>
                     <td>
-                      <div class="status-cell">
-                        <span class="status-dot success"></span>
-                        Confirmed
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><span class="id-badge">#RSV-2026-0038</span></td>
-                    <td>
-                      <div class="user-cell">
-                        <div class="user-avatar">JH</div>
-                        <span class="user-name">Joko Hartono</span>
-                      </div>
-                    </td>
-                    <td>Glamping Bromo View</td>
-                    <td>1 Mei 2026</td>
-                    <td>3 Mei 2026</td>
-                    <td>Rp 1.250.000</td>
-                    <td>
-                      <div class="status-cell">
-                        <span class="status-dot error"></span>
+                      <span class="badge badge-error">
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-error)"></span>
                         Cancelled
-                      </div>
+                      </span>
                     </td>
                   </tr>
                   <tr>
-                    <td><span class="id-badge">#RSV-2026-0037</span></td>
                     <td>
-                      <div class="user-cell">
-                        <div class="user-avatar">NL</div>
-                        <span class="user-name">Nia Lestari</span>
-                      </div>
+                      <span class="id-code">#RSV-2026-0038</span>
                     </td>
-                    <td>Pondok Sawah Lembang</td>
-                    <td>30 Apr 2026</td>
-                    <td>2 Mei 2026</td>
-                    <td>Rp 920.000</td>
-                    <td>
-                      <div class="status-cell">
-                        <span class="status-dot success"></span>
-                        Completed
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><span class="id-badge">#RSV-2026-0036</span></td>
-                    <td>
-                      <div class="user-cell">
-                        <div class="user-avatar">FP</div>
-                        <span class="user-name">Fajar Pratama</span>
-                      </div>
-                    </td>
-                    <td>Hotel Malioboro Heritage</td>
-                    <td>29 Apr 2026</td>
+                    <td>Rudi Hartono</td>
+                    <td>Glamping Lembang</td>
                     <td>1 Mei 2026</td>
-                    <td>Rp 1.050.000</td>
+                    <td>Rp1.750.000</td>
                     <td>
-                      <div class="status-cell">
-                        <span class="status-dot success"></span>
+                      <span class="badge badge-info">
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-info)"></span>
                         Completed
-                      </div>
+                      </span>
                     </td>
                   </tr>
                   <tr>
-                    <td><span class="id-badge">#RSV-2026-0035</span></td>
                     <td>
-                      <div class="user-cell">
-                        <div class="user-avatar">RA</div>
-                        <span class="user-name">Rina Anggraini</span>
-                      </div>
+                      <span class="id-code">#RSV-2026-0037</span>
                     </td>
-                    <td>Villa Lombok Hills</td>
-                    <td>28 Apr 2026</td>
+                    <td>Nina Safitri</td>
+                    <td>Villa Sunset Tepi Pantai</td>
                     <td>30 Apr 2026</td>
-                    <td>Rp 1.500.000</td>
+                    <td>Rp2.450.000</td>
                     <td>
-                      <div class="status-cell">
-                        <span class="status-dot success"></span>
+                      <span class="badge badge-success">
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
+                        Confirmed
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="id-code">#RSV-2026-0036</span>
+                    </td>
+                    <td>Ahmad Fauzi</td>
+                    <td>Rumah Kayu Bandung</td>
+                    <td>29 Apr 2026</td>
+                    <td>Rp980.000</td>
+                    <td>
+                      <span class="badge badge-info">
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-info)"></span>
                         Completed
-                      </div>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="id-code">#RSV-2026-0035</span>
+                    </td>
+                    <td>Lestari Dewi</td>
+                    <td>Resort Bintan</td>
+                    <td>28 Apr 2026</td>
+                    <td>Rp4.500.000</td>
+                    <td>
+                      <span class="badge badge-success">
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
+                        Confirmed
+                      </span>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </section>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   </body>
 </html>
