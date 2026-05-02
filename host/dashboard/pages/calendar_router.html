@@ -37,15 +37,12 @@
             alt="Brand Name Teman Singgah"
             class="logo-name" />
         </a>
-
         <ul class="nav-menu">
           <li class="nav-item">
             <a href="reservations.html" class="nav-link">Reservasi</a>
           </li>
           <li class="nav-item">
-            <a href="calendar_router.html" class="nav-link active">
-              Kalender
-            </a>
+            <a href="calendar_router.html" class="nav-link active">Kalender</a>
           </li>
           <li class="nav-item">
             <a href="listing.html" class="nav-link">Listing</a>
@@ -54,7 +51,6 @@
             <a href="messages.html" class="nav-link">Pesan</a>
           </li>
         </ul>
-
         <div class="nav-right">
           <button class="ghost-button">Ganti ke tamu</button>
           <div class="icon-buttons">
@@ -71,122 +67,449 @@
     </header>
 
     <main class="main-content">
-      <section class="content-header">
-        <span class="content-title">
-          <h2>Mei</h2>
-          <i class="ph-bold ph-caret-down"></i>
-        </span>
-        <div class="header-buttons">
+      <section class="calendar-area">
+        <div class="content-header">
+          <span class="content-title">
+            <h2>Mei</h2>
+            <i class="ph-bold ph-caret-down"></i>
+          </span>
           <button class="header-filter">
-            Bulan<i class="ph-bold ph-caret-down"></i>
-          </button>
-          <button class="header-button">
-            <i class="ph-bold ph-gear"></i>
+            Bulan <i class="ph-bold ph-caret-down"></i>
           </button>
         </div>
-      </section>
 
-      <section class="calendar-card">
-        <div class="calendar-months-container">
-          <div class="calendar-month">
-            <div class="calendar-header">
-              <i class="ph-bold ph-caret-left"></i>
-              <span class="calendar-month-name">Januari</span>
-              <div class="empty-div"></div>
-            </div>
-            <div class="weekday-row">
-              <div class="weekday-name">S</div>
-              <div class="weekday-name">M</div>
-              <div class="weekday-name">T</div>
-              <div class="weekday-name">W</div>
-              <div class="weekday-name">T</div>
-              <div class="weekday-name">F</div>
-              <div class="weekday-name">S</div>
-            </div>
-            <div class="calendar-body">
-              <div class="calendar-day">1</div>
-              <div class="calendar-day">2</div>
-              <div class="calendar-day">3</div>
-              <div class="calendar-day">4</div>
-              <div class="calendar-day">5</div>
-              <div class="calendar-day">6</div>
-              <div class="calendar-day">7</div>
-              <div class="calendar-day">8</div>
-              <div class="calendar-day">9</div>
-              <div class="calendar-day">10</div>
-              <div class="calendar-day">11</div>
-              <div class="calendar-day">12</div>
-              <div class="calendar-day">13</div>
-              <div class="calendar-day">14</div>
-              <div class="calendar-day">15</div>
-              <div class="calendar-day">16</div>
-              <div class="calendar-day">17</div>
-              <div class="calendar-day">18</div>
-              <div class="calendar-day">19</div>
-              <div class="calendar-day">20</div>
-              <div class="calendar-day">21</div>
-              <div class="calendar-day">22</div>
-              <div class="calendar-day">23</div>
-              <div class="calendar-day">24</div>
-              <div class="calendar-day">25</div>
-              <div class="calendar-day">26</div>
-              <div class="calendar-day">27</div>
-              <div class="calendar-day">28</div>
-              <div class="calendar-day">29</div>
-              <div class="calendar-day selected">30</div>
+        <div class="calendar-container">
+          <div class="weekday-header">
+            <div class="weekday-label">Min</div>
+            <div class="weekday-label">Sen</div>
+            <div class="weekday-label">Sel</div>
+            <div class="weekday-label">Rab</div>
+            <div class="weekday-label">Kam</div>
+            <div class="weekday-label">Jum</div>
+            <div class="weekday-label">Sab</div>
+          </div>
+
+          <!-- ── MEI 2025 ── -->
+          <!-- 1 Mei = Kamis = kolom ke-5 (index 4), jadi 4 empty cell -->
+          <div class="month-section">
+            <div class="month-label">Mei 2025</div>
+            <div class="day-grid">
+              <div class="day-card day-empty"></div>
+              <div class="day-card day-empty"></div>
+              <div class="day-card day-empty"></div>
+              <div class="day-card day-empty"></div>
+
+              <!-- 1 -->
+              <div class="day-card day-blocked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">1</span>
+                <span class="day-price">Diblokir</span>
+              </div>
+              <!-- 2 -->
+              <div class="day-card day-blocked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">2</span>
+                <span class="day-price">Diblokir</span>
+              </div>
+              <!-- 3 Sab -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">3</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 4 Min -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">4</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 5 Sen -->
+              <div class="day-card day-selected">
+                <div class="day-status-dot"></div>
+                <span class="day-number">5</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 6 Sel -->
+              <div class="day-card day-today">
+                <div class="day-status-dot"></div>
+                <span class="day-number">6</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 7 Rab -->
+              <div class="day-card">
+                <span class="day-number">7</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 8 Kam -->
+              <div class="day-card">
+                <span class="day-number">8</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 9 Jum -->
+              <div class="day-card">
+                <span class="day-number">9</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 10 Sab -->
+              <div class="day-card">
+                <span class="day-number">10</span>
+                <span class="day-price">Rp423rb</span>
+              </div>
+              <!-- 11 Min -->
+              <div class="day-card">
+                <span class="day-number">11</span>
+                <span class="day-price">Rp423rb</span>
+              </div>
+              <!-- 12 Sen -->
+              <div class="day-card">
+                <span class="day-number">12</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 13 Sel -->
+              <div class="day-card">
+                <span class="day-number">13</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 14 Rab -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">14</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 15 Kam -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">15</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 16 Jum -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">16</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 17 Sab -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">17</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 18 Min -->
+              <div class="day-card">
+                <span class="day-number">18</span>
+                <span class="day-price">Rp423rb</span>
+              </div>
+              <!-- 19 Sen -->
+              <div class="day-card">
+                <span class="day-number">19</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 20 Sel -->
+              <div class="day-card">
+                <span class="day-number">20</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 21 Rab -->
+              <div class="day-card">
+                <span class="day-number">21</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 22 Kam -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">22</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 23 Jum -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">23</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 24 Sab -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">24</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 25 Min -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">25</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 26 Sen -->
+              <div class="day-card">
+                <span class="day-number">26</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 27 Sel -->
+              <div class="day-card">
+                <span class="day-number">27</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 28 Rab -->
+              <div class="day-card day-blocked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">28</span>
+                <span class="day-price">Diblokir</span>
+              </div>
+              <!-- 29 Kam -->
+              <div class="day-card day-blocked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">29</span>
+                <span class="day-price">Diblokir</span>
+              </div>
+              <!-- 30 Jum -->
+              <div class="day-card">
+                <span class="day-number">30</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 31 Sab -->
+              <div class="day-card">
+                <span class="day-number">31</span>
+                <span class="day-price">Rp423rb</span>
+              </div>
             </div>
           </div>
 
-          <div class="calendar-month">
-            <div class="calendar-header">
-              <div class="empty-div"></div>
-              <span class="calendar-month-name">Januari</span>
-              <i class="ph-bold ph-caret-right"></i>
-            </div>
-            <div class="weekday-row">
-              <div class="weekday-name">S</div>
-              <div class="weekday-name">M</div>
-              <div class="weekday-name">T</div>
-              <div class="weekday-name">W</div>
-              <div class="weekday-name">T</div>
-              <div class="weekday-name">F</div>
-              <div class="weekday-name">S</div>
-            </div>
-            <div class="calendar-body">
-              <div class="calendar-day">1</div>
-              <div class="calendar-day">2</div>
-              <div class="calendar-day">3</div>
-              <div class="calendar-day">4</div>
-              <div class="calendar-day">5</div>
-              <div class="calendar-day">6</div>
-              <div class="calendar-day">7</div>
-              <div class="calendar-day">8</div>
-              <div class="calendar-day">9</div>
-              <div class="calendar-day">10</div>
-              <div class="calendar-day">11</div>
-              <div class="calendar-day">12</div>
-              <div class="calendar-day">13</div>
-              <div class="calendar-day">14</div>
-              <div class="calendar-day">15</div>
-              <div class="calendar-day">16</div>
-              <div class="calendar-day">17</div>
-              <div class="calendar-day">18</div>
-              <div class="calendar-day">19</div>
-              <div class="calendar-day">20</div>
-              <div class="calendar-day">21</div>
-              <div class="calendar-day">22</div>
-              <div class="calendar-day">23</div>
-              <div class="calendar-day">24</div>
-              <div class="calendar-day">25</div>
-              <div class="calendar-day">26</div>
-              <div class="calendar-day">27</div>
-              <div class="calendar-day">28</div>
-              <div class="calendar-day">29</div>
-              <div class="calendar-day">30</div>
+          <!-- ── JUNI 2025 ── -->
+          <!-- 1 Juni = Minggu = kolom ke-1 (index 0), tidak ada empty cell -->
+          <div class="month-section">
+            <div class="month-label">Juni 2025</div>
+            <div class="day-grid">
+              <!-- 1 Min -->
+              <div class="day-card">
+                <span class="day-number">1</span>
+                <span class="day-price">Rp423rb</span>
+              </div>
+              <!-- 2 Sen -->
+              <div class="day-card">
+                <span class="day-number">2</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 3 Sel — booked -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">3</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 4 Rab -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">4</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 5 Kam -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">5</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 6 Jum -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">6</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 7 Sab -->
+              <div class="day-card">
+                <span class="day-number">7</span>
+                <span class="day-price">Rp423rb</span>
+              </div>
+              <!-- 8 Min -->
+              <div class="day-card">
+                <span class="day-number">8</span>
+                <span class="day-price">Rp423rb</span>
+              </div>
+              <!-- 9 Sen -->
+              <div class="day-card">
+                <span class="day-number">9</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 10 Sel -->
+              <div class="day-card">
+                <span class="day-number">10</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 11 Rab -->
+              <div class="day-card">
+                <span class="day-number">11</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 12 Kam -->
+              <div class="day-card">
+                <span class="day-number">12</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 13 Jum -->
+              <div class="day-card">
+                <span class="day-number">13</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 14 Sab — booked -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">14</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 15 Min -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">15</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 16 Sen -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">16</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 17 Sel -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">17</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 18 Rab -->
+              <div class="day-card">
+                <span class="day-number">18</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 19 Kam -->
+              <div class="day-card">
+                <span class="day-number">19</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 20 Jum -->
+              <div class="day-card">
+                <span class="day-number">20</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 21 Sab -->
+              <div class="day-card">
+                <span class="day-number">21</span>
+                <span class="day-price">Rp423rb</span>
+              </div>
+              <!-- 22 Min — booked -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">22</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 23 Sen -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">23</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 24 Sel -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">24</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 25 Rab -->
+              <div class="day-card day-booked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">25</span>
+                <span class="day-price">Dipesan</span>
+              </div>
+              <!-- 26 Kam -->
+              <div class="day-card">
+                <span class="day-number">26</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 27 Jum -->
+              <div class="day-card">
+                <span class="day-number">27</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
+              <!-- 28 Sab — blocked -->
+              <div class="day-card day-blocked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">28</span>
+                <span class="day-price">Diblokir</span>
+              </div>
+              <!-- 29 Min — blocked -->
+              <div class="day-card day-blocked">
+                <div class="day-status-dot"></div>
+                <span class="day-number">29</span>
+                <span class="day-price">Diblokir</span>
+              </div>
+              <!-- 30 Sen -->
+              <div class="day-card">
+                <span class="day-number">30</span>
+                <span class="day-price">Rp399rb</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <aside class="settings-sidebar">
+        <button class="panel-card button" aria-label="Buka pengaturan harga">
+          <div class="panel-card-info">
+            <div class="panel-card-title">Pengaturan harga</div>
+            <div class="panel-card-detail">
+              <span>Rp399.344 per malam</span>
+              <span>Rp423.305 harga akhir pekan</span>
+              <span>Diskon mingguan 11%</span>
+            </div>
+          </div>
+          <i class="ph-bold ph-caret-right"></i>
+        </button>
+
+        <button
+          class="panel-card button"
+          aria-label="Buka pengaturan ketersediaan">
+          <div class="panel-card-info">
+            <div class="panel-card-title">Pengaturan ketersediaan</div>
+            <div class="panel-card-detail">
+              <span>1 – 1 malam minimal menginap</span>
+              <span>Pemberitahuan hari yang sama</span>
+            </div>
+          </div>
+          <i class="ph-bold ph-caret-right"></i>
+        </button>
+
+        <button
+          class="panel-card button"
+          aria-label="Buka aturan kedatangan & keberangkatan">
+          <div class="panel-card-info">
+            <div class="panel-card-title">Kedatangan & keberangkatan</div>
+            <div class="panel-card-detail">
+              <span>Fleksibel – semua hari</span>
+              <span>Check-in: 14.00 – 22.00</span>
+            </div>
+          </div>
+          <i class="ph-bold ph-caret-right"></i>
+        </button>
+
+        <div class="panel-card">
+          <div class="legend-section">
+            <div class="legend-title">Keterangan</div>
+            <div class="legend-items">
+              <div class="legend-item">
+                <div class="legend-swatch available"></div>
+                <span>Tersedia</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-swatch booked"></div>
+                <span>Sudah dipesan</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-swatch blocked"></div>
+                <span>Diblokir</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-swatch today"></div>
+                <span>Hari ini</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
     </main>
   </body>
 </html>
