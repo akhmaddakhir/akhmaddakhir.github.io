@@ -59,7 +59,7 @@
   align-items: center;
   gap: var(--space-12);
   padding: var(--space-16) var(--space-20);
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
   color: var(--color-text-secondary);
   font-size: var(--text-sm);
   font-weight: var(--font-semibold);
@@ -270,7 +270,7 @@
 .chart-placeholder {
   height: 320px;
   background: var(--color-bg-section);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -483,7 +483,7 @@
   background: var(--color-primary);
   color: var(--color-text-inverse);
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   letter-spacing: var(--space-letter);
@@ -595,7 +595,7 @@
   width: 100%;
   padding: var(--space-12) var(--space-16);
   border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   font-size: var(--text-base);
   font-family: var(--font-family);
   color: var(--color-text-primary);
@@ -717,7 +717,7 @@
   background: var(--color-primary);
   color: var(--color-text-inverse);
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   cursor: pointer;
