@@ -29,9 +29,9 @@
         <div class="sidebar-header">
           <a href="/admin/pages/dashboard.html" class="sidebar-logo">
             <img
-            src="/assets/logo/logo_temansinggah.svg"
-            alt="Logo Teman Singgah"
-            class="logo-icon" />
+              src="/assets/logo/logo_temansinggah.svg"
+              alt="Logo Teman Singgah"
+              class="logo-icon" />
           </a>
         </div>
 
@@ -98,29 +98,42 @@
         </nav>
       </aside>
 
-      <div class="main-wrapper">
+      <div class="main-container">
         <header class="topbar">
           <div class="topbar-left">
             <h1 class="page-title">Manajemen Listing</h1>
           </div>
           <div class="topbar-right">
-            <div class="user-menu">
-              <span class="user-name">Administrator</span>
-              <div class="user-avatar">A</div>
-            </div>
+            <span class="user-name">Admin utama</span>
+            <div class="user-avatar">A</div>
           </div>
         </header>
 
         <main class="content-area">
-          <!-- Filters -->
-          <div class="filter-bar">
-            <button class="filter-item active">Semua</button>
-            <button class="filter-item">Aktif</button>
-            <button class="filter-item">Nonaktif</button>
-            <button class="filter-item">Pending Review</button>
+          <div class="filter-container">
+            <div class="filter-group">
+              <button class="filter-item active">
+                Semua
+              </button>
+              <button class="filter-item">
+                Aktif
+              </button>
+              <button class="filter-item">
+                Nonaktif
+              </button>
+              <button class="filter-item">
+                Pending Review
+              </button>
+            </div>
+            <div class="sort-dropdown">
+              <button class="sort-button">
+                <i class="ph-bold ph-faders-horizontal"></i>
+                <span>Urutkan: Nama listing</span>
+                <i class="ph-bold ph-caret-down"></i>
+              </button>
+            </div>
           </div>
 
-          <!-- Listings Table -->
           <section class="table-section">
             <div class="data-table">
               <table>
@@ -138,17 +151,48 @@
                 <tbody>
                   <tr>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-12);">
-                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                          <i class="ri-home-4-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-12);
+                        ">
+                        <div
+                          style="
+                            width: 48px;
+                            height: 48px;
+                            background: var(--color-primary-light);
+                            border-radius: var(--radius-md);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                          ">
+                          <i
+                            class="ri-home-4-line"
+                            style="
+                              color: var(--color-primary);
+                              font-size: var(--text-xl);
+                            "></i>
                         </div>
                         <div>
-                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Villa Sunset Tepi Pantai</div>
+                          <div
+                            style="
+                              font-weight: var(--font-semibold);
+                              color: var(--color-text-primary);
+                            ">
+                            Villa Sunset Tepi Pantai
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">BS</div>
                         <span>Budi Santoso</span>
                       </div>
@@ -157,7 +201,9 @@
                     <td>Rp399.344</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Aktif
                       </span>
                     </td>
@@ -170,17 +216,48 @@
                   </tr>
                   <tr>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-12);">
-                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                          <i class="ri-hotel-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-12);
+                        ">
+                        <div
+                          style="
+                            width: 48px;
+                            height: 48px;
+                            background: var(--color-primary-light);
+                            border-radius: var(--radius-md);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                          ">
+                          <i
+                            class="ri-hotel-line"
+                            style="
+                              color: var(--color-primary);
+                              font-size: var(--text-xl);
+                            "></i>
                         </div>
                         <div>
-                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Homestay Malioboro</div>
+                          <div
+                            style="
+                              font-weight: var(--font-semibold);
+                              color: var(--color-text-primary);
+                            ">
+                            Homestay Malioboro
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">AW</div>
                         <span>Agus Wijaya</span>
                       </div>
@@ -189,7 +266,9 @@
                     <td>Rp285.000</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Aktif
                       </span>
                     </td>
@@ -202,17 +281,48 @@
                   </tr>
                   <tr>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-12);">
-                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                          <i class="ri-home-5-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-12);
+                        ">
+                        <div
+                          style="
+                            width: 48px;
+                            height: 48px;
+                            background: var(--color-primary-light);
+                            border-radius: var(--radius-md);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                          ">
+                          <i
+                            class="ri-home-5-line"
+                            style="
+                              color: var(--color-primary);
+                              font-size: var(--text-xl);
+                            "></i>
                         </div>
                         <div>
-                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Villa Ubud Hijau</div>
+                          <div
+                            style="
+                              font-weight: var(--font-semibold);
+                              color: var(--color-text-primary);
+                            ">
+                            Villa Ubud Hijau
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">RH</div>
                         <span>Rudi Hartono</span>
                       </div>
@@ -221,7 +331,9 @@
                     <td>Rp1.200.000</td>
                     <td>
                       <span class="badge badge-warning">
-                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-warning)"></span>
                         Pending Review
                       </span>
                     </td>
@@ -234,17 +346,48 @@
                   </tr>
                   <tr>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-12);">
-                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                          <i class="ri-building-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-12);
+                        ">
+                        <div
+                          style="
+                            width: 48px;
+                            height: 48px;
+                            background: var(--color-primary-light);
+                            border-radius: var(--radius-md);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                          ">
+                          <i
+                            class="ri-building-line"
+                            style="
+                              color: var(--color-primary);
+                              font-size: var(--text-xl);
+                            "></i>
                         </div>
                         <div>
-                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Apartemen Jakarta Selatan</div>
+                          <div
+                            style="
+                              font-weight: var(--font-semibold);
+                              color: var(--color-text-primary);
+                            ">
+                            Apartemen Jakarta Selatan
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">AF</div>
                         <span>Ahmad Fauzi</span>
                       </div>
@@ -253,7 +396,9 @@
                     <td>Rp550.000</td>
                     <td>
                       <span class="badge badge-error">
-                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-error)"></span>
                         Nonaktif
                       </span>
                     </td>
@@ -266,17 +411,48 @@
                   </tr>
                   <tr>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-12);">
-                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                          <i class="ri-tent-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-12);
+                        ">
+                        <div
+                          style="
+                            width: 48px;
+                            height: 48px;
+                            background: var(--color-primary-light);
+                            border-radius: var(--radius-md);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                          ">
+                          <i
+                            class="ri-tent-line"
+                            style="
+                              color: var(--color-primary);
+                              font-size: var(--text-xl);
+                            "></i>
                         </div>
                         <div>
-                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Glamping Lembang</div>
+                          <div
+                            style="
+                              font-weight: var(--font-semibold);
+                              color: var(--color-text-primary);
+                            ">
+                            Glamping Lembang
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">BS</div>
                         <span>Budi Santoso</span>
                       </div>
@@ -285,7 +461,9 @@
                     <td>Rp875.000</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Aktif
                       </span>
                     </td>
@@ -298,17 +476,48 @@
                   </tr>
                   <tr>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-12);">
-                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                          <i class="ri-home-smile-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-12);
+                        ">
+                        <div
+                          style="
+                            width: 48px;
+                            height: 48px;
+                            background: var(--color-primary-light);
+                            border-radius: var(--radius-md);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                          ">
+                          <i
+                            class="ri-home-smile-line"
+                            style="
+                              color: var(--color-primary);
+                              font-size: var(--text-xl);
+                            "></i>
                         </div>
                         <div>
-                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Rumah Kayu Bandung</div>
+                          <div
+                            style="
+                              font-weight: var(--font-semibold);
+                              color: var(--color-text-primary);
+                            ">
+                            Rumah Kayu Bandung
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">AW</div>
                         <span>Agus Wijaya</span>
                       </div>
@@ -317,7 +526,9 @@
                     <td>Rp490.000</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Aktif
                       </span>
                     </td>
@@ -330,17 +541,48 @@
                   </tr>
                   <tr>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-12);">
-                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                          <i class="ri-umbrella-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-12);
+                        ">
+                        <div
+                          style="
+                            width: 48px;
+                            height: 48px;
+                            background: var(--color-primary-light);
+                            border-radius: var(--radius-md);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                          ">
+                          <i
+                            class="ri-umbrella-line"
+                            style="
+                              color: var(--color-primary);
+                              font-size: var(--text-xl);
+                            "></i>
                         </div>
                         <div>
-                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Resort Bintan</div>
+                          <div
+                            style="
+                              font-weight: var(--font-semibold);
+                              color: var(--color-text-primary);
+                            ">
+                            Resort Bintan
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">RH</div>
                         <span>Rudi Hartono</span>
                       </div>
@@ -349,7 +591,9 @@
                     <td>Rp2.250.000</td>
                     <td>
                       <span class="badge badge-warning">
-                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-warning)"></span>
                         Pending Review
                       </span>
                     </td>
@@ -362,17 +606,48 @@
                   </tr>
                   <tr>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-12);">
-                        <div style="width: 48px; height: 48px; background: var(--color-primary-light); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                          <i class="ri-home-gear-line" style="color: var(--color-primary); font-size: var(--text-xl);"></i>
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-12);
+                        ">
+                        <div
+                          style="
+                            width: 48px;
+                            height: 48px;
+                            background: var(--color-primary-light);
+                            border-radius: var(--radius-md);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                          ">
+                          <i
+                            class="ri-home-gear-line"
+                            style="
+                              color: var(--color-primary);
+                              font-size: var(--text-xl);
+                            "></i>
                         </div>
                         <div>
-                          <div style="font-weight: var(--font-semibold); color: var(--color-text-primary);">Villa Gunung Bromo</div>
+                          <div
+                            style="
+                              font-weight: var(--font-semibold);
+                              color: var(--color-text-primary);
+                            ">
+                            Villa Gunung Bromo
+                          </div>
                         </div>
                       </div>
                     </td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">AF</div>
                         <span>Ahmad Fauzi</span>
                       </div>
@@ -381,7 +656,9 @@
                     <td>Rp650.000</td>
                     <td>
                       <span class="badge badge-error">
-                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-error)"></span>
                         Nonaktif
                       </span>
                     </td>
