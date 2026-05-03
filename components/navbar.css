@@ -154,7 +154,7 @@
 
 .icon-button.profile {
   font-size: var(--text-md);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semibold);
   color: var(--color-text-inverse);
   background: var(--color-primary);
 }
