@@ -62,9 +62,9 @@
             <i class="ph-bold ph-user"></i>
           </button>
           <div class="auth-buttons">
-            <a href="/components/auth_popup.html"
-              ><button class="auth-button">Masuk</button></a
-            >
+            <a href="/components/auth_popup.html">
+              <button class="auth-button">Masuk</button>
+            </a>
           </div>
         </div>
       </nav>
@@ -89,19 +89,17 @@
           <aside class="account-sidebar">
             <h2 class="sidebar-title">Profil</h2>
             <nav class="sidebar-nav">
-              <a href="/pages/account.html" class="sidebar-link">
+              <a href="/user/pages/account.html" class="sidebar-link">
                 <div class="link-icon primary-avatar">K</div>
                 <span>Tentang Saya</span>
               </a>
-              <a
-                href="/pages/riwayat_perjalanan.html"
-                class="sidebar-link active">
+              <a href="/user/pages/history.html" class="sidebar-link active">
                 <div class="link-icon"><i class="ph-bold ph-suitcase"></i></div>
                 <span>Riwayat Perjalanan</span>
               </a>
-              <a href="/pages/pertemanan.html" class="sidebar-link">
-                <div class="link-icon"><i class="ph-bold ph-users"></i></div>
-                <span>Pertemanan</span>
+              <a href="/user/pages/settings.html" class="sidebar-link">
+                <div class="link-icon"><i class="ph-bold ph-gear"></i></div>
+                <span>Pengaturan</span>
               </a>
             </nav>
           </aside>
@@ -126,25 +124,24 @@
               </a>
             </div>
 
-            <!-- ========== VERSI 2: BERISI ( Uncomment untuk melihat ) ========== -->
-
-            <div class="trips-filter">
-              <button class="filter-btn active">Semua</button>
-              <button class="filter-btn">Mendatang</button>
-              <button class="filter-btn">Selesai</button>
-              <button class="filter-btn">Dibatalkan</button>
+            <div class="filter-group">
+              <button class="filter-item active">Semua</button>
+              <button class="filter-item">Mendatang</button>
+              <button class="filter-item">Selesai</button>
+              <button class="filter-item">Dibatalkan</button>
             </div>
 
             <div class="trips-list">
               <div class="trip-card">
-                <div class="trip-image-wrapper">
+                <div class="trip-image-container">
                   <img
-                    src="/assets/images/nihi_sumba.webp"
-                    alt="Nihi Sumba"
-                    class="trip-image" />
-                  <span class="trip-status upcoming">
-                    <i class="ph-fill ph-circle"></i> Mendatang
-                  </span>
+                    src="/assets/images/apurva_kempinski_bali.jpg"
+                    class="trip-image"
+                    alt="Villa Sunset" />
+                  <div class="trip-badge">
+                    <span class="badge-dot upcoming"></span>
+                    Mendatang
+                  </div>
                 </div>
                 <div class="trip-content">
                   <h3 class="trip-name">Nihi Sumba Resort</h3>
@@ -154,21 +151,59 @@
                     Rp 4.500.000 <span>/ malam</span>
                   </div>
                   <div class="trip-actions">
-                    <button class="action-btn primary">Lihat detail</button>
-                    <button class="action-btn secondary">Ubah pesanan</button>
+                    <a href="">
+                      <button class="action-button primary">
+                        Lihat detail
+                      </button>
+                    </a>
+                    <a href="">
+                      <button class="action-button secondary">
+                        Ubah pesanan
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
 
               <div class="trip-card">
-                <div class="trip-image-wrapper">
+                <div class="trip-image-container">
                   <img
-                    src="/assets/images/villa_bali.webp"
-                    alt="Ubud Jungle Villa"
-                    class="trip-image" />
-                  <span class="trip-status completed">
-                    <i class="ph-fill ph-circle"></i> Selesai
-                  </span>
+                    src="/assets/images/apurva_kempinski_bali.jpg"
+                    class="trip-image"
+                    alt="Villa Sunset" />
+                  <div class="trip-badge">
+                    <span class="badge-dot completed"></span>
+                    Selesai
+                  </div>
+                </div>
+                <div class="trip-content">
+                  <h3 class="trip-name">Omah Kayu Homestay</h3>
+                  <p class="trip-location">Malioboro, Yogyakarta</p>
+                  <p class="trip-meta">10 – 12 Jan 2025 · 2 tamu · 1 kamar</p>
+                  <div class="trip-price">Rp 850.000 <span>/ malam</span></div>
+                  <div class="trip-actions">
+                    <a href="">
+                      <button class="action-button primary">Pesan lagi</button>
+                    </a>
+                    <a href="">
+                      <button class="action-button secondary">
+                        Tulis ulasan
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="trip-card">
+                <div class="trip-image-container">
+                  <img
+                    src="/assets/images/apurva_kempinski_bali.jpg"
+                    class="trip-image"
+                    alt="Villa Sunset" />
+                  <div class="trip-badge">
+                    <span class="badge-dot cancelled"></span>
+                    Dibatalkan
+                  </div>
                 </div>
                 <div class="trip-content">
                   <h3 class="trip-name">Ubud Jungle Villa</h3>
@@ -178,30 +213,14 @@
                     Rp 2.800.000 <span>/ malam</span>
                   </div>
                   <div class="trip-actions">
-                    <button class="action-btn primary">Pesan lagi</button>
-                    <button class="action-btn secondary">Tulis ulasan</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="trip-card">
-                <div class="trip-image-wrapper">
-                  <img
-                    src="/assets/images/homestay_jogja.webp"
-                    alt="Omah Kayu Homestay"
-                    class="trip-image" />
-                  <span class="trip-status cancelled">
-                    <i class="ph-fill ph-circle"></i> Dibatalkan
-                  </span>
-                </div>
-                <div class="trip-content">
-                  <h3 class="trip-name">Omah Kayu Homestay</h3>
-                  <p class="trip-location">Malioboro, Yogyakarta</p>
-                  <p class="trip-meta">10 – 12 Jan 2025 · 2 tamu · 1 kamar</p>
-                  <div class="trip-price">Rp 850.000 <span>/ malam</span></div>
-                  <div class="trip-actions">
-                    <button class="action-btn primary">Pesan lagi</button>
-                    <button class="action-btn secondary">Lihat detail</button>
+                    <a href="">
+                      <button class="action-button primary">Pesan lagi</button>
+                    </a>
+                    <a href="">
+                      <button class="action-button secondary">
+                        Lihat detail
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>
