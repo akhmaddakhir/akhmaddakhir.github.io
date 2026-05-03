@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -6,30 +6,32 @@
     <title>Dashboard | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
+    <link rel="stylesheet" href="/components/root.css" />
     <link rel="stylesheet" href="/admin/dashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
 
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
   </head>
 
   <body>
     <div class="admin-layout">
-      <!-- Sidebar -->
       <aside class="sidebar">
         <div class="sidebar-header">
-          <a href="dashboard.html" class="sidebar-brand">
+          <a href="/admin/pages/dashboard.html" class="sidebar-logo">
             <img
-              src="/assets/logo/logo_temansinggah.svg"
-              alt="Logo"
-              class="sidebar-logo-img" />
-            <span class="sidebar-brand-text">Teman Singgah</span>
+            src="/assets/logo/logo_temansinggah.svg"
+            alt="Logo Teman Singgah"
+            class="logo-icon" />
           </a>
         </div>
 
@@ -37,7 +39,7 @@
           <div class="nav-section">
             <div class="nav-section-title">Halaman Utama</div>
             <a href="dashboard.html" class="nav-item active">
-              <i class="ri-dashboard-line"></i>
+              <i class="ph-bold ph-squares-four"></i>
               Dashboard
             </a>
           </div>
@@ -45,58 +47,57 @@
           <div class="nav-section">
             <div class="nav-section-title">Manajemen</div>
             <a href="users.html" class="nav-item">
-              <i class="ri-user-line"></i>
-              Users
+              <i class="ph-bold ph-users"></i>
+              Pengguna
             </a>
             <a href="listings.html" class="nav-item">
-              <i class="ri-home-4-line"></i>
-              Listings
+              <i class="ph-bold ph-house"></i>
+              Properti
             </a>
             <a href="reservations.html" class="nav-item">
-              <i class="ri-calendar-check-line"></i>
-              Reservations
+              <i class="ph-bold ph-calendar-check"></i>
+              Reservasi
             </a>
             <a href="transactions.html" class="nav-item">
-              <i class="ri-exchange-dollar-line"></i>
-              Transactions
+              <i class="ph-bold ph-currency-circle-dollar"></i>
+              Transaksi
             </a>
           </div>
 
           <div class="nav-section">
             <div class="nav-section-title">Moderasi</div>
             <a href="reviews.html" class="nav-item">
-              <i class="ri-star-line"></i>
-              Reviews
+              <i class="ph-bold ph-star"></i>
+              Ulasan
             </a>
             <a href="reports.html" class="nav-item">
-              <i class="ri-flag-line"></i>
-              Reports
+              <i class="ph-bold ph-flag"></i>
+              Laporan
             </a>
           </div>
 
           <div class="nav-section">
             <div class="nav-section-title">Keuangan</div>
             <a href="payouts.html" class="nav-item">
-              <i class="ri-money-dollar-circle-line"></i>
-              Payouts
+              <i class="ph-bold ph-money"></i>
+              Pembayaran
             </a>
           </div>
 
           <div class="nav-section">
             <div class="nav-section-title">Sistem</div>
             <a href="settings.html" class="nav-item">
-              <i class="ri-settings-3-line"></i>
-              Settings
+              <i class="ph-bold ph-gear"></i>
+              Pengaturan
             </a>
             <a href="logs.html" class="nav-item">
-              <i class="ri-file-list-3-line"></i>
-              Logs
+              <i class="ph-bold ph-notepad"></i>
+              Aktivitas
             </a>
           </div>
         </nav>
       </aside>
 
-      <!-- Main Content -->
       <div class="main-wrapper">
         <header class="topbar">
           <div class="topbar-left">
