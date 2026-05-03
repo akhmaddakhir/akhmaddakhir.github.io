@@ -3,7 +3,7 @@
   color: var(--color-text-inverse);
   margin-top: calc(2 * var(--space-64));
   padding: var(--space-80) var(--space-80) var(--space-64);
-  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
 }
 
 .footer-grid {
@@ -51,11 +51,11 @@
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.16);  
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .social-link:active {
-  background: rgba(255, 255, 255, 0.12);  
+  background: rgba(255, 255, 255, 0.12);
   transform: scale(0.99);
 }
 

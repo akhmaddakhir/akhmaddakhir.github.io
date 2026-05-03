@@ -115,7 +115,7 @@ body {
   align-items: center;
   gap: var(--space-12);
   padding: var(--space-16) var(--space-24);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   text-decoration: none;
   transition: all var(--transition-base);
   cursor: pointer;
@@ -265,7 +265,7 @@ body {
 .bubble {
   max-width: 75%;
   padding: var(--space-12) var(--space-16);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   font-size: var(--text-sm);
   line-height: 1.6;
 }
@@ -299,7 +299,7 @@ body {
 
 .chat-input-box {
   border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   display: flex;
   flex-direction: column;
   background: var(--color-bg-card);
@@ -315,7 +315,7 @@ body {
   width: 100%;
   border: none;
   outline: none;
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
   padding: var(--space-20);
   font-size: var(--text-lg);
   color: var(--color-text-primary);

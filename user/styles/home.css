@@ -4,7 +4,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+  border-radius: 0 0 var(--radius-3xl) var(--radius-3xl);
 }
 
 .hero-bg {
@@ -394,7 +394,7 @@
 .card-image-wrapper {
   position: relative;
   height: 210px;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   overflow: hidden;
   margin-bottom: var(--space-10);
 }
@@ -528,7 +528,7 @@
   justify-content: center;
   gap: var(--space-16);
   background: var(--color-bg-card);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-card);
   transition: all var(--transition-base);
   padding: var(--space-24);

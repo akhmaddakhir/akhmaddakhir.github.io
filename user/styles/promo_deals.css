@@ -7,7 +7,7 @@
     var(--color-primary) 0%,
     var(--color-primary-footer) 100%
   );
-  border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+  border-radius: 0 0 var(--radius-3xl) var(--radius-3xl);
   position: relative;
   overflow: hidden;
 }
@@ -180,7 +180,7 @@
     var(--color-accent-subtle) 0%,
     var(--color-primary-light) 100%
   );
-  border-radius: var(--radius-2xl);
+  border-radius: var(--radius-3xl);
   padding: var(--space-48);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -288,7 +288,7 @@
   z-index: 2;
   height: 100%;
   min-height: 350px;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   overflow: hidden;
   box-shadow: var(--shadow-card-hover);
 }
@@ -458,7 +458,7 @@
 .card-image-wrapper {
   position: relative;
   height: 240px;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-2xl);
   overflow: hidden;
   margin-bottom: var(--space-12);
 }
@@ -471,7 +471,7 @@
 }
 
 .promo-card:hover .card-image {
-  transform:var(--card-transform-hover);
+  transform: var(--card-transform-hover);
 }
 
 .discount-tag {
@@ -508,7 +508,7 @@
   transform: var(--button-transform-hover);
 }
 
-.save-button:active{
+.save-button:active {
   transform: scale(0.99);
 }
 
