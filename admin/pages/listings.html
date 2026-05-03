@@ -1,22 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Listings | Admin Teman Singgah</title>
+    <title>Dashboard | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
-    <link rel="stylesheet" href="../dashboard.css" />
+    <link rel="stylesheet" href="/components/root.css" />
+    <link rel="stylesheet" href="/admin/dashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
 
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
   </head>
 
   <body>
@@ -34,7 +38,7 @@
         <nav class="sidebar-nav">
           <div class="nav-section">
             <div class="nav-section-title">Halaman Utama</div>
-            <a href="dashboard.html" class="nav-item active">
+            <a href="/admin/pages/dashboard.html" class="nav-item">
               <i class="ph-bold ph-squares-four"></i>
               Dashboard
             </a>
@@ -42,19 +46,19 @@
 
           <div class="nav-section">
             <div class="nav-section-title">Manajemen</div>
-            <a href="users.html" class="nav-item">
+            <a href="/admin/pages/users.html" class="nav-item">
               <i class="ph-bold ph-users"></i>
               Pengguna
             </a>
-            <a href="listings.html" class="nav-item">
+            <a href="/admin/pages/listings.html" class="nav-item active">
               <i class="ph-bold ph-house"></i>
               Properti
             </a>
-            <a href="reservations.html" class="nav-item">
+            <a href="/admin/pages/reservations.html" class="nav-item">
               <i class="ph-bold ph-calendar-check"></i>
               Reservasi
             </a>
-            <a href="transactions.html" class="nav-item">
+            <a href="/admin/pages/transactions.html" class="nav-item">
               <i class="ph-bold ph-currency-circle-dollar"></i>
               Transaksi
             </a>
@@ -62,11 +66,11 @@
 
           <div class="nav-section">
             <div class="nav-section-title">Moderasi</div>
-            <a href="reviews.html" class="nav-item">
+            <a href="/admin/pages/reviews.html" class="nav-item">
               <i class="ph-bold ph-star"></i>
               Ulasan
             </a>
-            <a href="reports.html" class="nav-item">
+            <a href="/admin/pages/reports.html" class="nav-item">
               <i class="ph-bold ph-flag"></i>
               Laporan
             </a>
@@ -74,7 +78,7 @@
 
           <div class="nav-section">
             <div class="nav-section-title">Keuangan</div>
-            <a href="payouts.html" class="nav-item">
+            <a href="/admin/pages/payouts.html" class="nav-item">
               <i class="ph-bold ph-money"></i>
               Pembayaran
             </a>
@@ -82,11 +86,11 @@
 
           <div class="nav-section">
             <div class="nav-section-title">Sistem</div>
-            <a href="settings.html" class="nav-item">
+            <a href="/admin/pages/settings.html" class="nav-item">
               <i class="ph-bold ph-gear"></i>
               Pengaturan
             </a>
-            <a href="logs.html" class="nav-item">
+            <a href="/admin/pages/logs.html" class="nav-item">
               <i class="ph-bold ph-notepad"></i>
               Aktivitas
             </a>

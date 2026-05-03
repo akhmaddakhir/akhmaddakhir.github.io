@@ -1,40 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transactions | Admin Teman Singgah</title>
+    <title>Dashboard | Admin Teman Singgah</title>
     <link rel="icon" href="/assets/logo/logo_temansinggah.svg" />
 
-    <link rel="stylesheet" href="../dashboard.css" />
+    <link rel="stylesheet" href="/components/root.css" />
+    <link rel="stylesheet" href="/admin/dashboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
 
+    <script
+      type="module"
+      src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" />
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" />
   </head>
 
   <body>
     <div class="admin-layout">
-   <aside class="sidebar">
+      <aside class="sidebar">
         <div class="sidebar-header">
           <a href="/admin/pages/dashboard.html" class="sidebar-logo">
             <img
-            src="/assets/logo/logo_temansinggah.svg"
-            alt="Logo Teman Singgah"
-            class="logo-icon" />
+              src="/assets/logo/logo_temansinggah.svg"
+              alt="Logo Teman Singgah"
+              class="logo-icon" />
           </a>
         </div>
 
         <nav class="sidebar-nav">
           <div class="nav-section">
             <div class="nav-section-title">Halaman Utama</div>
-            <a href="dashboard.html" class="nav-item active">
+            <a href="/admin/pages/dashboard.html" class="nav-item">
               <i class="ph-bold ph-squares-four"></i>
               Dashboard
             </a>
@@ -42,19 +46,19 @@
 
           <div class="nav-section">
             <div class="nav-section-title">Manajemen</div>
-            <a href="users.html" class="nav-item">
+            <a href="/admin/pages/users.html" class="nav-item">
               <i class="ph-bold ph-users"></i>
               Pengguna
             </a>
-            <a href="listings.html" class="nav-item">
+            <a href="/admin/pages/listings.html" class="nav-item">
               <i class="ph-bold ph-house"></i>
               Properti
             </a>
-            <a href="reservations.html" class="nav-item">
+            <a href="/admin/pages/reservations.html" class="nav-item">
               <i class="ph-bold ph-calendar-check"></i>
               Reservasi
             </a>
-            <a href="transactions.html" class="nav-item">
+            <a href="/admin/pages/transactions.html" class="nav-item active">
               <i class="ph-bold ph-currency-circle-dollar"></i>
               Transaksi
             </a>
@@ -62,11 +66,11 @@
 
           <div class="nav-section">
             <div class="nav-section-title">Moderasi</div>
-            <a href="reviews.html" class="nav-item">
+            <a href="/admin/pages/reviews.html" class="nav-item">
               <i class="ph-bold ph-star"></i>
               Ulasan
             </a>
-            <a href="reports.html" class="nav-item">
+            <a href="/admin/pages/reports.html" class="nav-item">
               <i class="ph-bold ph-flag"></i>
               Laporan
             </a>
@@ -74,7 +78,7 @@
 
           <div class="nav-section">
             <div class="nav-section-title">Keuangan</div>
-            <a href="payouts.html" class="nav-item">
+            <a href="/admin/pages/payouts.html" class="nav-item">
               <i class="ph-bold ph-money"></i>
               Pembayaran
             </a>
@@ -82,11 +86,11 @@
 
           <div class="nav-section">
             <div class="nav-section-title">Sistem</div>
-            <a href="settings.html" class="nav-item">
+            <a href="/admin/pages/settings.html" class="nav-item">
               <i class="ph-bold ph-gear"></i>
               Pengaturan
             </a>
-            <a href="logs.html" class="nav-item">
+            <a href="/admin/pages/logs.html" class="nav-item">
               <i class="ph-bold ph-notepad"></i>
               Aktivitas
             </a>
@@ -135,7 +139,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0089</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">BS</div>
                         <span>Budi Santoso</span>
                       </div>
@@ -147,7 +156,9 @@
                     <td>Bank Transfer (BCA)</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Sukses
                       </span>
                     </td>
@@ -156,7 +167,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0088</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">SA</div>
                         <span>Siti Aminah</span>
                       </div>
@@ -168,7 +184,9 @@
                     <td>Virtual Account (Mandiri)</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Sukses
                       </span>
                     </td>
@@ -177,7 +195,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0087</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">AW</div>
                         <span>Agus Wijaya</span>
                       </div>
@@ -189,7 +212,9 @@
                     <td>Bank Transfer (BNI)</td>
                     <td>
                       <span class="badge badge-warning">
-                        <span class="badge-dot" style="background: var(--color-warning)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-warning)"></span>
                         Pending
                       </span>
                     </td>
@@ -198,7 +223,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0086</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">RH</div>
                         <span>Rudi Hartono</span>
                       </div>
@@ -210,7 +240,9 @@
                     <td>Bank Transfer (BRI)</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Sukses
                       </span>
                     </td>
@@ -219,7 +251,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0085</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">DK</div>
                         <span>Dewi Kusuma</span>
                       </div>
@@ -231,7 +268,9 @@
                     <td>E-Wallet (GoPay)</td>
                     <td>
                       <span class="badge badge-error">
-                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-error)"></span>
                         Gagal
                       </span>
                     </td>
@@ -240,7 +279,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0084</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">NS</div>
                         <span>Nina Safitri</span>
                       </div>
@@ -252,7 +296,9 @@
                     <td>Credit Card (Visa)</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Sukses
                       </span>
                     </td>
@@ -261,7 +307,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0083</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">AF</div>
                         <span>Ahmad Fauzi</span>
                       </div>
@@ -273,7 +324,9 @@
                     <td>Bank Transfer (BCA)</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Sukses
                       </span>
                     </td>
@@ -282,7 +335,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0082</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">LD</div>
                         <span>Lestari Dewi</span>
                       </div>
@@ -294,7 +352,9 @@
                     <td>Virtual Account (BCA)</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Sukses
                       </span>
                     </td>
@@ -303,7 +363,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0081</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">IP</div>
                         <span>Irfan Pratama</span>
                       </div>
@@ -315,7 +380,9 @@
                     <td>E-Wallet (OVO)</td>
                     <td>
                       <span class="badge badge-success">
-                        <span class="badge-dot" style="background: var(--color-success)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-success)"></span>
                         Sukses
                       </span>
                     </td>
@@ -324,7 +391,12 @@
                   <tr>
                     <td><span class="id-code">#TRX-2026-0080</span></td>
                     <td>
-                      <div style="display: flex; align-items: center; gap: var(--space-8);">
+                      <div
+                        style="
+                          display: flex;
+                          align-items: center;
+                          gap: var(--space-8);
+                        ">
                         <div class="avatar avatar-sm avatar-primary">MR</div>
                         <span>Maya Rahmawati</span>
                       </div>
@@ -336,7 +408,9 @@
                     <td>Bank Transfer (Mandiri)</td>
                     <td>
                       <span class="badge badge-error">
-                        <span class="badge-dot" style="background: var(--color-error)"></span>
+                        <span
+                          class="badge-dot"
+                          style="background: var(--color-error)"></span>
                         Gagal
                       </span>
                     </td>
