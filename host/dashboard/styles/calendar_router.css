@@ -19,14 +19,16 @@ body {
   overflow: hidden;
   padding-right: var(--space-32);
   border-right: 1.5px solid var(--color-border-subtle);
+  min-height: 0;
 }
 
 .content-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-24) 0 var(--space-20);
+  padding: var(--space-40) 0 var(--space-20);
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .content-title {
@@ -39,6 +41,11 @@ body {
   align-items: center;
   transition: all var(--transition-base);
   cursor: pointer;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content-title i {
@@ -278,9 +285,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding-left: var(--space-24);
-  padding-top: var(--space-24);
-  padding-bottom: var(--space-24);
+  padding:var(--space-40) 0 var(--space-24) var(--space-24);
   gap: var(--space-8);
 }
 

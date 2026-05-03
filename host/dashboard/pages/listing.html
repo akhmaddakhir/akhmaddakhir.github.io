@@ -44,7 +44,7 @@
             <a href="reservations.html" class="nav-link">Reservasi</a>
           </li>
           <li class="nav-item">
-            <a href="calendar_router.html" class="nav-link"> Kalender </a>
+            <a href="calendar_router.html" class="nav-link">Kalender</a>
           </li>
           <li class="nav-item">
             <a href="listing.html" class="nav-link active">Listing</a>
@@ -70,36 +70,31 @@
     </header>
 
     <main class="main-content">
-      <section class="empty-state">
-        <div class="empty-icon">
-          <i class="ph-bold ph-house"></i>
-        </div>
-        <h3 class="empty-title">Belum Ada Listing</h3>
-        <p class="empty-desc">
-          Mulai dengan mendaftarkan properti Anda dan terima tamu pertama Anda.
-        </p>
-        <a href="/host/onboarding/pages/about_place.html" class="empty-button">
-          <i class="ph-bold ph-plus"></i>
-          Daftarkan Properti
-        </a>
-      </section>
-
       <section class="content-header">
         <h2 class="content-title">Listing Saya</h2>
         <div class="header-buttons">
-          <button class="header-button">
+          <button
+            class="header-button"
+            id="btn-grid"
+            title="Tampilan grid">
             <i class="ph-bold ph-squares-four"></i>
           </button>
-          <button class="header-button" style="display: none">
+          <button
+            class="header-button"
+            id="btn-list"
+            title="Tampilan list">
             <i class="ph-bold ph-rows"></i>
           </button>
-          <button class="header-button">
+          <a
+            href="/host/onboarding/pages/about_place.html"
+            class="header-button"
+            title="Tambah listing">
             <i class="ph-bold ph-plus"></i>
-          </button>
+          </a>
         </div>
       </section>
 
-      <section class="list-section">
+      <section class="list-section flex" id="view-list">
         <table>
           <thead>
             <tr>
@@ -133,8 +128,116 @@
                 <i class="ph-bold ph-caret-right"></i>
               </td>
             </tr>
+            <tr>
+              <td>
+                <div class="listing-cell">
+                  <img
+                    src="/assets/images/apurva_kempinski_bali.jpg"
+                    class="listing-thumbnail"
+                    alt="" />
+                  <h3 class="listing-name">Rumah Kayu Jawa</h3>
+                </div>
+              </td>
+              <td>Homestay</td>
+              <td>Kecamatan Blimbing, Indonesia</td>
+              <td>
+                <div class="status-cell">
+                  <span class="status-dot warning"></span>
+                  Dalam proses
+                </div>
+              </td>
+              <td class="chevron-cell">
+                <i class="ph-bold ph-caret-right"></i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="listing-cell">
+                  <div
+                    class="listing-thumbnail"
+                    style="
+                      background: var(--color-bg-skeleton);
+                      border-radius: var(--radius-md);
+                    "></div>
+                  <h3 class="listing-name">
+                    Apartment listing dimulai 2 Mei 2026
+                  </h3>
+                </div>
+              </td>
+              <td>Apartemen</td>
+              <td>Kecamatan Blimbing, Indonesia</td>
+              <td>
+                <div class="status-cell">
+                  <span class="status-dot warning"></span>
+                  Dalam proses
+                </div>
+              </td>
+              <td class="chevron-cell">
+                <i class="ph-bold ph-caret-right"></i>
+              </td>
+            </tr>
           </tbody>
         </table>
+      </section>
+
+      <section class="list-section grid">
+        <div class="listing-grid">
+          <a href="#" class="listing-card">
+            <div class="listing-card-image-container">
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                class="listing-card-image"
+                alt="Villa Sunset" />
+              <div class="listing-card-badge">
+                <span class="badge-dot error"></span>
+                Butuh aksi
+              </div>
+            </div>
+            <div class="listing-card-body">
+              <span class="listing-card-name">a</span>
+              <span class="listing-card-location">
+                Rumah di Kecamatan Blimbing, Indonesia
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="listing-card">
+            <div class="listing-card-image-container">
+              <img
+                src="/assets/images/apurva_kempinski_bali.jpg"
+                class="listing-card-image"
+                alt="Villa Sunset" />
+              <div class="listing-card-badge">
+                <span class="badge-dot error"></span>
+                Butuh aksi
+              </div>
+            </div>
+            <div class="listing-card-body">
+              <span class="listing-card-name">a</span>
+              <span class="listing-card-location">
+                Rumah di Kecamatan Blimbing, Indonesia
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="listing-card">
+            <div class="listing-card-image-container">
+              <div class="listing-card-placeholder">
+                <i class="ph-bold ph-house-simple"></i>
+              </div>
+              <div class="listing-card-badge">
+                <span class="badge-dot warning"></span>
+                Dalam proses
+              </div>
+            </div>
+            <div class="listing-card-body">
+              <span class="listing-card-name">a</span>
+              <span class="listing-card-location">
+                Rumah di Kecamatan Blimbing, Indonesia
+              </span>
+            </div>
+          </a>
+        </div>
       </section>
     </main>
 
