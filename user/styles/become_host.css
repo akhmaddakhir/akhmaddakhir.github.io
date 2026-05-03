@@ -159,7 +159,7 @@
   width: 44px;
   height: 44px;
   background: var(--color-primary-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,7 +220,7 @@
   width: 52px;
   height: 52px;
   background: var(--color-primary-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;

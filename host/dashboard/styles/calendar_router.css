@@ -159,7 +159,7 @@ body {
 
 .day-card {
   aspect-ratio: 1 / 1.1;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   border: 1.5px solid var(--color-border);
   background: var(--color-bg-card);
   padding: var(--space-8) var(--space-10);

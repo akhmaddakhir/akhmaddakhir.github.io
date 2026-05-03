@@ -188,7 +188,7 @@
 .auth-input {
   width: 100%;
   border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   font-size: var(--text-base);
   color: var(--color-text-primary);
   background: var(--color-bg-card);
@@ -251,7 +251,7 @@
   display: flex;
   flex-direction: column;
   border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   overflow: hidden;
 }
 
@@ -349,7 +349,7 @@
   background: transparent;
   border: 1.5px solid var(--color-border);
   padding: var(--space-12);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
 }
 
 .auth-social-icon:hover {
@@ -373,7 +373,7 @@
   background: var(--color-primary);
   color: var(--color-text-inverse);
   border: 1.5px solid transparent;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
   letter-spacing: var(--space-letter);
@@ -425,7 +425,7 @@
   padding: var(--space-16);
   background: var(--color-bg-card);
   border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   cursor: pointer;
   width: 100%;
   text-align: left;
@@ -446,7 +446,7 @@
   width: 44px;
   height: 44px;
   background: var(--color-bg-section);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -506,7 +506,7 @@
   width: 56px;
   height: 56px;
   margin-bottom: 0;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
 }
 
 .auth-body-section.community .auth-title {

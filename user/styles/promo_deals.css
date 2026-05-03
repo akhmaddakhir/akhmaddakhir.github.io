@@ -326,7 +326,7 @@
 .voucher-card {
   background: var(--color-bg-card);
   border: 2px dashed var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   padding: var(--space-24);
   position: relative;
   transition: all var(--transition-base);

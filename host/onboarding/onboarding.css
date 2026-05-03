@@ -203,7 +203,7 @@
   width: 48px;
   height: 48px;
   background: var(--color-primary-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -290,7 +290,7 @@
   width: 48px;
   height: 48px;
   background: var(--color-primary-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -327,7 +327,7 @@
   width: 100%;
   padding: var(--space-16) var(--space-20) var(--space-16) 52px;
   border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   font-size: var(--text-base);
   background: var(--color-bg-card);
   outline: none;
@@ -506,7 +506,7 @@
   width: 48px;
   height: 48px;
   background: var(--color-primary-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -861,7 +861,7 @@ input[type="range"]::-webkit-slider-thumb {
   font-weight: var(--font-bold);
   color: var(--color-primary);
   background: var(--color-primary-light);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1044,7 +1044,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--color-primary);
   color: var(--color-text-inverse);
   letter-spacing: var(--space-letter);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   cursor: pointer;
   font-size: var(--text-sm);
   font-weight: var(--font-semibold);

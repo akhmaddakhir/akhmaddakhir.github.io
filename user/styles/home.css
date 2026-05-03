@@ -238,7 +238,7 @@
   box-shadow: var(--shadow-card);
   overflow: hidden;
   position: relative;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   display: block;
   transition: transform var(--transition-base);
 }
