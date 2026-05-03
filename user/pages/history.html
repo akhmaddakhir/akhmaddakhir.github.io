@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -28,15 +28,29 @@
     <header class="navbar">
       <nav class="navbar-container">
         <a href="/index.html" class="logo-section">
-          <img src="/assets/logo/logo_temansinggah.svg" alt="Logo Teman Singgah" class="logo-icon" />
-          <img src="/assets/logo/label_temansinggah.svg" alt="Brand Name Teman Singgah" class="logo-name" />
+          <img
+            src="/assets/logo/logo_temansinggah.svg"
+            alt="Logo Teman Singgah"
+            class="logo-icon" />
+          <img
+            src="/assets/logo/label_temansinggah.svg"
+            alt="Brand Name Teman Singgah"
+            class="logo-name" />
         </a>
 
         <ul class="nav-menu">
-          <li class="nav-item"><a href="/index.html" class="nav-link">Cari Penginapan</a></li>
-          <li class="nav-item"><a href="/pages/promo_deals.html" class="nav-link">Promo & Deals</a></li>
-          <li class="nav-item"><a href="/pages/become_host.html" class="nav-link">Jadi Host</a></li>
-          <li class="nav-item"><a href="/pages/about_us.html" class="nav-link">Tentang Kami</a></li>
+          <li class="nav-item">
+            <a href="/index.html" class="nav-link">Cari Penginapan</a>
+          </li>
+          <li class="nav-item">
+            <a href="/pages/promo_deals.html" class="nav-link">Promo & Deals</a>
+          </li>
+          <li class="nav-item">
+            <a href="/pages/become_host.html" class="nav-link">Jadi Host</a>
+          </li>
+          <li class="nav-item">
+            <a href="/pages/about_us.html" class="nav-link">Tentang Kami</a>
+          </li>
         </ul>
 
         <div class="nav-right">
@@ -48,7 +62,9 @@
             <i class="ph-bold ph-user"></i>
           </button>
           <div class="auth-buttons">
-            <a href="/components/auth_popup.html"><button class="auth-button">Masuk</button></a>
+            <a href="/components/auth_popup.html"
+              ><button class="auth-button">Masuk</button></a
+            >
           </div>
         </div>
       </nav>
@@ -62,7 +78,9 @@
             <span>Perjalanan</span>
           </div>
           <h1 class="account-hero-title">Riwayat Perjalanan</h1>
-          <p class="account-hero-subtitle">Lihat dan kelola semua perjalanan Anda di sini.</p>
+          <p class="account-hero-subtitle">
+            Lihat dan kelola semua perjalanan Anda di sini.
+          </p>
         </div>
       </section>
 
@@ -75,7 +93,9 @@
                 <div class="link-icon primary-avatar">K</div>
                 <span>Tentang Saya</span>
               </a>
-              <a href="/pages/riwayat_perjalanan.html" class="sidebar-link active">
+              <a
+                href="/pages/riwayat_perjalanan.html"
+                class="sidebar-link active">
                 <div class="link-icon"><i class="ph-bold ph-suitcase"></i></div>
                 <span>Riwayat Perjalanan</span>
               </a>
@@ -96,7 +116,10 @@
                 <i class="ph-bold ph-suitcase"></i>
               </div>
               <h3 class="empty-title">Belum Ada Perjalanan</h3>
-              <p class="empty-desc">Anda belum memiliki riwayat perjalanan. Yuk jelajahi penginapan menarik dan buat pengalaman pertama Anda!</p>
+              <p class="empty-desc">
+                Anda belum memiliki riwayat perjalanan. Yuk jelajahi penginapan
+                menarik dan buat pengalaman pertama Anda!
+              </p>
               <a href="/index.html" class="empty-button">
                 <i class="ph-bold ph-magnifying-glass"></i>
                 Cari Penginapan
@@ -114,56 +137,72 @@
 
             <div class="trips-list">
               <div class="trip-card">
-                <img src="/assets/images/nihi_sumba.webp" alt="Penginapan" class="trip-image" />
+                <div class="trip-image-wrapper">
+                  <img
+                    src="/assets/images/nihi_sumba.webp"
+                    alt="Nihi Sumba"
+                    class="trip-image" />
+                  <span class="trip-status upcoming">
+                    <i class="ph-fill ph-circle"></i> Mendatang
+                  </span>
+                </div>
                 <div class="trip-content">
-                  <span class="trip-status upcoming"><i class="ph-fill ph-circle"></i> Mendatang</span>
                   <h3 class="trip-name">Nihi Sumba Resort</h3>
-                  <div class="trip-meta">
-                    <div class="trip-meta-item"><i class="ph-bold ph-map-pin"></i> Sumba Barat, NTT</div>
-                    <div class="trip-meta-item"><i class="ph-bold ph-calendar"></i> 15 - 18 Juni 2025</div>
-                    <div class="trip-meta-item"><i class="ph-bold ph-user"></i> 2 Tamu • 1 Kamar</div>
+                  <p class="trip-location">Sumba Barat, NTT</p>
+                  <p class="trip-meta">15 – 18 Juni 2025 · 2 tamu · 1 kamar</p>
+                  <div class="trip-price">
+                    Rp 4.500.000 <span>/ malam</span>
                   </div>
-                </div>
-                <div class="trip-actions">
-                  <div class="trip-price">Rp 4.500.000 <span>/ malam</span></div>
-                  <button class="action-btn primary">Lihat Detail</button>
-                  <button class="action-btn secondary">Ubah Pesanan</button>
+                  <div class="trip-actions">
+                    <button class="action-btn primary">Lihat detail</button>
+                    <button class="action-btn secondary">Ubah pesanan</button>
+                  </div>
                 </div>
               </div>
 
               <div class="trip-card">
-                <img src="/assets/images/villa_bali.webp" alt="Penginapan" class="trip-image" />
+                <div class="trip-image-wrapper">
+                  <img
+                    src="/assets/images/villa_bali.webp"
+                    alt="Ubud Jungle Villa"
+                    class="trip-image" />
+                  <span class="trip-status completed">
+                    <i class="ph-fill ph-circle"></i> Selesai
+                  </span>
+                </div>
                 <div class="trip-content">
-                  <span class="trip-status completed"><i class="ph-fill ph-circle"></i> Selesai</span>
                   <h3 class="trip-name">Ubud Jungle Villa</h3>
-                  <div class="trip-meta">
-                    <div class="trip-meta-item"><i class="ph-bold ph-map-pin"></i> Ubud, Bali</div>
-                    <div class="trip-meta-item"><i class="ph-bold ph-calendar"></i> 2 - 5 Maret 2025</div>
-                    <div class="trip-meta-item"><i class="ph-bold ph-user"></i> 4 Tamu • 2 Kamar</div>
+                  <p class="trip-location">Ubud, Bali</p>
+                  <p class="trip-meta">2 – 5 Maret 2025 · 4 tamu · 2 kamar</p>
+                  <div class="trip-price">
+                    Rp 2.800.000 <span>/ malam</span>
                   </div>
-                </div>
-                <div class="trip-actions">
-                  <div class="trip-price">Rp 2.800.000 <span>/ malam</span></div>
-                  <button class="action-btn primary">Pesan Lagi</button>
-                  <button class="action-btn secondary">Tulis Ulasan</button>
+                  <div class="trip-actions">
+                    <button class="action-btn primary">Pesan lagi</button>
+                    <button class="action-btn secondary">Tulis ulasan</button>
+                  </div>
                 </div>
               </div>
 
               <div class="trip-card">
-                <img src="/assets/images/homestay_jogja.webp" alt="Penginapan" class="trip-image" />
-                <div class="trip-content">
-                  <span class="trip-status cancelled"><i class="ph-fill ph-circle"></i> Dibatalkan</span>
-                  <h3 class="trip-name">Omah Kayu Homestay</h3>
-                  <div class="trip-meta">
-                    <div class="trip-meta-item"><i class="ph-bold ph-map-pin"></i> Malioboro, Yogyakarta</div>
-                    <div class="trip-meta-item"><i class="ph-bold ph-calendar"></i> 10 - 12 Januari 2025</div>
-                    <div class="trip-meta-item"><i class="ph-bold ph-user"></i> 2 Tamu • 1 Kamar</div>
-                  </div>
+                <div class="trip-image-wrapper">
+                  <img
+                    src="/assets/images/homestay_jogja.webp"
+                    alt="Omah Kayu Homestay"
+                    class="trip-image" />
+                  <span class="trip-status cancelled">
+                    <i class="ph-fill ph-circle"></i> Dibatalkan
+                  </span>
                 </div>
-                <div class="trip-actions">
+                <div class="trip-content">
+                  <h3 class="trip-name">Omah Kayu Homestay</h3>
+                  <p class="trip-location">Malioboro, Yogyakarta</p>
+                  <p class="trip-meta">10 – 12 Jan 2025 · 2 tamu · 1 kamar</p>
                   <div class="trip-price">Rp 850.000 <span>/ malam</span></div>
-                  <button class="action-btn primary">Pesan Lagi</button>
-                  <button class="action-btn secondary">Lihat Detail</button>
+                  <div class="trip-actions">
+                    <button class="action-btn primary">Pesan lagi</button>
+                    <button class="action-btn secondary">Lihat detail</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -176,10 +215,15 @@
       <div class="footer-grid">
         <div class="footer-column">
           <span class="footer-brand">Teman Singgah</span>
-          <p class="footer-description">Platform booking penginapan terpercaya di seluruh Indonesia, dari hotel berbintang hingga homestay lokal.</p>
+          <p class="footer-description">
+            Platform booking penginapan terpercaya di seluruh Indonesia, dari
+            hotel berbintang hingga homestay lokal.
+          </p>
           <div class="footer-social">
             <a href="" class="social-link"><i class="ri-instagram-line"></i></a>
-            <a href="" class="social-link"><i class="ri-facebook-circle-line"></i></a>
+            <a href="" class="social-link"
+              ><i class="ri-facebook-circle-line"></i
+            ></a>
             <a href="" class="social-link"><i class="ri-youtube-line"></i></a>
             <a href="" class="social-link"><i class="ri-twitter-line"></i></a>
             <a href="" class="social-link"><i class="ri-mail-line"></i></a>
@@ -207,7 +251,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2026 Teman Singgah — All rights reserved.</p>
+        <p class="footer-copyright">
+          © 2026 Teman Singgah — All rights reserved.
+        </p>
         <div class="footer-legal">
           <a href="" class="footer-link bottom">Kebijakan Privasi</a>
           <span class="footer-dot">•</span>
